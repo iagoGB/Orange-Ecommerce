@@ -8,6 +8,18 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/script.js"></script>
     <script src="https://kit.fontawesome.com/7dc7f1669a.js"></script>
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Tela Inicial</title>
@@ -15,86 +27,131 @@
 
 <body>
     <div class="container-fluid">
-        <header class="row pl-3 pr-3 pt-2 pb-2">
-            <!--Esquema de colunas-->
+        <header class="row pl-3 pr-3 pt-2 pb-2 bg-warning">
+
             <div class="col-md-12">
                 <div class="row pl-3 pr-3 pt-2 pb-2">
                     <div class="col-1 bg-primary">1</div>
                     <div class="col-1 bg-info">2</div>
-                    <div class="col-1 bg-warning">3</div>
+                    <div class="col-1 bg-danger">3</div>
                     <div class="col-1 bg-dark">4</div>
                     <div class="col-1 bg-danger">5</div>
                     <div class="col-1 bg-primary">6</div>
                     <div class="col-1 bg-info">7</div>
-                    <div class="col-1 bg-warning">8</div>
+                    <div class="col-1 bg-danger">8</div>
                     <div class="col-1 bg-dark">9</div>
                     <div class="col-1 bg-danger">10</div>
                     <div class="col-1 bg-primary">11</div>
                     <div class="col-1 bg-info">12</div>
                 </div>
             </div>
-            <!--Esquema de colunas (FIM)-->
-            <!--menu1-->
-            <div class="bg-light">
-                <!--Links-->
+
+            <div class="col-md-12">
+
                 <div class="row pl-3 pr-3 pt-2 pb-2">
-                    <div class="col-md-4">
-                        <ul class="nav">
+
+                    <div class="col-md-12">
+                        <ul class="nav justify-content-center">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Nossas lojas</a>
+                                <a class="nav-link text-dark" href="#">Nossas lojas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Regulamentos</a>
+                                <a class="nav-link text-dark" href="#">Tenha sua loja</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Acessibilidade</a>
+                                <a class="nav-link text-dark" href="#">Acessibilidade</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Atendimento</a>
+                                <a class="nav-link text-dark" href="#">Regulamentos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Atendimento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Meus pedidos</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <div class="row pl-3 pr-3 pt-2 pb-2">
+                    <nav class="navbar navbar-expand-md col-md-12 justify-content-center">
+                        <ul class="navbar-nav nav-fill">
+                                <li class="nav-item mx-3">
+                                        <a class="navbar-brand text-dark mx-3" href="index.html">Minha Logo</a>
+                                    </li>
+                            <li class="nav-item mx-3">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2 text-dark" type="search"
+                                        placeholder="Faça sua busca" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0 text-dark"
+                                        type="submit">Pesquisar</button>
+                                </form>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <p class="font-weight-bold text-left m-0">Bem vindo :)<br><a href="#">
+                                        Entre ou cadastre-se
+                                    </a></p>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a href="#"><img src="https://img.icons8.com/nolan/64/000000/shopaholic.png" width="54"
+                                        height="54" alt="logo responsivo"></a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a href="#"><img src="https://img.icons8.com/nolan/64/000000/add-shopping-cart.png"
+                                        width="58" height="58" alt="logo responsivo"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="row pl-3 pr-3 pt-2 pb-2">
+                    <div class="col-md-12">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categorias
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item text-dark" href="#">Perfumaria</a>
+                                    <a class="dropdown-item text-dark" href="#">Maquiagem</a>
+                                    <a class="dropdown-item text-dark" href="#">Corpo e banho</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Marcas
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item text-dark" href="#">Arbo</a>
+                                    <a class="dropdown-item text-dark" href="#">Floratta</a>
+                                    <a class="dropdown-item text-dark" href="#">Natura</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Promoções</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Peça seu cartão</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!--Links (FIM)-->
-                <!--Logo-->
-                <div class="row pl-3 pr-3 pt-2 pb-2 align-items-center justify-content-center">
-                    <div class="col-md-4">
-                        <a class="navbar-brand" href="index.html">
-                            <h3>MINHA LOJA</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--Logo (FIM)-->
-                <!--Login e Ícones-->
-                <div class="row pl-3 pr-3 pt-2 pb-2 align-items-center justify-content-end">
-                    <div class="col-md-4">
-                        <div class="col-md-4">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <p class="font-weight-bold text-left m-0">Bem vindo :)<br><a href="#">
-                                            Entre ou cadastre-se
-                                        </a></p>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#"><img src="https://img.icons8.com/nolan/64/000000/shopaholic.png"
-                                            width="54" height="54" alt="logo responsivo"></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#"><img src="https://img.icons8.com/nolan/64/000000/add-shopping-cart.png"
-                                            width="58" height="58" alt="logo responsivo"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Login e Ícones (FIM)-->
             </div>
-            <!--menu1 (FIM)-->
+
         </header>
-        <section class="row pl-3 pr-3 pt-2 pb-2">
-            <!--Slider-->
+        <section class="row">
             <div class="col-md-12">
-                <div class="row pl-3 pr-3 pt-2 pb-2">
+                <div class="row">
                     <div class="col-md-12 p-0">
                         <div class="bd-example">
                             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -141,10 +198,11 @@
                     </div>
                 </div>
             </div>
-            <!--Slider (FIM)-->
-            <!--Galeria-->
+        </section>
+        <section class="row pl-5 pr-5 pt-5 pb-5">
+
             <div class="col-md-12">
-                <div class="row pl-3 pr-3 pt-2 pb-2">
+                <div class="row pl-5 pr-5 pt-5 pb-5">
                     <div class="col-md-3 p-0">
                         <div class="card">
                             <img src=".//img/Perfumes/perfume1.jpg" class="d-block w-100" alt="...">
@@ -259,7 +317,7 @@
                     </div>
                 </div>
             </div>
-            <!--Galeria (FIM)-->
+
         </section>
         <footer class="row pl-3 pr-3 pt-2 pb-2">
             <div class="col-md-12">
@@ -273,17 +331,7 @@
     </div>
 
 
-    <!-- JavaScript (Opcional) -->
-    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
