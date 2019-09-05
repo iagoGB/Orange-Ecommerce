@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://kit.fontawesome.com/7dc7f1669a.js"></script>
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Login e cadastro</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="row pl-3 pr-3 pt-2 pb-2 bg-warning">
+            <!--Organizar o tamanho dos elementos dentro das colunas-->
+            <div class="col-md-12">
+                <div class="row pl-3 pr-3 pt-2 pb-2">
+                    <nav class="navbar navbar-expand-md col-md-12 justify-content-center">
+                        <ul class="navbar-nav nav-fill">
+                            <li class="nav-item mx-3">
+                                <a class="navbar-brand text-dark mx-3" href="index.html">Minha Logo</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2 text-dark" type="search"
+                                        placeholder="Faça sua busca" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0 text-dark"
+                                        type="submit">Pesquisar</button>
+                                </form>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <p class="font-weight-bold text-left m-0">Bem vindo :)<br><a href="login.html">
+                                        Entre ou cadastre-se
+                                    </a></p>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a href="#"><img src="https://img.icons8.com/nolan/64/000000/shopaholic.png" width="54"
+                                        height="54" alt="logo responsivo"></a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a href="#"><img src="https://img.icons8.com/nolan/64/000000/add-shopping-cart.png"
+                                        width="58" height="58" alt="logo responsivo"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!--Fazer os itens distribuidos na coluna-->
+            <!--Fazer o dropdown lateral-->
+            <div class="col-md-12">
+                <div class="row pl-3 pr-3 pt-2 pb-2">
+                    <div class="col-md-12">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Todas as categorias
+                                </a>
+                                <div class="dropdown-menu dropright" aria-labelledby="navbarDropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Perfumaria
+                                    </a>
+                                    <a class="dropdown-item text-dark" href="#">Perfumaria</a>
+                                    <a class="dropdown-item text-dark" href="#">Maquiagem</a>
+                                    <a class="dropdown-item text-dark" href="#">Corpo e banho</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Nossas lojas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Acessibilidade</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Regulamentos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Promoções</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Peça seu cartão</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Meus pedidos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="container-fluid">
+            <section class="row pl-5 pr-5 pt-5 pb-5 justify-content-center">
+                <div class="col-md-8 bg-dark">
+
+                    <!--título-->
+                    <div class="row pl-3 pr-3 pt-3 pb-3">
+                        <div class="col">
+                            <h1 class="text-warning display-5">Identificação</h1>
+                        </div>
+                    </div>
+                    <!--Login e cadastro-->
+                    <div class="row pl-3 pr-3 pt-5 pb-5">
+                        <div class="d-flex col justify-content-around">
+                            <!--Login-->
+                            <div class="col-md-4">
+                                <!--título Login-->
+                                <div class="row pb-3">
+                                    <div class="col">
+                                        <h3 class="text-warning text-center">Login</h3>
+                                    </div>
+                                </div>
+                                <!--form Login-->
+                                <div class="row">
+                                    <div class="col">
+                                        <form>
+                                            <div class="form-group">
+                                                <label class="text-warning" for="exampleInputEmail1">Endereço de
+                                                    email</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                                    aria-describedby="emailHelp" placeholder="Seu email">
+                                                <small id="emailHelp" class="form-text text-warning">Nunca vamos
+                                                    compartilhar
+                                                    seu email,
+                                                    com ninguém.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-warning"
+                                                    for="exampleInputPassword1 text-warning">Senha</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                                    placeholder="Senha">
+                                            </div>
+                                            <button type="submit"
+                                                class="btn btn-warning text-dark">Continuar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Cadastro-->
+                            <div class="col-md-4">
+                                <!--título Cadastro-->
+                                <div class="row pb-3">
+                                    <div class="col">
+                                        <h3 class="text-warning text-center">Cadastro</h3>
+                                    </div>
+                                </div>
+                                <!--form Cadastro-->
+                                <div class="row">
+                                    <div class="col">
+                                        <form>
+                                            <div class="form-group">
+                                                <label class="text-warning" for="exampleInputEmail1">Endereço de
+                                                    email</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                                    aria-describedby="emailHelp" placeholder="Seu email">
+                                                <small id="emailHelp" class="form-text text-warning">Nunca vamos
+                                                    compartilhar
+                                                    seu email,
+                                                    com ninguém.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-warning"
+                                                    for="exampleInputPassword1 text-warning">Senha</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                                    placeholder="Senha">
+                                            </div>
+                                            <button type="submit"
+                                                class="btn btn-warning text-dark">Continuar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        </section>
+    </div>
+
+    <footer class="row pl-3 pr-3 pt-2 pb-2">
+        <div class="col-md-12">
+            <div class="row pl-3 pr-3 pt-2 pb-2">
+                <div class="col-md-12">
+                    <h3>footer</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+</body>
+
+</html>
