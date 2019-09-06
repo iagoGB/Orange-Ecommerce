@@ -27,7 +27,7 @@
 
 <body>
     <div class="container-fluid">
-        <header class="row pl-3 pr-3 pt-2 pb-2 bg-warning">
+        <header class="row px3 py2 bg-warning">
             <!--Organizar o tamanho dos elementos dentro das colunas-->
             <div class="col-md-12">
                 <div class="row pl-3 pr-3 pt-2 pb-2">
@@ -109,24 +109,17 @@
         </header>
 
         <div class="container-fluid">
-            <section class="row pl-5 pr-5 pt-5 pb-5 justify-content-center">
-                <div class="col-md-8 bg-dark">
-
-                    <!--título-->
-                    <div class="row pl-3 pr-3 pt-3 pb-3">
-                        <div class="col">
-                            <h1 class="text-warning display-5">Identificação</h1>
-                        </div>
-                    </div>
+            <section class="row px-5 py-5 justify-content-center">
+                <div class="col-md-10 bg-dark">
                     <!--Login e cadastro-->
-                    <div class="row pl-3 pr-3 pt-5 pb-5">
+                    <div class="row px-3 py-5">
                         <div class="d-flex col justify-content-around">
                             <!--Login-->
-                            <div class="col-md-4">
+                            <div class="col-md-4 ">
                                 <!--título Login-->
                                 <div class="row pb-3">
                                     <div class="col">
-                                        <h3 class="text-warning text-center">Login</h3>
+                                        <h3 class="text-warning">Login</h3>
                                     </div>
                                 </div>
                                 <!--form Login-->
@@ -134,14 +127,9 @@
                                     <div class="col">
                                         <form>
                                             <div class="form-group">
-                                                <label class="text-warning" for="exampleInputEmail1">Endereço de
-                                                    email</label>
+                                                <label class="text-warning" for="exampleInputEmail1">Email</label>
                                                 <input type="email" class="form-control" id="exampleInputEmail1"
                                                     aria-describedby="emailHelp" placeholder="Seu email">
-                                                <small id="emailHelp" class="form-text text-warning">Nunca vamos
-                                                    compartilhar
-                                                    seu email,
-                                                    com ninguém.</small>
                                             </div>
                                             <div class="form-group">
                                                 <label class="text-warning"
@@ -150,41 +138,78 @@
                                                     placeholder="Senha">
                                             </div>
                                             <button type="submit"
-                                                class="btn btn-warning text-dark">Continuar</button>
+                                                class="btn btn-warning text-dark mb-2">Entrar</button>
+                                            <div>
+                                                <a href="index.html" class="text-warning">Esqueceu a senha?</a>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md align-self-center"><h1 class="text-warning">ou</h1></div>
+                            </div>
                             <!--Cadastro-->
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <!--título Cadastro-->
                                 <div class="row pb-3">
                                     <div class="col">
-                                        <h3 class="text-warning text-center">Cadastro</h3>
+                                        <h3 class="text-warning">Cadastro</h3>
                                     </div>
                                 </div>
                                 <!--form Cadastro-->
                                 <div class="row">
                                     <div class="col">
                                         <form>
-                                            <div class="form-group">
-                                                <label class="text-warning" for="exampleInputEmail1">Endereço de
-                                                    email</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" placeholder="Seu email">
-                                                <small id="emailHelp" class="form-text text-warning">Nunca vamos
-                                                    compartilhar
-                                                    seu email,
-                                                    com ninguém.</small>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputEmail4" class="text-warning">Email</label>
+                                                    <input type="email" class="form-control" id="inputEmail4"
+                                                        placeholder="Digite seu email">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputPassword4" class="text-warning">Senha</label>
+                                                    <input type="password" class="form-control" id="inputPassword4"
+                                                        placeholder="Digite uma senha">
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="text-warning"
-                                                    for="exampleInputPassword1 text-warning">Senha</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                                    placeholder="Senha">
+                                                <label for="inputName" class="text-warning">Nome completo</label>
+                                                <input type="text" class="form-control" id="inputAddress"
+                                                    placeholder="Digite seu nome completo">
                                             </div>
-                                            <button type="submit"
-                                                class="btn btn-warning text-dark">Continuar</button>
+                                            <div class="form-group">
+                                                <label for="inputAddress" class="text-warning">Endereço</label>
+                                                <input type="text" class="form-control" id="inputAddress2"
+                                                    placeholder="Digite seu endereço com número">
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputCity" class="text-warning">Cidade</label>
+                                                    <input type="text" class="form-control" id="inputCity">
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label for="inputEstado" class="text-warning">Estado</label>
+                                                    <select id="inputEstado" class="form-control">
+                                                        <!--Colocar os estados-->
+                                                        
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="inputCEP" class="text-warning">CEP</label>
+                                                    <input type="text" class="form-control" id="inputCEP">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                                    <label class="form-check-label text-warning" for="gridCheck">
+                                                        desejo receber ofertas por e-mail
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-warning text-dark">Cadastrar</button>
                                         </form>
                                     </div>
                                 </div>
