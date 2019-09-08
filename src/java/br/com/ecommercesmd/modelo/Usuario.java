@@ -2,6 +2,7 @@
 package br.com.ecommercesmd.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -49,7 +50,7 @@ public class Usuario implements Serializable {
     private List<Compra> compras;
 
     public Usuario() {
-    
+        this.compras = new ArrayList<>();
     }
 
     public Usuario(Long usuario_id, String nome, String endereco, String senha, List<Compra> compras) {
@@ -146,7 +147,10 @@ public class Usuario implements Serializable {
         }
         return true;
     }
-   
-    
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nome=" + nome + ", endereco=" + endereco + ", login=" + login + ", senha=" + senha + ", compras=" + compras + '}';
+    }
 }
     

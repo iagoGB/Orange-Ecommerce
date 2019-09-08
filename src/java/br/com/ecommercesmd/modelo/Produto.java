@@ -37,7 +37,8 @@ public class Produto implements Serializable {
     
     @Column(nullable = false)
     private Integer quantidade;
-    @ManyToMany(mappedBy = "produtos")
+    
+    @ManyToMany(mappedBy = "produtos") 
     private List<Categoria> categorias;
     
     @OneToMany(mappedBy = "produto")

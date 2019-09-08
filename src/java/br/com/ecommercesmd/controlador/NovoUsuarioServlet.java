@@ -5,8 +5,13 @@
  */
 package br.com.ecommercesmd.controlador;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import br.com.ecommercesmd.modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +22,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author iagog
  */
 public class NovoUsuarioServlet extends HttpServlet {
+    
+    //Conexão com banco de dados
+    EntityManagerFactory factory = 
+    Persistence.createEntityManagerFactory("ecommerceSMDPU");
+    EntityManager manager = factory.createEntityManager();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,46 +37,57 @@ public class NovoUsuarioServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NovoUsuarioServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NovoUsuarioServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+       try {
+           
+           String n = request.getParameter("nome");
+           String e = request.getParameter("endereco");
+           String em = request.getParameter("email");
+           String l = request.getParameter("login");
+           String s = request.getParameter("senha");
+           String cs = request.getParameter("confirmaSenha");  
+           
+           //Se as senhas digitadas são iguais...
+           if (s.equals(cs)){
+               
+                //Crie um novo usuário
+                Usuario u = new Usuario();
+                u.setNome(n);
+                u.setEndereco(e);
+                u.setLogin(l);
+                
+                //Encriptar senha
+                String encriptSenha = BCrypt.withDefaults().hashToString(12, s.toCharArray());
+                System.out.println("encript senha: "+ encriptSenha);
+                u.setSenha(encriptSenha);
+               
+                manager.getTransaction().begin();
+                manager.persist(u);
+                //Salve
+                manager.getTransaction().commit();
+
+                manager.close();
+                factory.close();
+                
+                System.out.println("Novo usuário criado com sucesso!"+ u.toString());
+                
+                response.sendRedirect("carrinho.html");
+                
+           } else {
+               response.sendRedirect("erro.html");
+           }
+           
+       } catch(IOException e){
+           
+           System.out.println("Houve exceção " + e);
+           response.sendRedirect("erro.html");      
+       }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

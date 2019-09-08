@@ -11,6 +11,10 @@
     
         <!-- entidade mapeada -->
         <class>br.com.ecommercesmd.modelo.Usuario</class>
+        <class>br.com.ecommercesmd.modelo.Categoria</class>
+        <class>br.com.ecommercesmd.modelo.Compra</class>
+        <class>br.com.ecommercesmd.modelo.Produto</class>
+        <class>br.com.ecommercesmd.modelo.ProdutoCompra</class>
         
         <!-- Propriedades do banco -->
         <properties>
@@ -25,7 +29,7 @@
             <property name="hibernate.dialect" 
                       value="org.hibernate.dialect.PostgreSQL95Dialect"/> <!-- DB Dialect -->
             <property name="hibernate.hbm2ddl.auto" 
-                      value="create" /> <!-- create / create-drop / update -->
+                      value="update" /> <!-- create / create-drop / update -->
             <property name="hibernate.show_sql"
                       value="true" /> <!-- Exibir SQL no console -->
             <property name="hibernate.format_sql" 
