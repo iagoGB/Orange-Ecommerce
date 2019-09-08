@@ -8,6 +8,7 @@ package br.com.ecommercesmd.modelo;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -22,12 +23,20 @@ import javax.persistence.ManyToOne;
 public class ProdutoCompra implements Serializable {
     @Id
     @ManyToOne
-    @JoinColumn(name = "produto_id")
+    @JoinColumn(
+        name = "produto_id",
+        foreignKey = @ForeignKey(name = "um_produto_pode_estar_em_muitas_compras"),
+        nullable = false
+    )
     Produto produto;
     
     @Id
     @ManyToOne
-    @JoinColumn(name = "compra_id")
+    @JoinColumn(
+            name = "compra_id",
+            foreignKey = @ForeignKey(name = "uma_compra_possue_muitos_produtos"),
+            nullable = false 
+    )
     Compra compra;
     
     @Column

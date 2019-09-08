@@ -10,9 +10,12 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -34,16 +37,23 @@ public class Produto implements Serializable {
     
     @Column(nullable = false)
     private Integer quantidade;
-    
     @ManyToMany(mappedBy = "produtos")
     private List<Categoria> categorias;
     
     @OneToMany(mappedBy = "produto")
     private List<ProdutoCompra> produtoEmCompras;
-    
-    
+
     public Produto(){
     
+    }
+
+    public Produto(Long produto_id, String descricao, Double preco, Integer quantidade, List<Categoria> categorias, List<ProdutoCompra> produtoEmCompras) {
+        this.produto_id = produto_id;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.categorias = categorias;
+        this.produtoEmCompras = produtoEmCompras;
     }
 
     public Long getProduto_id() {
@@ -85,23 +95,29 @@ public class Produto implements Serializable {
     public void setCategorias(List<Categoria> categorias) {
         this.categorias = categorias;
     }
+    
+    public List<ProdutoCompra> getProdutoEmCompras() {
+        return produtoEmCompras;
+    }
+
+    public void setProdutoEmCompras(List<ProdutoCompra> produtoEmCompras) {
+        this.produtoEmCompras = produtoEmCompras;
+    }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.produto_id);
-        hash = 29 * hash + Objects.hashCode(this.descricao);
-        hash = 29 * hash + Objects.hashCode(this.preco);
-        hash = 29 * hash + Objects.hashCode(this.quantidade);
-        hash = 29 * hash + Objects.hashCode(this.categorias);
+        hash = 73 * hash + Objects.hashCode(this.produto_id);
+        hash = 73 * hash + Objects.hashCode(this.descricao);
+        hash = 73 * hash + Objects.hashCode(this.preco);
+        hash = 73 * hash + Objects.hashCode(this.quantidade);
+        hash = 73 * hash + Objects.hashCode(this.categorias);
+        hash = 73 * hash + Objects.hashCode(this.produtoEmCompras);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -109,10 +125,10 @@ public class Produto implements Serializable {
             return false;
         }
         final Produto other = (Produto) obj;
-        if (!Objects.equals(this.descricao, other.descricao)) {
+        if (!Objects.equals(this.produto_id, other.produto_id)) {
             return false;
         }
-        if (!Objects.equals(this.produto_id, other.produto_id)) {
+        if (!Objects.equals(this.descricao, other.descricao)) {
             return false;
         }
         if (!Objects.equals(this.preco, other.preco)) {
@@ -124,9 +140,11 @@ public class Produto implements Serializable {
         if (!Objects.equals(this.categorias, other.categorias)) {
             return false;
         }
+        if (!Objects.equals(this.produtoEmCompras, other.produtoEmCompras)) {
+            return false;
+        }
         return true;
     }
-    
     
     
     

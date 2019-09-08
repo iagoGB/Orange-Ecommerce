@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ecommercesmd.controller;
+package br.com.ecommercesmd.controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,8 +38,6 @@ public class LoginServlet extends HttpServlet {
                 response.sendError(0, "Usuário não encontrado");
             }
     }
-
-  
 
     /**
      * Handles the HTTP <code>POST</code> method.

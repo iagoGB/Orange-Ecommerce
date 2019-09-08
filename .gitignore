@@ -11,4 +11,6 @@ build/
 nbbuild/
 dist/
 nbdist/
-.nb-gradle/
+nbproject/private/
+nbactions.xml
+nb-configuration.xml

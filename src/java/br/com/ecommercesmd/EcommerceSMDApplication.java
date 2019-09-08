@@ -12,22 +12,22 @@ import javax.persistence.EntityManager;
  *@author iago
  */
 public class EcommerceSMDApplication {
+
     public static void main(String[] args) {
         System.out.println("Hello World App");
-            EntityManagerFactory factory = 
-                    Persistence.createEntityManagerFactory("ecommerceSMDPU");
-            //Categoria c = new Categoria();
-            //c.setDescricao("Tecnologia");
-            //System.out.println(c);
-//            EntityManager manager = factory.createEntityManager();
-//            manager.getTransaction().begin();
-//            manager.persist(c);
-//            manager.getTransaction().commit();
+        EntityManagerFactory factory
+                = Persistence.createEntityManagerFactory("ecommerceSMDPU");
+        
+//      Teste de inserção
+//      Categoria c = new Categoria();
+//      c.setDescricao("Tecnologia");
+//      System.out.println(c);
+//      EntityManager manager = factory.createEntityManager();
+//      manager.getTransaction().begin();
+//      manager.persist(c);
+//      manager.getTransaction().commit();
 //            
-//            manager.close();
-            factory.close();
-            
-
-
+//      manager.close();
+        factory.close();      
     }
 }

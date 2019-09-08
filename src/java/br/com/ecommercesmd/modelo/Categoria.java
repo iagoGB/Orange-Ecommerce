@@ -11,9 +11,11 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
@@ -31,7 +33,12 @@ public class Categoria implements Serializable {
     private String descricao;
     
     @ManyToMany
-    @JoinTable(name = "TB_CATEGORIAXPRODUTO")
+    @JoinTable(
+            name = "TB_CATEGORIAXPRODUTO",
+            joinColumns = @JoinColumn(name="fk_categoria_id",referencedColumnName ="categoria_id"),
+            inverseJoinColumns = @JoinColumn (name="fk_produto_id", referencedColumnName = "produto_id"),
+            foreignKey = @ForeignKey(name = "uma_categoria_possui_varios_produtos"),
+            inverseForeignKey = @ForeignKey( name = "um_produto_pode_estar_em_varias_categorias"))       
     private List<Produto> produtos;
 
     public Categoria() {
