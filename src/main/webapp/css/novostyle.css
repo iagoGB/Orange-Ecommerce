@@ -1,0 +1,23 @@
+html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    /*background: linear-gradient(to right, #8e2de2, #4a00e0);*/
+    /*background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);*/
+    /*background-image: linear-gradient(to right top, #ff9671, #ffa16b, #ffad65, #ffba61, #ffc75f);*/
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .container-fluid{
+    width: 100%;
+  }
+
+
+  
