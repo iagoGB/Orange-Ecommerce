@@ -50,7 +50,7 @@
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Logo -->
-                <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="index.html">
+                <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="index.jsp">
                   <img src="img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
                 </a>
                 <!-- Conteúdo do menu -->
@@ -60,22 +60,22 @@
                       <h5>Nossos produtos</h5>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="categoria.html">Smartphones
+                      <a class="nav-link" href="categoria.jsp">Smartphones
                         <span class="sr-only">(current)</span>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="categoria.html#">Notebooks</a>
+                      <a class="nav-link" href="categoria.jsp">Notebooks</a>
                     </li>
                     <li class="nav-item border-bottom border-lg-0 mb-3">
-                      <a class="nav-link" href="categoria.html">PCs</a>
+                      <a class="nav-link" href="categoria.jsp">PCs</a>
                     </li>
                     <!-- Itens que somem no tamanho sm-->
                     <li class="nav-item d-sm-none">
                       <h5>Conta</h5>
                     </li>
                     <li class="nav-item d-sm-none">
-                      <a class="nav-link" href="login.html">Entrar ou cadastrar</a>
+                      <a class="nav-link" href="login.jsp">Entrar ou cadastrar</a>
                     </li>
                     <li class="nav-item d-sm-none">
                       <a class="nav-link" href="#">Minha conta</a>
@@ -84,10 +84,10 @@
                       <a class="nav-link" href="#">Minhas compras</a>
                     </li>
                     <li class="nav-item d-sm-none">
-                      <a class="nav-link" href="favoritos.html">Meus favoritos</a>
+                      <a class="nav-link" href="favoritos.jsp">Meus favoritos</a>
                     </li>
                     <li class="nav-item d-sm-none">
-                      <a class="nav-link" href="carrinho.html">Meu carrinho</a>
+                      <a class="nav-link" href="carrinho.jsp">Meu carrinho</a>
                     </li>
                     <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
                       <a class="nav-link" href="#">Sair</a>
@@ -122,7 +122,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-left dropdown-default"
                       aria-labelledby="navbarDropdownMenuLink-333">
-                      <a class="dropdown-item" href="login.html">Entrar ou Cadastrar</a>
+                      <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Minha conta</a>
                       <div class="dropdown-divider"></div>
@@ -132,13 +132,13 @@
                     </div>
                   </li>
                   <li class="nav-item mx-1 mx-lg-2">
-                    <a class="nav-link waves-effect waves-light" href="favoritos.html">
+                    <a class="nav-link waves-effect waves-light" href="favoritos.jsp">
                       <i class="fas fa-heart fa-2x"></i>
                       <span class="small badge badge-dark">0</span>
                     </a>
                   </li>
                   <li class="nav-item mx-1 mx-lg-2">
-                    <a class="nav-link waves-effect waves-light" href="carrinho.html">
+                    <a class="nav-link waves-effect waves-light" href="carrinho.jsp">
                       <i class="fa fa-shopping-cart fa-2x"></i>
                       <span class="small badge badge-dark">0</span>
                     </a>
@@ -165,11 +165,11 @@
                     Nossos produtos
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="categoria.html">Smartphones</a>
+                    <a class="dropdown-item" href="categoria.jsp">Smartphones</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="categoria.html">Notebooks</a>
+                    <a class="dropdown-item" href="categoria.jsp">Notebooks</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="categoria.html">PCs</a>
+                    <a class="dropdown-item" href="categoria.jsp">PCs</a>
                   </div>
                 </div>
               </nav>
@@ -202,7 +202,7 @@
                         <div class="card border-warning">
                             <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
                             <div class="card-body">
-                                <a href="produto.html">
+                                <a href="produto.jsp">
                                     <h5 class="card-title">Produto</h5>
                                 </a>
                                 <p class="card-text">Descrição</p>
@@ -216,7 +216,7 @@
                         <div class="card border-warning">
                             <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
                             <div class="card-body">
-                                <a href="produto.html">
+                                <a href="produto.jsp">
                                     <h5 class="card-title">Produto</h5>
                                 </a>
                                 <p class="card-text">Descrição</p>
@@ -230,7 +230,7 @@
                         <div class="card border-warning">
                             <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
                             <div class="card-body">
-                                <a href="produto.html">
+                                <a href="produto.jsp">
                                     <h5 class="card-title">Produto</h5>
                                 </a>
                                 <p class="card-text">Descrição</p>
@@ -244,7 +244,7 @@
                         <div class="card border-warning">
                             <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
                             <div class="card-body">
-                                <a href="produto.html">
+                                <a href="produto.jsp">
                                     <h5 class="card-title">Produto</h5>
                                 </a>
                                 <p class="card-text">Descrição</p>
@@ -258,7 +258,7 @@
                         <div class="card border-warning">
                             <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
                             <div class="card-body">
-                                <a href="produto.html">
+                                <a href="produto.jsp">
                                     <h5 class="card-title">Produto</h5>
                                 </a>
                                 <p class="card-text">Descrição</p>
@@ -272,7 +272,7 @@
                         <div class="card border-warning">
                             <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
                             <div class="card-body">
-                                <a href="produto.html">
+                                <a href="produto.jsp">
                                     <h5 class="card-title">Produto</h5>
                                 </a>
                                 <p class="card-text">Descrição</p>
