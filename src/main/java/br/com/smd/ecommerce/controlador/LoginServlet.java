@@ -5,30 +5,22 @@
  */
 package br.com.smd.ecommerce.controlador;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
+import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author iago
+ * @author Iago Gomes
  */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    
-    //Conexão com banco de dados
-    EntityManagerFactory factory = 
-    Persistence.createEntityManagerFactory("ecommerceSMDPU");
-    EntityManager manager = factory.createEntityManager();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,37 +33,43 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html;charset=UTF-8");
+        
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
             
             
             try {
-                 
+                //Pega os dados do formulário
                 String e= request.getParameter("emailLogin");
                 String s = request.getParameter("senhaLogin");
-                //Consulta usuário no banco
-                Long l = new Long(5);
-                Usuario consulta = manager.find(Usuario.class,l);
-
-                String encriptSenha = BCrypt.withDefaults().hashToString(12, s.toCharArray());
-
-
-                if (e.equals(consulta.getLogin())){
-                    
-                    if(encriptSenha.equals(consulta.getSenha())){
-
-                        System.out.println("Usuário autenticou-se");
-                        response.sendRedirect("favoritos.html");
-                    }
+                
+                //String encriptSenha = BCrypt.withDefaults().hashToString(12, s.toCharArray());
+                
+                //Faz uma consulta ao banco
+                Usuario consulta;
+                consulta = usuarioDAO.vericarSessao(e, s);
+                
+                if (consulta != null){
+                    //Se os dados baterem, a sessão é preparada
+                    System.out.println("Senha bateu com a do banco");
+                    HttpSession session = request.getSession();
+                    request.setAttribute("msg", "Bem vindo, ");
+                    session.setAttribute("cliente", consulta );
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
                     
                 } else {
-                    System.out.println("Não se autenticou");
-                    response.sendRedirect("erro.html");
-                }
-                
+                   //Se o resultado vier nulo, os dados não coincidem, 
+                   //enviar mensagem de login inválido
+                   System.out.println("Não se autenticou \n"+ e +"\n"+s);
+                   request.setAttribute("msg", "Usuário ou senha inválidos");
+                   request.getRequestDispatcher("login.jsp").forward(request, response);
+                    
+                }  
             } catch (IOException e){
-                
+                //Qualquer erro que ocorrer durante o processo, envie o usuário
+                //à página de erro.
                 System.out.println("Ocorreu exception"+ e);
-                response.sendRedirect("erro.html");
+                response.sendRedirect("erro.jsp");
                 
             }
 

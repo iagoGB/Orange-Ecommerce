@@ -5,10 +5,9 @@
  */
 package br.com.smd.ecommerce.controlador;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
+import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -20,16 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author iagog
+ * @author Iago Gomes
  */
 @WebServlet("/novoUsuario")
 public class NovoUsuarioServlet extends HttpServlet {
     
-    //Conexão com banco de dados
-    EntityManagerFactory factory = 
-    Persistence.createEntityManagerFactory("ecommerceSMDPU");
-    EntityManager manager = factory.createEntityManager();
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -44,6 +38,9 @@ public class NovoUsuarioServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        UsuarioDAO usuarioDAO;
+        usuarioDAO = new UsuarioDAO();
+        
        try {
            
            String n = request.getParameter("nome");
@@ -55,38 +52,38 @@ public class NovoUsuarioServlet extends HttpServlet {
            
            //Se as senhas digitadas são iguais...
            if (s.equals(cs)){
-               
                 //Crie um novo usuário
                 Usuario u = new Usuario();
                 u.setNome(n);
                 u.setEndereco(e);
                 u.setLogin(l);
+                u.setSenha(s);
+                
+                //Tente salva-lo no banco
+                boolean salvo = usuarioDAO.salvar(u);
                 
                 //Encriptar senha
-                String encriptSenha = BCrypt.withDefaults().hashToString(12, s.toCharArray());
-                System.out.println("encript senha: "+ encriptSenha);
-                u.setSenha(encriptSenha);
-               
-                manager.getTransaction().begin();
-                manager.persist(u);
-                //Salve
-                manager.getTransaction().commit();
-
-                manager.close();
-                factory.close();
+                //String encriptSenha = BCrypt.withDefaults().hashToString(12, s.toCharArray());
+                //System.out.println("encript senha: "+ encriptSenha);
                 
-                System.out.println("Novo usuário criado com sucesso!"+ u.toString());
+               if (salvo){
+                   System.out.println("Novo usuário criado com sucesso!"+ u.toString());
                 
-                response.sendRedirect("carrinho.html");
+                   request.setAttribute("novoUsMsg", "Cadastro realizado com sucesso!");
+                   request.getRequestDispatcher("login.jsp").forward(request, response);
+               } else {
+                    System.out.println("Exceção:  " + e);
+                    response.sendRedirect("erro.jsp");  
+               }
                 
-           } else {
-               response.sendRedirect("erro.html");
-           }
+            } else {
+               request.setAttribute("novoUsMsg", "Senhas incompatíveis");
+               request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
            
        } catch(IOException e){
-           
            System.out.println("Houve exceção " + e);
-           response.sendRedirect("erro.html");      
+           response.sendRedirect("erro.jsp");      
        }
     }
 

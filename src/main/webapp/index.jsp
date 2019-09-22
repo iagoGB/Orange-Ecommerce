@@ -1,3 +1,4 @@
+<%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -44,6 +45,15 @@
               <!--Navbar -->
               <nav class="mb-1 navbar navbar-light shadow-none">
                 <!-- Menu -->
+                <div>
+                    <% 
+                        String msg = (String) request.getAttribute("msg"); 
+                        Usuario u = (Usuario) session.getAttribute("cliente");
+                         if( msg != null){
+                    %>
+                            <h5>   <%=  u.getNome() %> </h5> 
+                    <%  } %>
+                </div>
                 <button class="navbar-toggler order-sm-1 order-md-1 d-lg-none" id="menuresponsivo" type="button"
                   data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                   aria-expanded="false" aria-label="Toggle navigation">
@@ -90,7 +100,7 @@
                       <a class="nav-link" href="carrinho.jsp">Meu carrinho</a>
                     </li>
                     <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
-                      <a class="nav-link" href="#">Sair</a>
+                      <a class="nav-link" href="/logout">Sair</a>
                     </li>
                   </ul>
                   <form class="d-md-none form-row">
@@ -115,6 +125,9 @@
                               alt="avatar image">
                         </a>
                         </li>-->
+                  <li>
+                      
+                  </li>
                   <li class="nav-item dropdown mx-1 mx-lg-2">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
@@ -127,9 +140,21 @@
                       <a class="dropdown-item" href="#">Minha conta</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Minhas compras</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Sair</a>
-                    </div>
+                      
+                      <%-- Só mostra sair se o usuário estiver logado --%>
+                      
+                      <% 
+                        if (session.getAttribute("cliente") != null ){
+                      %> 
+                         <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="logout">Sair</a>
+                        </div>
+                     <% 
+                        };
+                     %>
+                        
+                      
+                     
                   </li>
                   <li class="nav-item mx-1 mx-lg-2">
                     <a class="nav-link waves-effect waves-light" href="favoritos.jsp">

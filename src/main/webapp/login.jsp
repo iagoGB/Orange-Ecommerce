@@ -91,7 +91,7 @@
                       <a class="nav-link" href="carrinho.jsp">Meu carrinho</a>
                     </li>
                     <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
-                      <a class="nav-link" href="#">Sair</a>
+                      <a class="nav-link" href="logout">Sair</a>
                     </li>
                   </ul>
                   <form class="d-md-none form-row">
@@ -128,9 +128,18 @@
                       <a class="dropdown-item" href="#">Minha conta</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Minhas compras</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Sair</a>
-                    </div>
+                     
+                      <% 
+                            if ( session.getAttribute("cliente") != null ){
+                            
+                      %>
+                         <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="logout">Sair</a>
+                         </div>
+                      <% 
+                           }
+                      %>
+                   
                   </li>
                   <li class="nav-item mx-1 mx-lg-2">
                     <a class="nav-link waves-effect waves-light" href="favoritos.jsp">
@@ -189,7 +198,7 @@
                             String msg = (String) request.getAttribute("msg");
                             if (msg != null) { 
                         %>
-                            <p> <%= msg %> </p>
+                            <p style="color: red; display: flex; justify-content: center;"> <%= msg %> </p>
                         <%    
                         }    
                         %>
@@ -205,7 +214,7 @@
                                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                             </div>
                                             <input name="emailLogin" class="form-control"
-                                                placeholder="Digite seu email ou login" type="email">
+                                                placeholder="Digite seu email ou login" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -230,7 +239,16 @@
                         <h3 class="text-warning text-center">ou</h3>
                     </div>
                     <!--Cadastro-->
+                   
                     <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mx-1 my-1">
+                        <% 
+                            String novoUsMsg = (String) request.getAttribute("novoUsMsg");
+                            if ( novoUsMsg != null ){
+                        %>
+                               <p style="color: green; display: flex; justify-content: center;"> <%= novoUsMsg %> </p>
+                        <%      
+                            }
+                        %>
                         <div class="card border-warning">
                             <article class="card-body">
                                 <h4 class="card-title mt-3 text-center">Cadastro</h4>
