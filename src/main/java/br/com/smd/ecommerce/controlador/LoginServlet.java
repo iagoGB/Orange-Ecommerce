@@ -47,9 +47,10 @@ public class LoginServlet extends HttpServlet {
                 
                 //Faz uma consulta ao banco
                 Usuario consulta;
-                consulta = usuarioDAO.vericarSessao(e, s);
+                consulta = usuarioDAO.verificarSessao(e, s);
                 
                 if (consulta != null){
+                    
                     //Se os dados baterem, a sessão é preparada
                     System.out.println("Senha bateu com a do banco");
                     HttpSession session = request.getSession();
@@ -58,6 +59,7 @@ public class LoginServlet extends HttpServlet {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     
                 } else {
+                    
                    //Se o resultado vier nulo, os dados não coincidem, 
                    //enviar mensagem de login inválido
                    System.out.println("Não se autenticou \n"+ e +"\n"+s);
@@ -66,11 +68,11 @@ public class LoginServlet extends HttpServlet {
                     
                 }  
             } catch (IOException e){
+                
                 //Qualquer erro que ocorrer durante o processo, envie o usuário
                 //à página de erro.
                 System.out.println("Ocorreu exception"+ e);
-                response.sendRedirect("erro.jsp");
-                
+                response.sendRedirect("erro.jsp");            
             }
 
     }

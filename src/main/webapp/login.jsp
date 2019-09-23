@@ -243,10 +243,14 @@
                     <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mx-1 my-1">
                         <% 
                             String novoUsMsg = (String) request.getAttribute("novoUsMsg");
-                            if ( novoUsMsg != null ){
+                            if ( novoUsMsg != null && novoUsMsg.equals("Cadastro realizado com sucesso!")){
                         %>
                                <p style="color: green; display: flex; justify-content: center;"> <%= novoUsMsg %> </p>
                         <%      
+                            } else { 
+                        %>
+                                <p style="color: red; display: flex; justify-content: center;"> <%= novoUsMsg %> </p>
+                        <%
                             }
                         %>
                         <div class="card border-warning">

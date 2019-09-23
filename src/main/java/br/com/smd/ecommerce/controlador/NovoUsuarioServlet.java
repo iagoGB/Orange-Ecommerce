@@ -8,9 +8,6 @@ package br.com.smd.ecommerce.controlador;
 import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.io.IOException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -67,21 +64,25 @@ public class NovoUsuarioServlet extends HttpServlet {
                 //System.out.println("encript senha: "+ encriptSenha);
                 
                if (salvo){
+                   
                    System.out.println("Novo usuário criado com sucesso!"+ u.toString());
-                
                    request.setAttribute("novoUsMsg", "Cadastro realizado com sucesso!");
                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                   
                } else {
+                   
                     System.out.println("Exceção:  " + e);
                     response.sendRedirect("erro.jsp");  
                }
                 
             } else {
+               
                request.setAttribute("novoUsMsg", "Senhas incompatíveis");
                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
            
        } catch(IOException e){
+           
            System.out.println("Houve exceção " + e);
            response.sendRedirect("erro.jsp");      
        }

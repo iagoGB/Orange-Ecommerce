@@ -18,7 +18,7 @@ import javax.persistence.Query;
 public class UsuarioDAO {
     
     //Consulta se login e senha batem com dados do banco
-    public Usuario vericarSessao(String login, String senha){
+    public Usuario verificarSessao(String login, String senha){
         EntityManager manager = new FabricaDeConexao().getConexao();
         Usuario u;
         
@@ -30,10 +30,14 @@ public class UsuarioDAO {
             u = (Usuario) query.getSingleResult();
             
         } catch (Exception e) {
+            
             u = null;
             System.out.println("Um erro ocorreu ao consultar os dados"+ e);
+            
+        }finally{
+            manager.close();
         }
-        manager.close();
+        
         return u;
     }
     
@@ -53,13 +57,18 @@ public class UsuarioDAO {
             //Ação de salvar bem sucedida
             salvo = true;
             System.out.println("Salvamento bem sucedido");
+            
         } catch (Exception e) {
+            
             //Em caso de erro retorne falso
+            manager.getTransaction().rollback();
             System.out.println("Erro ao salvar usuário"+ e);
             salvo = false;
+            
+        } finally {
+             manager.close();
         }
- 
-        manager.close();
+        
         return salvo;
     }
 }
