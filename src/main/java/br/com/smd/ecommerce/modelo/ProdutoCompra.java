@@ -24,8 +24,8 @@ public class ProdutoCompra implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(
-        name = "produto_id",
-        foreignKey = @ForeignKey(name = "um_produto_pode_estar_em_muitas_compras"),
+        name = "fk_produto_id",
+        foreignKey = @ForeignKey(name = "fk_produto_id"),
         nullable = false
     )
     Produto produto;
@@ -33,8 +33,8 @@ public class ProdutoCompra implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(
-            name = "compra_id",
-            foreignKey = @ForeignKey(name = "uma_compra_possue_muitos_produtos"),
+            name = "fk_compra_id",
+            foreignKey = @ForeignKey(name = "fk_compra_id"),
             nullable = false 
     )
     Compra compra;
@@ -42,18 +42,19 @@ public class ProdutoCompra implements Serializable {
     @Column
     private Integer quantidade;  //a quantidade de produtos no pedido
     
-    @Column     //valor total deste produto no pedido, geralmente preço x quantidade
-    private Double total;  
+    /*
+        @Column     //valor total deste produto no pedido, geralmente preço x quantidade
+        private Double total;  
+    */
     
     public ProdutoCompra(){
     
     }
 
-    public ProdutoCompra(Produto produto, Compra compra, Integer quantidade, Double total) {
+    public ProdutoCompra(Produto produto, Compra compra, Integer quantidade) {
         this.produto = produto;
         this.compra = compra;
         this.quantidade = quantidade;
-        this.total = total;
     }
 
     public Produto getProduto() {
@@ -79,17 +80,5 @@ public class ProdutoCompra implements Serializable {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
-    
-    
-    
-    
-    
+ 
 }

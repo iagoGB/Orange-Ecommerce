@@ -10,13 +10,9 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
@@ -38,22 +34,22 @@ public class Produto implements Serializable {
     @Column(nullable = false)
     private Integer quantidade;
     
-    @ManyToMany(mappedBy = "produtos") 
-    private List<Categoria> categorias;
+    @OneToMany(mappedBy = "produto") 
+    private List<ProdutoCategoria> listaCategorias;
     
     @OneToMany(mappedBy = "produto")
     private List<ProdutoCompra> produtoEmCompras;
 
     public Produto(){
-    
+        
     }
 
-    public Produto(Long produto_id, String descricao, Double preco, Integer quantidade, List<Categoria> categorias, List<ProdutoCompra> produtoEmCompras) {
+    public Produto(Long produto_id, String descricao, Double preco, Integer quantidade, List<ProdutoCategoria> produtoEmCategorias, List<ProdutoCompra> produtoEmCompras) {
         this.produto_id = produto_id;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidade = quantidade;
-        this.categorias = categorias;
+        this.listaCategorias = produtoEmCategorias;
         this.produtoEmCompras = produtoEmCompras;
     }
 
@@ -89,14 +85,14 @@ public class Produto implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public List<Categoria> getCategorias() {
-        return categorias;
+    public List<ProdutoCategoria> getProdutoEmCategorias() {
+        return listaCategorias;
     }
 
-    public void setCategorias(List<Categoria> categorias) {
-        this.categorias = categorias;
+    public void setProdutoEmCategorias(List<ProdutoCategoria> produtoEmCategorias) {
+        this.listaCategorias = produtoEmCategorias;
     }
-    
+
     public List<ProdutoCompra> getProdutoEmCompras() {
         return produtoEmCompras;
     }
@@ -107,18 +103,21 @@ public class Produto implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 73 * hash + Objects.hashCode(this.produto_id);
-        hash = 73 * hash + Objects.hashCode(this.descricao);
-        hash = 73 * hash + Objects.hashCode(this.preco);
-        hash = 73 * hash + Objects.hashCode(this.quantidade);
-        hash = 73 * hash + Objects.hashCode(this.categorias);
-        hash = 73 * hash + Objects.hashCode(this.produtoEmCompras);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.produto_id);
+        hash = 97 * hash + Objects.hashCode(this.descricao);
+        hash = 97 * hash + Objects.hashCode(this.preco);
+        hash = 97 * hash + Objects.hashCode(this.quantidade);
+        hash = 97 * hash + Objects.hashCode(this.listaCategorias);
+        hash = 97 * hash + Objects.hashCode(this.produtoEmCompras);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
@@ -126,10 +125,10 @@ public class Produto implements Serializable {
             return false;
         }
         final Produto other = (Produto) obj;
-        if (!Objects.equals(this.produto_id, other.produto_id)) {
+        if (!Objects.equals(this.descricao, other.descricao)) {
             return false;
         }
-        if (!Objects.equals(this.descricao, other.descricao)) {
+        if (!Objects.equals(this.produto_id, other.produto_id)) {
             return false;
         }
         if (!Objects.equals(this.preco, other.preco)) {
@@ -138,7 +137,7 @@ public class Produto implements Serializable {
         if (!Objects.equals(this.quantidade, other.quantidade)) {
             return false;
         }
-        if (!Objects.equals(this.categorias, other.categorias)) {
+        if (!Objects.equals(this.listaCategorias, other.listaCategorias)) {
             return false;
         }
         if (!Objects.equals(this.produtoEmCompras, other.produtoEmCompras)) {
@@ -146,7 +145,5 @@ public class Produto implements Serializable {
         }
         return true;
     }
-    
-    
-    
+     
 }

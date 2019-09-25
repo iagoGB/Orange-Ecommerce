@@ -11,13 +11,10 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -32,19 +29,19 @@ public class Categoria implements Serializable {
     @Column(nullable = false)
     private String descricao;
     
-    @ManyToMany
-    @JoinTable(
-            name = "TB_CATEGORIAXPRODUTO",
-            joinColumns = @JoinColumn(name="fk_categoria_id",referencedColumnName ="categoria_id"),
-            inverseJoinColumns = @JoinColumn (name="fk_produto_id", referencedColumnName = "produto_id"),
-            foreignKey = @ForeignKey(name = "uma_categoria_possui_varios_produtos"),
-            inverseForeignKey = @ForeignKey( name = "um_produto_pode_estar_em_varias_categorias"))       
-    private List<Produto> produtos;
-
-    public Categoria() {
-        this.produtos = new ArrayList<>();
-    }
+    @OneToMany(mappedBy = "categoria")
+    private List<ProdutoCategoria> listaProdutos;
     
+    public Categoria() {
+        this.listaProdutos = new ArrayList<>();
+    }
+
+    public Categoria(Long categoria_id, String descricao, List<ProdutoCategoria> listaProdutos) {
+        this.categoria_id = categoria_id;
+        this.descricao = descricao;
+        this.listaProdutos = listaProdutos;
+    }
+
     public Long getCategoria_id() {
         return categoria_id;
     }
@@ -61,20 +58,20 @@ public class Categoria implements Serializable {
         this.descricao = descricao;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
+    public List<ProdutoCategoria> getListaProdutos() {
+        return listaProdutos;
     }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
+    public void setListaProdutos(List<ProdutoCategoria> listaProdutos) {
+        this.listaProdutos = listaProdutos;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.categoria_id);
-        hash = 41 * hash + Objects.hashCode(this.descricao);
-        hash = 41 * hash + Objects.hashCode(this.produtos);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.categoria_id);
+        hash = 97 * hash + Objects.hashCode(this.descricao);
+        hash = 97 * hash + Objects.hashCode(this.listaProdutos);
         return hash;
     }
 
@@ -96,11 +93,10 @@ public class Categoria implements Serializable {
         if (!Objects.equals(this.categoria_id, other.categoria_id)) {
             return false;
         }
-        if (!Objects.equals(this.produtos, other.produtos)) {
+        if (!Objects.equals(this.listaProdutos, other.listaProdutos)) {
             return false;
         }
         return true;
     }
-    
-    
+  
 }

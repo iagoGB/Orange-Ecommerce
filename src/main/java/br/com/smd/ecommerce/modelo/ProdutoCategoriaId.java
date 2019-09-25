@@ -10,27 +10,20 @@ import java.util.Objects;
 
 /**
  *
- * @author Iago Gomes
+ * @author Iago.Gomes
  */
-public class ProdutoCompraId implements Serializable {
-    Long compra;
+
+public class ProdutoCategoriaId  implements Serializable{
     Long produto;
-   
-    public ProdutoCompraId(){
-    
+    Long categoria;
+
+    public ProdutoCategoriaId() {
+        
     }
 
-    public ProdutoCompraId(long compra_id, long produto_id) {
-        this.compra = compra_id;
-        this.produto = produto_id;
-    }
-
-    public Long getCompra() {
-        return compra;
-    }
-
-    public void setCompra(Long compra) {
-        this.compra = compra;
+    public ProdutoCategoriaId(Long produto, Long categoria) {
+        this.produto = produto;
+        this.categoria = categoria;
     }
 
     public Long getProduto() {
@@ -41,11 +34,19 @@ public class ProdutoCompraId implements Serializable {
         this.produto = produto;
     }
 
+    public Long getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Long categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.compra);
-        hash = 83 * hash + Objects.hashCode(this.produto);
+        int hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.produto);
+        hash = 31 * hash + Objects.hashCode(this.categoria);
         return hash;
     }
 
@@ -60,19 +61,13 @@ public class ProdutoCompraId implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ProdutoCompraId other = (ProdutoCompraId) obj;
-        if (!Objects.equals(this.compra, other.compra)) {
+        final ProdutoCategoriaId other = (ProdutoCategoriaId) obj;
+        if (!Objects.equals(this.produto, other.produto)) {
             return false;
         }
-        if (!Objects.equals(this.produto, other.produto)) {
+        if (!Objects.equals(this.categoria, other.categoria)) {
             return false;
         }
         return true;
     }
-    
-    
-
-    
-    
-    
 }

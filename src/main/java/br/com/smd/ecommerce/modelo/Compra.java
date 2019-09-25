@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author iago
+ * @author Iago Gomes
  */
 @Entity(name = "TB_COMPRA")
 public class Compra implements Serializable {
@@ -39,7 +39,7 @@ public class Compra implements Serializable {
     @JoinColumn(
             name = "fk_usuario_id", 
             referencedColumnName = "usuario_id", 
-            foreignKey = @ForeignKey( name="muitas_compras_para_um_usuario"),
+            foreignKey = @ForeignKey( name="fk_usuario_id"),
             nullable = false
     )
     private Usuario usuario;
