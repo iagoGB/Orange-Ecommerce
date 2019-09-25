@@ -46,7 +46,14 @@ public class NovoUsuarioServlet extends HttpServlet {
            String l = request.getParameter("login");
            String s = request.getParameter("senha");
            String cs = request.getParameter("confirmaSenha");  
-           
+ 
+           // Usuario e senha não podem ser vazios
+           if (l.isEmpty() || s.isEmpty()) {
+               System.out.println("Campos não podem ser cadastrados vazios");
+               request.setAttribute("novoUsMsg", "Preencha os campos obrigatórios");
+               request.getRequestDispatcher("login.jsp").forward(request, response);
+               return;
+           }
            //Se as senhas digitadas são iguais...
            if (s.equals(cs)){
                 //Crie um novo usuário

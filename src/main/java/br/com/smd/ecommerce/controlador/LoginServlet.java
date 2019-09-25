@@ -36,13 +36,19 @@ public class LoginServlet extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
         
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            
-            
+                     
             try {
                 //Pega os dados do formulário
                 String e= request.getParameter("emailLogin");
                 String s = request.getParameter("senhaLogin");
                 
+                // Usuario e senha não podem ser vazios
+                if (e.isEmpty() || s.isEmpty()){
+                    System.out.println("Campo de usuário e/ou senha vazio(s)");
+                    request.setAttribute("msg", "Campo de usuário e/ou senha vazio(s)");
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                    return;
+                }
                 //String encriptSenha = BCrypt.withDefaults().hashToString(12, s.toCharArray());
                 
                 //Faz uma consulta ao banco

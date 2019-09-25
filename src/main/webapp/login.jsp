@@ -31,7 +31,8 @@
       
         <link rel="stylesheet" type="text/css" href="css/mdb.min.css">
         <script type="text/javascript" src="js/mdb.min.js"></script>
-      
+        <!-- Estilos customizados -->
+        <link rel="stylesheet" type="text/css" href="./css/estilo/estilo.css">
         <title>Tela Inicial</title>
       </head>
 
@@ -130,14 +131,13 @@
                       <a class="dropdown-item" href="#">Minhas compras</a>
                      
                       <% 
-                            if ( session.getAttribute("cliente") != null ){
-                            
+                            if ( session.getAttribute("cliente") != null ){   
                       %>
-                         <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="logout">Sair</a>
-                         </div>
+                                <div class="dropdown-divider"></div>
+                                   <a class="dropdown-item" href="logout">Sair</a>
+                                </div>
                       <% 
-                           }
+                            }
                       %>
                    
                   </li>
@@ -198,9 +198,9 @@
                             String msg = (String) request.getAttribute("msg");
                             if (msg != null) { 
                         %>
-                            <p style="color: red; display: flex; justify-content: center;"> <%= msg %> </p>
+                                <p class="mensagem-erro" > <%= msg %> </p>
                         <%    
-                        }    
+                            }    
                         %>
                         <div class="card border-warning">
                             <article class="card-body">
@@ -245,12 +245,14 @@
                             String novoUsMsg = (String) request.getAttribute("novoUsMsg");
                             if ( novoUsMsg != null && novoUsMsg.equals("Cadastro realizado com sucesso!")){
                         %>
-                               <p style="color: green; display: flex; justify-content: center;"> <%= novoUsMsg %> </p>
+                               <p class="mensagem-sucesso"> <%= novoUsMsg %> </p>
                         <%      
                             } else { 
+                                if (novoUsMsg != null){
                         %>
-                                <p style="color: red; display: flex; justify-content: center;"> <%= novoUsMsg %> </p>
+                                <p class="mensagem-erro"> <%= novoUsMsg %> </p>
                         <%
+                                }
                             }
                         %>
                         <div class="card border-warning">

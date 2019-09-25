@@ -32,7 +32,8 @@
       
         <link rel="stylesheet" type="text/css" href="css/mdb.min.css">
         <script type="text/javascript" src="js/mdb.min.js"></script>
-      
+        <!-- Estilos customizados -->
+        <link rel="stylesheet" type="text/css" href="./css/estilo/estilo.css">
         <title>Tela Inicial</title>
       </head>
 

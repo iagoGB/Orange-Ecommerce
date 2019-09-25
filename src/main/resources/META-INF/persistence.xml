@@ -15,6 +15,7 @@
         <class>br.com.smd.ecommerce.modelo.Compra</class>
         <class>br.com.smd.ecommerce.modelo.Produto</class>
         <class>br.com.smd.ecommerce.modelo.ProdutoCompra</class>
+        <class>br.com.smd.ecommerce.modelo.ProdutoCategoria</class>
         
         <!-- Propriedades do banco -->
         <properties>
