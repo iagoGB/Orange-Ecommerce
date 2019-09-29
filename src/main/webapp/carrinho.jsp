@@ -1,3 +1,4 @@
+<%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 

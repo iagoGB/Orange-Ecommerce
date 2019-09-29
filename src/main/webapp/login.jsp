@@ -1,3 +1,4 @@
+<%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -188,10 +189,10 @@
                     <!--Login-->
                     <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mx-1 my-1">
                         <% 
-                            String msg = (String) request.getAttribute("msg");
+                            String mensagem = (String) request.getAttribute("msg");
                             if (msg != null) { 
                         %>
-                                <p class="mensagem-erro" > <%= msg %> </p>
+                                <p class="mensagem-erro" > <%= mensagem %> </p>
                         <%    
                             }    
                         %>
