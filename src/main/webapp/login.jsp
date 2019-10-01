@@ -126,11 +126,13 @@
                                         <%
                                             String msg = (String) request.getAttribute("msg");
                                             Usuario u = (Usuario) session.getAttribute("cliente");
-                                            if (msg != null) {
+                                            if ((msg != null) && (u != null)) {
                                         %>
-                                        <small>   Bem vindo <br> </small> 
-                                        <small>   <%=  u.getLogin()%> </small> 
-                                        <%  }%>
+                                            <small>   Bem vindo <br> </small> 
+                                            <small>   <%=  u.getLogin()%> </small> 
+                                        <%  
+                                          }
+                                        %>
                                     </div>
                                 </li>
                                 </li>
@@ -259,7 +261,7 @@
                         <div class="col-sm-12 col-md-1 col-lg-2 col-xl-2 mx-1 my-1">
                             <h3 class="text-dark text-center">ou</h3>
                         </div>
-                        <!--Cadastro-->
+                        <!-----------------------------------------------------   CADASTRO  ------------------------------------------------------------->
 
                         <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mx-1 my-1">
 
@@ -267,18 +269,19 @@
                             <!-- Exibir apenas mensagem de sucesso ou erro -->
                             <%
                                 String novoUsMsg = (String) request.getAttribute("novoUsMsg");
+                                String erroView = (String) request.getAttribute("erroView");
                                 if (novoUsMsg != null && novoUsMsg.equals("Cadastro realizado com sucesso!")) {
                             %>
 
-                            <p class="heading lead">O Auge Nega!</p>
+                            <p class="heading lead verde">Cadastro realizado com sucesso</p>
 
                             <%
                             } else {
-                                if (novoUsMsg != null && novoUsMsg.equals("Senhas incompatíveis")) {
+                                if (erroView != null ) {
                             %>
 
 
-                            <p class="heading lead">Que pena Nega!</p>
+                            <p class="heading lead vermelho"><%=erroView %></p>
 
 
                             <%
@@ -305,6 +308,9 @@
                                             <div class="valid-feedback">
                                                 Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
                                             </div>
+                                            <div class="invalid-feedback">
+                                                Nome não pode ser vazio
+                                            </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
@@ -316,6 +322,9 @@
                                             <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
                                             <div class="valid-feedback">
                                                 Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Login deve ser único e não pode ser vazio
                                             </div>
                                         </div>
                                         <div class="form-group input-group">
@@ -329,6 +338,9 @@
                                             <div class="valid-feedback">
                                                 Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
                                             </div>
+                                            <div class="invalid-feedback">
+                                                Email não pode ser vazio
+                                            </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
@@ -340,6 +352,9 @@
                                             <div class="valid-feedback">
                                                 Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
                                             </div>
+                                             <div class="invalid-feedback">
+                                                 Endereço não pode ser vazio
+                                             </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
@@ -352,6 +367,13 @@
                                             <div class="valid-feedback">
                                                 Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
                                             </div>
+                                            <div class="invalid-feedback">
+                                                 Senhas devem ser idênticas
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                 Não pode ser vazia.
+                                            </div>
+                                           
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
@@ -363,6 +385,12 @@
                                             <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
                                             <div class="valid-feedback">
                                                 Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                 Senhas devem ser idênticas
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                 Não pode ser vazia.
                                             </div>
                                         </div>
                                         <div class="form-group">

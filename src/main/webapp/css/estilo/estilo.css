@@ -20,3 +20,19 @@ and open the template in the editor.
     display: flex; 
     justify-content: center;
 }
+
+.config {
+    width: 100% !important;
+    margin-bottom: -5px !important;  
+    color:red !important;
+}
+
+.verde{
+    color: green !important;
+    text-align:center;
+}
+
+.vermelho{
+    color: red !important;
+    text-align:center;
+}

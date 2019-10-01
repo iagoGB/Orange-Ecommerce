@@ -46,14 +46,24 @@ public class NovoUsuarioServlet extends HttpServlet {
            String l = request.getParameter("login");
            String s = request.getParameter("senha");
            String cs = request.getParameter("confirmaSenha");  
+           
  
            // Usuario e senha não podem ser vazios
-           if (l.isEmpty() || s.isEmpty()) {
+           if (l.isEmpty() || s.isEmpty() ) {
                System.out.println("Campos não podem ser cadastrados vazios");
-               request.setAttribute("novoUsMsg", "Preencha os campos obrigatórios");
+               request.setAttribute("erroView", "Preencha os campos obrigatórios");
                request.getRequestDispatcher("login.jsp").forward(request, response);
                return;
-           }
+            }
+           
+            //Não pode criar um novo usuário com login ou email já cadastrados no banco
+            if ( (usuarioDAO.consultarPorEmail(em)!= null) || (usuarioDAO.consultarPorLogin(l)!=null) ){
+                System.out.println("login ou email já estão em uso");
+                request.setAttribute("erroView", "Login ou email já está(ão) em uso");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
+           
            //Se as senhas digitadas são iguais...
            if (s.equals(cs)){
                 //Crie um novo usuário
@@ -62,6 +72,7 @@ public class NovoUsuarioServlet extends HttpServlet {
                 u.setEndereco(e);
                 u.setLogin(l);
                 u.setSenha(s);
+                u.setEmail(em);
                 
                 //Tente salva-lo no banco
                 boolean salvo = usuarioDAO.salvar(u);
@@ -76,23 +87,24 @@ public class NovoUsuarioServlet extends HttpServlet {
                    request.setAttribute("novoUsMsg", "Cadastro realizado com sucesso!");
                    request.getRequestDispatcher("login.jsp").forward(request, response);
                    
-               } else {
+                } else {
                    
-                    System.out.println("Exceção:  " + e);
+                    System.out.println("Ocorreu um erro ao salvar novo usuário:  " + e);
                     response.sendRedirect("erro.jsp");  
-               }
+                }
                 
             } else {
-               
-               request.setAttribute("novoUsMsg", "Senhas incompatíveis");
+           
+               request.setAttribute("erroView", "Senhas incompatíveis");
                request.getRequestDispatcher("login.jsp").forward(request, response);
+               
             }
            
-       } catch(IOException e){
+        } catch(IOException e){
            
-           System.out.println("Houve exceção " + e);
+           System.out.println("Houve exceção ao tentar criar novo usuário" + e);
            response.sendRedirect("erro.jsp");      
-       }
+        }
     }
 
     @Override

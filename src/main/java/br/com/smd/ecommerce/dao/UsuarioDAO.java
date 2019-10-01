@@ -20,7 +20,7 @@ public class UsuarioDAO {
     //Consulta se login e senha batem com dados do banco
     public Usuario verificarSessao(String login, String senha){
         EntityManager manager = new FabricaDeConexao().getConexao();
-        Usuario u;
+        Usuario u = null;
         
         try {
             
@@ -31,13 +31,53 @@ public class UsuarioDAO {
             
         } catch (Exception e) {
             
-            u = null;
             System.out.println("Um erro ocorreu ao consultar os dados"+ e);
             
         }finally{
             manager.close();
         }
         
+        return u;
+    }
+    
+    public Usuario consultarPorLogin(String login){
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        Usuario u = null;
+        
+        try {
+            
+            Query query = manager.createQuery("FROM Usuario u WHERE u.login = :l" )
+                    .setParameter("l", login);
+                   
+            u = (Usuario) query.getSingleResult();
+            
+        } catch (Exception e) {
+          
+            System.out.println("Um erro ocorreu ao consultar os dados"+ e);
+            
+        }finally {
+            manager.close();
+        }
+        return u;
+    }
+    
+    public Usuario consultarPorEmail(String email ){
+         EntityManager manager = new FabricaDeConexao().getConexao();
+        Usuario u = null;
+        
+        try {
+            
+            Query query = manager.createQuery("FROM Usuario u WHERE u.email = :e " )
+                    .setParameter("e", email);
+            u = (Usuario) query.getSingleResult();
+            
+        } catch (Exception e) {
+            
+            System.out.println("Um erro ocorreu ao consultar os dados"+ e);
+            
+        }finally {
+            manager.close();
+        }
         return u;
     }
     
@@ -71,4 +111,6 @@ public class UsuarioDAO {
         
         return salvo;
     }
+    
+    
 }

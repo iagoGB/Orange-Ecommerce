@@ -16,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 
 /**
  *
- * @author iago
+ * @author Iago Gomes
  */
 @Entity
 @Table(
@@ -25,7 +25,11 @@ import javax.persistence.UniqueConstraint;
         @UniqueConstraint(
             name = "uk_login_unico",
             columnNames = { "login" }  
-        ) 
+        ),
+        @UniqueConstraint(
+             name = "uk_email_unico",
+             columnNames = {"email"}
+        )
     }
 )
 public class Usuario implements Serializable {
@@ -40,7 +44,7 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private String endereco;
     
-    @Column(nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
     
     @Column(name = "login", nullable = false)

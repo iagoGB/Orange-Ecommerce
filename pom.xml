@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.smd</groupId>
-  <artifactId>ecommerce</artifactId>
+  <artifactId>Ecommerce-Orange</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <description>Projeto para disciplina ProgramaÃ§Ã£o para WEB I</description>
+  <description>Projeto para disciplina Programação para WEB I</description>
   
   <build>
-        <finalName>ecommerce-smd</finalName>
+        <finalName>orange-ecommerce-smd</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

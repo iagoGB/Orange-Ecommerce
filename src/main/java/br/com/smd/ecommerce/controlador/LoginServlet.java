@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
                      
             try {
                 //Pega os dados do formulário
-                String e= request.getParameter("emailLogin");
+                String e = request.getParameter("emailLogin");
                 String s = request.getParameter("senhaLogin");
                 
                 // Usuario e senha não podem ser vazios

@@ -39,7 +39,7 @@ public class ProdutoCompra implements Serializable {
     )
     Compra compra;
     
-    @Column
+    @Column(nullable = false)
     private Integer quantidade;  //a quantidade de produtos no pedido
     
     /*
