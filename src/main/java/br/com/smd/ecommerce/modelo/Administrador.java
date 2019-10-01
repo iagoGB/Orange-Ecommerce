@@ -17,7 +17,7 @@ import javax.persistence.Id;
  *
  * @author Iago Gomes
  */
-@Entity
+@Entity(name = "TB_ADMINISTRADOR")
 public class Administrador implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

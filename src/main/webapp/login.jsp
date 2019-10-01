@@ -188,6 +188,22 @@
                     <div class="row justify-content-center">
                         <!--Login-->
                         <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mx-1 my-1">
+
+                            <!-- Exibir apenas mensagem de sucesso ou erro -->
+                            <!-- Alert sucess
+                            <div class="alert alert-sucess alert-dismissible fade show" role="alert">
+                                Mensagem de sucesso
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div> -->
+                            <!-- Alert danger
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                Mensagem de erro
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div> -->
                             <%
                                 String mensagem = (String) request.getAttribute("msg");
                                 if (msg != null) {
@@ -201,14 +217,20 @@
                                     <h4 class="card-title text-center mb-4 mt-1">Login</h4>
                                     <hr>
                                     <p class="text-dark text-center">Entre na sua conta</p>
-                                    <form action="login" method="post">
+                                    <form action="login" method="post" class="needs-validation" novalidate>
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                                 </div>
+
                                                 <input name="emailLogin" class="form-control"
-                                                       placeholder="Digite seu email ou login" type="text">
+                                                       placeholder="Digite seu email ou login" type="text" id="validationCustom01" required>
+                                                <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                                <div class="valid-feedback">
+                                                    Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -216,8 +238,13 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                                 </div>
+
                                                 <input name="senhaLogin" class="form-control" placeholder="Digite sua senha"
-                                                       type="password">
+                                                       type="password" id="validationCustom02" required>
+                                                <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                                <div class="valid-feedback">
+                                                    Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -236,167 +263,151 @@
 
                         <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mx-1 my-1">
 
-                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                 aria-hidden="true">
 
+                            <!-- Exibir apenas mensagem de sucesso ou erro -->
                             <%
                                 String novoUsMsg = (String) request.getAttribute("novoUsMsg");
                                 if (novoUsMsg != null && novoUsMsg.equals("Cadastro realizado com sucesso!")) {
                             %>
-                           
-                                <div class="modal-dialog modal-notify modal-success" role="document">
-                                    <!--Content-->
-                                    <div class="modal-content">
-                                        <!--Header-->
-                                        <div class="modal-header">
-                                            <p class="heading lead">O Auge Nega!</p>
 
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true" class="white-text">&times;</span>
-                                            </button>
-                                        </div>
+                            <p class="heading lead">O Auge Nega!</p>
 
-                                        <!--Body-->
-                                        <div class="modal-body">
-                                            <div>
-                                                <img src="img/1.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
-                                            </div>
-                                            <div class="text-center">
-                                                <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
-                                                <p class="mensagem-sucesso"> <%= novoUsMsg%> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--/.Content-->
-                                </div>
-                            
                             <%
                             } else {
                                 if (novoUsMsg != null && novoUsMsg.equals("Senhas incompatíveis")) {
                             %>
 
-                            
-                                <div class="modal-dialog modal-notify modal-danger" role="document">
-                                    <!--Content-->
-                                    <div class="modal-content">
-                                        <!--Header-->
-                                        <div class="modal-header">
-                                            <p class="heading lead">Que pena Nega!</p>
 
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true" class="white-text">&times;</span>
-                                            </button>
-                                        </div>
+                            <p class="heading lead">Que pena Nega!</p>
 
-                                        <!--Body-->
-                                        <div class="modal-body">
-                                            <div>
-                                                <img src="img/2.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
-                                            </div>
-                                            <div class="text-center">
-                                                <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
-                                                <p class="mensagem-erro"> <%= novoUsMsg%> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--/.Content-->
-                                </div>
-                            
+
                             <%
                                     }
                                 }
                             %>
 
-                            </div>
+
 
                             <div class="card">
                                 <article class="card-body">
                                     <h4 class="card-title mt-3 text-center">Cadastro</h4>
                                     <hr>
                                     <p class="text-center">Crie sua conta</p>
-                                    <form action="novoUsuario" method="post">
+                                    <form action="novoUsuario" method="post" class="needs-validation" novalidate>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                             </div>
+
                                             <input name="nome" class="form-control" placeholder="Digite seu nome completo"
-                                                   type="text">
+                                                   type="text" id="validationCustom03" required>
+                                            <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                            <div class="valid-feedback">
+                                                Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                             </div>
+
                                             <input name="login" class="form-control" placeholder="Digite um login"
-                                                   type="login">
+                                                   type="login" id="validationCustom04" required>
+                                            <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                            <div class="valid-feedback">
+                                                Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                             </div>
+
                                             <input name="email" class="form-control" placeholder="Digite um email"
-                                                   type="email">
+                                                   type="email" id="validationCustom05" required>
+                                            <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                            <div class="valid-feedback">
+                                                Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"> <i class="fa fa-home"></i> </span>
                                             </div>
-                                            <input name="endereco" class="form-control" placeholder="EndereÃ§o" type="text">
+
+                                            <input name="endereco" class="form-control" placeholder="Digite seu endereço" type="text" id="validationCustom06" required>
+                                            <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                            <div class="valid-feedback">
+                                                Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                             </div>
+
                                             <input name="senha" class="form-control" placeholder="Digite uma senha"
-                                                   type="password">
+                                                   type="password" id="validationCustom07" required>
+                                            <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                            <div class="valid-feedback">
+                                                Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
                                         </div>
                                         <div class="form-group input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                             </div>
+
                                             <input name="confirmaSenha" class="form-control" placeholder="Repita a senha"
-                                                   type="password">
+                                                   type="password" id="validationCustom08" required>
+                                            <!-- Colocar os if e else e colocar a mensagem de erro específica dentro do "valid-feedback" -->
+                                            <div class="valid-feedback">
+                                                Sucesso...Campo vazio....usuário ou login não existe...senha inválida....
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block mx-0" data-toggle="modal" data-target="#myModal"> Criar conta
+                                            <button type="submit" class="btn btn-primary btn-block mx-0"> Criar conta
                                             </button>
                                         </div>
                                     </form>
                                 </article>
                             </div>
                         </div>
+
                     </div>
                 </div>
-            </section>
         </div>
-        <footer>
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col bg-primary">
-                        <p class="text-center text-light my-1">2019 Â© Todos os direitos reservados.</p>
-                    </div>
-                </div>
+    </section>
+</div>
+<footer>
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-center">
+            <div class="col bg-primary">
+                <p class="text-center text-light my-1">2019 Â© Todos os direitos reservados.</p>
             </div>
-        </footer>
+        </div>
+    </div>
+</footer>
 
-        <!-- jQuery primeiro, depois Popper.js -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-        <!-- Bootstrap JS  -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <!-- DataTables JS -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-        <script type="text/javascript"
-        src="https://cdn.datatables.net/w/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
-        <!-- MDBootstrap -->
-        <script type="text/javascript" src="js/mdb.min.js"></script>
-        <!-- Javascript-->
-        <script type="text/javascript" src="js/script.js"></script>
+<!-- jQuery primeiro, depois Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+crossorigin="anonymous"></script>
+<!-- Bootstrap JS  -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- DataTables JS -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript"
+src="https://cdn.datatables.net/w/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
+<!-- MDBootstrap -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Javascript-->
+<script type="text/javascript" src="js/script.js"></script>
 
-    </body>
+</body>
 
 </html>
