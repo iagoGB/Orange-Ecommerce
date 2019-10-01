@@ -40,6 +40,9 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private String endereco;
     
+    @Column(nullable = false)
+    private String email;
+    
     @Column(name = "login", nullable = false)
     private String login;
     
@@ -53,10 +56,12 @@ public class Usuario implements Serializable {
         this.compras = new ArrayList<>();
     }
 
-    public Usuario(Long usuario_id, String nome, String endereco, String senha, List<Compra> compras) {
+    public Usuario(Long usuario_id, String nome, String endereco, String email, String login, String senha, List<Compra> compras) {
         this.usuario_id = usuario_id;
         this.nome = nome;
         this.endereco = endereco;
+        this.email = email;
+        this.login = login;
         this.senha = senha;
         this.compras = compras;
     }
@@ -85,6 +90,14 @@ public class Usuario implements Serializable {
         this.endereco = endereco;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public String getLogin() {
         return login;
     }
@@ -112,17 +125,21 @@ public class Usuario implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 13 * hash + Objects.hashCode(this.usuario_id);
-        hash = 13 * hash + Objects.hashCode(this.nome);
-        hash = 13 * hash + Objects.hashCode(this.endereco);
-        hash = 13 * hash + Objects.hashCode(this.login);
-        hash = 13 * hash + Objects.hashCode(this.senha);
-        hash = 13 * hash + Objects.hashCode(this.compras);
+        hash = 79 * hash + Objects.hashCode(this.usuario_id);
+        hash = 79 * hash + Objects.hashCode(this.nome);
+        hash = 79 * hash + Objects.hashCode(this.endereco);
+        hash = 79 * hash + Objects.hashCode(this.email);
+        hash = 79 * hash + Objects.hashCode(this.login);
+        hash = 79 * hash + Objects.hashCode(this.senha);
+        hash = 79 * hash + Objects.hashCode(this.compras);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
@@ -130,16 +147,22 @@ public class Usuario implements Serializable {
             return false;
         }
         final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.usuario_id, other.usuario_id)) {
+        if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
-        if (!Objects.equals(this.nome, other.nome)) {
+        if (!Objects.equals(this.endereco, other.endereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
             return false;
         }
         if (!Objects.equals(this.login, other.login)) {
             return false;
         }
         if (!Objects.equals(this.senha, other.senha)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuario_id, other.usuario_id)) {
             return false;
         }
         if (!Objects.equals(this.compras, other.compras)) {
@@ -150,7 +173,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nome=" + nome + ", endereco=" + endereco + ", login=" + login + ", senha=" + senha + ", compras=" + compras + '}';
+        return "Usuario{" + "usuario_id=" + usuario_id + ", nome=" + nome + ", endereco=" + endereco + ", email=" + email + ", login=" + login + ", senha=" + senha + ", compras=" + compras + '}';
     }
 }
     

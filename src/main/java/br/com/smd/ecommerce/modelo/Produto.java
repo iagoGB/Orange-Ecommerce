@@ -26,6 +26,9 @@ public class Produto implements Serializable {
     private Long produto_id;
     
     @Column(nullable = false)
+    private String foto;
+    
+    @Column(nullable = false)
     private String descricao;
     
     @Column(nullable = false)
@@ -44,12 +47,13 @@ public class Produto implements Serializable {
         
     }
 
-    public Produto(Long produto_id, String descricao, Double preco, Integer quantidade, List<ProdutoCategoria> produtoEmCategorias, List<ProdutoCompra> produtoEmCompras) {
+    public Produto(Long produto_id, String foto, String descricao, Double preco, Integer quantidade, List<ProdutoCategoria> listaCategorias, List<ProdutoCompra> produtoEmCompras) {
         this.produto_id = produto_id;
+        this.foto = foto;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidade = quantidade;
-        this.listaCategorias = produtoEmCategorias;
+        this.listaCategorias = listaCategorias;
         this.produtoEmCompras = produtoEmCompras;
     }
 
@@ -61,6 +65,14 @@ public class Produto implements Serializable {
         this.produto_id = produto_id;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+    
     public String getDescricao() {
         return descricao;
     }
@@ -85,6 +97,14 @@ public class Produto implements Serializable {
         this.quantidade = quantidade;
     }
 
+    public List<ProdutoCategoria> getListaCategorias() {
+        return listaCategorias;
+    }
+
+    public void setListaCategorias(List<ProdutoCategoria> listaCategorias) {
+        this.listaCategorias = listaCategorias;
+    }
+    
     public List<ProdutoCategoria> getProdutoEmCategorias() {
         return listaCategorias;
     }
@@ -103,8 +123,9 @@ public class Produto implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
         hash = 97 * hash + Objects.hashCode(this.produto_id);
+        hash = 97 * hash + Objects.hashCode(this.foto);
         hash = 97 * hash + Objects.hashCode(this.descricao);
         hash = 97 * hash + Objects.hashCode(this.preco);
         hash = 97 * hash + Objects.hashCode(this.quantidade);
@@ -125,6 +146,9 @@ public class Produto implements Serializable {
             return false;
         }
         final Produto other = (Produto) obj;
+        if (!Objects.equals(this.foto, other.foto)) {
+            return false;
+        }
         if (!Objects.equals(this.descricao, other.descricao)) {
             return false;
         }
@@ -145,5 +169,9 @@ public class Produto implements Serializable {
         }
         return true;
     }
-     
+
+    @Override
+    public String toString() {
+        return "Produto{" + "produto_id=" + produto_id + ", foto=" + foto + ", descricao=" + descricao + ", preco=" + preco + ", quantidade=" + quantidade + ", listaCategorias=" + listaCategorias + ", produtoEmCompras=" + produtoEmCompras + '}';
+    }  
 }
