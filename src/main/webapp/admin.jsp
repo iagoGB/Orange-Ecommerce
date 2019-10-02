@@ -1,3 +1,4 @@
+<%@page import="br.com.smd.ecommerce.modelo.Administrador"%>
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,7 +35,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <!-- Logo -->
-                        <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="index.jsp">
+                        <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="admin.jsp">
                             <img src="img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
                         </a>
                         <!-- Conteúdo do menu -->
@@ -58,13 +59,11 @@
                                 <li class="nav-item d-sm-none">
                                     <h5>Conta</h5>
                                 </li>
-                                <li class="nav-item d-sm-none">
-                                    <a class="nav-link" href="login.jsp">Entrar ou cadastrar</a>
-                                </li>
+                               
                                 <%-- S� mostra sair se o usu�rio estiver logado --%>
 
                                         <%
-                                            if (session.getAttribute("cliente") != null) {
+                                            if (session.getAttribute("usuario") != null) {
                                         %> 
                                 <li class="nav-item d-sm-none">
                                     <a class="nav-link" href="#">Minha conta</a>
@@ -104,77 +103,27 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-left dropdown-default"
                                     aria-labelledby="navbarDropdownMenuLink-333">
-                                    <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
-                                    
 
-                                    <%-- S� mostra sair se o usu�rio estiver logado --%>
-
-                                        <%
-                                            if (session.getAttribute("cliente") != null) {
-                                        %> 
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="admin.jsp">Minha conta</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="logout">Sair</a>
                                     </div>
-                                    <%
-                                        };
-                                    %>
+                                   
                                 <li>
                                     <div>
                                         <%
                                             String msg = (String) request.getAttribute("msg");
-                                            Usuario u = (Usuario) session.getAttribute("cliente");
-                                            if (msg != null) {
+                                            Administrador adm = (Administrador) session.getAttribute("usuario");
+                                            if (adm != null) {
                                         %>
                                         <small>   Bem vindo <br> </small> 
-                                        <small>   <%=  u.getLogin()%> </small> 
+                                        <small>   <%=  adm.getLogin()%> </small> 
                                         <%  }%>
                                     </div>
                                 </li>
                             </li>
-                            <li class="nav-item mx-1 mx-lg-2">
-                                <a class="nav-link waves-effect waves-light" href="favoritos.jsp">
-                                    <i class="fas fa-heart fa-2x"></i>
-                                    <span class="small badge badge-dark">0</span>
-                                </a>
-                            </li>
-                            <li class="nav-item mx-1 mx-lg-2">
-                                <a class="nav-link waves-effect waves-light" href="carrinho.jsp">
-                                    <i class="fas fa-shopping-basket fa-2x"></i>
-                                    <span class="small badge badge-dark">0</span>
-                                </a>
-                            </li>
                         </ul>
-                        <!-- Busca -->
-                        <div class="col-md-4 d-none d-md-inline-block order-md-3 order-lg-2 mx-md-0 mx-lg-0">
-                            <form class="form-row">
-                                <div class="input-group md-form my-0">
-                                    <input type="search" class="form-control" placeholder="Pesquisar"
-                                        aria-label="Pesquisar" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn-sm btn-dark" type="button" id="inputGroupFileAddon">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Menu rápido de categorias -->
-                        <div class="dropdown d-none d-lg-block order-lg-3">
-                            <button class="btn-md btn-outline-dark shadow-none dropdown-toggle p-1" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Nossos produtos
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="categoria.jsp">Smartphones</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="categoria.jsp">Notebooks</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="categoria.jsp">PCs</a>
-                            </div>
-                        </div>
+                       
+                       
                     </nav>
                 </div>
             </div>

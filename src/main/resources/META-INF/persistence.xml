@@ -10,13 +10,13 @@
 
     
         <!-- entidade mapeada -->
-        <class>br.com.smd.ecommerce.modelo.Administrador</class>
         <class>br.com.smd.ecommerce.modelo.Usuario</class>
         <class>br.com.smd.ecommerce.modelo.Categoria</class>
         <class>br.com.smd.ecommerce.modelo.Compra</class>
         <class>br.com.smd.ecommerce.modelo.Produto</class>
         <class>br.com.smd.ecommerce.modelo.ProdutoCompra</class>
         <class>br.com.smd.ecommerce.modelo.ProdutoCategoria</class>
+        <class>br.com.smd.ecommerce.modelo.Administrador</class>
         
         <!-- Propriedades do banco -->
         <properties>

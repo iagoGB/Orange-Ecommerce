@@ -40,42 +40,11 @@
                         </a>
                         <!-- Conteúdo do menu -->
                         <div class="collapse navbar-collapse order-sm-4 order-md-5 py-3" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <h5>Nossos produtos</h5>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="categoria.jsp">Smartphones
-                                        <span class="sr-only">(current)</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="categoria.jsp">Notebooks</a>
-                                </li>
-                                <li class="nav-item border-bottom border-lg-0 mb-3">
-                                    <a class="nav-link" href="categoria.jsp">PCs</a>
-                                </li>
+                            
                                 <!-- Itens que somem no tamanho sm-->
                                 <li class="nav-item d-sm-none">
                                     <h5>Conta</h5>
                                 </li>
-                                <li class="nav-item d-sm-none">
-                                    <a class="nav-link" href="login.jsp">Entrar ou cadastrar</a>
-                                </li>
-                                <%-- S� mostra sair se o usu�rio estiver logado --%>
-
-                                        <%
-                                            if (session.getAttribute("cliente") != null) {
-                                        %> 
-                                <li class="nav-item d-sm-none">
-                                    <a class="nav-link" href="cliente.jsp">Minha conta</a>
-                                </li>
-                                <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
-                                    <a class="nav-link" href="/logout">Sair</a>
-                                </li>
-                                <%
-                                        };
-                                    %>
                                 <li class="nav-item d-sm-none">
                                     <a class="nav-link" href="favoritos.jsp">Meus favoritos</a>
                                 </li>
@@ -103,40 +72,7 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-user fa-2x"></i>
 
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-left dropdown-default"
-                                    aria-labelledby="navbarDropdownMenuLink-333" id="
-                                       logar">
-                                    <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
-                                    
-
-                                    <%-- S� mostra sair se o usu�rio estiver logado --%>
-
-                                        <%
-                                            if (session.getAttribute("cliente") != null) {
-                                                
-                                        %> 
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="cliente.jsp">Minha conta</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="logout">Sair</a>
-                                    </div>
-                                    <%
-                                        };
-                                    %>
-                                <li>
-                                    <div>
-                                        <%
-                                            String msg = (String) request.getAttribute("msg");
-                                            Usuario u = (Usuario) session.getAttribute("cliente");
-                                            if (msg != null) {
-                                        %>
-                                        <small>   Bem vindo <br> </small> 
-                                        <small>   <%=  u.getLogin()%> </small> 
-                                        <%  }%>
-                                    </div>
-                                </li>
-                            </li>
+                                </a>  
                             <li class="nav-item mx-1 mx-lg-2">
                                 <a class="nav-link waves-effect waves-light" href="favoritos.jsp">
                                     <i class="fas fa-heart fa-2x"></i>
@@ -150,35 +86,8 @@
                                 </a>
                             </li>
                         </ul>
-                        <!-- Busca -->
-                        <div class="col-md-4 d-none d-md-inline-block order-md-3 order-lg-2 mx-md-0 mx-lg-0">
-                            <form class="form-row">
-                                <div class="input-group md-form my-0">
-                                    <input type="search" class="form-control" placeholder="Pesquisar"
-                                        aria-label="Pesquisar" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn-sm btn-dark" type="button" id="inputGroupFileAddon">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Menu rápido de categorias -->
-                        <div class="dropdown d-none d-lg-block order-lg-3">
-                            <button class="btn-md btn-outline-dark shadow-none dropdown-toggle p-1" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Nossos produtos
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="categoria.jsp">Smartphones</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="categoria.jsp">Notebooks</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="categoria.jsp">PCs</a>
-                            </div>
-                        </div>
+                       
+                       
                     </nav>
                 </div>
             </div>
@@ -189,15 +98,22 @@
                 <div class="container-fluid py-4">
                     <!--Área de login e cadastro-->
                     <div class="row justify-content-center">
-                        <!--Login-->
+                        
+                        <!------------------------------------------------------ LOGIN ---------------------------------------------------------------->
+                        
                         <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mx-1 my-1">
 
                             
                             <%
                                 String mensagem = (String) request.getAttribute("msg");
-                                if (msg != null) {
+                                if (mensagem != null) {
                             %>
-                            <p class="mensagem-erro" > <%= mensagem%> </p>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <p class="text-danger"><%=mensagem %></p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
                             <%
                                 }
                             %>
@@ -269,17 +185,15 @@
                             %>
 
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <p class="text-danger"><%=erroView%></p>
+                                <p class="text-danger"><%=erroView %></p>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            
-
 
                             <%
-                                    }
                                 }
+                            }
                             %>
 
 

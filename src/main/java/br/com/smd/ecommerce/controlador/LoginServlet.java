@@ -6,6 +6,8 @@
 package br.com.smd.ecommerce.controlador;
 
 import br.com.smd.ecommerce.dao.UsuarioDAO;
+import br.com.smd.ecommerce.dao.AdministradorDAO;
+import br.com.smd.ecommerce.modelo.Administrador;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -22,28 +24,20 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
         
             UsuarioDAO usuarioDAO = new UsuarioDAO();
+            AdministradorDAO administradorDAO = new AdministradorDAO();
                      
             try {
                 //Pega os dados do formulário
-                String e = request.getParameter("emailLogin");
-                String s = request.getParameter("senhaLogin");
+                String login = request.getParameter("emailLogin");
+                String senha = request.getParameter("senhaLogin");
                 
                 // Usuario e senha não podem ser vazios
-                if (e.isEmpty() || s.isEmpty()){
+                if (login.isEmpty() || senha.isEmpty()){
                     System.out.println("Campo de usuário e/ou senha vazio(s)");
                     request.setAttribute("msg", "Campo de usuário e/ou senha vazio(s)");
                     request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -52,27 +46,39 @@ public class LoginServlet extends HttpServlet {
                 //String encriptSenha = BCrypt.withDefaults().hashToString(12, s.toCharArray());
                 
                 //Faz uma consulta ao banco
-                Usuario consulta;
-                consulta = usuarioDAO.verificarSessao(e, s);
+                Usuario consultaCliente;
+                Administrador consultaAdm;
+                consultaCliente = usuarioDAO.verificarSessao(login, senha);
+                consultaAdm = administradorDAO.verificarSessao(login, senha);
                 
-                if (consulta != null){
+                if (consultaAdm != null){
+                    //Se os dados baterem, a sessão é preparada para Administrador
+                    System.out.println("Senha bateu com a do banco - ADMIN");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("usuario", consultaAdm );
+                    request.getRequestDispatcher("admin.jsp").forward(request, response);
+                    return;
+                }
+                
+                if (consultaCliente != null){
                     
-                    //Se os dados baterem, a sessão é preparada
-                    System.out.println("Senha bateu com a do banco");
+                    //Se os dados baterem, a sessão é preparada para Cliente
+                    System.out.println("Senha bateu com a do banco - CLIENTE ");
                     HttpSession session = request.getSession();
                     request.setAttribute("msg", "Bem vindo, ");
-                    session.setAttribute("cliente", consulta );
+                    session.setAttribute("usuario", consultaCliente );
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     
                 } else {
                     
                    //Se o resultado vier nulo, os dados não coincidem, 
                    //enviar mensagem de login inválido
-                   System.out.println("Não se autenticou \n"+ e +"\n"+s);
+                   System.out.println("Não se autenticou \n"+ login +"\n"+ senha);
                    request.setAttribute("msg", "Usuário ou senha inválidos");
                    request.getRequestDispatcher("login.jsp").forward(request, response);
                     
                 }  
+                
             } catch (IOException e){
                 
                 //Qualquer erro que ocorrer durante o processo, envie o usuário
@@ -83,25 +89,13 @@ public class LoginServlet extends HttpServlet {
 
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

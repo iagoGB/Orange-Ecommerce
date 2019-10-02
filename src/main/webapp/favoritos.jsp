@@ -63,15 +63,6 @@
                                 </li>
                                 <%-- S� mostra sair se o usu�rio estiver logado --%>
 
-                                        <%
-                                            if (session.getAttribute("cliente") != null) {
-                                        %> 
-                                <li class="nav-item d-sm-none">
-                                    <a class="nav-link" href="#">Minha conta</a>
-                                </li>
-                                <%
-                                        };
-                                    %>
                                 <li class="nav-item d-sm-none">
                                     <a class="nav-link" href="favoritos.jsp">Meus favoritos</a>
                                 </li>
@@ -104,18 +95,24 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-left dropdown-default"
                                     aria-labelledby="navbarDropdownMenuLink-333">
-                                    <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
+                                     <%
+                                        if (session.getAttribute("usuario") == null) {
+                                    %>
+                                        <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
+                                    <%
+                                        }
+                                    %>
                                     
 
                                     <%-- S� mostra sair se o usu�rio estiver logado --%>
 
                                         <%
-                                            if (session.getAttribute("cliente") != null) {
+                                            if (session.getAttribute("usuario") != null) {
                                         %> 
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="admin.jsp">Minha conta</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="logout">Sair</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="cliente.jsp">Minha conta</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="logout">Sair</a>
                                     </div>
                                     <%
                                         };
@@ -124,12 +121,14 @@
                                     <div>
                                         <%
                                             String msg = (String) request.getAttribute("msg");
-                                            Usuario u = (Usuario) session.getAttribute("cliente");
-                                            if (msg != null) {
+                                            Usuario u = (Usuario) session.getAttribute("usuario");
+                                            if (u != null) {
                                         %>
-                                        <small>   Bem vindo <br> </small> 
-                                        <small>   <%=  u.getLogin()%> </small> 
-                                        <%  }%>
+                                                <small>   Bem vindo <br> </small> 
+                                                <small>   <%=  u.getLogin()%> </small> 
+                                        <%  
+                                            }
+                                        %>
                                     </div>
                                 </li>
                             </li>

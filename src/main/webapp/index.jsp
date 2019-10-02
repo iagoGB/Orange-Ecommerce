@@ -64,7 +64,7 @@
                                 <%-- S� mostra sair se o usu�rio estiver logado --%>
 
                                         <%
-                                            if (session.getAttribute("cliente") != null) {
+                                            if (session.getAttribute("usuario") != null) {
                                         %> 
                                 <li class="nav-item d-sm-none">
                                     <a class="nav-link" href="cliente.jsp">Minha conta</a>
@@ -106,13 +106,18 @@
                                 <div class="dropdown-menu dropdown-menu-left dropdown-default"
                                     aria-labelledby="navbarDropdownMenuLink-333" id="
                                        logar">
-                                    <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
-                                    
+                                    <%
+                                        if (session.getAttribute("usuario") == null) {
+                                    %>
+                                        <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
+                                    <%
+                                        }
+                                    %>
 
                                     <%-- S� mostra sair se o usu�rio estiver logado --%>
 
                                         <%
-                                            if (session.getAttribute("cliente") != null) {
+                                            if (session.getAttribute("usuario") != null) {
                                                 
                                         %> 
                                         <div class="dropdown-divider"></div>
@@ -127,8 +132,8 @@
                                     <div>
                                         <%
                                             String msg = (String) request.getAttribute("msg");
-                                            Usuario u = (Usuario) session.getAttribute("cliente");
-                                            if (msg != null) {
+                                            Usuario u = (Usuario) session.getAttribute("usuario");
+                                            if (u != null) {
                                         %>
                                         <small>   Bem vindo <br> </small> 
                                         <small>   <%=  u.getLogin()%> </small> 
