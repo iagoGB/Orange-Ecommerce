@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/09/2019, 07:58:51
+    Author     : Iago Gomes
+*/
+
+
+.mensagem-erro {
+    color: red; 
+    display: flex; 
+    justify-content: center;
+}
+
+.mensagem-sucesso {
+    color: green; 
+    display: flex; 
+    justify-content: center;
+}
+
+.config {
+    width: 100% !important;
+    margin-bottom: -5px !important;  
+    color:red !important;
+}
+
+.verde{
+    color: green !important;
+    text-align:center;
+}
+
+.vermelho{
+    color: red !important;
+    text-align:center;
+}
