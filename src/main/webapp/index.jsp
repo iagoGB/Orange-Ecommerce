@@ -67,7 +67,10 @@
                                             if (session.getAttribute("cliente") != null) {
                                         %> 
                                 <li class="nav-item d-sm-none">
-                                    <a class="nav-link" href="#">Minha conta</a>
+                                    <a class="nav-link" href="cliente.jsp">Minha conta</a>
+                                </li>
+                                <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
+                                    <a class="nav-link" href="/logout">Sair</a>
                                 </li>
                                 <%
                                         };
@@ -78,9 +81,7 @@
                                 <li class="nav-item d-sm-none">
                                     <a class="nav-link" href="carrinho.jsp">Meu carrinho</a>
                                 </li>
-                                <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
-                                    <a class="nav-link" href="/logout">Sair</a>
-                                </li>
+                                
                             </ul>
                             <form class="d-md-none form-row">
                                 <div class="input-group md-form my-0">
@@ -103,7 +104,8 @@
 
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-left dropdown-default"
-                                    aria-labelledby="navbarDropdownMenuLink-333">
+                                    aria-labelledby="navbarDropdownMenuLink-333" id="
+                                       logar">
                                     <a class="dropdown-item" href="login.jsp">Entrar ou Cadastrar</a>
                                     
 
@@ -111,9 +113,10 @@
 
                                         <%
                                             if (session.getAttribute("cliente") != null) {
+                                                
                                         %> 
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="admin.jsp">Minha conta</a>
+                                        <a class="dropdown-item" href="cliente.jsp">Minha conta</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="logout">Sair</a>
                                     </div>
