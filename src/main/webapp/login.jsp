@@ -1,4 +1,5 @@
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -294,15 +295,8 @@
         </div>
     </section>
 </div>
-<footer>
-    <div class="container-fluid">
-        <div class="row align-items-center justify-content-center">
-            <div class="col bg-primary">
-                <p class="text-center text-light my-1">2019 Â© Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+<!------------------------------------- RODAPÉ ----------------------------------------------------->
+<c:import url="rodape.jsp" />
 
 <!-- jQuery primeiro, depois Popper.js -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
