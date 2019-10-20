@@ -703,6 +703,7 @@
                                         <tbody>
                                             <c:forEach var="categoria" items="${listacategorias}">
                                                 <tr>
+                                                    <td></td>
                                                     <td><c:out value="${categoria.descricao}" /></td>
                                                 </tr>
                                             </c:forEach>
