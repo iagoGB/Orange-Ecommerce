@@ -701,10 +701,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="categoria" items="${listacategorias}">
+                                            <c:forEach var="categoria" items="${listaCategorias}">
                                                 <tr>
                                                     <td></td>
-                                                    <td><c:out value="${categoria.descricao}" /></td>
+                                                    <td> <c:out value="${categoria.descricao}" /> </td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

@@ -32,7 +32,15 @@ public class CategoriaDAO {
 
     public List<Categoria> mostrarCategorias() {
         EntityManager manager = new FabricaDeConexao().getConexao();
-        return manager.createQuery("FROM TB_CATEGORIA").getResultList();
+        List<Categoria> listaCategoria = null;
+        try {
+            
+            listaCategoria = (List<Categoria>)manager.createQuery("FROM TB_CATEGORIA").getResultList();
+            
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro ao carregar listas: "+ e);
+        }
+        return listaCategoria;
     }
 
     public void atualizarCategoria(Categoria c) {

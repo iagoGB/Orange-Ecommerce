@@ -14,12 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import jdk.nashorn.internal.objects.NativeArray;
 
 /**
  *
  * @author Caique
  */
-@WebServlet("/listarcategoria")
+@WebServlet("/listarCategoria")
 public class ListarCategoriaServlet extends HttpServlet {
 
     /**
@@ -31,20 +32,20 @@ public class ListarCategoriaServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    CategoriaDAO categoriaDAO = null;
+    CategoriaDAO categoriaDAO = new CategoriaDAO();
 
-    protected void listarcategoria(HttpServletRequest request, HttpServletResponse response)
+    protected void listarCategoria(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Categoria> listacategorias = null;
-        listacategorias = categoriaDAO.mostrarCategorias();
-        request.setAttribute("listacategorias", listacategorias);
+        List<Categoria> listaCategorias = null;
+        listaCategorias = categoriaDAO.mostrarCategorias();
+        request.setAttribute("listaCategorias", listaCategorias);
         request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        listarcategoria(request, response);
+        listarCategoria(request, response);
     }
 
 }

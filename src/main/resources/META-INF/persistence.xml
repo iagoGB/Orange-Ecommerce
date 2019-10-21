@@ -3,7 +3,7 @@
                  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
                  version="2.1">    
-    <persistence-unit name="ecommerceSMDPU">
+    <persistence-unit name="orangeEcommercePU">
     
         <!-- provedor/implementacao do JPA -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -23,11 +23,11 @@
             <property name="javax.persistence.jdbc.driver" 
                       value="org.postgresql.Driver" /> <!--  Driver do banco -->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:postgresql://localhost:5432/ecommerce-smd" /> <!-- Nome do banco -->
+                      value="jdbc:postgresql://localhost:5432/orange-ecommerce" /> <!-- Nome do banco -->
             <property name="javax.persistence.jdbc.user" 
                       value="postgres" /> <!-- Usuario do banco -->
             <property name="javax.persistence.jdbc.password" 
-                      value="250416" /> <!-- Senha do banco -->
+                      value="ufc123" /> <!-- Senha do banco -->
             <property name="hibernate.dialect" 
                       value="org.hibernate.dialect.PostgreSQL95Dialect"/> <!-- DB Dialect -->
             <property name="hibernate.hbm2ddl.auto" 

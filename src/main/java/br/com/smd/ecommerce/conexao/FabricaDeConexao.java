@@ -16,7 +16,7 @@ import javax.persistence.Persistence;
 public class FabricaDeConexao {
      
     //Conexão com banco de dados
-    private static  EntityManagerFactory conexao = Persistence.createEntityManagerFactory("ecommerceSMDPU");
+    private static  EntityManagerFactory conexao = Persistence.createEntityManagerFactory("orangeEcommercePU");
     
     //Retorna uma conexão ao banco de dados
     public EntityManager getConexao(){
