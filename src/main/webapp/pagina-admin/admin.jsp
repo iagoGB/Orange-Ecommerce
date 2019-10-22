@@ -23,118 +23,14 @@
     </head>
 
     <body>
-        <header>
-            <div class="container-fluid mb-3">
-                <!-- Navbar principal -->
-                <div class="row shadow justify-content-start">
-                    <div class="col-12">
-                        <!--Navbar -->
-                        <nav class="mb-1 navbar navbar-light shadow-none">
-                            <!-- Menu -->
-                            <button class="navbar-toggler order-sm-1 order-md-1 d-lg-none" id="menuresponsivo" type="button"
-                                    data-toggle="collapse" data-target="#navbarSupportedContent"
-                                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <!-- Logo -->
-                            <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="admin.jsp">
-                                <img src="img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
-                            </a>
-                            <!-- ConteÃºdo do menu -->
-                            <div class="collapse navbar-collapse order-sm-4 order-md-5 py-3" id="navbarSupportedContent">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <h5>Nossos produtos</h5>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="categoria.jsp">Smartphones
-                                            <span class="sr-only">(current)</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="categoria.jsp">Notebooks</a>
-                                    </li>
-                                    <li class="nav-item border-bottom border-lg-0 mb-3">
-                                        <a class="nav-link" href="categoria.jsp">PCs</a>
-                                    </li>
-                                    <!-- Itens que somem no tamanho sm-->
-                                    <li class="nav-item d-sm-none">
-                                        <h5>Conta</h5>
-                                    </li>
-
-                                    <%-- Sï¿½ mostra sair se o usuï¿½rio estiver logado --%>
-
-                                    <%
-                                        if (session.getAttribute("usuario") != null) {
-                                    %> 
-                                    <li class="nav-item d-sm-none">
-                                        <a class="nav-link" href="#">Minha conta</a>
-                                    </li>
-                                    <%
-                                        };
-                                    %>
-                                    <li class="nav-item d-sm-none">
-                                        <a class="nav-link" href="favoritos.jsp">Meus favoritos</a>
-                                    </li>
-                                    <li class="nav-item d-sm-none">
-                                        <a class="nav-link" href="carrinho.jsp">Meu carrinho</a>
-                                    </li>
-                                    <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
-                                        <a class="nav-link" href="/logout">Sair</a>
-                                    </li>
-                                </ul>
-                                <form class="d-md-none form-row">
-                                    <div class="input-group md-form my-0">
-                                        <input type="search" class="form-control" placeholder="Pesquisar"
-                                               aria-label="Pesquisar" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn-sm btn-dark" type="button" id="inputGroupFileAddon">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- Conta -->
-                            <ul class="navbar-nav nav-flex-icons d-none d-sm-inline-flex order-sm-3 order-md-4 order-lg-4">
-                                <li class="nav-item dropdown mx-1 mx-lg-2">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-user fa-2x"></i>
-
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-left dropdown-default"
-                                         aria-labelledby="navbarDropdownMenuLink-333">
-
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="logout">Sair</a>
-                                    </div>
-
-                                <li>
-                                    <div>
-                                        <%
-                                            String msg = (String) request.getAttribute("msg");
-                                            Administrador adm = (Administrador) session.getAttribute("usuario");
-                                            if (adm != null) {
-                                        %>
-                                        <small>   Bem vindo <br> </small> 
-                                        <small>   <%=  adm.getLogin()%> </small> 
-                                        <%  }%>
-                                    </div>
-                                </li>
-                                </li>
-                            </ul>
-
-
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!------------------------------------- CABEÇALHO ----------------------------------------------------->
+   	<c:import url="cabecalhoAdmin.jsp" />
+        
         <div class="content">
             <section>
                 <div class="container-fluid">
                     <div class="row py-3 px-3">
+                        
                         <div class="col-lg-3 col-md-4 col-sm-3 col-12 p-3 mx-auto order-2 order-sm-1">
                             <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-dadosadmin">Meus
                                 dados</button>
@@ -165,48 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
-                            <!-- Meus Dados  -->
-                            <div class="card card-cascade narrower d-none" id="collapse-dadosadmin">
-                                <div
-                                    class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
-                                    <a href="" class="white-text mx-3">Meus dados</a>
-                                    <div class="ml-auto mr-2">
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
-                                                data-toggle="modal" data-target="#alterarconta">
-                                            <i class="fas fa-pencil-alt fa-2x mt-0"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
-                                                data-toggle="modal" data-target="#excluirconta">
-                                            <i class="fas fa-trash-alt fa-2x mt-0"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <form class="py-3 mx-4">
-                                    <div class="form-group">
-                                        <label for="exampleInputNome1">Nome Completo</label>
-                                        <input type="nome" class="form-control" id="exampleInputNome1"
-                                               placeholder="Nome do cliente">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">EndereÃ§o de email</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               aria-describedby="emailHelp" placeholder="Email do cliente">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputLogin1">Login</label>
-                                        <input type="login" class="form-control" id="exampleInputLogin1"
-                                               placeholder="Login do cliente">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Senha</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                               placeholder="Senha do cliente">
-                                    </div>
-
-                                </form>
-
-                            </div>
+                       
                             <!-- Alterar conta -->
                             <div class="modal fade" id="alterarconta" tabindex="-1" role="dialog"
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -258,53 +113,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Gerenciar clientes -->
-                            <div class="card card-cascade narrower d-none" id="collapse-cadastros">
-                                <div
-                                    class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
-                                    <a href="" class="white-text mx-3">Clientes</a>
-                                    <div class="ml-auto mr-2">
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
-                                                data-toggle="modal" data-target="#excluircadastros">
-                                            <i class="fas fa-trash-alt fa-2x mt-0"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="table-responsive p-3">
-                                    <table class="table table-hover table-bordered" id="dtcadastros">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th></th>
-                                                <th scope="col">Nome</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Login</th>
-                                                <th scope="col">Senha</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-                            </div>
+                           
+                            
                             <!-- Remover compras -->
                             <div class="modal fade" id="excluircadastros" tabindex="-1" role="dialog"
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -889,15 +699,8 @@
                 </div>
             </section>
         </div>
-        <footer>
-            <div class="container-fluid fixed-bottom">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col bg-primary">
-                        <p class="text-center text-light my-1">2019 Â© Todos os direitos reservados.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <!------------------------------------- RODAPÉ ----------------------------------------------------->
+   	<c:import url="rodapeAdmin.jsp" />
 
 
         <!-- jQuery primeiro, depois Popper.js -->

@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
                     System.out.println("Senha bateu com a do banco - ADMIN");
                     HttpSession session = request.getSession();
                     session.setAttribute("usuario", consultaAdm );
-                    request.getRequestDispatcher("admin.jsp").forward(request, response);
+                    request.getRequestDispatcher("pagina-admin/homeAdmin.jsp").forward(request, response);
                     return;
                 }
                 
