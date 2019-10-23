@@ -7,20 +7,28 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="col-lg-3 col-md-4 col-sm-3 col-12 p-3 mx-auto order-2 order-sm-1">
-    <a href="homeAdmin.jsp"> 
+    <a href="adm?page=meusDados"> 
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-dadosadmin">Meus
         dados</button>
     </a>
-    <a href="admin">
-    <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-cadastros">Gerenciar
+    
+    <a href="admin?page=gerenciarCadastros">
+        <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-cadastros">Gerenciar
         cadastros</button>
     </a>
-    <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-compras">Gerenciar
-        compras</button>
-    <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-produtos">Gerenciar
-        produtos</button>
-    <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-categorias">Gerenciar
-        categorias</button>
+    
+    <a href="admin?page=gerenciarCompras">
+        <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-compras">Gerenciar
+            compras</button>
+    </a>
+    <a href="admin?page=gerenciarProdutos">
+        <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-produtos">Gerenciar
+            produtos</button>
+    </a>
+    <a href="admin?page=gerenciarCategorias">
+        <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-categorias">Gerenciar
+            categorias</button>
+    </a>
     <div class="dropdown">
         <button type="button" class="btn btn-outline-dark btn-block mx-0 dropdown-toggle"
                 role="button" data-display="static" id="dropdownMenuLink" data-toggle="dropdown"

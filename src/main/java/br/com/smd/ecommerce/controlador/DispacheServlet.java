@@ -24,8 +24,29 @@ public class DispacheServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String pagina = request.getParameter("page");
+        
         
         request.getRequestDispatcher("pagina-admin/gerenciarCadastros.jsp").forward(request, response);
+        
+        switch(pagina){
+            case "gerenciarCadastros":
+                request.getRequestDispatcher("pagina-admin/gerenciarCadastros.jsp").forward(request, response);
+            break;
+            case "gerenciarCompras":
+                request.getRequestDispatcher("pagina-admin/gerenciarCompras.jsp").forward(request, response);
+            break;
+            case "gerenciarProdutos":
+                request.getRequestDispatcher("pagina-admin/gerenciarProdutos.jsp").forward(request, response);
+            break;
+            case "gerenciarCategorias":
+                request.getRequestDispatcher("pagina-admin/gerenciarCategorias.jsp").forward(request, response);
+            break;
+            
+            default:
+                request.getRequestDispatcher("pagina-admin/meusDados.jsp").forward(request, response);
+            break;          
+        }
 
     }
 
