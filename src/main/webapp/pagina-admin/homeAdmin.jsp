@@ -1,7 +1,7 @@
 <%-- 
     Document   : homeAdmin
     Created on : 22/10/2019, 15:49:18
-    Author     : aluno
+    Author     : Iago Gomes
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,12 +9,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <c:import url="head.jsp" />
+        <jsp:include page="head.jsp" />
     </head>
 
     <body>
         <header>
-            <c:import url="cabecalhoAdmin.jsp" />
+            <jsp:include page="cabecalhoAdmin.jsp" />
         </header>
         
         <div class="content">
@@ -25,8 +25,8 @@
                     
                     <div class="row py-3 px-3">
                         
-                        <c:import url="navMenuAdmin.jsp" />
-                        <c:import url="meusDadosAdmin.jsp" />   
+                        <jsp:include page="navMenuAdmin.jsp" />
+                        <jsp:include page="meusDadosAdmin.jsp" />
                         
                     </div>
                         
@@ -35,8 +35,8 @@
             </section>
 
         </div>
-
-        <c:import url="rodapeAdmin.jsp" /> 
+                        
+        <jsp:include page="rodapeAdmin.jsp" />
 
     </body>
 

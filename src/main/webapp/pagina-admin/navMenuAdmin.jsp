@@ -7,10 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="col-lg-3 col-md-4 col-sm-3 col-12 p-3 mx-auto order-2 order-sm-1">
-    <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-dadosadmin">Meus
+    <a href="homeAdmin.jsp"> 
+        <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-dadosadmin">Meus
         dados</button>
+    </a>
+    <a href="admin">
     <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-cadastros">Gerenciar
         cadastros</button>
+    </a>
     <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-compras">Gerenciar
         compras</button>
     <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-produtos">Gerenciar

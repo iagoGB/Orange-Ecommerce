@@ -1,6 +1,13 @@
 $(document).ready(function () {
     $("#collapse-dadosadmin").removeClass("d-none");
     $("#collapse-dadoscliente").removeClass("d-none");
+    $("#collapse-cadastros").removeClass("d-none")
+    $("#collapse-historico").removeClass("d-none")
+    $("#collapse-produtos").removeClass("d-none")
+    $("#collapse-categorias").removeClass("d-none")
+    $("#collapse-relatorio1").removeClass("d-none")
+    $("#collapse-relatorio2").removeClass("d-none")
+    $("#collapse-relatorio3").removeClass("d-none")
 
     $('#dtcadastros').DataTable({
         "searching": true,
@@ -87,7 +94,7 @@ $(document).ready(function () {
     });
     $("#btn-cadastros").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").removeClass("d-none");
+        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").addClass("d-none");
@@ -160,7 +167,7 @@ $(document).ready(function () {
     (function () {
         'use strict';
         window.addEventListener('load', function () {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
             var forms = document.getElementsByClassName('needs-validation');
             // Loop over them and prevent submission
             var validation = Array.prototype.filter.call(forms, function (form) {
