@@ -1,7 +1,5 @@
 <%@page import="br.com.smd.ecommerce.modelo.Administrador"%>
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
-<%@page import="br.com.smd.ecommerce.modelo.Categoria"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,14 +21,21 @@
     </head>
 
     <body>
-        <!------------------------------------- CABEÇALHO ----------------------------------------------------->
-   	<c:import url="cabecalhoAdmin.jsp" />
         
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
         <div class="content">
             <section>
                 <div class="container-fluid">
                     <div class="row py-3 px-3">
-                        
                         <div class="col-lg-3 col-md-4 col-sm-3 col-12 p-3 mx-auto order-2 order-sm-1">
                             <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-dadosadmin">Meus
                                 dados</button>
@@ -47,7 +52,7 @@
                                         role="button" data-display="static" id="dropdownMenuLink" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                     Gerar
-                                    relatÃ³rio
+                                    relatório
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
@@ -57,64 +62,61 @@
                                     <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                                             id="btn-relatorio3">Total de valor recebido</button>
                                     <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
-                                            id="btn-relatorio4">Exportar relatÃ³rio</button>
+                                            id="btn-relatorio4">Exportar relatório</button>
                                 </div>
                             </div>
                         </div>
-                       
-                            <!-- Alterar conta -->
-                            <div class="modal fade" id="alterarconta" tabindex="-1" role="dialog"
-                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="TituloModalCentralizado">Alterar meus dados</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <label for="textInput">Informe um novo nome completo</label>
-                                            <input type="text" id="textInput" class="form-control mb-4">
-                                            <label for="textInput">Informe um novo email</label>
-                                            <input type="text" id="textInput" class="form-control mb-4">
-                                            <label for="textInput">Informe um novo login</label>
-                                            <input type="text" id="textInput" class="form-control mb-4">
-                                            <label for="textInput">Informe uma nova senha</label>
-                                            <input type="text" id="textInput" class="form-control mb-4">
-                                            <label for="textInput">Repita a nova senha</label>
-                                            <input type="text" id="textInput" class="form-control mb-4">
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
-                                            <button type="button" class="btn btn-dark">Salvar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Remover conta -->
-                            <div class="modal fade" id="excluirconta" tabindex="-1" role="dialog"
-                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="TituloModalCentralizado">Excluir conta</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Deseja excluir sua conta?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">NÃ£o</button>
-                                            <button type="button" class="btn btn-dark">Sim</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                           
+                        
+                        <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
                             
+                        </div>
+                            <!-- Gerenciar clientes -->
+                            <div class="card card-cascade narrower d-none" id="collapse-cadastros">
+                                <div
+                                    class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
+                                    <a href="" class="white-text mx-3">Clientes</a>
+                                    <div class="ml-auto mr-2">
+                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                                                data-toggle="modal" data-target="#excluircadastros">
+                                            <i class="fas fa-trash-alt fa-2x mt-0"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive p-3">
+                                    <table class="table table-hover table-bordered" id="dtcadastros">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th></th>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Login</th>
+                                                <th scope="col">Senha</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td>#</td>
+                                                <td>#</td>
+                                                <td>#</td>
+                                                <td>#</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>#</td>
+                                                <td>#</td>
+                                                <td>#</td>
+                                                <td>#</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
                             <!-- Remover compras -->
                             <div class="modal fade" id="excluircadastros" tabindex="-1" role="dialog"
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -130,17 +132,17 @@
                                             <p>Deseja remover esse(s) clientes(s)?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">NÃ£o</button>
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
                                             <button type="button" class="btn btn-dark">Sim</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- HistÃ³rico de compras -->
+                            <!-- Histórico de compras -->
                             <div class="card card-cascade narrower d-none" id="collapse-historico">
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
-                                    <a href="" class="white-text mx-3">HistÃ³rico de compras</a>
+                                    <a href="" class="white-text mx-3">Histórico de compras</a>
                                     <div class="ml-auto mr-2">
                                         <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
                                                 data-toggle="modal" data-target="#excluircompras">
@@ -156,7 +158,7 @@
                                                 <th></th>
                                                 <th scope="col">Data</th>
                                                 <th scope="col">Cliente</th>
-                                                <th scope="col">PreÃ§o</th>
+                                                <th scope="col">Preço</th>
                                                 <th scope="col">Produto(s)</th>
                                                 <th scope="col">Quantidade(s)</th>
                                                 <th scope="col">Valor da compra</th>
@@ -204,7 +206,7 @@
                                             <p>Deseja remover essa(s) compra(s) do cliente?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">NÃ£o</button>
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
                                             <button type="button" class="btn btn-dark">Sim</button>
                                         </div>
                                     </div>
@@ -237,8 +239,8 @@
                                             <tr>
                                                 <th></th>
                                                 <th scope="col">Foto</th>
-                                                <th scope="col">DescriÃ§Ã£o</th>
-                                                <th scope="col">PreÃ§o</th>
+                                                <th scope="col">Descrição</th>
+                                                <th scope="col">Preço</th>
                                                 <th scope="col">Quantidade</th>
                                                 <th scope="col">Categoria(s)</th>
                                             </tr>
@@ -349,7 +351,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <label for="textInput">Informe uma descriÃ§Ã£o</label>
+                                            <label for="textInput">Informe uma descrição</label>
                                             <input type="text" id="textInput" class="form-control mb-4">
 
                                             <label for="textInput">Adicione uma imagem ao
@@ -366,7 +368,7 @@
                                                 </div>
                                             </div>
 
-                                            <label for="textInput">Informe um preÃ§o</label>
+                                            <label for="textInput">Informe um preço</label>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">R$</span>
@@ -384,7 +386,7 @@
                                                 <select class="custom-select" id="inputGroupSelect01" multiple size="3">
                                                     <option value="1">Um</option>
                                                     <option value="2">Dois</option>
-                                                    <option value="3">TrÃªs</option>
+                                                    <option value="3">Três</option>
                                                     <option value="4">Quatro</option>
                                                     <option value="5">Cinco</option>
                                                     <option value="6">Seis</option>
@@ -410,7 +412,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <label for="textInput">Informe uma nova descriÃ§Ã£o</label>
+                                            <label for="textInput">Informe uma nova descrição</label>
                                             <input type="text" id="textInput" class="form-control mb-4">
 
                                             <label for="textInput">Atualize a imagem do
@@ -427,7 +429,7 @@
                                                 </div>
                                             </div>
 
-                                            <label for="textInput">Informe um novo preÃ§o</label>
+                                            <label for="textInput">Informe um novo preço</label>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">R$</span>
@@ -445,7 +447,7 @@
                                                 <select class="custom-select" id="inputGroupSelect01" multiple size="3">
                                                     <option value="1">Um</option>
                                                     <option value="2">Dois</option>
-                                                    <option value="3">TrÃªs</option>
+                                                    <option value="3">Três</option>
                                                     <option value="4">Quatro</option>
                                                     <option value="5">Cinco</option>
                                                     <option value="6">Seis</option>
@@ -474,7 +476,7 @@
                                             <p>Deseja remover esse(s) produto(s) do estoque?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">NÃ£o</button>
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
                                             <button type="button" class="btn btn-dark">Sim</button>
                                         </div>
                                     </div>
@@ -498,7 +500,6 @@
                                                 data-toggle="modal" data-target="#excluircat">
                                             <i class="fas fa-trash-alt fa-2x mt-0"></i>
                                         </button>
-
                                     </div>
                                 </div>
 
@@ -511,43 +512,37 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="categoria" items="${listaCategorias}">
-                                                <tr>
-                                                    <td></td>
-                                                    <td> <c:out value="${categoria.descricao}" /> </td>
-                                                </tr>
-                                            </c:forEach>
+                                            <tr>
+                                                <td></td>
+                                                <td>MotoG3</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
                             </div>
                             <!-- Inserir nova categoria -->
-                            <form action="inserircategoria" method="post">
-                                <div class="modal fade" id="inserircat" tabindex="-1" role="dialog"
-                                     aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="TituloModalCentralizado">Inserir categoria</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-
-                                                <label for="textInput">Informe uma descriÃ§Ã£o</label>
-                                                <input name="descricao" type="text" id="textInput" class="form-control mb-4">
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
-                                                <button type="submit" class="btn btn-dark">Salvar</button>
-                                            </div>
+                            <div class="modal fade" id="inserircat" tabindex="-1" role="dialog"
+                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="TituloModalCentralizado">Inserir categoria</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label for="textInput">Informe uma descrição</label>
+                                            <input type="text" id="textInput" class="form-control mb-4">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                                            <button type="button" class="btn btn-dark">Salvar</button>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                             <!-- Alterar categoria -->
                             <div class="modal fade" id="alterarcat" tabindex="-1" role="dialog"
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -560,7 +555,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <label for="textInput">Informe uma nova descriÃ§Ã£o</label>
+                                            <label for="textInput">Informe uma nova descrição</label>
                                             <input type="text" id="textInput" class="form-control mb-4">
                                         </div>
                                         <div class="modal-footer">
@@ -585,17 +580,17 @@
                                             <p>Deseja remover essa(s) categoria(s)?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">NÃ£o</button>
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
                                             <button type="button" class="btn btn-dark">Sim</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Gerar relatÃ³rio 1 -->
+                            <!-- Gerar relatório 1 -->
                             <div class="card card-cascade narrower d-none" id="collapse-relatorio1">
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
-                                    <a href="" class="white-text mx-3">Total de compras por cliente e por perÃ­odo</a>
+                                    <a href="" class="white-text mx-3">Total de compras por cliente e por período</a>
                                 </div>
 
                                 <div class="table-responsive p-3">
@@ -626,7 +621,7 @@
 
 
                             </div>
-                            <!-- Gerar relatÃ³rio 2 -->
+                            <!-- Gerar relatório 2 -->
                             <div class="card card-cascade narrower d-none" id="collapse-relatorio2">
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
@@ -638,8 +633,8 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th scope="col">Id</th>
-                                                <th scope="col">DescriÃ§Ã£o</th>
-                                                <th scope="col">PreÃ§o</th>
+                                                <th scope="col">Descrição</th>
+                                                <th scope="col">Preço</th>
 
                                             </tr>
                                         </thead>
@@ -662,7 +657,7 @@
 
 
                             </div>
-                            <!-- Gerar relatÃ³rio 3 -->
+                            <!-- Gerar relatório 3 -->
                             <div class="card card-cascade narrower d-none" id="collapse-relatorio3">
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
@@ -699,8 +694,15 @@
                 </div>
             </section>
         </div>
-        <!------------------------------------- RODAPÉ ----------------------------------------------------->
-   	<c:import url="rodapeAdmin.jsp" />
+        <footer>
+            <div class="container-fluid fixed-bottom">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col bg-primary">
+                        <p class="text-center text-light my-1">2019 © Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
 
         <!-- jQuery primeiro, depois Popper.js -->

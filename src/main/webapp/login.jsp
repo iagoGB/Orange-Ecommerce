@@ -296,7 +296,7 @@
     </section>
 </div>
 <!------------------------------------- RODAPÉ ----------------------------------------------------->
-<c:import url="rodape.jsp" />
+<c:import url="pagina-admin/rodapeAdmin.jsp" />
 
 <!-- jQuery primeiro, depois Popper.js -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
