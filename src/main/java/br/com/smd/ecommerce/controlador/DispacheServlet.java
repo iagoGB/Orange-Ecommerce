@@ -31,16 +31,20 @@ public class DispacheServlet extends HttpServlet {
         
         switch(pagina){
             case "gerenciarCadastros":
-                request.getRequestDispatcher("admin/gerenciarCadastros.jsp").forward(request, response);
+                response.sendRedirect("admin/gerenciarCadastros.jsp");
+                //request.getRequestDispatcher("admin/gerenciarCadastros.jsp").forward(request, response);
             break;
             case "gerenciarCompras":
-                request.getRequestDispatcher("admin/gerenciarCompras.jsp").forward(request, response);
+                response.sendRedirect("admin/gerenciarCompras.jsp");
+                //request.getRequestDispatcher("admin/gerenciarCompras.jsp").forward(request, response);
             break;
             case "gerenciarProdutos":
-                request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
+                response.sendRedirect("admin/gerenciarProdutos.jsp");
+                //request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
             break;
             case "gerenciarCategorias":
-                request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
+                response.sendRedirect("admin/gerenciarCategorias.jsp");
+                //request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
             break;
             
             default:
