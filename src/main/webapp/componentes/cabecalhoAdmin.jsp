@@ -22,7 +22,7 @@
                 </button>
                 <!-- Logo -->
                 <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="admin.jsp">
-                    <img src="img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
+                    <img src="${pageContext.request.contextPath}/img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
                 </a>
                 <!-- ConteÃºdo do menu -->
                 <div class="collapse navbar-collapse order-sm-4 order-md-5 py-3" id="navbarSupportedContent">
@@ -91,13 +91,13 @@
                              aria-labelledby="navbarDropdownMenuLink-333">
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="logout">Sair</a>
+                            <a class="dropdown-item" href="/logout">Sair</a>
                         </div>
 
                     <li>
                         <div>
                             <%
-                                String msg = (String) request.getAttribute("msg");
+                               // String msg = (String) request.getAttribute("msg");
                                 Administrador adm = (Administrador) session.getAttribute("usuario");
                                 if (adm != null) {
                             %>

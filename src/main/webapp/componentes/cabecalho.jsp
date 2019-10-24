@@ -14,7 +14,7 @@
                         </button>
                         <!-- Logo -->
                         <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="index.jsp">
-                            <img src="img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
+                            <img src="${pageContext.request.contextPath}/img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
                         </a>
                         <!-- Conteúdo do menu -->
                         <div class="collapse navbar-collapse order-sm-4 order-md-5 py-3" id="navbarSupportedContent">
@@ -110,7 +110,7 @@
                                 <li>
                                     <div>
                                         <%
-                                            String msg = (String) request.getAttribute("msg");
+                                            //String msg = (String) request.getAttribute("msg");
                                             Usuario u = (Usuario) session.getAttribute("usuario");
                                             if (u != null) {
                                         %>

@@ -7,25 +7,25 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="col-lg-3 col-md-4 col-sm-3 col-12 p-3 mx-auto order-2 order-sm-1">
-    <a href="adm?page=meusDados"> 
+    <a href="/admin?page=meusDados"> 
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-dadosadmin">Meus
         dados</button>
     </a>
     
-    <a href="admin?page=gerenciarCadastros">
+    <a href="/admin?page=gerenciarCadastros">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-cadastros">Gerenciar
         cadastros</button>
     </a>
     
-    <a href="admin?page=gerenciarCompras">
+    <a href="/admin?page=gerenciarCompras">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-compras">Gerenciar
             compras</button>
     </a>
-    <a href="admin?page=gerenciarProdutos">
+    <a href="/admin?page=gerenciarProdutos">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-produtos">Gerenciar
             produtos</button>
     </a>
-    <a href="admin?page=gerenciarCategorias">
+    <a href="/admin?page=gerenciarCategorias">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-categorias">Gerenciar
             categorias</button>
     </a>

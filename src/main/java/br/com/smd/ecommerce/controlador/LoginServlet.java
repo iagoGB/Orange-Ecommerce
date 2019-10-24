@@ -56,7 +56,9 @@ public class LoginServlet extends HttpServlet {
                     System.out.println("Senha bateu com a do banco - ADMIN");
                     HttpSession session = request.getSession();
                     session.setAttribute("usuario", consultaAdm );
-                    request.getRequestDispatcher("pagina-admin/homeAdmin.jsp").forward(request, response);
+                    System.out.println("Redirecionou para homeAdmin");
+                    response.sendRedirect("admin/homeAdmin.jsp");
+                    //request.getRequestDispatcher("pagina-admin/homeAdmin.jsp").forward(request, response);
                     return;
                 }
                 
@@ -67,7 +69,8 @@ public class LoginServlet extends HttpServlet {
                     HttpSession session = request.getSession();
                     request.setAttribute("msg", "Bem vindo, ");
                     session.setAttribute("usuario", consultaCliente );
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    response.sendRedirect("index.jsp");
+                    //request.getRequestDispatcher("index.jsp").forward(request, response);
                     
                 } else {
                     

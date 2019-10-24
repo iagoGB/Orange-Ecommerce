@@ -2,151 +2,120 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <%@include file="componentes/head.jsp" %>
+    <head>
+        
+    <body>
+        <!------------------------------------- CABE�ALHO ----------------------------------------------------->
+        <header>
+            <%@include file="componentes/cabecalho.jsp" %>
+        </header>
 
-<head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/w/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.css" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link rel="stylesheet" type="text/css" href="css/mdb.min.css">
-    <!--CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Carrinho</title>
-</head>
+        <div class="content">
+            <section>
+                <div class="container-fluid py-4">
+                    <!--Titulo-->
+                    <div class="row pt-5 pb-0 px-3">
+                        <div class="col">
+                            <span class="h4">Carrinho de compras</span>
+                            <hr class="bg-dark">
+                        </div>
+                    </div>
+                    <!--Cabeçalho Carrinho-->
+                    <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
+                        <div class="bg-primary col-5">
+                            <p class="text-light my-auto py-3">Produtos</p>
+                        </div>
+                        <div class="bg-primary col-2">
+                            <p class="text-light my-auto py-3">Quantidade</p>
+                        </div>
+                        <div class="bg-primary col-2">
+                            <p class="text-light my-auto py-3">Preço</p>
+                        </div>
+                        <div class="bg-primary col-3">
+                            <p class="text-light my-auto py-3">Ação</p>
+                        </div>
+                    </div>
+                    <!--produtos-->
+                    <div class="row pt-3 pb-0 px-md-5 px-sm-2 border-bottom justify-content-center">
+                        <div class="col-2">
+                            <img src="img/img.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
+                        </div>
+                        <div class="col-3">
+                            <a href="produto.html">
+                                <h5 class="text-dark">Produto</h5>
+                            </a>
+                            <p class="text-dark">Descrição</p>
+                        </div>
+                        <div class="col-2">
+                            <form class="form">
+                                <input type="text" readonly class="form-control bg-light">
+                            </form>
+                        </div>
+                        <div class="col-2">
+                            <p class="text-dark">R$ 100</p>
+                        </div>
+                        <div class="col-3">
+                            <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip"
+                               data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
+                            <a href=""
+                               class="btn btn-outline-danger d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline"> ×
+                                Excluir</a>
+                            <a href="" class="btn btn-outline-danger d-xs-inline d-sm-inline d-md-none d-lg-none d-xl-none">
+                                ×
+                            </a>
+                        </div>
+                    </div>
+                    <!--produto2-->
+                    <div class="row pt-3 pb-0 px-md-5 px-sm-2 border-bottom justify-content-center">
+                        <div class="col-2">
+                            <img src="img/img.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
+                        </div>
+                        <div class="col-3">
+                            <a href="produto.html">
+                                <h5 class="text-dark">Produto</h5>
+                            </a>
+                            <p class="text-dark">Descrição</p>
+                        </div>
+                        <div class="col-2">
+                            <form class="form">
+                                <input type="text" readonly class="form-control bg-light">
+                            </form>
+                        </div>
+                        <div class="col-2">
+                            <p class="text-dark">R$ 100</p>
+                        </div>
+                        <div class="col-3">
+                            <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip"
+                               data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
+                            <a href=""
+                               class="btn btn-outline-danger d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline"> ×
+                                Excluir</a>
+                            <a href="" class="btn btn-outline-danger d-xs-inline d-sm-inline d-md-none d-lg-none d-xl-none">
+                                ×
+                            </a>
+                        </div>
+                    </div>
 
-<body>
-    <!------------------------------------- CABE�ALHO ----------------------------------------------------->
-    <c:import url="cabecalho.jsp" />
-
-    <div class="content">
-        <section>
-            <div class="container-fluid py-4">
-                <!--Titulo-->
-                <div class="row pt-5 pb-0 px-3">
-                    <div class="col">
-                        <span class="h4">Carrinho de compras</span>
-                        <hr class="bg-dark">
+                    <!--Valor total-->
+                    <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
+                        <div class="bg-primary col-9 py-2 border-right">
+                            <p class="text-light text-right">Subtotal (1 item)</p>
+                            <a href="#">
+                                <p class="text-light text-right">Comprar mais produtos</p>
+                            </a>
+                        </div>
+                        <div class="bg-primary col-3 py-2 px-2">
+                            <h5 class="text-light">R$ 100</h5>
+                            <button type="button" class="btn btn-warning btn-sm">Concluir compra</button>
+                        </div>
                     </div>
                 </div>
-                <!--Cabeçalho Carrinho-->
-                <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
-                    <div class="bg-primary col-5">
-                        <p class="text-light my-auto py-3">Produtos</p>
-                    </div>
-                    <div class="bg-primary col-2">
-                        <p class="text-light my-auto py-3">Quantidade</p>
-                    </div>
-                    <div class="bg-primary col-2">
-                        <p class="text-light my-auto py-3">Preço</p>
-                    </div>
-                    <div class="bg-primary col-3">
-                        <p class="text-light my-auto py-3">Ação</p>
-                    </div>
-                </div>
-                <!--produtos-->
-                <div class="row pt-3 pb-0 px-md-5 px-sm-2 border-bottom justify-content-center">
-                    <div class="col-2">
-                        <img src="img/img.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
-                    </div>
-                    <div class="col-3">
-                        <a href="produto.html">
-                            <h5 class="text-dark">Produto</h5>
-                        </a>
-                        <p class="text-dark">Descrição</p>
-                    </div>
-                    <div class="col-2">
-                        <form class="form">
-                            <input type="text" readonly class="form-control bg-light">
-                        </form>
-                    </div>
-                    <div class="col-2">
-                        <p class="text-dark">R$ 100</p>
-                    </div>
-                    <div class="col-3">
-                        <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip"
-                            data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
-                        <a href=""
-                            class="btn btn-outline-danger d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline"> ×
-                            Excluir</a>
-                        <a href="" class="btn btn-outline-danger d-xs-inline d-sm-inline d-md-none d-lg-none d-xl-none">
-                            ×
-                        </a>
-                    </div>
-                </div>
-                <!--produto2-->
-                <div class="row pt-3 pb-0 px-md-5 px-sm-2 border-bottom justify-content-center">
-                    <div class="col-2">
-                        <img src="img/img.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
-                    </div>
-                    <div class="col-3">
-                        <a href="produto.html">
-                            <h5 class="text-dark">Produto</h5>
-                        </a>
-                        <p class="text-dark">Descrição</p>
-                    </div>
-                    <div class="col-2">
-                        <form class="form">
-                            <input type="text" readonly class="form-control bg-light">
-                        </form>
-                    </div>
-                    <div class="col-2">
-                        <p class="text-dark">R$ 100</p>
-                    </div>
-                    <div class="col-3">
-                        <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip"
-                            data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
-                        <a href=""
-                            class="btn btn-outline-danger d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline"> ×
-                            Excluir</a>
-                        <a href="" class="btn btn-outline-danger d-xs-inline d-sm-inline d-md-none d-lg-none d-xl-none">
-                            ×
-                        </a>
-                    </div>
-                </div>
-
-                <!--Valor total-->
-                <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
-                    <div class="bg-primary col-9 py-2 border-right">
-                        <p class="text-light text-right">Subtotal (1 item)</p>
-                        <a href="#">
-                            <p class="text-light text-right">Comprar mais produtos</p>
-                        </a>
-                    </div>
-                    <div class="bg-primary col-3 py-2 px-2">
-                        <h5 class="text-light">R$ 100</h5>
-                        <button type="button" class="btn btn-warning btn-sm">Concluir compra</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <c:import url="rodape.jsp" />
-    
-    <!-- jQuery primeiro, depois Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap JS  -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- DataTables JS -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script type="text/javascript"
-        src="https://cdn.datatables.net/w/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
-    <!-- MDBootstrap -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Javascript-->
-    <script type="text/javascript" src="js/script.js"></script>
-</body>
+            </section>
+        </div>
+        <!-- RODAP�-->
+        <%@include file="componentes/rodape.jsp" %>
+    </body>
 
 </html>

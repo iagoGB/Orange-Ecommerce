@@ -9,34 +9,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <jsp:include page="head.jsp" />
+        <%@include file="../componentes/head.jsp" %>
     </head>
 
     <body>
         <header>
-            <jsp:include page="cabecalhoAdmin.jsp" />
+            <%@include file="../componentes/cabecalhoAdmin.jsp" %>
         </header>
-        
+
         <div class="content">
 
             <section>
-                
+
                 <div class="container-fluid">
-                    
+
                     <div class="row py-3 px-3">
-                        
-                        <jsp:include page="navMenuAdmin.jsp" />
-                        <jsp:include page="meusDadosAdmin.jsp" />
-                        
+
+                        <%@include file="../componentes/navMenuAdmin.jsp" %>
+                        <%@include file="meusDadosAdmin.jsp" %>
+
+
                     </div>
-                        
+
                 </div>
-                        
+
             </section>
 
         </div>
-                        
-        <jsp:include page="rodapeAdmin.jsp" />
+
+        <%@include file="../componentes/rodape.jsp" %>
+       
 
     </body>
 

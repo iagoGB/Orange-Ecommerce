@@ -9,12 +9,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <jsp:include page="head.jsp" />
+         <%@include file="../componentes/head.jsp" %>
     </head>
 
     <body>
         <header>
-            <jsp:include page="cabecalhoAdmin.jsp" />
+            <%@include file="../componentes/cabecalhoAdmin.jsp" %>
         </header>
 
         <div class="content">
@@ -24,7 +24,7 @@
                 <div class="container-fluid">
 
                     <div class="row py-3 px-3">
-                        <jsp:include page="navMenuAdmin.jsp" />
+                        <%@include file="../componentes/navMenuAdmin.jsp" %>
                         <!-- Gerenciar clientes -->
                         <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
                             <div class="card card-cascade narrower" id="collapse-cadastros">
@@ -81,7 +81,7 @@
             </section>
 
         </div>
-        <jsp:include page="rodapeAdmin.jsp" />
+         <%@include file="../componentes/rodape.jsp" %>
 
     </body>
 
