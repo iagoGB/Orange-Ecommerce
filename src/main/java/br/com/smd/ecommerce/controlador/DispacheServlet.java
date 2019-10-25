@@ -44,6 +44,8 @@ public class DispacheServlet extends HttpServlet {
             break;
             case "gerenciarCategorias":
                 response.sendRedirect("admin/gerenciarCategorias.jsp");
+                request.getRequestDispatcher("/listarCategoria");
+                System.out.println("Veio até aqui");
                 //request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
             break;
             

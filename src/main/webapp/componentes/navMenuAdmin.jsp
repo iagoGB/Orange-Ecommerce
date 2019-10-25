@@ -25,7 +25,7 @@
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-produtos">Gerenciar
             produtos</button>
     </a>
-    <a href="/admin?page=gerenciarCategorias">
+    <a href="/listarCategoria">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-categorias">Gerenciar
             categorias</button>
     </a>
