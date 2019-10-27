@@ -35,7 +35,7 @@ public class CategoriaDAO {
         List<Categoria> listaCategoria = null;
         try {
             
-            listaCategoria = (List<Categoria>)manager.createQuery("FROM TB_CATEGORIA").getResultList();
+            listaCategoria = (List<Categoria>)manager.createQuery("FROM TB_CATEGORIA c order by c.categoria_id desc").getResultList();
             
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao carregar listas: "+ e);

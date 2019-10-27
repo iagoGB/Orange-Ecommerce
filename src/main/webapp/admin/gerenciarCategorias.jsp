@@ -77,22 +77,30 @@
                             <div class="modal fade" id="inserircat" tabindex="-1" role="dialog"
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="TituloModalCentralizado">Inserir categoria</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                                    
+                                    <form action="/inserirCategoria.do" method="POST">
+
+                                        <div class="modal-content">
+                                            
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="TituloModalCentralizado">Inserir categoria</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label for="textInput">Informe uma descrição</label>
+                                                <input type="text" id="textInput" class="form-control mb-4" name="novaCategoria">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                                                <button type="submit" class="btn btn-dark">Salvar</button>
+                                            </div>
+                                            
                                         </div>
-                                        <div class="modal-body">
-                                            <label for="textInput">Informe uma descrição</label>
-                                            <input type="text" id="textInput" class="form-control mb-4">
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
-                                            <button type="button" class="btn btn-dark">Salvar</button>
-                                        </div>
-                                    </div>
+                                        
+                                    </form>
+                                    
                                 </div>
                             </div>
                             <!-- Alterar categoria -->
