@@ -57,6 +57,8 @@
                                                 <th></th>
                                                 <th>Id</th>
                                                 <th scope="col">Descrição</th>
+                                                <th colspan="2">Ações</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -66,6 +68,54 @@
                                                     <td>${categoria.categoria_id}</td>
                                                     <td>${categoria.descricao}</td>
                                                     
+                                                    
+                                                    
+                                                        
+                                                    
+                                                    <td>
+                                                        
+                                                         <button type="button" class="btn  btn-danger btn-rounded btn-sm px-2"
+                                                                data-toggle="modal" data-target="#alterarcat-${categoria.categoria_id}">
+                                                             <i class="fas fa-pencil-alt fa-2x mt-0"></i>
+                                                        </button>
+                                                        
+                                                        
+                                                        
+                                                        <button type="button" class="btn  btn-danger btn-rounded btn-sm px-2"
+                                                                data-toggle="modal" data-target="#alterarcat-${categoria.categoria_id}">
+                                                             <i class="fas fa-trash-alt fa-2x mt-0"></i>
+                                                        </button>
+                                                            
+                                                        <form action="/excluirCategoria.do" method="POST">
+
+
+                                                            <!-- Alterar categoria -->
+                                                            <div class="modal fade" id="alterarcat-${categoria.categoria_id}" tabindex="-1" role="dialog"
+                                                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="TituloModalCentralizado">Excluir Categoria</h5>   
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">   
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <input type="hidden" name="categoria_id" value="${categoria.categoria_id }"/>
+                                                                            <label for="textInput">Tem certeza que deseja excluir a categoria ${categoria.descricao}?</label>
+                                                                            
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                                                                            <input type="submit" class="btn btn-dark" value="Excluir">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                    <td></td>
+
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
@@ -77,11 +127,11 @@
                             <div class="modal fade" id="inserircat" tabindex="-1" role="dialog"
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
-                                    
+
                                     <form action="/inserirCategoria.do" method="POST">
 
                                         <div class="modal-content">
-                                            
+
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="TituloModalCentralizado">Inserir categoria</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
@@ -96,11 +146,11 @@
                                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
                                                 <button type="submit" class="btn btn-dark">Salvar</button>
                                             </div>
-                                            
+
                                         </div>
-                                        
+
                                     </form>
-                                    
+
                                 </div>
                             </div>
                             <!-- Alterar categoria -->

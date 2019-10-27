@@ -14,22 +14,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author Caique
  */
-@WebServlet("/listarCategoria.do")
 public class ListarCategoriaServlet extends HttpServlet {
 
     CategoriaDAO categoriaDAO = new CategoriaDAO();
 
     protected void listarCategoria(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Categoria> listaCategorias = null;
-        listaCategorias = categoriaDAO.mostrarCategorias();
-        request.setAttribute("listaCategorias", listaCategorias);
-        System.out.println("Veio até aqui 2");
-        request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
+
+        try {
+            
+            List<Categoria> listaCategorias = null;
+            listaCategorias = categoriaDAO.mostrarCategorias();
+            request.setAttribute("listaCategorias", listaCategorias);
+            System.out.println("Veio até aqui 2");
+            request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            
+            System.out.println("Ocorreu um erro ao listar: " + e);
+            response.sendRedirect("erro.jsp");
+        }
+
     }
 
     @Override

@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Caique
  */
 @WebServlet("/inserirCategoria.do")
-public class InserirCategoriasServlet extends HttpServlet {
+public class InserirCategoriaServlet extends HttpServlet {
 
     CategoriaDAO categoriaDAO = new CategoriaDAO();
 

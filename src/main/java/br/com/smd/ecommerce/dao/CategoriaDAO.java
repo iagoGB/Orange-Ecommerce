@@ -57,18 +57,22 @@ public class CategoriaDAO {
         }
     }
 
-    public void removerCategoria(Categoria c) {
+    public boolean removerCategoria(Categoria c) {
         EntityManager manager = new FabricaDeConexao().getConexao();
+        boolean deletou = false;
         try {
+            Categoria toDel = manager.find(Categoria.class, c.getCategoria_id());
             manager.getTransaction().begin();
-            manager.remove(c);
+            manager.remove(toDel);
             manager.getTransaction().commit();
+            deletou = true;
         } catch (Exception ex) {
             ex.printStackTrace();
             manager.getTransaction().rollback();
         } finally {
             manager.close();
         }
+        return deletou;
     }
 
 }

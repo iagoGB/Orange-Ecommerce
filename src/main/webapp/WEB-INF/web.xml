@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>InserirCategoriasServlet</servlet-name>
-        <servlet-class>br.com.smd.ecommerce.controlador.categoria.InserirCategoriasServlet</servlet-class>
+        <servlet-class>br.com.smd.ecommerce.controlador.categoria.InserirCategoriaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarCategoriaServlet</servlet-name>
@@ -12,7 +12,7 @@
         <servlet-name>DispacheServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.DispacheServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.LogoutServlet</servlet-class>
     </servlet>
@@ -32,19 +32,23 @@
         <servlet-name>AtualizarUsuarioServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.cliente.AtualizarUsuarioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeletarCategoriaServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.categoria.DeletarCategoriaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InserirCategoriasServlet</servlet-name>
         <url-pattern>/InserirCategoriasServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarCategoriaServlet</servlet-name>
-        <url-pattern>/ListarCategoriaServlet</url-pattern>
+        <url-pattern>/listarCategoria.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DispacheServlet</servlet-name>
         <url-pattern>/DispacheServlet</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout.do</url-pattern>
     </servlet-mapping>
@@ -63,5 +67,9 @@
     <servlet-mapping>
         <servlet-name>AtualizarUsuarioServlet</servlet-name>
         <url-pattern>/atualizarUsuario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarCategoriaServlet</servlet-name>
+        <url-pattern>/excluirCategoria.do</url-pattern>
     </servlet-mapping>
 </web-app>
