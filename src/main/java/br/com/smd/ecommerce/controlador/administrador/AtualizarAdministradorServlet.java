@@ -8,8 +8,6 @@ package br.com.smd.ecommerce.controlador.administrador;
 import br.com.smd.ecommerce.dao.AdministradorDAO;
 import br.com.smd.ecommerce.modelo.Administrador;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,9 +44,9 @@ public class AtualizarAdministradorServlet extends HttpServlet {
        
        //Atualiza os dados na sessão
        HttpSession session = request.getSession();
-       session.setAttribute("usuario", adm );
+       session.setAttribute("administrador", adm );
        String path = getServletContext().getContextPath();
-        System.out.println("caminho do contexto: "+path);
+       System.out.println("caminho do contexto: "+path);
        
        //response.sendRedirect(path+"admin/homeAdmin.jsp");
        request.setAttribute("feedbackAtualizacao", "Dados atualizados com sucesso!");

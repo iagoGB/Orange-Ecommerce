@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.controlador;
+package br.com.smd.ecommerce.controlador.cliente;
 
 import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.modelo.Usuario;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Iago Gomes
  */
 @WebServlet("/novoUsuario")
-public class NovoUsuarioServlet extends HttpServlet {
+public class InserirUsuarioServlet extends HttpServlet {
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

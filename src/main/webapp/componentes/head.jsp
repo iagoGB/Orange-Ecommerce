@@ -21,5 +21,5 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mdb.min.css">
         <!--CSS -->
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-        <title>Orange-Ecommerce</title>
+        <title>Orange Ecommerce</title>
     

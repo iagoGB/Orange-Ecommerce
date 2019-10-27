@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
                     //Se os dados baterem, a sessão é preparada para Administrador
                     System.out.println("Senha bateu com a do banco - ADMIN");
                     HttpSession session = request.getSession();
-                    session.setAttribute("usuario", consultaAdm );
+                    session.setAttribute("administrador", consultaAdm );
                     System.out.println("Redirecionou para homeAdmin");
                     response.sendRedirect("admin/homeAdmin.jsp");
                     //request.getRequestDispatcher("pagina-admin/homeAdmin.jsp").forward(request, response);

@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
+    <!-- Só exibe  a mensagem se os dados forem atualizados -->
     <c:if test="${not empty feedbackAtualizacao}" >
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <p class="text-success">${feedbackAtualizacao}</p>
@@ -35,24 +36,24 @@
         </div>
         <form class="py-3 mx-4">
             <div class="form-group">
-                <input type="hidden" class="form-control" value="${usuario.adm_id}" name="adm_id" disabled>
+                <input type="hidden" class="form-control" value="${administrador.adm_id}" name="adm_id" disabled>
                 <label for="exampleInputNome1">Nome Completo</label>
-                <input type="nome" class="form-control" value="${usuario.nome}" id="inputNome"
+                <input type="nome" class="form-control" value="${administrador.nome}" id="inputNome"
                        placeholder="Nome do cliente" disabled>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Endereço de email</label>
-                <input type="email" class="form-control" value="${usuario.email}" name="email" id="inputEmail"
+                <input type="email" class="form-control" value="${administrador.email}" name="email" id="inputEmail"
                        aria-describedby="emailHelp" placeholder="Email do cliente" disabled>
             </div>
             <div class="form-group">
                 <label for="exampleInputLogin1">Login</label>
-                <input type="login" class="form-control" value="${usuario.login}"id="exampleInputLogin1"
+                <input type="login" class="form-control" value="${administrador.login}"id="exampleInputLogin1"
                        placeholder="Login do cliente" disabled>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Senha</label>
-                <input type="password" class="form-control" value="${usuario.senha}"id="exampleInputPassword1"
+                <input type="password" class="form-control" value="${administrador.senha}"id="exampleInputPassword1"
                        placeholder="Senha do cliente" disabled>
             </div>
 
@@ -72,17 +73,17 @@
                 </div>
                 <form action="/admin/atualizarAdministrador.do" method="POST">
                     <div class="modal-body">
-                        <input type="hidden" id="textInput" class="form-control mb-4" name="adm_id" value="${usuario.adm_id}">
+                        <input type="hidden" id="textInput" class="form-control mb-4" name="adm_id" value="${administrador.adm_id}">
                         <label for="textInput">Informe um novo nome completo</label>
-                        <input type="text" id="textInput" class="form-control mb-4" name="attNome" value="${usuario.nome}">
+                        <input type="text" id="textInput" class="form-control mb-4" name="attNome" value="${administrador.nome}">
                         <label for="textInput">Informe um novo email</label>
-                        <input type="email" id="textInput" class="form-control mb-4"name="attEmail" value="${usuario.email}">
+                        <input type="email" id="textInput" class="form-control mb-4"name="attEmail" value="${administrador.email}">
                         <label for="textInput">Informe um novo login</label>
-                        <input type="text" id="textInput" class="form-control mb-4" name="attLogin" value="${usuario.login}">
+                        <input type="text" id="textInput" class="form-control mb-4" name="attLogin" value="${administrador.login}">
                         <label for="textInput">Informe uma nova senha</label>
-                        <input type="password" id="textInput" class="form-control mb-4" name="attSenha" value="${usuario.senha}">
+                        <input type="password" id="textInput" class="form-control mb-4" name="attSenha" value="${administrador.senha}">
                         <label for="textInput">Repita a nova senha</label>
-                        <input type="password" id="textInput" class="form-control mb-4" name="attSenhaConfirma" value="${usuario.senha}">
+                        <input type="password" id="textInput" class="form-control mb-4" name="attSenhaConfirma" value="${administrador.senha}">
 
                     </div>
                     <div class="modal-footer">
@@ -111,7 +112,7 @@
                 </div>
                 <div class="modal-footer">
                     <form action="/admin/deletarAdministrador.do" method="POST">
-                        <input type="hidden" value="${usuario.adm_id}" name="adm_id">
+                        <input type="hidden" value="${administrador.adm_id}" name="adm_id">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
 
                         <input type="submit" value="Sim" class="btn btn-dark">

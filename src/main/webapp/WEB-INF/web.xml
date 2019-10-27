@@ -12,6 +12,10 @@
         <servlet-name>DispacheServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.DispacheServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.LogoutServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>DeletarAdministradorServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.administrador.DeletarAdministradorServlet</servlet-class>
@@ -19,6 +23,14 @@
     <servlet>
         <servlet-name>AtualizarAdministradorServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.administrador.AtualizarAdministradorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarUsuarioServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.cliente.DeletarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarUsuarioServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.cliente.AtualizarUsuarioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InserirCategoriasServlet</servlet-name>
@@ -32,6 +44,10 @@
         <servlet-name>DispacheServlet</servlet-name>
         <url-pattern>/DispacheServlet</url-pattern>
     </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout.do</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeletarAdministradorServlet</servlet-name>
         <url-pattern>/admin/deletarAdministrador.do</url-pattern>
@@ -39,5 +55,13 @@
     <servlet-mapping>
         <servlet-name>AtualizarAdministradorServlet</servlet-name>
         <url-pattern>/admin/atualizarAdministrador.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarUsuarioServlet</servlet-name>
+        <url-pattern>/deletarUsuario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarUsuarioServlet</servlet-name>
+        <url-pattern>/atualizarUsuario.do</url-pattern>
     </servlet-mapping>
 </web-app>

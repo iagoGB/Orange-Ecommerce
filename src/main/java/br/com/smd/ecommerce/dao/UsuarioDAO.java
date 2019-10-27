@@ -16,80 +16,84 @@ import javax.persistence.Query;
  * @author Iago Gomes
  */
 public class UsuarioDAO {
-    
+
     //Consulta se login e senha batem com dados do banco
-    public Usuario verificarSessao(String login, String senha){
+    public Usuario verificarSessao(String login, String senha) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         Usuario u = null;
-        
+
         try {
-            
-            Query query = manager.createQuery("FROM Usuario u WHERE u.login = :l AND u.senha = :s" )
+
+            Query query = manager.createQuery("FROM Usuario u WHERE u.login = :l AND u.senha = :s")
                     .setParameter("l", login)
                     .setParameter("s", senha);
             u = (Usuario) query.getSingleResult();
-            
+
         } catch (Exception e) {
-            
-            System.out.println("Um erro ocorreu ao consultar os dados"+ e);
-            
-        }finally{
+
+            System.out.println("Um erro ocorreu ao consultar os dados" + e);
+
+        } finally {
             manager.close();
         }
-        
+
         return u;
     }
-    
-    public Usuario consultarPorLogin(String login){
+
+    public Usuario consultarPorLogin(String login) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         Usuario u = null;
-        
+
         try {
-            
-            Query query = manager.createQuery("FROM Usuario u WHERE u.login = :l" )
+
+            Query query = manager.createQuery("FROM Usuario u WHERE u.login = :l")
                     .setParameter("l", login);
-                   
+
             u = (Usuario) query.getSingleResult();
-            
+
         } catch (Exception e) {
-          
-            System.out.println("Um erro ocorreu ao consultar os dados"+ e);
-            
-        }finally {
+
+            System.out.println("Um erro ocorreu ao consultar os dados" + e);
+
+        } finally {
             manager.close();
         }
         return u;
     }
-    
-    public Usuario consultarPorEmail(String email ){
-         EntityManager manager = new FabricaDeConexao().getConexao();
+
+    public Usuario consultarPorEmail(String email) {
+        EntityManager manager = new FabricaDeConexao().getConexao();
         Usuario u = null;
-        
+
         try {
-            
-            Query query = manager.createQuery("FROM Usuario u WHERE u.email = :e " )
+
+            Query query = manager.createQuery("FROM Usuario u WHERE u.email = :e ")
                     .setParameter("e", email);
             u = (Usuario) query.getSingleResult();
-            
+
         } catch (Exception e) {
-            
-            System.out.println("Um erro ocorreu ao consultar os dados"+ e);
-            
-        }finally {
+
+            System.out.println("Um erro ocorreu ao consultar os dados" + e);
+
+        } finally {
             manager.close();
         }
         return u;
     }
-    
-    public List<Usuario> listarTodos(){
+
+    public List<Usuario> listarTodos() {
         return null;
     }
     
-    public boolean salvar(Usuario usuario){
+    public Usuario listarPorId(){
+        return null;
+    }
+
+    public boolean salvar(Usuario usuario) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         boolean salvo = false;
         try {
-            
+
             manager.getTransaction().begin();
             manager.persist(usuario);
             //Salve
@@ -97,20 +101,68 @@ public class UsuarioDAO {
             //Ação de salvar bem sucedida
             salvo = true;
             System.out.println("Salvamento bem sucedido");
-            
+
         } catch (Exception e) {
-            
+
             //Em caso de erro retorne falso
             manager.getTransaction().rollback();
-            System.out.println("Erro ao salvar usuário"+ e);
+            System.out.println("Erro ao salvar usuário" + e);
             salvo = false;
-            
+
         } finally {
-             manager.close();
+            manager.close();
         }
-        
+
         return salvo;
     }
+
+    public Usuario atualizar(Usuario usuario){
+        EntityManager em = new FabricaDeConexao().getConexao();
+        
+        try {
+            em.getTransaction().begin();
+            if (usuario.getUsuario_id() != null) {
+                em.merge(usuario);
+            }
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+
+            System.out.println("Ocorreu um erro ao atualizar dados do cliente: " + e);
+            em.getTransaction().rollback();
+
+        } finally {
+
+            em.close();
+
+        }
+
+        return usuario;
+    }
     
-    
+   public boolean deletarPorId(Long id) {
+        EntityManager em = new FabricaDeConexao().getConexao();
+        Usuario cliente = null;
+
+        boolean deletou = false;
+
+        try {
+
+            cliente = em.find(Usuario.class, id);
+            em.getTransaction().begin();
+            em.remove(cliente);
+            em.getTransaction().commit();
+            deletou = true;
+
+        } catch (Exception e) {
+
+            System.out.println("Ocorreu o seguinte erro ao deleter cliente: " + e);
+            em.getTransaction().rollback();
+
+        } finally {
+            em.close();
+        }
+
+        return deletou;
+    }
 }

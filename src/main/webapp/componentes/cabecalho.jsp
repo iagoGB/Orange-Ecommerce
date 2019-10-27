@@ -49,7 +49,7 @@
                                     <a class="nav-link" href="cliente.jsp">Minha conta</a>
                                 </li>
                                 <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
-                                    <a class="nav-link" href="/logout">Sair</a>
+                                    <a class="nav-link" href="/logout.do">Sair</a>
                                 </li>
                                 <%
                                         };
@@ -102,7 +102,7 @@
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="cliente.jsp">Minha conta</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="logout">Sair</a>
+                                        <a class="dropdown-item" href="/logout.do">Sair</a>
                                     </div>
                                     <%
                                         };
@@ -119,6 +119,7 @@
                                         <%  }%>
                                     </div>
                                 </li>
+                                
                             </li>
                             <li class="nav-item mx-1 mx-lg-2">
                                 <a class="nav-link waves-effect waves-light" href="favoritos.jsp">
