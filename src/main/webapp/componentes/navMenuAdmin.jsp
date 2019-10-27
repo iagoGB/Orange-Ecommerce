@@ -25,7 +25,7 @@
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-produtos">Gerenciar
             produtos</button>
     </a>
-    <a href="/listarCategoria">
+    <a href="/listarCategoria.do">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-categorias">Gerenciar
             categorias</button>
     </a>

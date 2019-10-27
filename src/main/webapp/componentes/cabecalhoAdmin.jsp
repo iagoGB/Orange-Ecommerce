@@ -64,7 +64,7 @@
                             <a class="nav-link" href="carrinho.jsp">Meu carrinho</a>
                         </li>
                         <li class="nav-item border-bottom border-lg-0 mb-3 d-sm-none">
-                            <a class="nav-link" href="/logout">Sair</a>
+                            <a class="nav-link" href="/logout.do">Sair</a>
                         </li>
                     </ul>
                     <form class="d-md-none form-row">
@@ -91,13 +91,13 @@
                              aria-labelledby="navbarDropdownMenuLink-333">
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/logout">Sair</a>
+                            <a class="dropdown-item" href="/logout.do">Sair</a>
                         </div>
 
                     <li>
                         <div>
                             <%
-                               // String msg = (String) request.getAttribute("msg");
+                                // String msg = (String) request.getAttribute("msg");
                                 Administrador adm = (Administrador) session.getAttribute("usuario");
                                 if (adm != null) {
                             %>
