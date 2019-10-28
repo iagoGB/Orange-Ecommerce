@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>
     </welcome-file-list>
-    
+    <servlet-mapping>
+        <servlet-name>ListarProdutoServlet</servlet-name>
+        <url-pattern>/admin/listarProduto.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionarProdutoServlet</servlet-name>
+        <url-pattern>/admin/adicionarProduto.do</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>InserirCategoriasServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.categoria.InserirCategoriaServlet</servlet-class>
@@ -44,6 +50,14 @@
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.HomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarProdutoServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.produto.ListarProdutoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionarProdutoServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.produto.AdicionarProdutoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InserirCategoriasServlet</servlet-name>
@@ -85,5 +99,4 @@
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home.do</url-pattern>
     </servlet-mapping>
-    
 </web-app>
