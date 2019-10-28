@@ -1,4 +1,5 @@
- <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
  <header>
         <div class="container-fluid mb-3">
             <!-- Navbar principal -->
@@ -13,7 +14,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <!-- Logo -->
-                        <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="index.jsp">
+                        <a class="navbar-brand mr-auto mr-md-0 order-sm-2 order-md-2 order-lg-1" href="/home.do">
                             <img src="${pageContext.request.contextPath}/img/logocor.png" alt="Transparent MDB Logo" id="animated-img1">
                         </a>
                         <!-- Conteúdo do menu -->
@@ -156,11 +157,12 @@
                                 Nossos produtos
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="categoria.jsp">Smartphones</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="categoria.jsp">Notebooks</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="categoria.jsp">PCs</a>
+                                
+                                <c:forEach var="categoria" items="${listaCategoria}">
+                                    <a class="dropdown-item" href="/listacategoria.jsp?categoria=${categoria.categoria_id}">${categoria.descricao}</a>
+                                    <div class="dropdown-divider"></div>
+                                </c:forEach>
+                                 
                             </div>
                         </div>
                     </nav>

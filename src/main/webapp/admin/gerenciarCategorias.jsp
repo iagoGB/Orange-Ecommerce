@@ -57,7 +57,7 @@
                                                 <th></th>
                                                 <th>Id</th>
                                                 <th scope="col">Descrição</th>
-                                                <th colspan="2">Ações</th>
+                                                <th>Ações</th>
 
                                             </tr>
                                         </thead>
@@ -67,31 +67,57 @@
                                                     <td></td>
                                                     <td>${categoria.categoria_id}</td>
                                                     <td>${categoria.descricao}</td>
-                                                    
-                                                    
-                                                    
-                                                        
-                                                    
+
                                                     <td>
-                                                        
-                                                         <button type="button" class="btn  btn-danger btn-rounded btn-sm px-2"
-                                                                data-toggle="modal" data-target="#alterarcat-${categoria.categoria_id}">
-                                                             <i class="fas fa-pencil-alt fa-2x mt-0"></i>
-                                                        </button>
-                                                        
-                                                        
-                                                        
+                                                        <!--Para cada categoria crie um botão editar -->
                                                         <button type="button" class="btn  btn-danger btn-rounded btn-sm px-2"
                                                                 data-toggle="modal" data-target="#alterarcat-${categoria.categoria_id}">
-                                                             <i class="fas fa-trash-alt fa-2x mt-0"></i>
+                                                            <i class="fas fa-pencil-alt fa-2x mt-0"></i>
                                                         </button>
-                                                            
-                                                        <form action="/excluirCategoria.do" method="POST">
 
+
+                                                        <!--Para cada categoria crie um botão excluir -->
+                                                        <button type="button" class="btn  btn-danger btn-rounded btn-sm px-2"
+                                                                data-toggle="modal" data-target="#excluircat-${categoria.categoria_id}">
+                                                            <i class="fas fa-trash-alt fa-2x mt-0"></i>
+                                                        </button>
+
+                                                        <!--Para cada categoria um formulário para editar -->
+                                                        <form action="/atualizarCategoria.do" method="POST">
 
                                                             <!-- Alterar categoria -->
                                                             <div class="modal fade" id="alterarcat-${categoria.categoria_id}" tabindex="-1" role="dialog"
                                                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="TituloModalCentralizado">Alterar categoria</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <label for="textInput">Informe uma nova descrição</label>
+                                                                            <input type="text" id="textInput" class="form-control mb-4" value="${categoria.descricao}">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                                                                            <button type="submit" class="btn btn-dark">Salvar</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </form>    
+                                                        
+                                                        <!--Para cada categoria crie um formulário para excluir -->
+                                                        <form action="/excluirCategoria.do" method="POST">
+
+
+                                                            <!-- Excluir categoria -->
+                                                            <div class="modal fade" id="excluircat-${categoria.categoria_id}" tabindex="-1" role="dialog"
+                                                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+
                                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -103,7 +129,7 @@
                                                                         <div class="modal-body">
                                                                             <input type="hidden" name="categoria_id" value="${categoria.categoria_id }"/>
                                                                             <label for="textInput">Tem certeza que deseja excluir a categoria ${categoria.descricao}?</label>
-                                                                            
+
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
@@ -111,10 +137,13 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
-                                                        </form>
+
+
+                                                        </form>                                     
                                                     </td>
-                                                    <td></td>
+
 
                                                 </tr>
                                             </c:forEach>
@@ -153,50 +182,6 @@
 
                                 </div>
                             </div>
-                            <!-- Alterar categoria -->
-                            <div class="modal fade" id="alterarcat" tabindex="-1" role="dialog"
-                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="TituloModalCentralizado">Alterar categoria</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <label for="textInput">Informe uma nova descrição</label>
-                                            <input type="text" id="textInput" class="form-control mb-4">
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
-                                            <button type="button" class="btn btn-dark">Salvar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Remover categoria -->
-                            <div class="modal fade" id="excluircat" tabindex="-1" role="dialog"
-                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="TituloModalCentralizado">Remover produto</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Deseja remover essa(s) categoria(s)?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
-                                            <button type="button" class="btn btn-dark">Sim</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
 
                         </div>
 

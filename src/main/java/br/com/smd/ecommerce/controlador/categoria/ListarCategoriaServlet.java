@@ -33,11 +33,12 @@ public class ListarCategoriaServlet extends HttpServlet {
             request.setAttribute("listaCategorias", listaCategorias);
             System.out.println("Veio até aqui 2");
             request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
+            System.out.println("URI: "+ request.getRequestURI());
 
         } catch (Exception e) {
             
             System.out.println("Ocorreu um erro ao listar: " + e);
-            response.sendRedirect("erro.jsp");
+            response.sendRedirect("/erro.jsp");
         }
 
     }
