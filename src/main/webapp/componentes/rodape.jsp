@@ -11,11 +11,13 @@
     <div class="container-fluid fixed-bottom">
         <div class="row align-items-center justify-content-center">
             <div class="col bg-primary">
-                <p class="text-center text-light my-1">2019 Â© Todos os direitos reservados.</p>
+                <p class="text-center text-light my-1">2019 © Todos os direitos reservados.</p>
             </div>
         </div>
     </div>
-    <!-- Scripts no final da página -->
+</footer>
+
+<!-- Scripts no final da página -->
     <!-- jQuery primeiro, depois Popper.js -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -34,5 +36,3 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/mdb.min.js"></script>
     <!-- Javascript-->
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/script.js"></script>
-    
-</footer>

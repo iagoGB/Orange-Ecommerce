@@ -7,7 +7,7 @@
     <head>
         
     <body>
-        <!------------------------------------- CABE«ALHO ----------------------------------------------------->
+        <!-- CABE«ALHO -->
         <header>
             <%@include file="componentes/cabecalho.jsp" %>
         </header>
@@ -15,14 +15,14 @@
         <div class="content">
             <section>
                 <div class="container-fluid py-4">
-                    <!--Titulo-->
+                    <!--TÌtulo-->
                     <div class="row pt-5 pb-0 px-3">
                         <div class="col">
                             <span class="h4">Carrinho de compras</span>
                             <hr class="bg-dark">
                         </div>
                     </div>
-                    <!--Cabe√ßalho Carrinho-->
+                    <!--CabeÁalho Carrinho-->
                     <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
                         <div class="bg-primary col-5">
                             <p class="text-light my-auto py-3">Produtos</p>
@@ -31,10 +31,10 @@
                             <p class="text-light my-auto py-3">Quantidade</p>
                         </div>
                         <div class="bg-primary col-2">
-                            <p class="text-light my-auto py-3">Pre√ßo</p>
+                            <p class="text-light my-auto py-3">PreÁo</p>
                         </div>
                         <div class="bg-primary col-3">
-                            <p class="text-light my-auto py-3">A√ß√£o</p>
+                            <p class="text-light my-auto py-3">AÁ„o</p>
                         </div>
                     </div>
                     <!--produtos-->
@@ -43,10 +43,10 @@
                             <img src="img/img.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
                         </div>
                         <div class="col-3">
-                            <a href="produto.html">
+                            <a href="produto.jsp">
                                 <h5 class="text-dark">Produto</h5>
                             </a>
-                            <p class="text-dark">Descri√ß√£o</p>
+                            <p class="text-dark">DescriÁ„o</p>
                         </div>
                         <div class="col-2">
                             <form class="form">
@@ -67,36 +67,7 @@
                             </a>
                         </div>
                     </div>
-                    <!--produto2-->
-                    <div class="row pt-3 pb-0 px-md-5 px-sm-2 border-bottom justify-content-center">
-                        <div class="col-2">
-                            <img src="img/img.jpg" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
-                        </div>
-                        <div class="col-3">
-                            <a href="produto.html">
-                                <h5 class="text-dark">Produto</h5>
-                            </a>
-                            <p class="text-dark">Descri√ß√£o</p>
-                        </div>
-                        <div class="col-2">
-                            <form class="form">
-                                <input type="text" readonly class="form-control bg-light">
-                            </form>
-                        </div>
-                        <div class="col-2">
-                            <p class="text-dark">R$ 100</p>
-                        </div>
-                        <div class="col-3">
-                            <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip"
-                               data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
-                            <a href=""
-                               class="btn btn-outline-danger d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline"> √ó
-                                Excluir</a>
-                            <a href="" class="btn btn-outline-danger d-xs-inline d-sm-inline d-md-none d-lg-none d-xl-none">
-                                √ó
-                            </a>
-                        </div>
-                    </div>
+                    
 
                     <!--Valor total-->
                     <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">

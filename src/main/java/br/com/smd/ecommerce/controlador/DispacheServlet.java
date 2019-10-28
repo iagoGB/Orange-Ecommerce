@@ -45,8 +45,18 @@ public class DispacheServlet extends HttpServlet {
             case "gerenciarCategorias":
                 response.sendRedirect("admin/gerenciarCategorias.jsp");
                 request.getRequestDispatcher("/listarCategoria");
-                System.out.println("Veio até aqui");
-                //request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
+            break;
+            case "relatorioProdutosEstoque":
+                response.sendRedirect("admin/relatorioProdutosEstoque.jsp");
+                //request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
+            break;
+            case "relatorioTotalCompras":
+                response.sendRedirect("admin/relatorioTotalCompras.jsp");
+                //request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
+            break;
+            case "relatorioTotalValor":
+                response.sendRedirect("admin/relatorioTotalValor.jsp");
+                //request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
             break;
             
             default:

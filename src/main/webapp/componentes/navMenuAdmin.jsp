@@ -37,12 +37,18 @@
             relatório
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a href="/admin?page=relatorioTotalCompras">
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio1">Total de compras por cliente</button>
+            </a>
+            <a href="/admin?page=relatorioProdutosEstoque">
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio2">Produtos em falta no estoque</button>
+            </a>
+            <a href="/admin?page=relatorioTotalValor">
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio3">Total de valor recebido</button>
+            </a>
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio4">Exportar relatório</button>
         </div>

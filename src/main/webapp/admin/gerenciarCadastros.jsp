@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-         <%@include file="../componentes/head.jsp" %>
+        <%@include file="../componentes/head.jsp" %>
     </head>
 
     <body>
@@ -25,8 +25,8 @@
 
                     <div class="row py-3 px-3">
                         <%@include file="../componentes/navMenuAdmin.jsp" %>
-                        <!-- Gerenciar clientes -->
                         <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
+                            <!-- Gerenciar clientes -->
                             <div class="card card-cascade narrower" id="collapse-cadastros">
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
@@ -73,7 +73,27 @@
 
 
                             </div>  
-
+                            <!-- Remover clientes -->
+                            <div class="modal fade" id="excluircadastros" tabindex="-1" role="dialog"
+                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="TituloModalCentralizado">Remover cliente(s)</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Deseja remover esse(s) clientes(s)?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
+                                            <button type="button" class="btn btn-dark">Sim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -81,7 +101,7 @@
             </section>
 
         </div>
-         <%@include file="../componentes/rodape.jsp" %>
+        <%@include file="../componentes/rodape.jsp" %>
 
     </body>
 

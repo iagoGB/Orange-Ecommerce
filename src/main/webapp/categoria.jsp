@@ -6,7 +6,7 @@
     <%@include file="componentes/head.jsp" %>
 
 <body>
-    <!------------------------------------- CABE�ALHO ----------------------------------------------------->
+    <!-- CABE�ALHO -->
     <%@include file="componentes/cabecalho.jsp" %>
     <div class="content">
         <section>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-8">
-                        <!--Ordenação-->
+                        <!--Ordena��o-->
                         <div class="row pt-2 pb-0 px-3 justify-content-center">
                             <div class="col">
                                 <div class="dropdown">
@@ -59,8 +59,8 @@
                                         Ordenar por
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Menor preço</a>
-                                        <a class="dropdown-item" href="#">Maior preço</a>
+                                        <a class="dropdown-item" href="#">Menor pre�o</a>
+                                        <a class="dropdown-item" href="#">Maior pre�o</a>
                                         <a class="dropdown-item" href="#">Mais vendido</a>
                                     </div>
                                 </div>
@@ -75,90 +75,21 @@
                                         <a href="produto.html">
                                             <h5 class="card-title">Produto</h5>
                                         </a>
-                                        <p class="card-text">Descrição</p>
-                                        <p class="card-text">Preço</p>
+                                        <p class="card-text">Descri��o</p>
+                                        <p class="card-text">Pre�o</p>
                                         <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
                                         <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
-                                <div class="card border-warning">
-                                    <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                                    <div class="card-body">
-                                        <a href="produto.html">
-                                            <h5 class="card-title">Produto</h5>
-                                        </a>
-                                        <p class="card-text">Descrição</p>
-                                        <p class="card-text">Preço</p>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
-                                <div class="card border-warning">
-                                    <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                                    <div class="card-body">
-                                        <a href="produto.html">
-                                            <h5 class="card-title">Produto</h5>
-                                        </a>
-                                        <p class="card-text">Descrição</p>
-                                        <p class="card-text">Preço</p>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
-                                <div class="card border-warning">
-                                    <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                                    <div class="card-body">
-                                        <a href="produto.html">
-                                            <h5 class="card-title">Produto</h5>
-                                        </a>
-                                        <p class="card-text">Descrição</p>
-                                        <p class="card-text">Preço</p>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
-                                <div class="card border-warning">
-                                    <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                                    <div class="card-body">
-                                        <a href="produto.html">
-                                            <h5 class="card-title">Produto</h5>
-                                        </a>
-                                        <p class="card-text">Descrição</p>
-                                        <p class="card-text">Preço</p>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
-                                <div class="card border-warning">
-                                    <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                                    <div class="card-body">
-                                        <a href="produto.html">
-                                            <h5 class="card-title">Produto</h5>
-                                        </a>
-                                        <p class="card-text">Descrição</p>
-                                        <p class="card-text">Preço</p>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <!------------------------------------- RODAP� ----------------------------------------------------->
+    <!-- RODAP� -->
     <%@include file="componentes/rodape.jsp" %>
 </body>
 

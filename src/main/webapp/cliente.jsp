@@ -6,7 +6,7 @@
     <%@include file="componentes/head.jsp" %>
 
     <body>
-        <!------------------------------------- CABEÇALHO ----------------------------------------------------->
+        <!-- CABEÇALHO -->
         <%@include file="componentes/cabecalho.jsp" %>
         <div class="content">
             <section>
@@ -156,11 +156,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Meu HistÃ³rico de compras -->
+                            <!-- Meu Histórico de compras -->
                             <div class="card card-cascade narrower d-none" id="collapse-meuhistorico">
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
-                                    <a href="" class="white-text mx-3">Meu histÃ³rico de compras</a>
+                                    <a href="" class="white-text mx-3">Meu histórico de compras</a>
                                 </div>
 
                                 <div class="table-responsive p-3">
@@ -168,7 +168,7 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th scope="col">Data</th>
-                                                <th scope="col">PreÃ§o</th>
+                                                <th scope="col">Preço</th>
                                                 <th scope="col">Produto(s)</th>
                                                 <th scope="col">Quantidade(s)</th>
                                                 <th scope="col">Valor da compra</th>
@@ -199,8 +199,7 @@
         </div>
     </section>
 </div>
-<!------------------------------------- RODAPÉ ----------------------------------------------------->
-
+<!-- RODAPÉ -->
 <%@include file="componentes/rodape.jsp" %>
 
 </body>
