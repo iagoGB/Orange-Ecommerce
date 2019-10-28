@@ -43,18 +43,25 @@ public class CategoriaDAO {
         return listaCategoria;
     }
 
-    public void atualizarCategoria(Categoria c) {
+    public boolean atualizarCategoria(Categoria c) {
         EntityManager manager = new FabricaDeConexao().getConexao();
+        boolean alterou = false;
         try {
+            System.out.println(c.getCategoria_id());
             manager.getTransaction().begin();
-            manager.merge(c);
+            if (c.getCategoria_id() != null) {
+                
+                manager.merge(c);
+            }
             manager.getTransaction().commit();
+            alterou = true;
         } catch (Exception ex) {
             ex.printStackTrace();
             manager.getTransaction().rollback();
         } finally {
             manager.close();
         }
+        return alterou;
     }
 
     public boolean removerCategoria(Categoria c) {

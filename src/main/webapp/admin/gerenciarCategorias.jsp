@@ -39,14 +39,6 @@
                                                 data-toggle="modal" data-target="#inserircat">
                                             <i class="fas fa-plus-circle fa-2x mt-0"></i>
                                         </button>
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
-                                                data-toggle="modal" data-target="#alterarcat">
-                                            <i class="fas fa-pencil-alt fa-2x mt-0"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
-                                                data-toggle="modal" data-target="#excluircat">
-                                            <i class="fas fa-trash-alt fa-2x mt-0"></i>
-                                        </button>
                                     </div>
                                 </div>
 
@@ -57,8 +49,7 @@
                                                 <th></th>
                                                 <th>Id</th>
                                                 <th scope="col">Descrição</th>
-                                                <th>Ações</th>
-
+                                                <th scope="col">Ações</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -74,14 +65,11 @@
                                                                 data-toggle="modal" data-target="#alterarcat-${categoria.categoria_id}">
                                                             <i class="fas fa-pencil-alt fa-2x mt-0"></i>
                                                         </button>
-
-
                                                         <!--Para cada categoria crie um botão excluir -->
                                                         <button type="button" class="btn  btn-danger btn-rounded btn-sm px-2"
                                                                 data-toggle="modal" data-target="#excluircat-${categoria.categoria_id}">
                                                             <i class="fas fa-trash-alt fa-2x mt-0"></i>
                                                         </button>
-
                                                         <!--Para cada categoria um formulário para editar -->
                                                         <form action="/atualizarCategoria.do" method="POST">
 
@@ -98,7 +86,8 @@
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <label for="textInput">Informe uma nova descrição</label>
-                                                                            <input type="text" id="textInput" class="form-control mb-4" value="${categoria.descricao}">
+                                                                            <input type="hidden" name="categoria_id" value="${categoria.categoria_id }"/>
+                                                                            <input type="text" id="textInput" class="form-control mb-4" name="novaDescricao" value="${categoria.descricao}">
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
@@ -109,7 +98,6 @@
                                                             </div>
 
                                                         </form>    
-                                                        
                                                         <!--Para cada categoria crie um formulário para excluir -->
                                                         <form action="/excluirCategoria.do" method="POST">
 
@@ -143,8 +131,6 @@
 
                                                         </form>                                     
                                                     </td>
-
-
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
