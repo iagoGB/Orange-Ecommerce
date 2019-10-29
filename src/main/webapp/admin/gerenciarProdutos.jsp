@@ -65,12 +65,12 @@
 
                                                     <td>
                                                         <!--Para cada produto crie um botão editar -->
-                                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                                                        <button type="button" class="btn btn-danger btn-rounded btn-sm px-2"
                                                                 data-toggle="modal" data-target="#alterarprod-${produto.produto_id}">
                                                             <i class="fas fa-pencil-alt fa-2x mt-0"></i>
                                                         </button>
                                                         <!--Para cada produto crie um botão excluir -->
-                                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                                                        <button type="button" class="btn btn-danger btn-rounded btn-sm px-2"
                                                                 data-toggle="modal" data-target="#excluirprod-${produto.produto_id}">
                                                             <i class="fas fa-trash-alt fa-2x mt-0"></i>
                                                         </button>  
@@ -111,7 +111,7 @@
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text">R$</span>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" aria-label="Quantia" name="preco" value="${produto.descricao}">
+                                                                                <input type="text" class="form-control" aria-label="Quantia" name="preco" value="${produto.preco}">
                                                                             </div>
 
                                                                             <label for="customRange3">Informe a nova quantidade no estoque: </label>

@@ -34,7 +34,7 @@ public class AtualizarProdutoServlet extends HttpServlet {
             Produto produto = new Produto(id, foto, desc, preco, quantidade);
             boolean alterou = produtoDAO.atualizarProduto(produto);
             if (alterou) {
-                response.sendRedirect("/listarproduto.do");
+                response.sendRedirect("/listarProduto.do");
             } else {
                response.sendRedirect("erro.jsp");
             }

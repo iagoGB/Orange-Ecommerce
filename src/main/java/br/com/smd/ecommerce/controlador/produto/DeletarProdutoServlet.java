@@ -35,7 +35,7 @@ public class DeletarProdutoServlet extends HttpServlet {
             
             boolean deletou = produtoDAO.removerProduto(produto);
             if (deletou) {
-                response.sendRedirect("/listarCategoria.do");
+                response.sendRedirect("/listarProduto.do");
             } else {
                 response.sendRedirect("erro.jsp");
             }
