@@ -216,7 +216,7 @@
 
                                                 <label for="select">Escolha a(s) categoria(s)</label>
                                                 <div class="input-group">
-                                                    <select class="custom-select" id="inputGroupSelect01" multiple size="3">
+                                                    <select class="browser-default custom-select dropdown-primary" id="inputGroupSelect01" multiple size="3">
                                                         <c:forEach var="categoria" items="${listaCategorias}">
                                                             <option value="${categoria.categoria_id}">${categoria.descricao}</option>
                                                         </c:forEach>
