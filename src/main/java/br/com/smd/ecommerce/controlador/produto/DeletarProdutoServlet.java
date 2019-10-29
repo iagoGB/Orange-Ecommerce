@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.controlador.categoria;
+package br.com.smd.ecommerce.controlador.produto;
 
-import br.com.smd.ecommerce.dao.CategoriaDAO;
-import br.com.smd.ecommerce.modelo.Categoria;
+import br.com.smd.ecommerce.dao.ProdutoDAO;
+import br.com.smd.ecommerce.modelo.Produto;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,20 +17,23 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Iago Gomes
  */
-public class DeletarCategoriaServlet extends HttpServlet {
+public class DeletarProdutoServlet extends HttpServlet {
 
-    CategoriaDAO categoriaDAO = new CategoriaDAO();
+    ProdutoDAO produtoDAO = new ProdutoDAO();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
-            Long id = Long.parseLong(request.getParameter("categoria_id"));
+            Long id = Long.parseLong(request.getParameter("produto_id"));
+            String foto = request.getParameter("imagem");
+            String desc = request.getParameter("descricao");
+            Double preco = Double.parseDouble(request.getParameter("preco"));
+            Integer quantidade = Integer.parseInt(request.getParameter("quantidade"));
+            Produto produto = new Produto(id, foto, desc, preco, quantidade);
             
-            String desc = request.getParameter("desc");
-            Categoria categoria = new Categoria(id, desc);
-            boolean deletou = categoriaDAO.removerCategoria(categoria);
+            boolean deletou = produtoDAO.removerProduto(produto);
             if (deletou) {
                 response.sendRedirect("/listarCategoria.do");
             } else {

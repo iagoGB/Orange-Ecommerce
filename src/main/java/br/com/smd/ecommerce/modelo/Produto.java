@@ -6,6 +6,7 @@
 package br.com.smd.ecommerce.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -44,9 +45,17 @@ public class Produto implements Serializable {
     private List<ProdutoCompra> produtoEmCompras;
 
     public Produto(){
-        
+        this.produtoEmCompras = new ArrayList<>();
     }
-
+    
+    public Produto(Long produto_id, String foto, String descricao, Double preco, Integer quantidade) {
+        this.produto_id = produto_id;
+        this.foto = foto;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+    
     public Produto(Long produto_id, String foto, String descricao, Double preco, Integer quantidade, List<ProdutoCategoria> listaCategorias, List<ProdutoCompra> produtoEmCompras) {
         this.produto_id = produto_id;
         this.foto = foto;

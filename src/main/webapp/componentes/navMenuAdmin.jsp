@@ -21,7 +21,7 @@
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-compras">Gerenciar
             compras</button>
     </a>
-    <a href="/admin/listarProdutos.do">
+    <a href="/listarProduto.do">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-produtos">Gerenciar
             produtos</button>
     </a>

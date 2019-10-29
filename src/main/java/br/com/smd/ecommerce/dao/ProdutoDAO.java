@@ -3,24 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.smd.ecommerce.dao;
 
 import br.com.smd.ecommerce.conexao.FabricaDeConexao;
 import javax.persistence.EntityManager;
 import br.com.smd.ecommerce.modelo.Categoria;
+import br.com.smd.ecommerce.modelo.Produto;
 import java.util.List;
 
 /**
  *
  * @author Caique
  */
-public class CategoriaDAO {
+public class ProdutoDAO {
 
-    public void salvarCategoria(Categoria c) {
+    public void salvarProduto(Produto p) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         try {
             manager.getTransaction().begin();
-            manager.persist(c);
+            manager.persist(p);
             manager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -30,28 +36,28 @@ public class CategoriaDAO {
         }
     }
 
-    public List<Categoria> mostrarCategorias() {
+     public List<Produto> mostrarProdutos() {
         EntityManager manager = new FabricaDeConexao().getConexao();
-        List<Categoria> listaCategoria = null;
+        List<Produto> listaProduto = null;
         try {
             
-            listaCategoria = (List<Categoria>)manager.createQuery("FROM TB_CATEGORIA c order by c.categoria_id asc").getResultList();
+            listaProduto = (List<Produto>)manager.createQuery("FROM TB_PRODUTO p order by p.produto_id asc").getResultList();
             
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao carregar listas: "+ e);
         }
-        return listaCategoria;
+        return listaProduto;
     }
 
-    public boolean atualizarCategoria(Categoria c) {
+    public boolean atualizarProduto(Produto p) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         boolean alterou = false;
         try {
-            System.out.println(c.getCategoria_id());
+            System.out.println(p.getProduto_id());
             manager.getTransaction().begin();
-            if (c.getCategoria_id() != null) {
+            if (p.getProduto_id() != null) {
                 
-                manager.merge(c);
+                manager.merge(p);
             }
             manager.getTransaction().commit();
             alterou = true;
@@ -64,11 +70,11 @@ public class CategoriaDAO {
         return alterou;
     }
 
-    public boolean removerCategoria(Categoria c) {
+    public boolean removerProduto(Produto p) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         boolean deletou = false;
         try {
-            Categoria toDel = manager.find(Categoria.class, c.getCategoria_id());
+            Produto toDel = manager.find(Produto.class, p.getProduto_id());
             manager.getTransaction().begin();
             manager.remove(toDel);
             manager.getTransaction().commit();

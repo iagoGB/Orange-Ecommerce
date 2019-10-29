@@ -48,22 +48,4 @@ public class InserirCategoriaServlet extends HttpServlet {
         inserircategoria(request, response);
     }
 
-    /*
-    protected void deletarCategoria(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String d = request.getParameter("descricao");
-        
-        categoriaDAO.removerCategoria(categoria);
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
-
-    }
-    protected void atualizarCategoria(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String d = request.getParameter("descricao");
-        Categoria c = new Categoria();
-        c.setDescricao(d);
-        categoriaDAO.salvarCategoria(c);
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
-
-    }*/
 }

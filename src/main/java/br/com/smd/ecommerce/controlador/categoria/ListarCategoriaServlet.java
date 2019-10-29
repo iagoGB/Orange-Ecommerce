@@ -10,7 +10,6 @@ import br.com.smd.ecommerce.modelo.Categoria;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +32,7 @@ public class ListarCategoriaServlet extends HttpServlet {
             request.setAttribute("listaCategorias", listaCategorias);
             System.out.println("Veio até aqui 2");
             request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
+            request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
             System.out.println("URI: "+ request.getRequestURI());
 
         } catch (Exception e) {
