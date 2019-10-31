@@ -14,6 +14,8 @@ import br.com.smd.ecommerce.conexao.FabricaDeConexao;
 import javax.persistence.EntityManager;
 import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
+import br.com.smd.ecommerce.modelo.ProdutoCategoria;
+import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
 import java.util.List;
 
 /**
@@ -22,18 +24,37 @@ import java.util.List;
  */
 public class ProdutoDAO {
 
-    public void salvarProduto(Produto p) {
+    public Produto salvarProduto(Produto p, Long categoriaId) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         try {
+            
             manager.getTransaction().begin();
-            manager.persist(p);
+            
+            Categoria categoria = (Categoria)manager.find(Categoria.class, categoriaId);
+           
+            ProdutoCategoria pc= new ProdutoCategoria();
+            
+            pc.setProduto(p);
+            pc.setCategoria(categoria);
+            p.getListaCategorias().add(pc);
+            categoria.getListaProdutos().add(pc);
+            
+            //PC possui o CASCADE MERGE
+            manager.persist(pc);
+            
+            
+            
+           
+            
             manager.getTransaction().commit();
+            
         } catch (Exception ex) {
-            ex.printStackTrace();
             manager.getTransaction().rollback();
         } finally {
             manager.close();
         }
+        
+        return p;
     }
 
      public List<Produto> mostrarProdutos() {
@@ -45,6 +66,8 @@ public class ProdutoDAO {
             
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao carregar listas: "+ e);
+        } finally {
+            manager.close();
         }
         return listaProduto;
     }
@@ -62,7 +85,7 @@ public class ProdutoDAO {
             manager.getTransaction().commit();
             alterou = true;
         } catch (Exception ex) {
-            ex.printStackTrace();
+           
             manager.getTransaction().rollback();
         } finally {
             manager.close();
@@ -80,12 +103,28 @@ public class ProdutoDAO {
             manager.getTransaction().commit();
             deletou = true;
         } catch (Exception ex) {
-            ex.printStackTrace();
             manager.getTransaction().rollback();
         } finally {
             manager.close();
         }
         return deletou;
+    }
+
+    public Produto salvarFoto(Long produto_id, String caminhoFoto) {
+         EntityManager manager = new FabricaDeConexao().getConexao();
+        Produto p = null;
+        try {
+            manager.getTransaction().begin();
+            p = manager.find(Produto.class, produto_id);
+            p.setFoto(caminhoFoto);
+            manager.merge(p);
+            
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro ao atualizar a foto: "+e);
+        }finally{
+            manager.close();
+        }
+        return p;
     }
 
 }

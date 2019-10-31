@@ -81,5 +81,21 @@ public class CategoriaDAO {
         }
         return deletou;
     }
+    
+    public Categoria selecionarPorId(Long id){
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        Categoria result = null;
+        
+        try {
+            
+            result = (Categoria) manager.find(Categoria.class, id);
+            
+        } catch (Exception e) {
+            
+            System.out.println("Ocorreu um erro ao recuperar uma categoria: "+ e);
+        
+        }
+        return result;
+    }
 
 }

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +39,7 @@ public class Produto implements Serializable {
     @Column(nullable = false)
     private Integer quantidade;
     
-    @OneToMany(mappedBy = "produto") 
+    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER ) 
     private List<ProdutoCategoria> listaCategorias;
     
     @OneToMany(mappedBy = "produto")
@@ -46,6 +47,7 @@ public class Produto implements Serializable {
 
     public Produto(){
         this.produtoEmCompras = new ArrayList<>();
+        this.listaCategorias = new ArrayList<>();
     }
     
     public Produto(Long produto_id, String foto, String descricao, Double preco, Integer quantidade) {

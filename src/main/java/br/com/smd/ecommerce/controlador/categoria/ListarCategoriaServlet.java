@@ -30,7 +30,6 @@ public class ListarCategoriaServlet extends HttpServlet {
             List<Categoria> listaCategorias = null;
             listaCategorias = categoriaDAO.mostrarCategorias();
             request.setAttribute("listaCategorias", listaCategorias);
-            System.out.println("Veio até aqui 2");
             request.getRequestDispatcher("admin/gerenciarCategorias.jsp").forward(request, response);
             request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
             System.out.println("URI: "+ request.getRequestURI());

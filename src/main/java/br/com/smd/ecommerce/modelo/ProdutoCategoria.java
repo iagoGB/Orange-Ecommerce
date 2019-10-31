@@ -7,6 +7,7 @@ package br.com.smd.ecommerce.modelo;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
@@ -22,8 +23,9 @@ import javax.persistence.ManyToOne;
 @Entity(name = "TB_PRODUTOXCATEGORIA")
 @IdClass(ProdutoCategoriaId.class)
 public class ProdutoCategoria implements Serializable{
+    
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE )
     @JoinColumn(
         name = "fk_produto_id",
         foreignKey = @ForeignKey(name = "fk_produto_id"),
@@ -32,7 +34,7 @@ public class ProdutoCategoria implements Serializable{
     Produto produto;
     
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE )
     @JoinColumn(
             name = "fk_categoria_id",
             foreignKey = @ForeignKey(name = "fk_categoria_id"),

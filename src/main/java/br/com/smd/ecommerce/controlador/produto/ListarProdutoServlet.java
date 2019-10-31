@@ -34,8 +34,9 @@ public class ListarProdutoServlet extends HttpServlet {
             listaProduto = produtoDAO.mostrarProdutos();
             List<Categoria> listaCategoria = null;
             listaCategoria = categoriaDAO.mostrarCategorias();
-            request.setAttribute("listaProduto", listaProduto);
+            request.setAttribute("listaProdutos", listaProduto);
             request.setAttribute("listaCategorias", listaCategoria);
+          
             request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
             System.out.println("URI: "+ request.getRequestURI());
 
@@ -49,6 +50,12 @@ public class ListarProdutoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        listarProduto(request, response);
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         listarProduto(request, response);
     }

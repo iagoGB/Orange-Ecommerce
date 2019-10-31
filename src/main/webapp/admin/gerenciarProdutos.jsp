@@ -54,14 +54,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="produto" items="${listaProduto}">
+                                            <c:forEach var="produto" items="${listaProdutos}">
                                                 <tr>
                                                     <td></td>
-                                                    <td><img src="${produto.foto}" width="100px"></td>
+                                                    <td><img src="/home/iago/imagens/${produto.foto}" width="100px"></td>
                                                     <td>${produto.descricao}</td>
                                                     <td>R$ ${produto.preco}</td>
                                                     <td>${produto.quantidade}</td>
-                                                    <td>Implementar as categorias dos produtos kk</td>
+                                                    <!-- Bugando? -->
+                                                    <td>${produto.listaCategorias[0].categoria.descricao}</td>
 
                                                     <td>
                                                         <!--Para cada produto crie um botão editar -->
@@ -174,70 +175,74 @@
                             <!-- Inserir novo produto -->
                             <div class="modal fade" id="inserirprod" tabindex="-1" role="dialog"
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <form action="/adicionarProduto.do" method="POST">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="TituloModalCentralizado">Inserir produto</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <label for="textInput">Informe uma descrição</label>
-                                                <input type="text" id="textInput" class="form-control mb-4" name="novoProduto">
-                                                <!-- Implementar sistema de upload -->
-                                                <label for="textInput">Adicione uma imagem ao
-                                                    produto</label>
-                                                <div class="input-group mb-3">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="imagem" value="img/img.jpg">
-                                                        <label class="custom-file-label" for="inputGroupFile02"
-                                                               aria-describedby="inputGroupFileAddon02"></label>
-                                                    </div>
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text"
-                                                              id="inputGroupFileAddon02">Carregar</span>
-                                                    </div>
+
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="TituloModalCentralizado">Inserir produto</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    
+                                    
+                                    <form action="adicionarProduto.do" method="POST" enctype="multipart/form-data">
+
+                                        <div class="modal-body">
+                                            <label for="textInput">Informe uma descrição</label>
+                                            <input type="text" id="textInput" class="form-control mb-4" name="novoProduto">
+                                            <!-- Implementar sistema de upload -->
+                                            <label for="textInput">Adicione uma imagem ao
+                                                produto</label>
+                                            <div class="input-group mb-3">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile02" name="imagem" value="img/img.jpg">
+                                                    <label class="custom-file-label" for="inputGroupFile02"
+                                                           aria-describedby="inputGroupFileAddon02"></label>
                                                 </div>
-
-                                                <label for="textInput">Informe um preço</label>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">R$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" aria-label="Quantia" name="preco">
-                                                </div>
-
-                                                <label for="customRange3">Quantidade no estoque: </label>
-                                                <input type="text" class="form-control" aria-label="Quantidade" name="quantidade">
-                                                <input type="range" class="custom-range" min="0" max="100" step="1"
-                                                       id="customRange3">
-
-                                                <label for="select">Escolha a(s) categoria(s)</label>
-                                                <div class="input-group">
-                                                    <select class="browser-default custom-select dropdown-primary" id="inputGroupSelect01" multiple size="3">
-                                                        <c:forEach var="categoria" items="${listaCategorias}">
-                                                            <option value="${categoria.categoria_id}">${categoria.descricao}</option>
-                                                        </c:forEach>
-                                                    </select>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text"
+                                                          id="inputGroupFileAddon02">Carregar</span>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
-                                                <button type="submit" class="btn btn-dark">Salvar</button>
+
+                                            <label for="textInput">Informe um preço</label>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">R$</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Quantia" name="preco">
                                             </div>
+
+                                            <label for="customRange3">Quantidade no estoque: </label>
+                                            <input type="text" class="form-control" aria-label="Quantidade" name="quantidade">
+                                            <input type="range" class="custom-range" min="0" max="100" step="1"
+                                                   id="customRange3">
+
+                                            <label for="select">Escolha a(s) categoria(s)</label>
+                                            <div class="input-group">
+                                                <select class="browser-default custom-select dropdown-primary" id="inputGroupSelect01" name="categoria" multiple size="3">
+                                                    <c:forEach var="categoria" items="${listaCategorias}">
+                                                        <option value="${categoria.categoria_id}">${categoria.descricao}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                                            <button type="submit" class="btn btn-dark">Salvar</button>
+                                        </div>
                                     </form>
                                 </div>
+
                             </div>
-                        </div>
 
-                    </div>
-
+                </div>
 
             </section>
 
         </div>
+
         <jsp:include page="../componentes/rodape.jsp" />
 
     </body>
