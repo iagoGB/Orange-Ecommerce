@@ -97,10 +97,10 @@ public class AdicionarProdutoServlet extends HttpServlet {
                 //Tenta salvar a foto do diretório
                 arquivoFoto.write(new File(REPOSITORIO_IMAGEM_PRODUTO + File.separator + p.getProduto_id() + arquivoFoto.getName().substring(arquivoFoto.getName().lastIndexOf("."))));
                 String caminhoFoto = p.getProduto_id() + arquivoFoto.getName().substring(arquivoFoto.getName().lastIndexOf("."));
-
+                System.out.println("CaminhoFoto: "+ caminhoFoto);
                 p = produtoDAO.salvarFoto(p.getProduto_id(), caminhoFoto);
 
-                System.out.println("p final: " + p);
+                System.out.println("Estado do produto após salvar tudo: " + p.toString());
                 sucessoUpload = true;
             }
 

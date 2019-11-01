@@ -112,12 +112,14 @@ public class ProdutoDAO {
 
     public Produto salvarFoto(Long produto_id, String caminhoFoto) {
          EntityManager manager = new FabricaDeConexao().getConexao();
-        Produto p = null;
+         Produto p = null;
         try {
             manager.getTransaction().begin();
             p = manager.find(Produto.class, produto_id);
             p.setFoto(caminhoFoto);
+            p.getProdutoEmCompras();
             manager.merge(p);
+            manager.getTransaction().commit();
             
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao atualizar a foto: "+e);

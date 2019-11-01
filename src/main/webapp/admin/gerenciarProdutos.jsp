@@ -57,7 +57,7 @@
                                             <c:forEach var="produto" items="${listaProdutos}">
                                                 <tr>
                                                     <td></td>
-                                                    <td><img src="/home/iago/imagens/${produto.foto}" width="100px"></td>
+                                                    <td><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100px"></td>
                                                     <td>${produto.descricao}</td>
                                                     <td>R$ ${produto.preco}</td>
                                                     <td>${produto.quantidade}</td>
