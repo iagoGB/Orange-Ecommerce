@@ -4,7 +4,7 @@
     <artifactId>OrangeEcommerce</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <description>Projeto para disciplina Programa��o para WEB I</description>
+    <description>Projeto para disciplina Programação para WEB I</description>
   
     <build>
         <finalName>orange-ecommerce-smd</finalName>

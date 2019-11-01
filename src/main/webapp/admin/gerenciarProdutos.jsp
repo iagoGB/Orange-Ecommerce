@@ -26,10 +26,20 @@
                     <div class="row py-3 px-3">
                         <jsp:include page="../componentes/navMenuAdmin.jsp" />
                         <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
+                            <!-- Só exibe  a mensagem se ocorrer erro ao adicionar produto -->
+                            <c:if test="${not empty feedbackNegativoAdicionarProduto || not empty feedbackNegativoListarProduto || not empty feedbackNegativoRemoverProduto}" >
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <p class="text-danger">${feedbackNegativoAdicionarProduto} ${feedbackNegativoListarProduto} ${feedbackNegativoRemoverProduto}</p>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </c:if>
+                            
+                            
                             <!-- Listar produtos -->
                             <div class="card card-cascade narrower d-none" id="collapse-produtos">
-                                <div
-                                    class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
+                                <div class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
                                     <a href="" class="white-text mx-3">Produtos no estoque</a>
                                     <div class="ml-auto mr-2">
                                         <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
@@ -139,7 +149,7 @@
                                                         </form>
                                                         <!--Para cada produto um formulário para excluir -->
                                                         <!-- Remover produto -->
-                                                        <form action="/excluirProduto.do" method="POST">                                   
+                                                        <form action="excluirProduto.do" method="POST">                                   
                                                             <div class="modal fade" id="excluirprod-${produto.produto_id}" tabindex="-1" role="dialog"
                                                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered" role="document">

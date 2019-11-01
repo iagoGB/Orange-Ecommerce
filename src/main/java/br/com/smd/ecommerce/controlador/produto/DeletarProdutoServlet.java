@@ -34,16 +34,24 @@ public class DeletarProdutoServlet extends HttpServlet {
             Produto produto = new Produto(id, foto, desc, preco, quantidade);
             
             boolean deletou = produtoDAO.removerProduto(produto);
+            
             if (deletou) {
+                System.out.println("Deletou o produto");
                 response.sendRedirect("/listarProduto.do");
+                
             } else {
-                response.sendRedirect("erro.jsp");
+              System.out.println("Deu erro ao deletar 1 "); 
+              request.setAttribute("feedbackNegativoRemoverProduto", " A variável deletou nao ficou true");
+              request.getRequestDispatcher("/listarProduto.do").forward(request, response);
+              
             }
 
         } catch (Exception e) {
-
-            System.out.println("Ocorreu um erro ao atualizar" + e);
-            response.sendRedirect("erro.jsp");
+            System.out.println("Deu erro ao deletar 2 "); 
+            System.out.println("Ocorreu um erro ao remover produto : " + e);
+            request.setAttribute("feedbackNegativoRemoverProduto", "Não foi possível excluir o produto ");
+            request.getRequestDispatcher("/listarProduto.do").forward(request, response);
+            
         }
 
     }

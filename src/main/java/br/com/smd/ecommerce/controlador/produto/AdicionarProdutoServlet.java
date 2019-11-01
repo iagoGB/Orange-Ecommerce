@@ -82,7 +82,7 @@ public class AdicionarProdutoServlet extends HttpServlet {
                     /* caso o parâmetro seja do tipo binário e com chave foto */
                     if (!item.isFormField() && item.getFieldName().equals("imagem") && item.getContentType().startsWith("image/")) {
                         arquivoFoto = item;
-                        System.out.println("Veio um arquivo: " + foto.toString());
+                        
                     }
                 }
 
@@ -99,22 +99,29 @@ public class AdicionarProdutoServlet extends HttpServlet {
                 String caminhoFoto = p.getProduto_id() + arquivoFoto.getName().substring(arquivoFoto.getName().lastIndexOf("."));
                 System.out.println("CaminhoFoto: "+ caminhoFoto);
                 p = produtoDAO.salvarFoto(p.getProduto_id(), caminhoFoto);
-
-                System.out.println("Estado do produto após salvar tudo: " + p.toString());
+                
+                //Um erro acontece no ToString pois ele chama uma array que ainda não foi feito o fetch ProdutoEmCompras
+                //System.out.println("Estado do produto após salvar tudo: " + p.toString());
                 sucessoUpload = true;
             }
 
             if (sucessoUpload) {
+                
                 System.out.println("Terminou a execução da servlet com sucesso!");
                 request.getRequestDispatcher("/listarProduto.do").forward(request, response);
+                
             } else {
-                System.out.println("O upload não foi bem sucedido!");
+                
+            request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel fazer o upload da imagem ");
+            request.getRequestDispatcher("/listarProduto.do").forward(request, response);
+            
             }
 
         } catch (Exception e) {
 
-            System.out.println("Ocorreu um erro : " + e);
-            response.sendRedirect("./erro.jsp");
+            System.out.println("Ocorreu um erro ao adicionar produto : " + e);
+            request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possível cadastrar o novo produto ");
+            request.getRequestDispatcher("/listarProduto.do").forward(request, response);
         }
 
     }

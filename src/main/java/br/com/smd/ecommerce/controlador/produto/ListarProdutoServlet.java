@@ -28,7 +28,7 @@ public class ListarProdutoServlet extends HttpServlet {
     protected void listarProduto(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        try {
+        try {           
             
             List<Produto> listaProduto = null;
             listaProduto = produtoDAO.mostrarProdutos();
@@ -38,12 +38,11 @@ public class ListarProdutoServlet extends HttpServlet {
             request.setAttribute("listaCategorias", listaCategoria);
           
             request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
-            System.out.println("URI: "+ request.getRequestURI());
-
+            
         } catch (Exception e) {
             
-            System.out.println("Ocorreu um erro ao listar: " + e);
-            response.sendRedirect("/erro.jsp");
+            request.setAttribute("feedbackNegativoListarProduto", "Não foi possível listar os produtos");
+            request.getRequestDispatcher("/admin/gerenciarProdutos.jsp").forward(request, response);  
         }
 
     }

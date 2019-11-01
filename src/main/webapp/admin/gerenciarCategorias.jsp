@@ -26,6 +26,7 @@
                     <div class="row py-3 px-3">
                         <jsp:include page="../componentes/navMenuAdmin.jsp" />
                         <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
+                            
                             <!-- Listar categorias -->
                             <div class="card card-cascade narrower d-none" id="collapse-categorias">
                                 <div
