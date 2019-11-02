@@ -35,7 +35,7 @@ public class CategoriaDAO {
         List<Categoria> listaCategoria = null;
         try {
             
-            listaCategoria = (List<Categoria>)manager.createQuery("FROM TB_CATEGORIA c order by c.categoria_id asc").getResultList();
+            listaCategoria = (List<Categoria>)manager.createQuery("FROM TB_CATEGORIA c order by c.categoria_id desc").getResultList();
             
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao carregar listas: "+ e);
@@ -47,12 +47,16 @@ public class CategoriaDAO {
         EntityManager manager = new FabricaDeConexao().getConexao();
         boolean alterou = false;
         try {
-            System.out.println(c.getCategoria_id());
+            System.out.println("id da categoria: "+ c.getCategoria_id());
             manager.getTransaction().begin();
-            if (c.getCategoria_id() != null) {
+            Categoria newc = (Categoria) manager.find(Categoria.class, c.getCategoria_id());
+            newc.setDescricao(c.getDescricao());
+            
+            if (newc.getCategoria_id() != null) {
                 
-                manager.merge(c);
+                manager.merge(newc);
             }
+            System.out.println("New C: "+newc);
             manager.getTransaction().commit();
             alterou = true;
         } catch (Exception ex) {

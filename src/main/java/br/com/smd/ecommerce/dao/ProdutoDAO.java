@@ -15,6 +15,7 @@ import javax.persistence.EntityManager;
 import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
+import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
 import java.util.List;
 
 /**
@@ -23,23 +24,24 @@ import java.util.List;
  */
 public class ProdutoDAO {
 
-    public Produto salvarProduto(Produto p, Long categoriaId) {
+    public Produto salvarProduto(Produto p, List<Long> listaCategorias ) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         try {
 
             manager.getTransaction().begin();
+            
+                for (Long c : listaCategorias) {
 
-            Categoria categoria = (Categoria) manager.find(Categoria.class, categoriaId);
+                    Categoria categoria = (Categoria) manager.find(Categoria.class, c);
+                    ProdutoCategoria pc = new ProdutoCategoria();
 
-            ProdutoCategoria pc = new ProdutoCategoria();
-
-            pc.setProduto(p);
-            pc.setCategoria(categoria);
-            p.getListaCategorias().add(pc);
-            categoria.getListaProdutos().add(pc);
-
-            //PC possui o CASCADE MERGE
-            manager.persist(pc);
+                    pc.setProduto(p);
+                    pc.setCategoria(categoria);
+                    p.getListaCategorias().add(pc);
+                    categoria.getListaProdutos().add(pc);
+                    //PC possui o CASCADE MERGE
+                    manager.persist(pc);
+                }
 
             manager.getTransaction().commit();
 
@@ -57,7 +59,7 @@ public class ProdutoDAO {
         List<Produto> listaProduto = null;
         try {
 
-            listaProduto = (List<Produto>) manager.createQuery("FROM TB_PRODUTO p order by p.produto_id asc").getResultList();
+            listaProduto = (List<Produto>) manager.createQuery("FROM TB_PRODUTO p order by p.produto_id desc").getResultList();
 
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao carregar listas: " + e);
@@ -71,11 +73,17 @@ public class ProdutoDAO {
         EntityManager manager = new FabricaDeConexao().getConexao();
         boolean alterou = false;
         try {
-            System.out.println(p.getProduto_id());
+            
             manager.getTransaction().begin();
-            if (p.getProduto_id() != null) {
+            Produto newp = (Produto) manager.find( Produto.class,p.getProduto_id());
+            
+            newp.setDescricao(p.getDescricao());
+            newp.setPreco(p.getPreco());
+            newp.setQuantidade(p.getQuantidade());
+            
+            if (newp.getProduto_id() != null) {
 
-                manager.merge(p);
+                manager.merge(newp);
             }
             manager.getTransaction().commit();
             alterou = true;
@@ -93,13 +101,16 @@ public class ProdutoDAO {
         boolean deletou = false;
         try {
             manager.getTransaction().begin();
-            Produto toDel = (Produto) manager.find(Produto.class, p.getProduto_id());
-            manager.remove(toDel);
-            manager.flush();
-            manager.clear();
-            manager.getTransaction().commit();
+            
+                p = manager.find(Produto.class,p.getProduto_id());
+                p.getListaCategorias().size();
+                p.getListaCategorias().clear();
+              
+                manager.remove(p);
+                manager.getTransaction().commit();
             deletou = true;
         } catch (Exception ex) {
+            System.err.println("Erro ao deletar produto: "+ ex);
             manager.getTransaction().rollback();
         } finally {
             manager.close();

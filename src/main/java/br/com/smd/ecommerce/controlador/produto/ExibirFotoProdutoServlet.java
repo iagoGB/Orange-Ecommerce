@@ -33,7 +33,6 @@ public class ExibirFotoProdutoServlet extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String foto = request.getParameter("foto");
-        System.out.println("Entrou no mostrar, gay.  O id da foto é: "+foto);
         
         ServletContext servletContext = getServletContext();
         

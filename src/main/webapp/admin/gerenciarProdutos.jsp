@@ -68,11 +68,14 @@
                                                 <tr>
                                                     <td></td>
                                                     <td><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100px"></td>
-                                                    <td>${produto.descricao}</td>
+                                                    <td>${ produto.produto_id } - ${produto.descricao}</td>
                                                     <td>R$ ${produto.preco}</td>
                                                     <td>${produto.quantidade}</td>
                                                     <!-- Bugando? -->
-                                                    <td>${produto.listaCategorias[0].categoria.descricao}</td>
+                                                    <td>
+                                                        ${produto.listaCategorias[0].categoria.categoria_id} - ${produto.listaCategorias[0].categoria.descricao}
+                                                        <br/>${produto.listaCategorias[1].categoria.categoria_id} - ${produto.listaCategorias[1].categoria.descricao}
+                                                    </td>
 
                                                     <td>
                                                         <!--Para cada produto crie um botão editar -->
@@ -201,7 +204,7 @@
                                         <div class="modal-body">
                                             <label for="textInput">Informe uma descrição</label>
                                             <input type="text" id="textInput" class="form-control mb-4" name="novoProduto">
-                                            <!-- Implementar sistema de upload -->
+                                            
                                             <label for="textInput">Adicione uma imagem ao
                                                 produto</label>
                                             <div class="input-group mb-3">

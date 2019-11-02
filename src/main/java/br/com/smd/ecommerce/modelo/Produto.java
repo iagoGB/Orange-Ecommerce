@@ -39,7 +39,7 @@ public class Produto implements Serializable {
     @Column(nullable = false)
     private Integer quantidade;
     
-    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER ) 
+    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER , orphanRemoval = true ) 
     private List<ProdutoCategoria> listaCategorias;
     
     @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY )
@@ -83,7 +83,7 @@ public class Produto implements Serializable {
     public void setFoto(String foto) {
         this.foto = foto;
     }
-    
+
     public String getDescricao() {
         return descricao;
     }
@@ -115,14 +115,6 @@ public class Produto implements Serializable {
     public void setListaCategorias(List<ProdutoCategoria> listaCategorias) {
         this.listaCategorias = listaCategorias;
     }
-    
-    public List<ProdutoCategoria> getProdutoEmCategorias() {
-        return listaCategorias;
-    }
-
-    public void setProdutoEmCategorias(List<ProdutoCategoria> produtoEmCategorias) {
-        this.listaCategorias = produtoEmCategorias;
-    }
 
     public List<ProdutoCompra> getProdutoEmCompras() {
         return produtoEmCompras;
@@ -134,14 +126,14 @@ public class Produto implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.produto_id);
-        hash = 97 * hash + Objects.hashCode(this.foto);
-        hash = 97 * hash + Objects.hashCode(this.descricao);
-        hash = 97 * hash + Objects.hashCode(this.preco);
-        hash = 97 * hash + Objects.hashCode(this.quantidade);
-        hash = 97 * hash + Objects.hashCode(this.listaCategorias);
-        hash = 97 * hash + Objects.hashCode(this.produtoEmCompras);
+        int hash = 7;
+        hash = 11 * hash + Objects.hashCode(this.produto_id);
+        hash = 11 * hash + Objects.hashCode(this.foto);
+        hash = 11 * hash + Objects.hashCode(this.descricao);
+        hash = 11 * hash + Objects.hashCode(this.preco);
+        hash = 11 * hash + Objects.hashCode(this.quantidade);
+        hash = 11 * hash + Objects.hashCode(this.listaCategorias);
+        hash = 11 * hash + Objects.hashCode(this.produtoEmCompras);
         return hash;
     }
 
@@ -179,7 +171,7 @@ public class Produto implements Serializable {
             return false;
         }
         return true;
-    }
+    }    
 
     @Override
     public String toString() {

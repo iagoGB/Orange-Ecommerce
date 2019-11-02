@@ -68,9 +68,9 @@ public class ProdutoCategoria implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.produto);
-        hash = 67 * hash + Objects.hashCode(this.categoria);
+        int hash = 3;
+        hash = 71 * hash + Objects.hashCode(this.produto);
+        hash = 71 * hash + Objects.hashCode(this.categoria);
         return hash;
     }
 
@@ -93,6 +93,13 @@ public class ProdutoCategoria implements Serializable{
             return false;
         }
         return true;
+    }
+
+    
+
+    @Override
+    public String toString() {
+        return "ProdutoCategoria{" + "produto=" + produto + ", categoria=" + categoria + '}';
     }
     
     

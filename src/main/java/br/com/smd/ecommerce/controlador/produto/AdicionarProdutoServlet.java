@@ -24,7 +24,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import org.apache.commons.io.FileUtils;
 import static br.com.smd.ecommerce.util.Constantes.*;
+import java.util.ArrayList;
 import java.util.Iterator;
+import net.bytebuddy.matcher.FilterableList;
 import org.apache.commons.fileupload.servlet.ServletRequestContext;
 
 /**
@@ -50,6 +52,8 @@ public class AdicionarProdutoServlet extends HttpServlet {
             FileItem arquivoFoto = null;
             boolean isMultipart = ServletFileUpload.isMultipartContent(request);
             boolean sucessoUpload = false;
+            List<Long> cList;
+            cList = new ArrayList<Long>();
 
             if (isMultipart) {
 
@@ -75,8 +79,15 @@ public class AdicionarProdutoServlet extends HttpServlet {
                         System.out.println("Quantidade em estoque: " + quantidade);
                     }
                     if (item.isFormField() && item.getFieldName().equals("categoria")) {
-                        categoria_id = Long.parseLong(item.getString());
-                        System.out.println("id da categoria: " + categoria_id);
+
+                        Long cid = Long.parseLong(item.getString());
+                       
+                        
+                        cList.add(cid);
+                        for (Long id : cList) {
+                            System.out.println("array de seleções: "+id.toString());
+                        }
+                        //System.out.println("id da categoria: " + categoria_id);
                     }
 
                     /* caso o parâmetro seja do tipo binário e com chave foto */
@@ -92,7 +103,7 @@ public class AdicionarProdutoServlet extends HttpServlet {
                 p.setQuantidade(quantidade);
                 p.setFoto(foto);
 
-                p = produtoDAO.salvarProduto(p, categoria_id);
+                p = produtoDAO.salvarProduto(p, cList);
 
                 //Tenta salvar a foto do diretório
                 arquivoFoto.write(new File(REPOSITORIO_IMAGEM_PRODUTO + File.separator + p.getProduto_id() + arquivoFoto.getName().substring(arquivoFoto.getName().lastIndexOf("."))));
