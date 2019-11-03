@@ -26,7 +26,7 @@
                     <div class="row py-3 px-3">
                         <jsp:include page="../componentes/navMenuAdmin.jsp" />
                         <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
-                            
+
                             <!-- Listar categorias -->
                             <div class="card card-cascade narrower d-none" id="collapse-categorias">
                                 <div
@@ -44,7 +44,7 @@
                                     <table class="table table-hover table-bordered" id="dtcategorias">
                                         <thead class="thead-light">
                                             <tr>
-                                                
+
                                                 <th class="align-middle text-center">Id</th>
                                                 <th class="align-middle text-center" scope="col">Descrição</th>
                                                 <th class="align-middle text-center" scope="col">Ações</th>
@@ -53,7 +53,7 @@
                                         <tbody>
                                             <c:forEach var="categoria" items="${listaCategorias}">
                                                 <tr>
-                                                    
+
                                                     <td class="align-middle text-center">${categoria.categoria_id}</td>
                                                     <td class="align-middle text-center">${categoria.descricao}</td>
 
@@ -137,12 +137,10 @@
 
                             </div>
                             <!-- Inserir nova categoria -->
-                            <div class="modal fade" id="inserircat" tabindex="-1" role="dialog"
-                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-
-                                    <form action="/inserirCategoria.do" method="POST" class="needs-validation" novalidate>
-
+                            <form action="/inserirCategoria.do" method="POST" class="needs-validation" novalidate>
+                                <div class="modal fade" id="inserircat" tabindex="-1" role="dialog"
+                                     aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
 
                                             <div class="modal-header">
@@ -161,11 +159,9 @@
                                             </div>
 
                                         </div>
-
-                                    </form>
-
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
 
                     </div>
