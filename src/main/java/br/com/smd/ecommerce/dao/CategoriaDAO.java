@@ -33,6 +33,7 @@ public class CategoriaDAO {
     public List<Categoria> mostrarCategorias() {
         EntityManager manager = new FabricaDeConexao().getConexao();
         List<Categoria> listaCategoria = null;
+        
         try {
             
             listaCategoria = (List<Categoria>)manager.createQuery("FROM TB_CATEGORIA c order by c.categoria_id desc").getResultList();

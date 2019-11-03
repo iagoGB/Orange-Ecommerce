@@ -45,19 +45,19 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th></th>
-                                                <th>Id</th>
-                                                <th scope="col">Descrição</th>
-                                                <th scope="col">Ações</th>
+                                                <th class="align-middle text-center">Id</th>
+                                                <th class="align-middle text-center" scope="col">Descrição</th>
+                                                <th class="align-middle text-center" scope="col">Ações</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <c:forEach var="categoria" items="${listaCategorias}">
                                                 <tr>
-                                                    <td></td>
-                                                    <td>${categoria.categoria_id}</td>
-                                                    <td>${categoria.descricao}</td>
+                                                    <td class="align-middle text-center"></td>
+                                                    <td class="align-middle text-center">${categoria.categoria_id}</td>
+                                                    <td class="align-middle text-center">${categoria.descricao}</td>
 
-                                                    <td>
+                                                    <td class="align-middle text-center">
                                                         <!--Para cada categoria crie um botão editar -->
                                                         <button type="button" class="btn  btn-danger btn-rounded btn-sm px-2"
                                                                 data-toggle="modal" data-target="#alterarcat-${categoria.categoria_id}">

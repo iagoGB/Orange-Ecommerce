@@ -66,18 +66,21 @@
                                         <tbody>
                                             <c:forEach var="produto" items="${listaProdutos}">
                                                 <tr>
-                                                    <td></td>
-                                                    <td><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100px"></td>
-                                                    <td>${ produto.produto_id } - ${produto.descricao}</td>
-                                                    <td>R$ ${produto.preco}</td>
-                                                    <td>${produto.quantidade}</td>
-                                                    <!-- Bugando? -->
-                                                    <td>
-                                                        ${produto.listaCategorias[0].categoria.categoria_id} - ${produto.listaCategorias[0].categoria.descricao}
-                                                        <br/>${produto.listaCategorias[1].categoria.categoria_id} - ${produto.listaCategorias[1].categoria.descricao}
+                                                    <td class="align-middle text-center"></td>
+                                                    <td class="align-middle text-center"><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100px"></td>
+                                                    <td class="align-middle text-center">${ produto.produto_id } - ${produto.descricao}</td>
+                                                    <td class="align-middle text-center">R$ ${produto.preco}</td>
+                                                    <td class="align-middle text-center">${produto.quantidade}</td>
+                        
+                                                    <td class="align-middle text-center">
+<!--                                                        Lista as categorias do produto                                                -->
+                                                        <c:forEach var="c" items="${ produto.listaCategorias }">
+                                                            <c:out value="${ c.categoria.descricao }"/>
+                                                            <br/>
+                                                        </c:forEach>   
                                                     </td>
 
-                                                    <td>
+                                                    <td class="align-middle text-center">
                                                         <!--Para cada produto crie um botão editar -->
                                                         <button type="button" class="btn btn-danger btn-rounded btn-sm px-2"
                                                                 data-toggle="modal" data-target="#alterarprod-${produto.produto_id}">
@@ -169,7 +172,7 @@
                                                                             <input type="hidden" name="descricao" value="${produto.descricao }"/>
                                                                             <input type="hidden" name="preco" value="${produto.preco }"/>
                                                                             <input type="hidden" name="quantidade" value="${produto.quantidade }"/>
-                                                                            <p>Deseja remover esse produto do estoque ${produto.descricao}?</p>
+                                                                            <p>Deseja <strong class="text-danger">remover</strong> " ${produto.descricao} " do estoque ?</p>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>

@@ -152,7 +152,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                             <c:forEach var="categoria" items="${listaCategoria}">
-                                <a class="dropdown-item" href="categoria.jsp">${categoria.descricao}</a>
+                                <a class="dropdown-item" href="visualizarProduto.do?categoria=${categoria.categoria_id}">${categoria.descricao}</a>
                                 <div class="dropdown-divider"></div>
                             </c:forEach>
 

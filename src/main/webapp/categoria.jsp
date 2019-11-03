@@ -1,4 +1,7 @@
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
+<%@page import="br.com.smd.ecommerce.modelo.Categoria"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,14 +23,11 @@
                                 </header>
                                 <div class="filter-content">
                                     <div class="list-group list-group-flush">
-                                        <a href="#" class="list-group-item">Categoria1<span
-                                                class="float-right badge badge-secondary round">142</span> </a>
-                                        <a href="#" class="list-group-item">Categoria2<span
-                                                class="float-right badge badge-secondary round">3</span> </a>
-                                        <a href="#" class="list-group-item">Categoria3<span
-                                                class="float-right badge badge-secondary round">32</span> </a>
-                                        <a href="#" class="list-group-item">Categoria4<span
-                                                class="float-right badge badge-secondary round">12</span> </a>
+                                        <c:forEach items="${listaCategorias}" var="categoria">
+                                            <a href="visualizarProduto.do?categoria=${categoria.categoria_id}" class="list-group-item">
+                                                ${categoria.descricao}<span class="float-right badge badge-secondary round">${fn:length(categoria.listaProdutos)}</span> 
+                                            </a>
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </article>
@@ -68,20 +68,22 @@
                         </div>
                         <!--Produtos-->
                         <div class="row pt-3 pb-3 px-3">
-                            <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
-                                <div class="card border-warning">
-                                    <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                                    <div class="card-body">
-                                        <a href="produto.html">
-                                            <h5 class="card-title">Produto</h5>
-                                        </a>
-                                        <p class="card-text">Descrição</p>
-                                        <p class="card-text">Preço</p>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                            <c:forEach items="${listaProdutos}" var="produto">
+                                <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
+                                    <div class="card border-warning">
+                                        <img class="card-img-top" src="exibirFotoProduto.do?foto=${produto.foto}" alt="Imagem do produto ${produto.descricao}">
+                                        <div class="card-body">
+                                            <a href="produto.html">
+                                                <h5 class="card-title">${produto.descricao}</h5>
+                                            </a>
+                                            <p class="card-text">Preço:</p>
+                                            <p class="card-text"> R$ <fmt:formatNumber type="number" pattern="00.00" value="${produto.preco}" /> </p>
+                                            <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                             
                         </div>
                     </div>

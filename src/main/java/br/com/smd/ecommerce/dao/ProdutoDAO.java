@@ -16,7 +16,10 @@ import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
 import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -68,6 +71,30 @@ public class ProdutoDAO {
         }
         return listaProduto;
     }
+    
+    public List<Produto> mostrarProdutosPorCategoria(Long categoriaId) {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        List<Produto> listaProduto = null;
+        try {
+      
+        TypedQuery<Produto> query = manager.createQuery(
+                "Select p from TB_PRODUTO as p "
+                + "join p.listaCategorias lc "
+                + "where lc.categoria.categoria_id = :idT", Produto.class )
+                .setParameter("idT", categoriaId);
+        
+        listaProduto = query.getResultList();
+            
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro ao carregar listas de produtos para a página: " + e);
+            System.out.println("e.get message"+e.getMessage());
+        } finally {
+            manager.close();
+        }
+        return listaProduto;
+    }
+    
+    
 
     public boolean atualizarProduto(Produto p) {
         EntityManager manager = new FabricaDeConexao().getConexao();
