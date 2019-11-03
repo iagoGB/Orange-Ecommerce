@@ -69,7 +69,7 @@
                                                             <i class="fas fa-trash-alt fa-2x mt-0"></i>
                                                         </button>
                                                         <!--Para cada categoria um formulário para editar -->
-                                                        <form action="/atualizarCategoria.do" method="POST">
+                                                        <form action="/atualizarCategoria.do" method="POST" class="needs-validation" novalidate>
 
                                                             <!-- Alterar categoria -->
                                                             <div class="modal fade" id="alterarcat-${categoria.categoria_id}" tabindex="-1" role="dialog"
@@ -85,7 +85,7 @@
                                                                         <div class="modal-body">
                                                                             <label for="textInput">Informe uma nova descrição</label>
                                                                             <input type="hidden" name="categoria_id" value="${categoria.categoria_id }"/>
-                                                                            <input type="text" id="textInput" class="form-control mb-4" name="novaDescricao" value="${categoria.descricao}">
+                                                                            <input type="text" id="validationCustom01" required class="form-control mb-4" name="novaDescricao" value="${categoria.descricao}">
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
@@ -141,7 +141,7 @@
                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
 
-                                    <form action="/inserirCategoria.do" method="POST">
+                                    <form action="/inserirCategoria.do" method="POST" class="needs-validation" novalidate>
 
                                         <div class="modal-content">
 
@@ -153,7 +153,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <label for="textInput">Informe uma descrição</label>
-                                                <input type="text" id="textInput" class="form-control mb-4" name="novaCategoria">
+                                                <input type="text" id="validationCustom01" required class="form-control mb-4" name="novaCategoria">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
