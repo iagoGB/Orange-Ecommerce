@@ -1,8 +1,8 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
+<%@page import="br.com.smd.ecommerce.modelo.Produto"%>
 <!DOCTYPE html>
 <html lang="pt-br">
-   
+
     <%@include file="componentes/head.jsp" %>
 
     <body>
@@ -28,23 +28,26 @@
                             <hr class="bg-dark">
                         </div>
                     </div>
+
                     <!--Produtos recomendados-->
                     <div class="row pt-3 pb-3 px-3">
-                        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                            <div class="card border-warning">
-                                <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                                <div class="card-body">
-                                    <a href="produto.jsp">
-                                        <h5 class="card-title">Produto</h5>
-                                    </a>
-                                    <p class="card-text">Descrição</p>
-                                    <p class="card-text">Preço</p>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                        <c:forEach var="p" items="${listaProduto}">
+                            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
+                                <div class="card border-warning">
+                                    <img class="card-img-top img-fluid" src="exibirFotoProduto.do?foto=${p.foto}" width="100%" height="auto" alt="Imagem de capa do card">
+                                    <div class="card-body">
+                                        <a href="produto.jsp">
+                                            <h5 class="card-title">${p.descricao}</h5>
+                                        </a>
+                                        <p class="card-text">R$ ${p.preco}</p>
+                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </c:forEach>
+
+
                     </div>
                 </div>
             </section>

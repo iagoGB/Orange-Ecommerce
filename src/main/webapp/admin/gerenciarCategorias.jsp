@@ -44,7 +44,7 @@
                                     <table class="table table-hover table-bordered" id="dtcategorias">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th></th>
+                                                
                                                 <th class="align-middle text-center">Id</th>
                                                 <th class="align-middle text-center" scope="col">Descrição</th>
                                                 <th class="align-middle text-center" scope="col">Ações</th>
@@ -53,7 +53,7 @@
                                         <tbody>
                                             <c:forEach var="categoria" items="${listaCategorias}">
                                                 <tr>
-                                                    <td class="align-middle text-center"></td>
+                                                    
                                                     <td class="align-middle text-center">${categoria.categoria_id}</td>
                                                     <td class="align-middle text-center">${categoria.descricao}</td>
 

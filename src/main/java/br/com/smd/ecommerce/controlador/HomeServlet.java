@@ -6,7 +6,9 @@
 package br.com.smd.ecommerce.controlador;
 
 import br.com.smd.ecommerce.dao.CategoriaDAO;
+import br.com.smd.ecommerce.dao.ProdutoDAO;
 import br.com.smd.ecommerce.modelo.Categoria;
+import br.com.smd.ecommerce.modelo.Produto;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class HomeServlet extends HttpServlet {
     CategoriaDAO categoriaDAO = new CategoriaDAO();
+    ProdutoDAO produtoDAO = new ProdutoDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,10 +30,13 @@ public class HomeServlet extends HttpServlet {
         
         try {
             
+            
             List<Categoria> listaCategorias = null;
-
+            List<Produto> listaProdutos = null;
             listaCategorias = categoriaDAO.mostrarCategorias();
+            listaProdutos = produtoDAO.mostrarProdutos();
             request.setAttribute("listaCategoria", listaCategorias);
+            request.setAttribute("listaProduto", listaProdutos);
             System.out.println("Entrou");
             request.getRequestDispatcher("index.jsp").forward(request, response);
             

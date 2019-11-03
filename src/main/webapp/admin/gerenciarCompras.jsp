@@ -43,7 +43,7 @@
                                     <table class="table table-hover table-bordered" id="dthistorico">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th></th>
+                                                
                                                 <th scope="col">Data</th>
                                                 <th scope="col">Cliente</th>
                                                 <th scope="col">Preço</th>
@@ -55,7 +55,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td></td>
+                                                
                                                 <td>#</td>
                                                 <td>#</td>
                                                 <td>#</td>
@@ -63,15 +63,7 @@
                                                 <td>#</td>
                                                 <td>#</td>
                                             </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
+                                            
 
                                         </tbody>
                                     </table>

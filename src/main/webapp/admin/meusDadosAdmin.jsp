@@ -37,24 +37,20 @@
         <form class="py-3 mx-4">
             <div class="form-group">
                 <input type="hidden" class="form-control" value="${administrador.adm_id}" name="adm_id" disabled>
-                <label for="exampleInputNome1">Nome Completo</label>
-                <input type="nome" class="form-control" value="${administrador.nome}" id="inputNome"
-                       placeholder="Nome do cliente" disabled>
+                <label for="exampleInputNome1"><b>Nome Completo: </b>${administrador.nome}</label>
+                
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Endereço de email</label>
-                <input type="email" class="form-control" value="${administrador.email}" name="email" id="inputEmail"
-                       aria-describedby="emailHelp" placeholder="Email do cliente" disabled>
+                <label for="exampleInputEmail1"><b>Email: </b>${administrador.email}</label>
+                
             </div>
             <div class="form-group">
-                <label for="exampleInputLogin1">Login</label>
-                <input type="login" class="form-control" value="${administrador.login}"id="exampleInputLogin1"
-                       placeholder="Login do cliente" disabled>
+                <label for="exampleInputLogin1"><b>Login: </b>${administrador.login}</label>
+                
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Senha</label>
-                <input type="password" class="form-control" value="${administrador.senha}"id="exampleInputPassword1"
-                       placeholder="Senha do cliente" disabled>
+                <label for="exampleInputPassword1"><b>Senha: </b>${administrador.senha}</label>
+                
             </div>
 
         </form>

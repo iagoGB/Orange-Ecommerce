@@ -54,7 +54,7 @@
                                     <table class="table table-hover table-bordered" id="dtprodutos">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th></th>
+                                                
                                                 <th scope="col">Foto</th>
                                                 <th scope="col">Descrição</th>
                                                 <th scope="col">Preço</th>
@@ -66,8 +66,8 @@
                                         <tbody>
                                             <c:forEach var="produto" items="${listaProdutos}">
                                                 <tr>
-                                                    <td class="align-middle text-center"></td>
-                                                    <td class="align-middle text-center"><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100px"></td>
+                                                    <td class="align-middle text-center"><img class="img-fluid" src="exibirFotoProduto.do?foto=${produto.foto}" width="100%" height="auto"></td>
+                                                    
                                                     <td class="align-middle text-center">${ produto.produto_id } - ${produto.descricao}</td>
                                                     <td class="align-middle text-center">R$ ${produto.preco}</td>
                                                     <td class="align-middle text-center">${produto.quantidade}</td>
@@ -117,10 +117,7 @@
                                                                                     <label class="custom-file-label" for="inputGroupFile02"
                                                                                            aria-describedby="inputGroupFileAddon02"></label>
                                                                                 </div>
-                                                                                <div class="input-group-append">
-                                                                                    <span class="input-group-text"
-                                                                                          id="inputGroupFileAddon02">Carregar</span>
-                                                                                </div>
+                                                                               
                                                                             </div>
 
                                                                             <label for="textInput">Informe um novo preço</label>
@@ -212,14 +209,11 @@
                                                 produto</label>
                                             <div class="input-group mb-3">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="inputGroupFile02" name="imagem" value="img/img.jpg">
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile02" name="imagem">
                                                     <label class="custom-file-label" for="inputGroupFile02"
                                                            aria-describedby="inputGroupFileAddon02"></label>
                                                 </div>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text"
-                                                          id="inputGroupFileAddon02">Carregar</span>
-                                                </div>
+                                                
                                             </div>
 
                                             <label for="textInput">Informe um preço</label>

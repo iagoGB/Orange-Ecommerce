@@ -67,29 +67,24 @@
                                 
                                 <form class="py-3 mx-4">
                                     <div class="form-group">
-                                        <label for="exampleInputNome1">Nome Completo</label>
-                                        <input type="nome" class="form-control" id="exampleInputNome1"
-                                               placeholder="Nome do cliente" value="${usuario.nome}" disabled>
+                                        <label for="exampleInputNome1"><b>Nome Completo: </b>${usuario.nome}</label>
+                                        
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEndereco1">Endereço</label>
-                                        <input type="endereco" class="form-control" id="exampleInputEndereco1"
-                                               placeholder="Endereço do cliente" value="${usuario.endereco}" disabled>
+                                        <label for="exampleInputEndereco1"><b>Endereço: </b>${usuario.endereco}</label>
+                                        
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Endereço de email</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               aria-describedby="emailHelp" placeholder="Email do cliente" value="${usuario.email} " disabled>
+                                        <label for="exampleInputEmail1"><b>Email: </b>${usuario.email}</label>
+                                        
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputLogin1">Login</label>
-                                        <input type="login" class="form-control" id="exampleInputLogin1"
-                                               placeholder="Login do cliente" value="${usuario.login}" disabled>
+                                        <label for="exampleInputLogin1"><b>Login: </b>${usuario.login}</label>
+                                        
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Senha</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                               placeholder="Senha do cliente" value="${usuario.senha}" disabled>
+                                        <label for="exampleInputPassword1"><b>Senha: </b>${usuario.senha}</label>
+                                        
                                     </div>
 
                                 </form>

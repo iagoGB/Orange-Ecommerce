@@ -43,8 +43,9 @@
                                     <table class="table table-hover table-bordered" id="dtcadastros">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th></th>
+                                                
                                                 <th scope="col">Nome</th>
+                                                <th scope="col">Endereço</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Login</th>
                                                 <th scope="col">Senha</th>
@@ -53,19 +54,13 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td></td>
                                                 <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
                                                 <td>#</td>
                                                 <td>#</td>
                                                 <td>#</td>
                                                 <td>#</td>
                                             </tr>
+                                            
 
                                         </tbody>
                                     </table>
