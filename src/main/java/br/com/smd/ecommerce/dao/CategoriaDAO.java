@@ -40,6 +40,8 @@ public class CategoriaDAO {
             
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao carregar listas: "+ e);
+        }finally{
+            manager.close();
         }
         return listaCategoria;
     }

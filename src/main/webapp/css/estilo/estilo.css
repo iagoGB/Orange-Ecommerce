@@ -36,3 +36,8 @@ and open the template in the editor.
     color: red !important;
     text-align:center;
 }
+
+.preview, .preview-create{
+    max-width: 200px;
+    max-height:200px;
+}

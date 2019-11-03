@@ -84,9 +84,7 @@ public class AdicionarProdutoServlet extends HttpServlet {
                        
                         
                         cList.add(cid);
-                        for (Long id : cList) {
-                            System.out.println("array de seleções: "+id.toString());
-                        }
+                        
                         //System.out.println("id da categoria: " + categoria_id);
                     }
 

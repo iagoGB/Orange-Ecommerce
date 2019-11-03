@@ -98,7 +98,7 @@
                                                         </button> 
                                                         <!--Para cada produto um formulário para editar foto -->
                                                         <!-- Alterar foto -->
-                                                        <form action="/atualizarProduto.do" method="POST" class="needs-validation" novalidate>
+                                                        <form action="/atualizarFotoProduto.do" method="POST" enctype="multipart/form-data"class="needs-validation" novalidate>
                                                             <div class="modal fade" id="alterarfoto-${produto.produto_id}" tabindex="-1" role="dialog"
                                                                  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -111,15 +111,8 @@
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <input type="hidden" name="produto_id" value="${produto.produto_id }"/>
-                                                                            <input type="hidden" class="form-control mb-4" name="novaDescricao" value="${produto.descricao}">
-                                                                            <input type="hidden" class="form-control" aria-label="Quantia" name="preco" value="${produto.preco}">
-                                                                            <input type="hidden" class="form-control" aria-label="Quantidade" name="quantidade" value="${produto.quantidade}">
                                                                             <div class="input-group d-none">
-                                                                                <select class="custom-select" multiple size="3">
-                                                                                    <c:forEach var="categoria" items="${listaCategorias}">
-                                                                                        <option value="${categoria.categoria_id}">${categoria.descricao}</option>
-                                                                                    </c:forEach>
-                                                                                </select>
+                                                                                
                                                                             </div>
 
                                                                             <label for="textInput">Atualize a imagem do

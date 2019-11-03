@@ -15,10 +15,7 @@ import javax.persistence.EntityManager;
 import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
-import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
-import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -79,7 +76,7 @@ public class ProdutoDAO {
       
         TypedQuery<Produto> query = manager.createQuery(
                 "Select p from TB_PRODUTO as p "
-                + "join p.listaCategorias lc "
+                + "join fetch p.listaCategorias lc "
                 + "where lc.categoria.categoria_id = :idT", Produto.class )
                 .setParameter("idT", categoriaId);
         

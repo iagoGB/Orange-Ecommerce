@@ -8,6 +8,10 @@
         <servlet-name>ListarProdutoSiteServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.produto.ListarProdutoSiteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AtualizarFotoProdutoServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.produto.AtualizarFotoProdutoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarCategoriaServlet</servlet-name>
         <url-pattern>/atualizarCategoria.do</url-pattern>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>ListarProdutoSiteServlet</servlet-name>
         <url-pattern>/visualizarProduto.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarFotoProdutoServlet</servlet-name>
+        <url-pattern>/atualizarFotoProduto.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>
