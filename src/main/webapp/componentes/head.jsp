@@ -21,5 +21,6 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mdb.min.css">
         <!--CSS -->
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/orange.png">
         <title>Orange Ecommerce</title>
     

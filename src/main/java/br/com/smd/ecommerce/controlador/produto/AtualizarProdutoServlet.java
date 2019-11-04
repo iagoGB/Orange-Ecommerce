@@ -36,13 +36,18 @@ public class AtualizarProdutoServlet extends HttpServlet {
             if (alterou) {
                 response.sendRedirect("/listarProduto.do");
             } else {
-               response.sendRedirect("erro.jsp");
+               request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel atualizar o produto ");
+               request.getRequestDispatcher("/listarProduto.do").forward(request, response);
             }
 
         } catch (IOException | NumberFormatException e) {
 
-            System.out.println("Ocorreu um erro ao atualizar " + e);
-            response.sendRedirect("erro.jsp");
+            request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel atualizar o produto ");
+            request.getRequestDispatcher("/listarProduto.do").forward(request, response);
+            
+        } catch (Exception e){
+            request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel atualizar o produto ");
+            request.getRequestDispatcher("/listarProduto.do").forward(request, response);
         }
 
     }

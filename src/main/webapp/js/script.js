@@ -188,7 +188,7 @@ $(document).ready(function () {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#change-create-preview').attr('src', e.target.result);
+                $('#change-create-preview').attr('src', e.target.result).attr('width',200).attr('height',200);
             }
 
             reader.readAsDataURL(input.files[0]);
@@ -203,7 +203,7 @@ $(document).ready(function () {
     //Reseta imagem ao fechar form
     function defaultImg(){
         //Remove a vizualização da imagem
-        $('#change-create-preview').attr('src'," ");
+        $('#change-create-preview').attr('src'," ").attr('width',0).attr('height',0);
         //Remove o arquivo do input
         $('.create-preview').val("");
         
@@ -213,7 +213,7 @@ $(document).ready(function () {
         defaultImg();
     });
     
-    
+
 });
 
 

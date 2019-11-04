@@ -94,8 +94,12 @@ public class AtualizarFotoProdutoServlet extends HttpServlet {
 
             } catch (FileUploadException ex) {
                 Logger.getLogger(AtualizarFotoProdutoServlet.class.getName()).log(Level.SEVERE, null, ex);
+                request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel fazer o upload da imagem ");
+                request.getRequestDispatcher("/listarProduto.do").forward(request, response);
             } catch (Exception ex) {
                 Logger.getLogger(AtualizarFotoProdutoServlet.class.getName()).log(Level.SEVERE, null, ex);
+                request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel fazer o upload da imagem ");
+                request.getRequestDispatcher("/listarProduto.do").forward(request, response);
             }
 
         }

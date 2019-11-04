@@ -140,7 +140,9 @@
                                         <form action="/deletarUsuario.do" method="POST">
                                             <input type="hidden" value="${usuario.usuario_id}" name="usuario_id"/>
                                             <div class="modal-body">
-                                                <p>Deseja excluir sua conta?</p>
+                                                <p>Deseja realmente <strong style="color:red">EXCLUIR<strong> sua conta?</p>
+                                                <p>1 - Seus dados serão excluidos da aplicação</p>
+                                                <p>2 - Você será  <strong style="color:red">deslogado</strong> automaticamente </p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>

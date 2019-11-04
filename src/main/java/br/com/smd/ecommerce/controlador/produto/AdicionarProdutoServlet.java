@@ -116,13 +116,13 @@ public class AdicionarProdutoServlet extends HttpServlet {
 
             if (sucessoUpload) {
                 
-                System.out.println("Terminou a execução da servlet com sucesso!");
+                //"Terminou a execução da servlet com sucesso!"
                 request.getRequestDispatcher("/listarProduto.do").forward(request, response);
                 
             } else {
                 
-            request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel fazer o upload da imagem ");
-            request.getRequestDispatcher("/listarProduto.do").forward(request, response);
+                request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel fazer o upload da imagem ");
+                request.getRequestDispatcher("/listarProduto.do").forward(request, response);
             
             }
 

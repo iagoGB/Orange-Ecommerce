@@ -114,13 +114,13 @@
                                                                             <div class="input-group d-none">
                                                                                 
                                                                             </div>
-                                                                            <img id="up-image-preview-${produto.produto_id}"
-                                                                            <label for="textInput">Atualize a imagem do
-                                                                                produto</label>
+                                                                            <img id="img-${produto.produto_id}"/>
+                                                                            <label for="textInput">Atualize a imagem do produto</label>
+                                                                             
                                                                             
                                                                                     <div class="input-group mb-3">
                                                                                         <div class="custom-file">
-                                                                                            <input type="file" onchange="readURLUpdate(this)" class="my-0 form-control form-control-file" id="validationCustom01" required name="imagem">
+                                                                                            <input type="file"  class="my-0 form-control form-control-file" id="change-foto-${produto.produto_id}" required name="imagem">
                                                                                         </div>                                                                              
                                                                                     </div> 
                                                                                
@@ -238,10 +238,10 @@
                                                 <input type="text" id="validationCustom01" required class="form-control mb-4" name="novoProduto">
                                                 <!------------------------------------IMAGE PREVIEW CREATE-------------------------------------->
                                                 <div class="text-center align-middle">
-                                                    <img id="change-create-preview" width="200px" height="200px"/>
-                                                <div
-                                                <br/>
-                                                <label for="textInput">Adicione uma imagem ao produto</label>
+                                                    <img id="change-create-preview"/>
+                                                    <br/>
+                                                    <label for="textInput">Adicione uma imagem ao produto</label>
+                                                </div>
                                                 <div class="input-group mb-3">
                                                     <div class="custom-file">
                                                         <input type="file" class="form-control-file create-preview" id="validationCustom01" required name="imagem">
@@ -287,7 +287,7 @@
                     </div>
 
                     <jsp:include page="../componentes/rodape.jsp" />
-
+                   
                     </body>
 
                     </html>
