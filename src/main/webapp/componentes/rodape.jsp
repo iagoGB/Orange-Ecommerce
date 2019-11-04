@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <footer>
 
-    <div class="container-fluid fixed-bottom">
+    <div class="container-fluid">
         <div class="row align-items-center justify-content-center">
             <div class="col bg-primary">
                 <p class="text-center text-light my-1">2019 © Todos os direitos reservados.</p>
