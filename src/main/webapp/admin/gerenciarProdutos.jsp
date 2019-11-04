@@ -66,7 +66,7 @@
                                         <tbody>
                                             <c:forEach var="produto" items="${listaProdutos}">
                                                 <tr>
-                                                    <td class="align-middle text-center"><img class="img-responsive-lista" src="exibirFotoProduto.do?foto=${produto.foto}"></td>
+                                                    <td class="align-middle text-center"><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100px" height="auto"></td>
 
                                                     <td class="align-middle text-center">${produto.descricao}</td>
                                                     <td class="align-middle text-center">R$ ${produto.preco}</td>
