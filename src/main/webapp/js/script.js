@@ -188,34 +188,32 @@ $(document).ready(function () {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#preview').attr('src', e.target.result);
+                $('#change-create-preview').attr('src', e.target.result);
             }
 
             reader.readAsDataURL(input.files[0]);
         }
     }
 
-    $(".input-preview").change(function () {
+    $(".create-preview").change(function () {
         readURL(this);
     });
     
-    //Preview da imagem antes do upload ao criar
-    function readURL2(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#preview-create').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
+    
+    //Reseta imagem ao fechar form
+    function defaultImg(){
+        //Remove a vizualização da imagem
+        $('#change-create-preview').attr('src'," ");
+        //Remove o arquivo do input
+        $('.create-preview').val("");
+        
     }
-
-    $(".input-preview-create").change(function () {
-        alert(this);
-        readURL2(this);
+    
+    $(".close-preview").click( function(){
+        defaultImg();
     });
+    
+    
 });
 
 

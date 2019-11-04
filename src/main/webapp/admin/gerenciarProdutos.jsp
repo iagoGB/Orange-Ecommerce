@@ -110,17 +110,17 @@
                                                                             </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <input type="hidden" name="produto_id" value="${produto.produto_id }"/>
+                                                                            <input type="hidden" name="produto_id" value="${produto.produto_id}"/>
                                                                             <div class="input-group d-none">
                                                                                 
                                                                             </div>
-
+                                                                            <img id="up-image-preview-${produto.produto_id}"
                                                                             <label for="textInput">Atualize a imagem do
                                                                                 produto</label>
                                                                             
                                                                                     <div class="input-group mb-3">
                                                                                         <div class="custom-file">
-                                                                                            <input type="file" class="my-0 form-control form-control-file" id="validationCustom01" required name="imagem">
+                                                                                            <input type="file" onchange="readURLUpdate(this)" class="my-0 form-control form-control-file" id="validationCustom01" required name="imagem">
                                                                                         </div>                                                                              
                                                                                     </div> 
                                                                                
@@ -236,12 +236,15 @@
                                             <div class="modal-body">
                                                 <label for="textInput">Informe uma descrição</label>
                                                 <input type="text" id="validationCustom01" required class="form-control mb-4" name="novoProduto">
-
-                                                <label for="textInput">Adicione uma imagem ao
-                                                    produto</label>
+                                                <!------------------------------------IMAGE PREVIEW CREATE-------------------------------------->
+                                                <div class="text-center align-middle">
+                                                    <img id="change-create-preview" width="200px" height="200px"/>
+                                                <div
+                                                <br/>
+                                                <label for="textInput">Adicione uma imagem ao produto</label>
                                                 <div class="input-group mb-3">
                                                     <div class="custom-file">
-                                                        <input type="file" class="form-control-file" id="validationCustom01" required name="imagem">
+                                                        <input type="file" class="form-control-file create-preview" id="validationCustom01" required name="imagem">
 
                                                     </div>
 
@@ -269,7 +272,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                                                <button type="button" class="btn btn-dark close-preview" data-dismiss="modal">Fechar</button>
                                                 <button type="submit" class="btn btn-dark">Salvar</button>
                                             </div>
                                         </div>

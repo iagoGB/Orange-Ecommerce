@@ -114,8 +114,8 @@
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <input type="hidden" name="categoria_id" value="${categoria.categoria_id }"/>
-                                                                            <label for="textInput">Tem certeza que deseja excluir a categoria ${categoria.descricao}?</label>
-
+                                                                            <label for="textInput">Tem certeza que deseja <strong style="color: red">EXCLUIR</strong> a categoria "${categoria.descricao}?"</label>
+                                                                            <p>1 - Os produtos que a possuem,<strong style="color: red"> NÃO </strong> pertencerão mais a esta categoria</p>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>

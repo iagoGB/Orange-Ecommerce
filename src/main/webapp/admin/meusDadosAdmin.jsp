@@ -104,7 +104,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Deseja excluir sua conta?</p>
+                    <p>Deseja realmente <strong style="color: red">EXCLUIR</strong> sua conta?</p>
+                    <p>1 - Uma vez excluída, <strong style="color: red"> NÃO </strong> será possivel recuperar a conta</p>
+                    <p>2 - Você será automaticamente <strong style="color: red">DESLOGADO</strong> </p>
                 </div>
                 <div class="modal-footer">
                     <form action="/admin/deletarAdministrador.do" method="POST">
