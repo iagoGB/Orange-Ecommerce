@@ -16,6 +16,7 @@ import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
 import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.TypedQuery;
 
@@ -151,7 +152,7 @@ public class ProdutoDAO {
         
     }
 
-    public boolean removerProduto(Produto p) {
+    public boolean deletarProduto(Produto p) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         boolean deletou = false;
         try {
@@ -171,6 +172,39 @@ public class ProdutoDAO {
             manager.close();
         }
         return deletou;
+    }
+    
+    public boolean removerCategoriasDoProduto (long produtoId){
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        boolean removeuTodas = false;
+        Produto p = new Produto();
+        
+        try {
+            
+            manager.getTransaction().begin();
+
+                p = manager.find(Produto.class, produtoId);
+                //Retira o relacionamento de produto e de categoria
+                 
+                for (ProdutoCategoria pc : p.getListaCategorias()) {
+                    pc.getCategoria().getListaProdutos().remove(pc);
+                }
+                p.getListaCategorias().clear();
+                manager.merge(p);
+ 
+            manager.getTransaction().commit();
+
+            removeuTodas = true;
+
+        } catch (Exception e) {
+            
+            manager.getTransaction().rollback();
+            System.out.println("Deu erro ao deletar todas as categorias: "+ e);
+            
+        } finally{
+            manager.close();
+        }
+        return removeuTodas;
     }
 
     public Produto salvarFoto(Long produto_id, String caminhoFoto) {

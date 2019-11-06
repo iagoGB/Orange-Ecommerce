@@ -8,7 +8,6 @@ package br.com.smd.ecommerce.controlador.produto;
 import static br.com.smd.ecommerce.util.Constantes.REPOSITORIO_IMAGEM_PRODUTO;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;

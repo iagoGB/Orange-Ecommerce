@@ -40,12 +40,15 @@ public class AtualizarProdutoServlet extends HttpServlet {
             for (String lc : listaCategorias) {
                listCId.add(Long.parseLong(lc));
             }
-            
-            
-            
+
             Produto produto = new Produto(id, foto, desc, preco, quantidade);
-            //Passa o produto e a lista com novas categorias 
+
+            //Deleta todas as categorias atuais
+            produtoDAO.removerCategoriasDoProduto(produto.getProduto_id());
+
+            //Inseri as novas categorias
             boolean alterou = produtoDAO.atualizarProduto(produto,listCId);
+            
             if (alterou) {
                 response.sendRedirect("/listarProduto.do");
             } else {
@@ -53,7 +56,7 @@ public class AtualizarProdutoServlet extends HttpServlet {
                request.getRequestDispatcher("/listarProduto.do").forward(request, response);
             }
 
-        } catch (IOException | NumberFormatException e) {
+        } catch (NumberFormatException e) {
 
             request.setAttribute("feedbackNegativoAdicionarProduto", "Não foi possivel atualizar o produto ");
             request.getRequestDispatcher("/listarProduto.do").forward(request, response);

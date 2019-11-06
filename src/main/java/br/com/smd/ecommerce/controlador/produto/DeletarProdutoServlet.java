@@ -33,7 +33,7 @@ public class DeletarProdutoServlet extends HttpServlet {
             Integer quantidade = Integer.parseInt(request.getParameter("quantidade"));
             Produto produto = new Produto(id, foto, desc, preco, quantidade);
             
-            boolean deletou = produtoDAO.removerProduto(produto);
+            boolean deletou = produtoDAO.deletarProduto(produto);
             
             if (deletou) {
                 System.out.println("Deletou o produto");
