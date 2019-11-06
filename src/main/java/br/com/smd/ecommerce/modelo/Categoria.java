@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +31,7 @@ public class Categoria implements Serializable {
     @Column(nullable = false)
     private String descricao;
     
-    @OneToMany(mappedBy = "categoria",fetch = FetchType.EAGER, orphanRemoval = true )
+    @OneToMany(mappedBy = "categoria",fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH }, orphanRemoval = true )
     private List<ProdutoCategoria> listaProdutos;
     
     public Categoria() {

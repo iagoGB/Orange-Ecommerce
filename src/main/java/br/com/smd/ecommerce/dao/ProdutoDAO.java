@@ -15,6 +15,7 @@ import javax.persistence.EntityManager;
 import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
+import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
 import java.util.List;
 import javax.persistence.TypedQuery;
 
@@ -93,24 +94,32 @@ public class ProdutoDAO {
     
     
 
-    public boolean atualizarProduto(Produto p) {
+    public boolean atualizarProduto(Produto p, List<Long>novasCategoriasList ) {
         EntityManager manager = new FabricaDeConexao().getConexao();
         boolean alterou = false;
         try {
             
             manager.getTransaction().begin();
+            //Produto a atualizar
             Produto newp = (Produto) manager.find( Produto.class,p.getProduto_id());
             
             newp.setDescricao(p.getDescricao());
             newp.setPreco(p.getPreco());
             newp.setQuantidade(p.getQuantidade());
             
+            //Cria os relacionamentos que não existem
+            for (Long id : novasCategoriasList) {
+                atualizaCategoriaDoProduto(manager, id, p);
+            }
+            
             if (newp.getProduto_id() != null) {
-
+                //Atualiza
                 manager.merge(newp);
             }
+            
             manager.getTransaction().commit();
             alterou = true;
+            
         } catch (Exception ex) {
 
             manager.getTransaction().rollback();
@@ -118,6 +127,28 @@ public class ProdutoDAO {
             manager.close();
         }
         return alterou;
+    }
+    
+    public void atualizaCategoriaDoProduto(EntityManager manager, Long cid, Produto p){
+        
+        ProdutoCategoriaId pcId = new ProdutoCategoriaId(p.getProduto_id(), cid);
+        ProdutoCategoria find = manager.find(ProdutoCategoria.class, pcId);
+        
+        //Se não existe esta relação no banco...
+        if (find == null){
+            
+            Categoria c = manager.find(Categoria.class, cid);
+            
+            //Cria um novo relacionamento entre o produto e categoria
+            ProdutoCategoria pc = new ProdutoCategoria(p, c);
+            //Salva o relacionamento
+            manager.persist(pc);
+            
+        } else {
+            //Se não é nulo o relacionamento existe;
+        }
+        
+        
     }
 
     public boolean removerProduto(Produto p) {

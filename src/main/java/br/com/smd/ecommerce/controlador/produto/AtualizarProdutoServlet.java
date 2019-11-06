@@ -8,6 +8,8 @@ package br.com.smd.ecommerce.controlador.produto;
 import br.com.smd.ecommerce.dao.ProdutoDAO;
 import br.com.smd.ecommerce.modelo.Produto;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +33,19 @@ public class AtualizarProdutoServlet extends HttpServlet {
             String desc = request.getParameter("novaDescricao");
             Double preco = Double.parseDouble(request.getParameter("preco"));
             Integer quantidade = Integer.parseInt(request.getParameter("quantidade"));
+            String[] listaCategorias = request.getParameterValues("listaCategorias");
+            
+            List<Long> listCId = new ArrayList<>();
+            
+            for (String lc : listaCategorias) {
+               listCId.add(Long.parseLong(lc));
+            }
+            
+            
+            
             Produto produto = new Produto(id, foto, desc, preco, quantidade);
-            boolean alterou = produtoDAO.atualizarProduto(produto);
+            //Passa o produto e a lista com novas categorias 
+            boolean alterou = produtoDAO.atualizarProduto(produto,listCId);
             if (alterou) {
                 response.sendRedirect("/listarProduto.do");
             } else {

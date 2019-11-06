@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -39,7 +40,7 @@ public class Produto implements Serializable {
     @Column(nullable = false)
     private Integer quantidade;
     
-    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER , orphanRemoval = true ) 
+    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER , cascade = { CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH }, orphanRemoval = true ) 
     public List<ProdutoCategoria> listaCategorias;
     
     @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY )

@@ -7,9 +7,7 @@ package br.com.smd.ecommerce.controlador.produto;
 
 import br.com.smd.ecommerce.dao.CategoriaDAO;
 import br.com.smd.ecommerce.dao.ProdutoDAO;
-import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
-import br.com.smd.ecommerce.modelo.ProdutoCategoria;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -22,11 +20,9 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import org.apache.commons.io.FileUtils;
 import static br.com.smd.ecommerce.util.Constantes.*;
 import java.util.ArrayList;
 import java.util.Iterator;
-import net.bytebuddy.matcher.FilterableList;
 import org.apache.commons.fileupload.servlet.ServletRequestContext;
 
 /**

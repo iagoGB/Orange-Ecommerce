@@ -168,7 +168,7 @@
 
                                                                             <label for="select">Escolha a nova categoria</label>
                                                                             <div class="input-group">
-                                                                                <select class="custom-select" id="validationCustom01" required multiple size="3">
+                                                                                <select class="custom-select" id="validationCustom01" name="listaCategorias" required multiple size="3">
                                                                                     <c:forEach var="categoria" items="${listaCategorias}">
                                                                                         <option value="${categoria.categoria_id}">${categoria.descricao}</option>
                                                                                     </c:forEach>
