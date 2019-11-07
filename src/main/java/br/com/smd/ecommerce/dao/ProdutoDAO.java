@@ -208,6 +208,7 @@ public class ProdutoDAO {
     }
 
     public Produto salvarFoto(Long produto_id, String caminhoFoto) {
+        
         EntityManager manager = new FabricaDeConexao().getConexao();
         Produto p = null;
         try {
@@ -223,6 +224,27 @@ public class ProdutoDAO {
         } finally {
             manager.close();
         }
+        return p;
+    }
+
+    public Produto encontrarProdutoPorId(Long id) {
+        
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        Produto p = null;
+        
+        try {
+            
+            p = manager.find(Produto.class, id);
+             
+        } catch (Exception e) {
+            
+            manager.getTransaction().rollback();
+            System.out.println("Ocorreu um erro ao buscar um produto: "+ e);
+            
+        } finally {
+            manager.close();
+        }
+        
         return p;
     }
 

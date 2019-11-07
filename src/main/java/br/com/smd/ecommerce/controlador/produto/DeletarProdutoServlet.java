@@ -26,6 +26,7 @@ public class DeletarProdutoServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
+            
             Long id = Long.parseLong(request.getParameter("produto_id"));
             String foto = request.getParameter("imagem");
             String desc = request.getParameter("descricao");
@@ -36,19 +37,18 @@ public class DeletarProdutoServlet extends HttpServlet {
             boolean deletou = produtoDAO.deletarProduto(produto);
             
             if (deletou) {
-                System.out.println("Deletou o produto");
-                response.sendRedirect("/listarProduto.do");
+                
+               response.sendRedirect("/listarProduto.do");
                 
             } else {
-              System.out.println("Deu erro ao deletar 1 "); 
-              request.setAttribute("feedbackNegativoRemoverProduto", " A variável deletou nao ficou true");
+              
+              request.setAttribute("feedbackNegativoRemoverProduto", "Não foi possível excluir o produto");
               request.getRequestDispatcher("/listarProduto.do").forward(request, response);
               
             }
 
-        } catch (Exception e) {
-            System.out.println("Deu erro ao deletar 2 "); 
-            System.out.println("Ocorreu um erro ao remover produto : " + e);
+        } catch (IOException | NumberFormatException | ServletException e) {
+             
             request.setAttribute("feedbackNegativoRemoverProduto", "Não foi possível excluir o produto ");
             request.getRequestDispatcher("/listarProduto.do").forward(request, response);
             

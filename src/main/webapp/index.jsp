@@ -58,12 +58,13 @@
                                         <img class="card-img-top img-responsive" src="exibirFotoProduto.do?foto=${p.foto}" alt="Imagem de capa do card">
                                     </div>
                                     <div class="card-body">
-                                        <a href="produto.jsp">
+                                        <a href="">
                                             <h5 class="card-title">${p.descricao}</h5>
                                         </a>
                                         <p class="card-text">R$ ${p.preco}</p>
                                         <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                        <a href="/addCookie.do?p=${p.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                        <button type="button" onclick="addCookie.do?p=${p.produto_id}" >Add</button>
                                     </div>
                                 </div>
                             </div>

@@ -39,7 +39,7 @@ public class ListarProdutoServlet extends HttpServlet {
           
             request.getRequestDispatcher("admin/gerenciarProdutos.jsp").forward(request, response);
             
-        } catch (Exception e) {
+        } catch (IOException | ServletException e) {
             
             request.setAttribute("feedbackNegativoListarProduto", "Não foi possível listar os produtos");
             request.getRequestDispatcher("/admin/gerenciarProdutos.jsp").forward(request, response);  
