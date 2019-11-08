@@ -6,10 +6,7 @@
 package br.com.smd.ecommerce.compra;
 
 import br.com.smd.ecommerce.dao.ProdutoDAO;
-import br.com.smd.ecommerce.modelo.Produto;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -31,24 +28,47 @@ public class AdicionarProdutoCompraServlet extends HttpServlet {
         try {
 
             String idproduto = request.getParameter("p");
-            Cookie[] c;
-            c = request.getCookies();
+            
+            //Se ele ta vindo do carrinho de compras
+            if (request.getParameter("qnt") != null){
+                
+                //Atualiza produto quantidade
+                String qnt = request.getParameter("qnt");
+                Cookie[] c;
+                c = request.getCookies();
 
-            for (Cookie cookie : c) {
+                for (Cookie cookie : c) {
+                    
+                    //Se o cookie ja existe
+                    if (cookie.getName().equals("prod_" + idproduto)) {
+                        Cookie pck = new Cookie ("prod_"+ idproduto,qnt);
+                        response.addCookie(pck);
+                         response.sendRedirect("/listarProdutoCompra.do");
+                        
+                    }
+                }
+                
+            } else {
+                
+                //Adiciona produto
+                Cookie pck = new Cookie("prod_" + idproduto, "1");
 
-                System.out.println("Nome: " + cookie.getName() + " valor: " + cookie.getValue());
+                response.addCookie(pck);
 
+                //response.sendRedirect(request.getHeader("referer"));
+                response.sendRedirect("/listarProdutoCompra.do");
             }
-
             
 
-            //Adiciona produto
-            Cookie pck = new Cookie(idproduto, "1");
-
-            response.addCookie(pck);
-
-            //response.sendRedirect(request.getHeader("referer"));
-            response.sendRedirect("/listarProdutoCompra.do");
+            
+//
+//            //Adiciona produto
+//            Cookie pck = new Cookie("prod_"+ idproduto, "1");
+//
+//            response.addCookie(pck);
+//
+//            //response.sendRedirect(request.getHeader("referer"));
+//            response.sendRedirect("/listarProdutoCompra.do");
 
 //            Long id = Long.parseLong(request.getParameter("produto"));
 //
