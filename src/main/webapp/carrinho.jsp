@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <!--produtos-->
-                    <c:forEach var="produto" items="${listaDesejo}">
+                    <c:forEach var="produto" items="${produtoCompraLista}">
                         
                         <div class="row pt-3 pb-0 px-md-5 px-sm-2 border-bottom justify-content-center">
 

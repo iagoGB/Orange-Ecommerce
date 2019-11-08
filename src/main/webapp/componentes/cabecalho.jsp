@@ -124,7 +124,7 @@
                         <li class="nav-item mx-1 mx-lg-2">
                             <a class="nav-link waves-effect waves-light" href="carrinho.jsp">
                                 <i class="fas fa-shopping-basket fa-2x"></i>
-                                <span class="small badge badge-dark">${cookie.qntProduto.value}</span>
+                                <span class="small badge badge-dark">${cookie.size() == 1 ? 0 : cookie.size() -1}</span>
                             </a>
                         </li>
                     </ul>

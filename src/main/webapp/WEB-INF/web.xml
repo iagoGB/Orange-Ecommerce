@@ -16,6 +16,10 @@
         <servlet-name>AdicionarProdutoCompraServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.compra.AdicionarProdutoCompraServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarProdutoCompraServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.compra.ListarProdutoCompraServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarCategoriaServlet</servlet-name>
         <url-pattern>/atualizarCategoria.do</url-pattern>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>AdicionarProdutoCompraServlet</servlet-name>
         <url-pattern>/adicionarProdutoCompra.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarProdutoCompraServlet</servlet-name>
+        <url-pattern>/listarProdutoCompra.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>
