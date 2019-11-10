@@ -79,7 +79,7 @@
                                             <p class="card-text">Preço:</p>
                                             <p class="card-text"> R$ <fmt:formatNumber type="number" pattern="00.00" value="${produto.preco}" /> </p>
                                             <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                            <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                            <a href="/adicionarProdutoCarrinho.do?p=${produto.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>

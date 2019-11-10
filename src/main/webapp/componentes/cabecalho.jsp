@@ -53,7 +53,7 @@
                                 <a class="nav-link" href="favoritos.jsp">Meus favoritos</a>
                             </li>
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="carrinho.jsp">Meu carrinho</a>
+                                <a class="nav-link" href="/listarProdutoCarrinho.do">Meu carrinho</a>
                             </li>
 
                         </ul>
@@ -122,9 +122,9 @@
                             </a>
                         </li>
                         <li class="nav-item mx-1 mx-lg-2">
-                            <a class="nav-link waves-effect waves-light" href="carrinho.jsp">
+                            <a class="nav-link waves-effect waves-light" href="/listarProdutoCarrinho.do">
                                 <i class="fas fa-shopping-basket fa-2x"></i>
-                                <span class="small badge badge-dark">${cookie.size() == 1 ? 0 : cookie.size() -1}</span>
+                                <span class="small badge badge-dark">${ quantidadeItensCarrinho != null ? quantidadeItensCarrinho : 0 }</span> 
                             </a>
                         </li>
                     </ul>

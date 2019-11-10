@@ -14,15 +14,19 @@
     </servlet>
     <servlet>
         <servlet-name>AdicionarProdutoCompraServlet</servlet-name>
-        <servlet-class>br.com.smd.ecommerce.compra.AdicionarProdutoCompraServlet</servlet-class>
+        <servlet-class>br.com.smd.ecommerce.carrinho.AdicionarProdutoCarrinhoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarProdutoCompraServlet</servlet-name>
-        <servlet-class>br.com.smd.ecommerce.compra.ListarProdutoCompraServlet</servlet-class>
+        <servlet-class>br.com.smd.ecommerce.carrinho.ListarProdutoCarrinhoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AtualizaQuantidadeProdutoServlet</servlet-name>
-        <servlet-class>br.com.smd.ecommerce.compra.AtualizaQuantidadeProdutoServlet</servlet-class>
+        <servlet-class>br.com.smd.ecommerce.carrinho.AtualizaQuantidadeProdutoCarrinhoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoverProdutoCarrinhoServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.carrinho.RemoverProdutoCarrinhoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarCategoriaServlet</servlet-name>
@@ -50,15 +54,19 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdicionarProdutoCompraServlet</servlet-name>
-        <url-pattern>/adicionarProdutoCompra.do</url-pattern>
+        <url-pattern>/adicionarProdutoCarrinho.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarProdutoCompraServlet</servlet-name>
-        <url-pattern>/listarProdutoCompra.do</url-pattern>
+        <url-pattern>/listarProdutoCarrinho.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AtualizaQuantidadeProdutoServlet</servlet-name>
-        <url-pattern>/atualizaQuantidadeProduto.do</url-pattern>
+        <url-pattern>/atualizarQuantidadeProdutoCarrinho.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoverProdutoCarrinhoServlet</servlet-name>
+        <url-pattern>/removerProdutoCarrinho.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>

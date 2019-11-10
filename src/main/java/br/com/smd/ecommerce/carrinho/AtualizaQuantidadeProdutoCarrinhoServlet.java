@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.compra;
+package br.com.smd.ecommerce.carrinho;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Iago Gomes
  */
-public class AtualizaQuantidadeProdutoServlet extends HttpServlet {
+public class AtualizaQuantidadeProdutoCarrinhoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

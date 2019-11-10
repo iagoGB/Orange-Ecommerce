@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.compra;
+package br.com.smd.ecommerce.carrinho;
 
 import br.com.smd.ecommerce.dao.ProdutoDAO;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.util.CarrinhoCompras;
-import br.com.smd.ecommerce.util.ProdutoCompraView;
+import br.com.smd.ecommerce.util.ItemCompra;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +17,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author iago
  */
-public class ListarProdutoCompraServlet extends HttpServlet {
+public class ListarProdutoCarrinhoServlet extends HttpServlet {
 
     ProdutoDAO pDAO = new ProdutoDAO();
 
@@ -34,28 +35,38 @@ public class ListarProdutoCompraServlet extends HttpServlet {
             Cookie[] cookies = req.getCookies();
 
             List<Produto> produtoList = new ArrayList<>();
-            List<ProdutoCompraView> produtoCompraViewList = new ArrayList<>();
+            List<ItemCompra> produtoCompraViewList = new ArrayList<>();
+            List<Integer> qntProdutoList = new  ArrayList<>();
 
             //Acha o produto no banco
             
             for (Cookie prod : cookies) {
                 
                 if (prod.getName().startsWith("prod_")){
+                    //Pega a quantidade armazenada no cookie
+                    int qnt = Integer.parseInt(prod.getValue());
                     
+                    //Separa o prod_ do id do produto
                     String [] result = prod.getName().split("_");
-                    produtoList.add(pDAO.encontrarProdutoPorId(Long.parseLong(result[1])));
+                    Produto p =  new Produto();
+                    //Procura o produto pelo id    
+                    p = pDAO.encontrarProdutoPorId(Long.parseLong(result[1]));
+                    
+                     
+                    //Cria um novo produto para exibir no carrinho
+                    ItemCompra pcv = new ItemCompra(p);
+                    //Seta a quantidade de produtos escolhido pelo cliente
+                    pcv.setQuantidade(qnt);
+                    
+                    //Seta o preço total por item
+                    pcv.setPrecoTotal(pcv.getPrecoUnitario()* pcv.getQuantidade());
+                    produtoCompraViewList.add(pcv);
+                   
+                    
                
                 }
             }
             
-            //Transforma para a view
-            for (Produto p : produtoList) {
-                
-                ProdutoCompraView pcv = new ProdutoCompraView(p);
-                //Seta o preço total por item
-                pcv.setPrecoTotal(pcv.getPrecoUnitario()* p.getQuantidade());
-                produtoCompraViewList.add(pcv);
-            }
             
             //Cria o carrinho de compras
             CarrinhoCompras cc = new  CarrinhoCompras();
@@ -63,7 +74,7 @@ public class ListarProdutoCompraServlet extends HttpServlet {
             double valorTotalCompras = 0;
             int totalItems = 0;
              
-            for (ProdutoCompraView pcv : produtoCompraViewList) {
+            for (ItemCompra pcv : produtoCompraViewList) {
                 
                 valorTotalCompras += pcv.getPrecoTotal();
                 totalItems += pcv.getQuantidade();
@@ -76,6 +87,9 @@ public class ListarProdutoCompraServlet extends HttpServlet {
             //Quantidade de produtos na compra
             cc.setTotalItems(totalItems);
             
+            //Variavel que faz contagem dos itens do carrinho
+            HttpSession session = req.getSession();
+            session.setAttribute("quantidadeItensCarrinho", cc.getTotalItems().toString());
             req.setAttribute("carrinhoCompras", cc);
             
             req.getRequestDispatcher("carrinho.jsp").forward(req, resp);
@@ -84,6 +98,10 @@ public class ListarProdutoCompraServlet extends HttpServlet {
             
             System.out.println("error: "+ e);
             resp.sendRedirect("erro.jsp");
+        } catch (Exception e){
+            
+            System.out.println("aconteceu um erro na servlet de listar produtos carrinho"+e);
+                
         }
 
     }

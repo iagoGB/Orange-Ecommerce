@@ -11,7 +11,7 @@ import br.com.smd.ecommerce.modelo.Produto;
  *
  * @author Iago Gomes
  */
-public class ProdutoCompraView {
+public class ItemCompra {
     Long produto_id;
     String foto;
     String descricao;
@@ -19,7 +19,7 @@ public class ProdutoCompraView {
     Double precoUnitario;
     Double precoTotal;
 
-    public ProdutoCompraView(String foto, String descricao, Integer quantidade, Double precoUnitario, Double precoTotal) {
+    public ItemCompra(String foto, String descricao, Integer quantidade, Double precoUnitario, Double precoTotal) {
         
         this.foto = foto;
         this.descricao = descricao;
@@ -29,7 +29,7 @@ public class ProdutoCompraView {
         
     }
     
-    public ProdutoCompraView (Produto p){
+    public ItemCompra (Produto p){
         
         this.foto = p.getFoto();
         this.descricao = p.getDescricao();
@@ -38,7 +38,7 @@ public class ProdutoCompraView {
         this.produto_id = p.getProduto_id();
     }
 
-    public ProdutoCompraView(){
+    public ItemCompra(){
         
     }
 

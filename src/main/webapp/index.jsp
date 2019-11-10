@@ -63,7 +63,7 @@
                                         </a>
                                         <p class="card-text">R$ ${p.preco}</p>
                                         <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="adicionarProdutoCompra.do?p=${p.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                        <a href="adicionarProdutoCarrinho.do?p=${p.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
                                     </div>
                                 </div>
                             </div>

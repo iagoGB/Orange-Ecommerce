@@ -14,11 +14,11 @@ import java.util.List;
  */
 public class CarrinhoCompras {
     
-    private List<ProdutoCompraView> itemCarrinhoList;
+    private List<ItemCompra> itemCarrinhoList;
     private Integer totalItems;
     private Double total;
 
-    public CarrinhoCompras(List<ProdutoCompraView> itemCarrinhoList, Integer totalItems, Double total) {
+    public CarrinhoCompras(List<ItemCompra> itemCarrinhoList, Integer totalItems, Double total) {
         this.itemCarrinhoList = itemCarrinhoList;
         this.totalItems = totalItems;
         this.total = total;
@@ -28,11 +28,11 @@ public class CarrinhoCompras {
         this.itemCarrinhoList = new ArrayList<>();
     }
     
-    public List<ProdutoCompraView> getItemCarrinhoList() {
+    public List<ItemCompra> getItemCarrinhoList() {
         return itemCarrinhoList;
     }
 
-    public void setItemCarrinhoList(List<ProdutoCompraView> itemCarrinhoList) {
+    public void setItemCarrinhoList(List<ItemCompra> itemCarrinhoList) {
         this.itemCarrinhoList = itemCarrinhoList;
     }
 
