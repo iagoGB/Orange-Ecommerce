@@ -113,18 +113,18 @@
                                                                         <div class="modal-body">
                                                                             <input type="hidden" name="produto_id" value="${produto.produto_id}"/>
                                                                             <div class="input-group d-none">
-                                                                                
+
                                                                             </div>
                                                                             <img id="img-${produto.produto_id}"/>
                                                                             <label for="textInput">Atualize a imagem do produto</label>
-                                                                             
-                                                                            
-                                                                                    <div class="input-group mb-3">
-                                                                                        <div class="custom-file">
-                                                                                            <input type="file"  class="my-0 form-control form-control-file" id="change-foto-${produto.produto_id}" required name="imagem">
-                                                                                        </div>                                                                              
-                                                                                    </div> 
-                                                                               
+
+
+                                                                            <div class="input-group mb-3">
+                                                                                <div class="custom-file">
+                                                                                    <input type="file"  class="my-0 form-control form-control-file" id="change-foto-${produto.produto_id}" required name="imagem">
+                                                                                </div>                                                                              
+                                                                            </div> 
+
 
                                                                         </div>
                                                                         <div class="modal-footer">
@@ -214,7 +214,8 @@
                                                             </div>
                                                         </form>
                                                     </td>
-                                                </c:forEach>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -288,7 +289,7 @@
                     </div>
 
                     <jsp:include page="../componentes/rodape.jsp" />
-                   
+
                     </body>
 
                     </html>

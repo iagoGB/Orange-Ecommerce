@@ -14,117 +14,98 @@
         </header>
 
         <div class="content">
-
-
-            <!--Título-->
-            <div class="row pt-5 pb-0 px-3">
-                <div class="col">
-                    <span class="h4">Carrinho de compras</span>
-                    <hr class="bg-dark">
-                </div>
-            </div>
-            <!--Cabeçalho Carrinho-->
-            <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
-                <div class="bg-primary col-5">
-                    <p class="text-light my-auto py-3">Produtos</p>
-                </div>
-                <div class="bg-primary col-2">
-                    <p class="text-light my-auto py-3">Quantidade</p>
-                </div>
-                <div class="bg-primary col-2">
-                    <p class="text-light my-auto py-3">Preço Unitário</p>
-                </div>
-                 <div class="bg-primary col-2">
-                    <p class="text-light my-auto py-3">Preço Total</p>
-                </div>
-                <div class="bg-primary col-1">
-                    <p class="text-light my-auto py-3">Ação</p>
-                </div>
-            </div>
-            <!--produtos-->
-            <c:choose>
-
-                <c:when test="${carrinhoCompras.itemCarrinhoList.size() < 1}">
-                    <div class="text-center align-middle">
-                        <p class="mt-2 mb-2 pt-2">Você não possui produtos no carrinho</p>
-                    </div>
-                </c:when>
-
-                <c:otherwise>
-
-                    <c:forEach var="produto" items="${carrinhoCompras.itemCarrinhoList}">
-                        <form action="/adicionarProdutoCarrinho.do" method="POST">
-
-                            <div class="row pt-3 pb-0 px-md-5 px-sm-2 border-bottom justify-content-center">
-
-                                <div class="col-2">
-                                    <img src="exibirFotoProduto.do?foto=${produto.foto}" width="150" height="150" class="img-fluid my-3" alt="Responsive image">
-                                </div>
-                                <div class="col-3">
-                                    <a href="produto.jsp">
-                                        <h5 class="text-dark">${produto.descricao}</h5>
-                                    </a>
-                                    <p class="text-dark">Descrição</p>
-                                    <input type="hidden" name="p" value="${produto.produto_id}">
-
-
-                                </div>
-                                <div class="col-2">
-                                    <form class="form">
-                                        <input type="number" class="text-center form-control bg-light" value="${produto.quantidade}" name="qnt" onchange="this.form.submit()">
-
-                                    </form>
-                                </div>
-                                <div class="col-1">
-                                    <p class="text-dark"><fmt:formatNumber value = "${produto.precoUnitario}" type = "currency"/></p>
-                                </div>
-                                <div class="col-1">
-                                    <p class="text-dark"><fmt:formatNumber value = "${produto.precoTotal}" type = "currency"/></p>
-                                </div>
-                        </form>  
-                        <div class="col-3">
-
-                            <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip"
-                               data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i>
-                            </a>
-                            <form action="/removerProdutoCarrinho.do" method="POST">
-                                <input type="hidden" value="${produto.produto_id}" name="produto">
-                                <button type="submit"
-                                        class="btn btn-outline-danger d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline">
-                                    Excluir
-                                </button>
-                            </form>    
-                            <a href="" class="btn btn-outline-danger d-xs-inline d-sm-inline d-md-none d-lg-none d-xl-none">
-                                Ã—
-                            </a>
-
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <!-- Tabela de carrinho -->
+                    <div class="card card-cascade narrower p-2" id="collapse-carrinho">
+                        <div class="card-header bg-dark narrower py-3 mx-0 d-flex justify-content-start align-items-center">
+                            <a href="" class="white-text mx-3">Carrinho de compras</a>
                         </div>
+                        <div class="table-responsive p-3">
+                        <table class="table table-hover table-bordered" id="dtcarrinho">
+                            <thead class="thead-light">
+                                <tr>
 
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Quantidade</th>
+                                    <th scope="col">Preço unitário</th>
+                                    <th scope="col">Preço total</th>
+                                    <th scope="col">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:choose>
+                                    <c:when test="${carrinhoCompras.itemCarrinhoList.size() < 1}">
+                                    <div class="text-center align-middle">
+                                        <p class="mt-2 mb-2 pt-2">Você não possui produtos no carrinho</p>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach var="produto" items="${carrinhoCompras.itemCarrinhoList}">
+                                        <tr>
+                                        <form action="/adicionarProdutoCarrinho.do" method="POST">
+                                            <th class="align-middle text-center"><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100" height="100" class="img-fluid my-3" alt="Responsive image"></th>
+
+                                            <th class="align-middle text-center">
+                                                <a href="produto.jsp">
+                                                    <p class="text-dark">${produto.descricao}</p>
+                                                </a>
+                                                <input type="hidden" name="p" value="${produto.produto_id}">
+                                            </th>
+                                            <th class="align-middle text-center">
+                                                <form class="form">
+                                                    <input type="number" class="text-center form-control bg-light" value="${produto.quantidade}" name="qnt" onchange="this.form.submit()">
+                                                </form>
+                                            </th>
+                                            <th class="align-middle text-center"><p class="text-dark"><fmt:formatNumber value = "${produto.precoUnitario}" type = "currency"/></p></th>
+                                            <th class="align-middle text-center"><p class="text-dark"><fmt:formatNumber value = "${produto.precoTotal}" type = "currency"/></p></th>
+                                        </form> 
+                                        <th class="align-middle text-center">
+                                            <button type="submit" class="btn btn-outline-success d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline" data-toggle="tooltip"
+                                                    data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i>
+                                            </button>
+                                            <form action="/removerProdutoCarrinho.do" method="POST">
+                                                <input type="hidden" value="${produto.produto_id}" name="produto">
+                                                <button type="submit"
+                                                        class="btn btn-outline-danger d-xs-none d-sm-none d-md-inline d-lg-inline d-xl-inline">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                        </th>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
+                            </tbody>
+                        </table>
+                        </div>
                     </div>
 
-                </c:forEach>
-
-            </c:otherwise>
-        </c:choose>
-
-        <!--Valor total-->
-        <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
-            <div class="bg-primary col-9 py-2 border-right">
-                <p class="text-light text-right">Subtotal (<fmt:formatNumber value = "${carrinhoCompras.totalItems}" type = "currency"/>)</p>
-                <a href="#">
-                    <p class="text-light text-right">Comprar mais produtos</p>
-                </a>
+                </div>
             </div>
-            <div class="bg-primary col-3 py-2 px-2">
-                <h5 class="text-light"><fmt:formatNumber value = "${carrinhoCompras.total}" type = "currency"/></h5>
-                <button type="button" class="btn btn-warning btn-sm">Concluir compra</button>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div class="row justify-content-end p-3 bg-dark">
+                        <div class="col-5">
+                            <h5 class="text-light text-right">Valor total do(s) ${carrinhoCompras.totalItems} item(ns): <fmt:formatNumber value = "${carrinhoCompras.total}" type = "currency"/></h5>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between p-3 bg-light">
+                        <div class="col-8">
+                            <button type="button" class="btn btn-dark btn-sm text-light">Continuar comprando</button>
+                            
+                        </div>
+                        <div class="col-2"> 
+                            <button type="button" class="btn btn-orange btn-sm text-light ml-auto">Concluir compra</button>  
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div><br>
 
-
-    </div>
-
-    <%@include file="componentes/rodape.jsp" %>
-</body>
+        <%@include file="componentes/rodape.jsp" %>
+    </body>
 
 </html>
