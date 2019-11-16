@@ -1,5 +1,6 @@
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -75,10 +76,10 @@
                                     </form>
                                 </div>
                                 <div class="col-1">
-                                    <p class="text-dark">${produto.precoUnitario}</p>
+                                    <p class="text-dark"><fmt:formatNumber value = "${produto.precoUnitario}" type = "currency"/></p>
                                 </div>
                                 <div class="col-1">
-                                    <p class="text-dark">${produto.precoTotal}</p>
+                                    <p class="text-dark"><fmt:formatNumber value = "${produto.precoTotal}" type = "currency"/></p>
                                 </div>
                         </form>  
                         <div class="col-3">
@@ -109,13 +110,13 @@
         <!--Valor total-->
         <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
             <div class="bg-primary col-9 py-2 border-right">
-                <p class="text-light text-right">Subtotal (${carrinhoCompras.totalItems})</p>
+                <p class="text-light text-right">Subtotal (<fmt:formatNumber value = "${carrinhoCompras.totalItems}" type = "currency"/>)</p>
                 <a href="#">
                     <p class="text-light text-right">Comprar mais produtos</p>
                 </a>
             </div>
             <div class="bg-primary col-3 py-2 px-2">
-                <h5 class="text-light">R$ ${carrinhoCompras.total}</h5>
+                <h5 class="text-light"><fmt:formatNumber value = "${carrinhoCompras.total}" type = "currency"/></h5>
                 <button type="button" class="btn btn-warning btn-sm">Concluir compra</button>
             </div>
         </div>
