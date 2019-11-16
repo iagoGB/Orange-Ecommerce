@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>  
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -77,7 +78,7 @@
                                                 <h5 class="card-title">${produto.descricao}</h5>
                                             </a>
                                             <p class="card-text">Preço:</p>
-                                            <p class="card-text"> R$ <fmt:formatNumber type="number" pattern="00.00" value="${produto.preco}" /> </p>
+                                            <p class="card-text"><fmt:formatNumber value = "${produto.preco}" type = "currency"/></p>
                                             <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
                                             <a href="/adicionarProdutoCarrinho.do?p=${produto.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
                                         </div>

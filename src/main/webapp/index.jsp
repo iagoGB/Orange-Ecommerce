@@ -1,5 +1,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page import="br.com.smd.ecommerce.modelo.Produto"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -61,7 +63,7 @@
                                         <a href="">
                                             <h5 class="card-title">${p.descricao}</h5>
                                         </a>
-                                        <p class="card-text">R$ ${p.preco}</p>
+                                        <p class="card-text"><fmt:formatNumber value = "${p.preco}" type = "currency"/></p>
                                         <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
                                         <a href="adicionarProdutoCarrinho.do?p=${p.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
                                     </div>

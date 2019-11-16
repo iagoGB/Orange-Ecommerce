@@ -1,5 +1,6 @@
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,6 +24,7 @@
 
                             <div class="mb-3">
                                 <var class="price h3 text-warning">
+                                    <!-- <fmt:formatNumber value = "${p.preco}" type = "currency"/> -->
                                     <span class="currency">R$</span><span class="num">1299</span>
                                 </var>
                             </div>

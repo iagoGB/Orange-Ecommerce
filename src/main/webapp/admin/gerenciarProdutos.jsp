@@ -6,6 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -69,7 +70,7 @@
                                                     <td class="align-middle text-center"><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100px" height="auto"></td>
 
                                                     <td class="align-middle text-center">${produto.descricao}</td>
-                                                    <td class="align-middle text-center">R$ ${produto.preco}</td>
+                                                    <td class="align-middle text-center"><fmt:formatNumber value = "${produto.preco}" type = "currency"/></td>
                                                     <td class="align-middle text-center">${produto.quantidade}</td>
 
                                                     <td class="align-middle text-center">

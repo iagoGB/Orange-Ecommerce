@@ -1,5 +1,6 @@
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,6 +29,7 @@
                                     <h5 class="card-title">Produto</h5>
                                 </a>
                                 <p class="card-text">Descrição</p>
+                                <!-- <fmt:formatNumber value = "${p.preco}" type = "currency"/> -->
                                 <p class="card-text">Preço</p>
                                 <a href="#" class="btn btn-danger"><i class="fas fa-window-close"></i></a>
                                 <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>

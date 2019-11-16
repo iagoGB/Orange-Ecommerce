@@ -1,5 +1,6 @@
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -106,7 +107,7 @@
                                                 <input type="hidden" name="usuario_id" value="${usuario.usuario_id}"/>
                                                 <label for="textInput">Informe um novo nome completo</label>
                                                 <input type="text" id="textInput" class="form-control mb-4" name="attNome" value="${usuario.nome}">
-                                                <label for="textInput">Informe um novo endereÃ§o</label>
+                                                <label for="textInput">Informe um novo endereço</label>
                                                 <input type="text" id="textInput" class="form-control mb-4" name="attEndereco" value="${usuario.endereco}">
                                                 <label for="textInput">Informe um novo email</label>
                                                 <input type="text" id="textInput" class="form-control mb-4" name="attEmail" value="${usuario.email}">
@@ -176,6 +177,7 @@
                                             <tr>
                                                 <td>#</td>
                                                 <td>#</td>
+                                                <!--<td><fmt:formatNumber value = "${p.preco}" type = "currency"/></td>-->
                                                 <td>#</td>
                                                 <td>#</td>
                                                 <td>#</td>
