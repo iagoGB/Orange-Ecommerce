@@ -20,16 +20,16 @@
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100" src="img/slide/slide1.jpg" alt="Primeiro Slide">
+                                        <img class="d-block w-100" src="img/slide/slide1.png" alt="Primeiro Slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="img/slide/slide2.jpg" alt="Segundo Slide">
+                                        <img class="d-block w-100" src="img/slide/slide2.png" alt="Segundo Slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="img/slide/slide3.jpg" alt="Terceiro Slide">
+                                        <img class="d-block w-100" src="img/slide/slide3.png" alt="Terceiro Slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="img/slide/slide4.jpg" alt="Quarto Slide">
+                                        <img class="d-block w-100" src="img/slide/slide4.png" alt="Quarto Slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -55,17 +55,19 @@
                     <div class="row pt-3 pb-3 px-3">
                         <c:forEach var="p" items="${listaProduto}">
                             <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                                <div class="card border-dark">
+                                <div class="card border-dark h-100">
                                     <div class="p-2">
                                         <img class="card-img-top img-responsive" src="exibirFotoProduto.do?foto=${p.foto}" alt="Imagem de capa do card">
                                     </div>
                                     <div class="card-body">
-                                        <a href="">
+                                        <a href="produto.jsp">
                                             <h5 class="card-title">${p.descricao}</h5>
+                                            <p class="card-text"><fmt:formatNumber value = "${p.preco}" type = "currency"/></p>
                                         </a>
-                                        <p class="card-text"><fmt:formatNumber value = "${p.preco}" type = "currency"/></p>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        <a href="adicionarProdutoCarrinho.do?p=${p.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#" class="btn btn-outline-danger"><i class="fas fa-heart"></i></a>
+                                        <a href="adicionarProdutoCarrinho.do?p=${p.produto_id}" class="btn btn-outline-success"><i class="fas fa-cart-plus"></i></a>
                                     </div>
                                 </div>
                             </div>

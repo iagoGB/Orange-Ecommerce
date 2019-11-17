@@ -32,21 +32,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="card-group-item">
-                                <div class="card-body">
-                                    <input class="custom-range" min="0" max="100" name="" type="range">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label>Min</label>
-                                            <input type="number" class="form-control" id="inputEmail4" placeholder="$0">
-                                        </div>
-                                        <div class="form-group col-md-6 text-right">
-                                            <label>Max</label>
-                                            <input type="number" class="form-control" placeholder="$1,0000">
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                            
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-8">
@@ -71,21 +57,23 @@
                         <div class="row pt-3 pb-3 px-3">
                             <c:forEach items="${listaProdutos}" var="produto">
                                 <div class="col-lg-3 col-md-4 col-sm-12 pb-3">
-                                    <div class="card border-warning">
-                                        <img class="card-img-top" src="exibirFotoProduto.do?foto=${produto.foto}" alt="Imagem do produto ${produto.descricao}">
-                                        <div class="card-body">
-                                            <a href="produto.html">
-                                                <h5 class="card-title">${produto.descricao}</h5>
-                                            </a>
-                                            <p class="card-text">Preço:</p>
+                                    <div class="card border-dark h-100">
+                                    <div class="p-2">
+                                        <img class="card-img-top img-responsive" src="exibirFotoProduto.do?foto=${produto.foto}" alt="Imagem de capa do card">
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="produto.jsp">
+                                            <h5 class="card-title">${produto.descricao}</h5>
                                             <p class="card-text"><fmt:formatNumber value = "${produto.preco}" type = "currency"/></p>
-                                            <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                            <a href="/adicionarProdutoCarrinho.do?p=${produto.produto_id}" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#" class="btn btn-outline-danger"><i class="fas fa-heart"></i></a>
+                                        <a href="/adicionarProdutoCarrinho.do?p=${produto.produto_id}" class="btn btn-outline-success"><i class="fas fa-cart-plus"></i></a>
+                                    </div>
                                     </div>
                                 </div>
                             </c:forEach>
-                            
                         </div>
                     </div>
                 </div>

@@ -22,19 +22,25 @@
                 </div>
                 <div class="row pt-3 pb-3 px-3">
                     <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                        <div class="card border-warning">
-                            <img class="card-img-top" src="img/img.jpg" alt="Imagem de capa do card">
-                            <div class="card-body">
-                                <a href="produto.html">
-                                    <h5 class="card-title">Produto</h5>
-                                </a>
-                                <p class="card-text">Descrição</p>
-                                <!-- <fmt:formatNumber value = "${p.preco}" type = "currency"/> -->
-                                <p class="card-text">Preço</p>
-                                <a href="#" class="btn btn-danger"><i class="fas fa-window-close"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                        <c:forEach var="p" items="${listaProduto}">
+                            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
+                                <div class="card border-dark h-100">
+                                    <div class="p-2">
+                                        <img class="card-img-top img-responsive" src="exibirFotoProduto.do?foto=${p.foto}" alt="Imagem de capa do card">
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="produto.jsp">
+                                            <h5 class="card-title">${p.descricao}</h5>
+                                            <p class="card-text"><fmt:formatNumber value = "${p.preco}" type = "currency"/></p>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#" class="btn btn-outline-danger"><i class="fas fa-heart"></i></a>
+                                        <a href="adicionarProdutoCarrinho.do?p=${p.produto_id}" class="btn btn-outline-success"><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </c:forEach>
                     </div>
                     
                 </div>
