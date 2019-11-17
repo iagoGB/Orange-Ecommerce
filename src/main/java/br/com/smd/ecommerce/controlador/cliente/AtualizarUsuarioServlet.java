@@ -8,7 +8,6 @@ package br.com.smd.ecommerce.controlador.cliente;
 import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

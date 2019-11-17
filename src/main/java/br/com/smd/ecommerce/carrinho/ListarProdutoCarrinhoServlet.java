@@ -91,6 +91,7 @@ public class ListarProdutoCarrinhoServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("quantidadeItensCarrinho", cc.getTotalItems().toString());
             req.setAttribute("carrinhoCompras", cc);
+            session.setAttribute("carrinhoComprasSession", cc);
             
             req.getRequestDispatcher("carrinho.jsp").forward(req, resp);
 

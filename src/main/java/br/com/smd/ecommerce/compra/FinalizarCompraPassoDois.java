@@ -5,12 +5,15 @@
  */
 package br.com.smd.ecommerce.compra;
 
+import br.com.smd.ecommerce.modelo.Usuario;
+import br.com.smd.ecommerce.util.CarrinhoCompras;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,9 +41,21 @@ public class FinalizarCompraPassoDois extends HttpServlet {
             out.println("<title>Servlet FinalizarCompraPassoDois</title>");            
             out.println("</head>");
             out.println("<body>");
+            HttpSession session = request.getSession();
+            Usuario usuario = (Usuario) session.getAttribute("usuario");
+            CarrinhoCompras cc;
+            cc = (CarrinhoCompras) session.getAttribute("carrinhoComprasSession");
             out.println("<h1>Servlet FinalizarCompraPassoDois at " + request.getContextPath() + "</h1>");
+            out.println("<h1> Endereco de entrega : " + usuario.getEndereco() + "</h1>");
+            out.println("<h1> Nome  do cliente : " + usuario.getNome() + "</h1>");
+            out.println("<h1> Carrinho de Compras : " + cc.toString() + "</h1>");
+            out.println("<input type='checkbox' value='boleto'  " +  "/>");
+            out.println("<input type='checkbox' value='cartão'  " +  "/>");
+            out.println("<a href='salvarCompraServlet'  >" + "Finalizar" + "</a>");
             out.println("</body>");
             out.println("</html>");
+            
+            
         }
     }
 

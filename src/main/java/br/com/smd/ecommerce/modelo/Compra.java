@@ -6,11 +6,13 @@
 package br.com.smd.ecommerce.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -44,11 +46,11 @@ public class Compra implements Serializable {
     )
     private Usuario usuario;
     
-    @OneToMany(mappedBy = "produto")
+    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER)
     private List<ProdutoCompra> produtos;
     
     public Compra(){
-    
+        this.produtos = new ArrayList<ProdutoCompra>();
     }
 
     public Compra(Long compra_id, Date data_compra, Usuario usuario, List<ProdutoCompra> produtos) {
@@ -81,10 +83,16 @@ public class Compra implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+    public void setProdutos(List<ProdutoCompra> produtos) {
+        this.produtos = produtos;
+    }
 
     public List<ProdutoCompra> getProdutos() {
         return produtos;
     }
+    
+    
 
     @Override
     public int hashCode() {
@@ -123,9 +131,7 @@ public class Compra implements Serializable {
         return true;
     }
 
-    public void setProdutos(List<ProdutoCompra> produtos) {
-        this.produtos = produtos;
-    }
+   
     
     
     

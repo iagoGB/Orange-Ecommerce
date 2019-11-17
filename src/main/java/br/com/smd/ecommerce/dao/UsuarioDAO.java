@@ -6,6 +6,7 @@
 package br.com.smd.ecommerce.dao;
 
 import br.com.smd.ecommerce.conexao.FabricaDeConexao;
+import br.com.smd.ecommerce.modelo.Compra;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,6 +17,23 @@ import javax.persistence.Query;
  * @author Iago Gomes
  */
 public class UsuarioDAO {
+
+    public static void salvarCompra(Long usuario_id, Long compra_id) {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        
+        try {
+            manager.getTransaction().begin();
+                Usuario us = (Usuario) manager.find(Usuario.class, usuario_id);
+                Compra c = (Compra) manager.find(Compra.class, compra_id);
+                //Incompleto
+                
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        } finally{
+            manager.close();
+        }
+
+    }
 
     //Consulta se login e senha batem com dados do banco
     public Usuario verificarSessao(String login, String senha) {
@@ -28,12 +46,14 @@ public class UsuarioDAO {
                     .setParameter("l", login)
                     .setParameter("s", senha);
             u = (Usuario) query.getSingleResult();
+            
 
         } catch (Exception e) {
 
             System.out.println("Um erro ocorreu ao consultar os dados" + e);
 
         } finally {
+            System.out.println("usuario achado: "+ u.toString());
             manager.close();
         }
 
@@ -165,4 +185,6 @@ public class UsuarioDAO {
 
         return deletou;
     }
+   
+   
 }

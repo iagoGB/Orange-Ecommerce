@@ -91,5 +91,10 @@ public class ItemCompra {
         this.precoTotal = precoTotal;
     }
 
+    @Override
+    public String toString() {
+        return "ItemCompra{" + "produto_id=" + produto_id + ", foto=" + foto + ", descricao=" + descricao + ", quantidade=" + quantidade + ", precoUnitario=" + precoUnitario + ", precoTotal=" + precoTotal + '}';
+    }
+
     
 }

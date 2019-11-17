@@ -7,7 +7,9 @@ package br.com.smd.ecommerce.controlador;
 
 import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.dao.AdministradorDAO;
+import br.com.smd.ecommerce.dao.CompraDAO;
 import br.com.smd.ecommerce.modelo.Administrador;
+import br.com.smd.ecommerce.modelo.Compra;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -29,6 +31,7 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
+        CompraDAO compraDAO = new CompraDAO();
         AdministradorDAO administradorDAO = new AdministradorDAO();
 
         try {
@@ -69,7 +72,15 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("Senha bateu com a do banco - CLIENTE ");
                 HttpSession session = request.getSession();
                 request.setAttribute("msg", "Bem vindo, ");
+               
+                //Pega os produtos ao qual o cliente já fez
+                for (Compra comp : consultaCliente.getCompras()) {
+                    comp.setProdutos(compraDAO.buscarProdutosDaCompra(comp.getCompra_id()));
+                }
+                
+                System.out.println("to string: "+ consultaCliente.getCompras().get(0).getProdutos().toString());
                 session.setAttribute("usuario", consultaCliente);
+                
                 
                 //Se o usuario veio da página de finalizar compra
                 if (request.getParameter("paginaAnterior").equals("c")) {

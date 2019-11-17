@@ -248,4 +248,26 @@ public class ProdutoDAO {
         return p;
     }
 
+    public boolean atualizaQuantidade(Long idProduto, Integer quantidadeDaCompra) {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        boolean atualizou = false;
+        try {
+            manager.getTransaction().begin();
+            
+                Produto p = (Produto)manager.find(Produto.class, idProduto);
+                p.setQuantidade(p.getQuantidade()-quantidadeDaCompra);
+                manager.merge(p);
+                
+            manager.getTransaction().commit();
+            atualizou = true;
+                
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        }finally {
+            manager.close();
+        }
+        
+        return atualizou;
+    }
+
 }

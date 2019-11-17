@@ -31,7 +31,7 @@
                                     </button>
                                 </div>
                             </c:if>
-                             <!-- Só exibe  a mensagem se houver erro ao atualizar os dados -->
+                            <!-- Só exibe  a mensagem se houver erro ao atualizar os dados -->
                             <c:if test="${ not empty feedbackAtualizacaoNegativa }" >
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <p class="alert-danger">${ feedbackAtualizacaoNegativa }</p>
@@ -65,27 +65,27 @@
                                         </button>
                                     </div>
                                 </div>
-                                
+
                                 <form class="py-3 mx-4">
                                     <div class="form-group">
                                         <label for="exampleInputNome1"><b>Nome Completo: </b>${usuario.nome}</label>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEndereco1"><b>Endereço: </b>${usuario.endereco}</label>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1"><b>Email: </b>${usuario.email}</label>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputLogin1"><b>Login: </b>${usuario.login}</label>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1"><b>Senha: </b>${usuario.senha}</label>
-                                        
+
                                     </div>
 
                                 </form>
@@ -142,65 +142,72 @@
                                             <input type="hidden" value="${usuario.usuario_id}" name="usuario_id"/>
                                             <div class="modal-body">
                                                 <p>Deseja realmente <strong style="color:red">EXCLUIR<strong> sua conta?</p>
-                                                <p>1 - Seus dados serão excluidos da aplicação</p>
-                                                <p>2 - Você será  <strong style="color:red">deslogado</strong> automaticamente </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
-                                                <input type="submit" class="btn btn-dark" value="Sim">
-                                            </div>
-                                            
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Meu Histórico de compras -->
-                            <div class="card card-cascade narrower d-none" id="collapse-meuhistorico">
-                                <div
-                                    class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
-                                    <a href="" class="white-text mx-3">Meu histórico de compras</a>
-                                </div>
+                                                            <p>1 - Seus dados serão excluidos da aplicação</p>
+                                                            <p>2 - Você será  <strong style="color:red">deslogado</strong> automaticamente </p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
+                                                                <input type="submit" class="btn btn-dark" value="Sim">
+                                                            </div>
 
-                                <div class="table-responsive p-3">
-                                    <table class="table table-hover table-bordered" id="dtmeuhistorico">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">Data</th>
-                                                <th scope="col">Preço</th>
-                                                <th scope="col">Produto(s)</th>
-                                                <th scope="col">Quantidade(s)</th>
-                                                <th scope="col">Valor da compra</th>
+                                                            </form>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            <!-- Meu Histórico de compras -->
+                                                            <div class="card card-cascade narrower d-none" id="collapse-meuhistorico">
+                                                                <div
+                                                                    class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
+                                                                    <a href="" class="white-text mx-3">Meu histórico de compras</a>
+                                                                </div>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <!--<td><fmt:formatNumber value = "${p.preco}" type = "currency"/></td>-->
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
+                                                                <div class="table-responsive p-3">
+                                                                    <table class="table table-hover table-bordered" id="dtmeuhistorico">
+                                                                        <thead class="thead-light">
+                                                                            <tr>
+                                                                                <th scope="col">Data</th>
+                                                                                <th scope="col">Preço</th>
+                                                                                <th scope="col">Produto(s)</th>
+                                                                                <th scope="col">Quantidade(s)</th>
+                                                                                <th scope="col">Valor da compra</th>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <c:forEach var="compra" items="${ usuario.compras }">
+                                                                                <tr>
+                                                                                    <td>${compra.compra_id}</td>
+                                                                                    <td>${compra.data_compra}</td>
+                                                                                    
+                                                                                    <td>
+                                                                                        qtd: ${compra.produtos}
+                                                                                    </td>
+                                                                                    
+                                                                                    <td>
+                                                                                      
+                                                                                    </td>
+
+                                                                                    <td>#</td>
+                                                                                </tr>
+                                                                            </c:forEach>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
 
 
-                            </div>
+                                                            </div>
 
 
-                        </div>
-                    </div>
+                                                            </div>
+                                                            </div>
 
-                </div>
-        </div>
-    </section>
-</div>
-<!-- RODAPÉ -->
-<%@include file="componentes/rodape.jsp" %>
+                                                            </div>
+                                                            </div>
+                                                            </section>
+                                                            </div>
+                                                            <!-- RODAPÉ -->
+                                                            <%@include file="componentes/rodape.jsp" %>
 
-</body>
+                                                            </body>
 
-</html>
+                                                            </html>
