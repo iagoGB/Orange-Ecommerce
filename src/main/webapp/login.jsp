@@ -24,7 +24,7 @@
                                 if (mensagem != null) {
                             %>
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <p class="text-danger"><%=mensagem%></p>
+                                <p class="text-danger text-center"><%=mensagem%></p>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -32,6 +32,15 @@
                             <%
                                 }
                             %>
+
+                            <c:if test="${not empty mensagemFazerLogin}">
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <p class="text-danger text-center">${mensagemFazerLogin}</p>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> 
+                            </c:if>
                             <div class="card">
                                 <article class="card-body">
                                     <h4 class="card-title text-center mb-4 mt-1">Login</h4>
@@ -43,7 +52,8 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                                                 </div>
-
+                                                 <!--Variavel que guarda a página anterior antes do login-->
+                                                <input type="hidden" name="paginaAnterior" value="${paginaAnterior}">
                                                 <input name="emailLogin" class="form-control"
                                                        placeholder="Digite seu login" type="text" id="validationCustom01" required>
 

@@ -97,12 +97,13 @@
                             <button type="button" class="btn btn-dark btn-sm text-light">Continuar comprando</button>
                         </div>
                         <div class="col-2"> 
-                            <button type="button" class="btn btn-orange btn-sm text-light ml-auto">Concluir compra</button>  
+                            <a href="finalizarCompra.do?page=c" type="button" class="btn btn-orange btn-sm text-light ml-auto">Concluir compra</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><br>
+        </div>
+        <br>
 
         <%@include file="componentes/rodape.jsp" %>
     </body>
