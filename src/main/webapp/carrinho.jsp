@@ -116,7 +116,7 @@
             </div>
             <div class="bg-primary col-3 py-2 px-2">
                 <h5 class="text-light">R$ ${carrinhoCompras.total}</h5>
-                <button type="button" class="btn btn-warning btn-sm">Concluir compra</button>
+                <a href="finalizarCompra.do?page=c" type="button" class="btn btn-warning btn-sm">Concluir compra</a>
             </div>
         </div>
 

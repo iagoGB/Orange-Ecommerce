@@ -28,6 +28,14 @@
         <servlet-name>RemoverProdutoCarrinhoServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.carrinho.RemoverProdutoCarrinhoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FinalizarCompraPassoUm</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.compra.FinalizarCompraPassoUm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FinalizarCompraPassoDois</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.compra.FinalizarCompraPassoDois</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarCategoriaServlet</servlet-name>
         <url-pattern>/atualizarCategoria.do</url-pattern>
@@ -67,6 +75,14 @@
     <servlet-mapping>
         <servlet-name>RemoverProdutoCarrinhoServlet</servlet-name>
         <url-pattern>/removerProdutoCarrinho.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizarCompraPassoUm</servlet-name>
+        <url-pattern>/finalizarCompra.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizarCompraPassoDois</servlet-name>
+        <url-pattern>/finalizarCompraP2.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>
