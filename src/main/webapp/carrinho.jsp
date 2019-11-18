@@ -89,7 +89,17 @@
                 <div class="col-10">
                     <div class="row justify-content-end p-3 bg-dark">
                         <div class="col-5">
-                            <h5 class="text-light text-right">Valor total do(s) ${carrinhoCompras.totalItems} item(ns): <fmt:formatNumber value = "${carrinhoCompras.total}" type = "currency"/></h5>
+                            <h5 class="text-light text-right">Produtos (${carrinhoCompras.totalItems}): <fmt:formatNumber value = "${carrinhoCompras.total}" type = "currency"/></h5>
+                        </div>
+                    </div>
+                        <div class="row justify-content-end p-3 bg-dark">
+                        <div class="col-5">
+                            <h5 class="text-light text-right">Rua Gois Monteiro, 657 : Frete grátis</h5>
+                        </div>
+                    </div>
+                        <div class="row justify-content-end p-3 bg-dark">
+                        <div class="col-5">
+                            <h5 class="text-light text-right">Valor total: <fmt:formatNumber value = "${carrinhoCompras.total}" type = "currency"/></h5>
                         </div>
                     </div>
                     <div class="row justify-content-between p-3 bg-light">
