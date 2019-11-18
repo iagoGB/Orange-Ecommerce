@@ -104,7 +104,7 @@
                     </div>
                     <div class="row justify-content-between p-3 bg-light">
                         <div class="col-8">
-                            <button type="button" class="btn btn-dark btn-sm text-light">Continuar comprando</button>
+                            <a href="index.jsp" type="button" class="btn btn-dark btn-sm text-light">Continuar comprando</a>
                         </div>
                         <div class="col-2"> 
                             <a href="finalizarCompra.do?page=c" type="button" class="btn btn-orange btn-sm text-light ml-auto">Concluir compra</a>
