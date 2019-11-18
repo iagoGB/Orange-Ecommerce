@@ -1,5 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,10 +8,11 @@
     </head>
 
     <body>
-        <!-- CABEÃ‡ALHO -->
+        <!-- CABEÇALHO -->
         <header>
             <%@include file="../componentes/cabecalho.jsp" %>
         </header>
+        
         <div class="content">
             <section>
                 <div class="container-fluid">
@@ -26,7 +27,8 @@
                 </div>
             </section>
         </div>
-        <!-- RODAPÃ‰ -->
+                        
+        <!-- RODAPÉ -->
         <%@include file="componentes/rodape.jsp" %>
 
    </body>
