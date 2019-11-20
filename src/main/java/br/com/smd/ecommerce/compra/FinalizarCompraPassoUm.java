@@ -35,7 +35,7 @@ public class FinalizarCompraPassoUm extends HttpServlet {
             
             } else {
                 //O usuário já está logado
-                resp.sendRedirect("/finalizarCompraP2.do");
+                resp.sendRedirect("/home.do");
             }
             
         } catch (Exception e) {

@@ -57,12 +57,12 @@
                             </li>
 
                         </ul>
-                        <form class="d-md-none form-row">
+                        <form action="buscar" method="post" class="d-md-none form-row">
                             <div class="input-group md-form my-0">
-                                <input type="search" class="form-control" placeholder="Pesquisar"
+                                <input name="busca" type="search" class="form-control" placeholder="Pesquisar"
                                        aria-label="Pesquisar" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn-sm btn-dark" type="button" id="inputGroupFileAddon">
+                                    <button class="btn-sm btn-dark" type="submit" id="inputGroupFileAddon">
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>

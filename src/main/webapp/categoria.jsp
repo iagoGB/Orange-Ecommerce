@@ -62,10 +62,10 @@
                                         <img class="card-img-top img-responsive" src="exibirFotoProduto.do?foto=${produto.foto}" alt="Imagem de capa do card">
                                     </div>
                                     <div class="card-body">
-                                        <a href="produto.jsp">
+                                        <a href="IrParaPagProduto.do?p=${produto.produto_id}">
                                             <h5 class="card-title">${produto.descricao}</h5>
-                                            <p class="card-text"><fmt:formatNumber value = "${produto.preco}" type = "currency"/></p>
                                         </a>
+                                            <p class="card-text"><fmt:formatNumber value = "${produto.preco}" type = "currency"/></p>
                                     </div>
                                     <div class="card-body">
                                         <a href="#" class="btn btn-outline-danger"><i class="fas fa-heart"></i></a>

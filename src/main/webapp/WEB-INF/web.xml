@@ -40,6 +40,10 @@
         <servlet-name>IrParaPagProdutoServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.pagproduto.IrParaPagProdutoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscaServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.BuscaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarCategoriaServlet</servlet-name>
         <url-pattern>/atualizarCategoria.do</url-pattern>
@@ -91,6 +95,10 @@
     <servlet-mapping>
         <servlet-name>IrParaPagProdutoServlet</servlet-name>
         <url-pattern>/IrParaPagProduto.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaServlet</servlet-name>
+        <url-pattern>/BuscaServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>

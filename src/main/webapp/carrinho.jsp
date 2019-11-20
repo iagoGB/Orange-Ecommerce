@@ -45,10 +45,13 @@
                                     <c:forEach var="produto" items="${carrinhoCompras.itemCarrinhoList}">
                                         <tr>
                                         <form action="/adicionarProdutoCarrinho.do" method="POST">
-                                            <th class="align-middle text-center"><img src="exibirFotoProduto.do?foto=${produto.foto}" width="100" height="100" class="img-fluid my-3" alt="Responsive image"></th>
-
+                                            
                                             <th class="align-middle text-center">
-                                                <a href="produto.jsp">
+                                                <a href="IrParaPagProduto.do?p=${produto.produto_id}">   
+                                                    <img src="exibirFotoProduto.do?foto=${produto.foto}" width="100" height="100" class="img-fluid my-3" alt="Responsive image"></th>
+                                                </a>
+                                            <th class="align-middle text-center">
+                                                <a href="IrParaPagProduto.do?p=${produto.produto_id}">
                                                     <p class="text-dark">${produto.descricao}</p>
                                                 </a>
                                                 <input type="hidden" name="p" value="${produto.produto_id}">
@@ -104,7 +107,7 @@
                     </div>
                     <div class="row justify-content-between p-3 bg-light">
                         <div class="col-8">
-                            <a href="index.jsp" type="button" class="btn btn-dark btn-sm text-light">Continuar comprando</a>
+                            <a href="/home.do" type="button" class="btn btn-dark btn-sm text-light">Continuar comprando</a>
                         </div>
                         <div class="col-2"> 
                             <a href="finalizarCompra.do?page=c" type="button" class="btn btn-orange btn-sm text-light ml-auto">Concluir compra</a>
