@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="card-body">
                                         <a href="produto.jsp">
-                                            <h5 class="card-title">${p.descricao}</h5>
+                                            <a href="IrParaPagProduto.do?p=${p.produto_id}"><h5 class="card-title">${p.descricao}</h5></a>
                                             <p class="card-text"><fmt:formatNumber value = "${p.preco}" type = "currency"/></p>
                                         </a>
                                     </div>

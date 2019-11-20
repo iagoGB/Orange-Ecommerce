@@ -1,4 +1,5 @@
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
+<%@page import="br.com.smd.ecommerce.modelo.Produto"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
             <div class="container-fluid py-4">
                 <div class="row pt-2 pb-0 px-md-5 px-sm-2 justify-content-center">
                     <div class="col-4 border-right">
-                        <img class="card-img-top img-responsive" src="exibirFotoProduto.do?foto=${produto.foto}" alt="Imagem de capa do card">
+                        <img class="card-img-top" src="exibirFotoProduto.do?foto=${produto.foto}" width="800px" alt="Imagem de capa do card">
                     </div>
                     <div class="col-8">
                         <article>
