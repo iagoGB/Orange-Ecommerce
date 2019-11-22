@@ -7,11 +7,13 @@ package br.com.smd.ecommerce.dao;
 
 import br.com.smd.ecommerce.conexao.FabricaDeConexao;
 import br.com.smd.ecommerce.modelo.Compra;
+import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCompra;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -48,25 +50,33 @@ public class CompraDAO {
         return cp;
     }
     
-    public List<ProdutoCompra> buscarProdutosDaCompra(Long compra_id){
+    public Compra buscarProdutosDaCompra(Long compra_id){
         EntityManager manager = new FabricaDeConexao().getConexao();
         //Usar produto compra
-        List<ProdutoCompra> resultado = null;
+       // List<ProdutoCompra> resultado = null;
+       Compra compra = null;
         try {
           manager.getTransaction().begin();
           
-            Compra c = (Compra)manager.find(Compra.class, compra_id);
-            c.getProdutos().size();
-            c.setProdutos(c.getProdutos());
+//            Compra c = (Compra)manager.find(Compra.class, compra_id);
+//            c.getProdutos().size();
+//            c.setProdutos(c.getProdutos());
+
+            TypedQuery<Compra> query = manager.createQuery(
+                "Select c from TB_COMPRA as c "
+                + "join fetch c.produtos pc "
+                + "where pc.produto.produto_id = :pId", Compra.class )
+                .setParameter("pId", compra_id);
+        
+        compra = query.getSingleResult();
             
           manager.getTransaction().commit();
-          resultado = c.getProdutos();
         } catch (Exception e) {
             manager.getTransaction().rollback();
         } finally{
             manager.close();
         }
-        return resultado;
+        return compra;
     }
     
 }

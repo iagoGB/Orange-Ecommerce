@@ -24,7 +24,7 @@ import javax.persistence.ManyToOne;
 @IdClass(ProdutoCompraId.class)
 public class ProdutoCompra implements Serializable {
     @Id
-    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,CascadeType.MERGE })
+    @ManyToOne( cascade = { CascadeType.PERSIST,CascadeType.MERGE })
     @JoinColumn(
         name = "fk_produto_id",
         foreignKey = @ForeignKey(name = "fk_produto_id"),

@@ -53,7 +53,7 @@ public class UsuarioDAO {
             System.out.println("Um erro ocorreu ao consultar os dados" + e);
 
         } finally {
-            System.out.println("usuario achado: "+ u.toString());
+            
             manager.close();
         }
 

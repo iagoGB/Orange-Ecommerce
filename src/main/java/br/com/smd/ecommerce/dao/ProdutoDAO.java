@@ -16,7 +16,6 @@ import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
 import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
-import java.util.Iterator;
 import java.util.List;
 import javax.persistence.TypedQuery;
 

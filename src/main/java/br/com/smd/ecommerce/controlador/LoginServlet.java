@@ -74,11 +74,15 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("msg", "Bem vindo, ");
                
                 //Pega os produtos ao qual o cliente já fez
-                for (Compra comp : consultaCliente.getCompras()) {
-                    comp.setProdutos(compraDAO.buscarProdutosDaCompra(comp.getCompra_id()));
-                }
+                //for (Compra comp : consultaCliente.getCompras()) {
+                //Pega as compras
                 
-                System.out.println("to string: "+ consultaCliente.getCompras().get(0).getProdutos().toString());
+                if (consultaCliente.getCompras() != null && consultaCliente.getCompras().size() > 0){
+                    Compra buscarProdutosDaCompra = compraDAO.buscarProdutosDaCompra(consultaCliente.getCompras().get(0).getCompra_id());
+                }
+//}
+                
+                //System.out.println("to string: "+ consultaCliente.getCompras().get(0).getProdutos().toString());
                 session.setAttribute("usuario", consultaCliente);
                 
                 
