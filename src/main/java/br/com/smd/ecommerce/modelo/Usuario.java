@@ -1,4 +1,3 @@
-
 package br.com.smd.ecommerce.modelo;
 
 import java.io.Serializable;
@@ -7,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,40 +20,45 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(
-    name = "TB_USUARIO",
-    uniqueConstraints = { 
-        @UniqueConstraint(
-            name = "uk_login_unico",
-            columnNames = { "login" }  
-        ),
-        @UniqueConstraint(
-             name = "uk_email_unico",
-             columnNames = {"email"}
-        )
-    }
+        name = "TB_USUARIO",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "uk_login_unico",
+                    columnNames = {"login"}
+            ),
+            @UniqueConstraint(
+                    name = "uk_email_unico",
+                    columnNames = {"email"}
+            )
+        }
 )
 public class Usuario implements Serializable {
-    
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long usuario_id;
-    
+
     @Column(nullable = false)
     private String nome;
-    
+
     @Column(nullable = false)
     private String endereco;
-    
+
     @Column(name = "email", nullable = false)
     private String email;
-    
+
     @Column(name = "login", nullable = false)
     private String login;
-    
+
     @Column(nullable = false)
     private String senha;
-    
-    @OneToMany(mappedBy = "usuario")
+
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Compra> compras;
 
     public Usuario() {
@@ -69,7 +74,7 @@ public class Usuario implements Serializable {
         this.senha = senha;
         this.compras = compras;
     }
-    
+
     public Usuario(Long usuario_id, String nome, String endereco, String email, String login, String senha) {
         this.usuario_id = usuario_id;
         this.nome = nome;
@@ -94,7 +99,7 @@ public class Usuario implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public String getEndereco() {
         return endereco;
     }
@@ -110,7 +115,7 @@ public class Usuario implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public String getLogin() {
         return login;
     }
@@ -126,13 +131,40 @@ public class Usuario implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-     public List<Compra> getCompras() {
+
+    public List<Compra> getCompras() {
         return compras;
     }
 
     public void setCompras(List<Compra> compras) {
         this.compras = compras;
+    }
+
+    public String valorTotalPorCompra(Compra c) {
+
+        try {
+
+            Double ValorTotalDeUmaCompra = 0.0;
+
+            for (ProdutoCompra pc : c.getProdutos()) {
+
+                //Valor por cada produto
+                Double valorProduto = pc.getProduto().getPreco();
+                Integer qntProduto = pc.getQuantidade();
+
+                Double valorPorProdutoCompra = valorProduto * qntProduto;
+
+                ValorTotalDeUmaCompra += valorPorProdutoCompra;
+            }
+
+            return ValorTotalDeUmaCompra.toString();
+
+        } catch (Exception e) {
+
+            System.out.println("Erro ao calcular valor das compras" + e);
+            return "Valor indisponível no momento.";
+        }
+
     }
 
     @Override
@@ -189,4 +221,3 @@ public class Usuario implements Serializable {
         return "Usuario{" + "usuario_id=" + usuario_id + ", nome=" + nome + ", endereco=" + endereco + ", email=" + email + ", login=" + login + ", senha=" + senha + ", compras=" + compras + '}';
     }
 }
-    

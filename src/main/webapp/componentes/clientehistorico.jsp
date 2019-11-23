@@ -18,30 +18,49 @@
         <table class="table table-hover table-bordered" id="dtmeuhistorico">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">Data</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Produto(s)</th>
-                    <th scope="col">Quantidade(s)</th>
-                    <th scope="col">Valor da compra</th>
+                    <th class="align-middle text-center" scope="col">Data</th>
+                    <th class="align-middle text-center" scope="col">Preço</th>
+                    <th class="align-middle text-center"scope="col">Produto(s)</th>
+                    <th class="align-middle text-center" scope="col">Quantidade(s)</th>
+                    <th class="align-middle text-center" scope="col">Valor da compra</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>#</td>
-                    <td>#</td>
-                    <!--<td><fmt:formatNumber value = "${p.preco}" type = "currency"/></td>-->
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                </tr>
 
+                <c:forEach var="compra" items="${ usuario.compras }">
+                    <tr>
+                        <td class="align-middle text-center">${compra.compra_id}</td>
+                        <td class="align-middle text-center">${compra.data_compra}</td>
+
+                        <td class="align-middle text-center">
+
+                            <c:forEach var="produtoCompra" items="${compra.produtos}">
+                                ${ produtoCompra.produto.descricao } <br/>
+                            </c:forEach>
+
+                        </td>
+
+                        <td class="align-middle text-center">
+                            <c:forEach var="produtoCompra" items="${compra.produtos}">
+                                ${ produtoCompra.quantidade } <br/>
+                            </c:forEach>
+                        </td>
+
+                        <td class="align-middle text-center">
+
+                            <c:forEach var="produtoCompra" items="${compra.produtos}">
+
+                                ${produtoCompra.produto.preco * produtoCompra.quantidade } <br/>
+
+                            </c:forEach>  
+
+                        </td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>
 
 
 </div>
-
-
-

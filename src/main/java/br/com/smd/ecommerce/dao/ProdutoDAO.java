@@ -16,7 +16,6 @@ import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
 import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
-import java.util.Iterator;
 import java.util.List;
 import javax.persistence.TypedQuery;
 
@@ -246,6 +245,28 @@ public class ProdutoDAO {
         }
         
         return p;
+    }
+
+    public boolean atualizaQuantidade(Long idProduto, Integer quantidadeDaCompra) {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        boolean atualizou = false;
+        try {
+            manager.getTransaction().begin();
+            
+                Produto p = (Produto)manager.find(Produto.class, idProduto);
+                p.setQuantidade(p.getQuantidade()-quantidadeDaCompra);
+                manager.merge(p);
+                
+            manager.getTransaction().commit();
+            atualizou = true;
+                
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        }finally {
+            manager.close();
+        }
+        
+        return atualizou;
     }
 
 }

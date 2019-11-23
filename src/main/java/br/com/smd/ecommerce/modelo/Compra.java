@@ -6,9 +6,12 @@
 package br.com.smd.ecommerce.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -27,28 +30,34 @@ import javax.persistence.TemporalType;
  */
 @Entity(name = "TB_COMPRA")
 public class Compra implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long compra_id;
-    
+
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date data_compra;
- 
+
     @ManyToOne
     @JoinColumn(
-            name = "fk_usuario_id", 
-            referencedColumnName = "usuario_id", 
-            foreignKey = @ForeignKey( name="fk_usuario_id"),
+            name = "fk_usuario_id",
+            referencedColumnName = "usuario_id",
+            foreignKey = @ForeignKey(name = "fk_usuario_id"),
             nullable = false
     )
     private Usuario usuario;
-    
-    @OneToMany(mappedBy = "produto")
+
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<ProdutoCompra> produtos;
-    
-    public Compra(){
-    
+
+    public Compra() {
+        this.produtos = new ArrayList<>();
     }
 
     public Compra(Long compra_id, Date data_compra, Usuario usuario, List<ProdutoCompra> produtos) {
@@ -80,6 +89,10 @@ public class Compra implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public void setProdutos(List<ProdutoCompra> produtos) {
+        this.produtos = produtos;
     }
 
     public List<ProdutoCompra> getProdutos() {
@@ -123,11 +136,4 @@ public class Compra implements Serializable {
         return true;
     }
 
-    public void setProdutos(List<ProdutoCompra> produtos) {
-        this.produtos = produtos;
-    }
-    
-    
-    
-    
 }

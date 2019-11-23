@@ -6,9 +6,9 @@
 package br.com.smd.ecommerce.modelo;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -22,34 +22,39 @@ import javax.persistence.ManyToOne;
 @Entity(name = "TB_PRODUTOXCOMPRA")
 @IdClass(ProdutoCompraId.class)
 public class ProdutoCompra implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
-        name = "fk_produto_id",
-        foreignKey = @ForeignKey(name = "fk_produto_id"),
-        nullable = false
+            name = "fk_produto_id",
+            foreignKey = @ForeignKey(name = "fk_produto_id"),
+            nullable = false
     )
     Produto produto;
-    
+
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
             name = "fk_compra_id",
             foreignKey = @ForeignKey(name = "fk_compra_id"),
-            nullable = false 
+            nullable = false
     )
     Compra compra;
-    
+
     @Column(nullable = false)
     private Integer quantidade;  //a quantidade de produtos no pedido
-    
+
     /*
         @Column     //valor total deste produto no pedido, geralmente preço x quantidade
         private Double total;  
-    */
-    
-    public ProdutoCompra(){
-    
+     */
+    public ProdutoCompra() {
+
     }
 
     public ProdutoCompra(Produto produto, Compra compra, Integer quantidade) {
@@ -81,5 +86,5 @@ public class ProdutoCompra implements Serializable {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
- 
+
 }

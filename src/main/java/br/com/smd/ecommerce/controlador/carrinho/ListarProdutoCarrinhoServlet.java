@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.carrinho;
+package br.com.smd.ecommerce.controlador.carrinho;
 
 import br.com.smd.ecommerce.dao.ProdutoDAO;
 import br.com.smd.ecommerce.modelo.Produto;
@@ -91,6 +91,7 @@ public class ListarProdutoCarrinhoServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("quantidadeItensCarrinho", cc.getTotalItems().toString());
             req.setAttribute("carrinhoCompras", cc);
+            session.setAttribute("carrinhoComprasSession", cc);
             
             req.getRequestDispatcher("carrinho.jsp").forward(req, resp);
 

@@ -5,8 +5,10 @@
  */
 package br.com.smd.ecommerce.controlador;
 
-import br.com.smd.ecommerce.dao.ProdutoDAO;
-import br.com.smd.ecommerce.modelo.Produto;
+import br.com.smd.ecommerce.dao.AdministradorDAO;
+import br.com.smd.ecommerce.dao.UsuarioDAO;
+import br.com.smd.ecommerce.modelo.Usuario;
+import br.com.smd.ecommerce.modelo.Administrador;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

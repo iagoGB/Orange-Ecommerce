@@ -14,9 +14,12 @@ public final class Constantes {
     public Constantes() {
 
     }
-    public static final String REPOSITORIO_IMAGEM_PRODUTO = "C:\\Users\\aluno\\Desktop\\imagens";
+    //public static final String REPOSITORIO_IMAGEM_PRODUTO = "C:\\Users\\aluno\\Desktop\\imagens";
     //public static final String REPOSITORIO_IMAGEM_PRODUTO = "C:\\Users\\iago.barreto\\Pictures";
     //public static final String REPOSITORIO_IMAGEM_PRODUTO = "C:/Users/Caique/Desktop/imagens";
     //public static final String REPOSITORIO_IMAGEM_PRODUTO ="/home/iago/imagens";
+    //public static final String REPOSITORIO_IMAGEM_PRODUTO = "C:/Users/Caique/Desktop/imagens";
+    //public static final String REPOSITORIO_IMAGEM_PRODUTO ="/home/iago/imagens";
+    public static final String REPOSITORIO_IMAGEM_PRODUTO = "C:\\imagens";
 
 }

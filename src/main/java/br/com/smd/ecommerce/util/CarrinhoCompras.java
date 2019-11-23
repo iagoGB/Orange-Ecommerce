@@ -51,6 +51,11 @@ public class CarrinhoCompras {
     public void setTotal(Double total) {
         this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "CarrinhoCompras{" + "itemCarrinhoList=" + itemCarrinhoList + ", totalItems=" + totalItems + ", total=" + total + '}';
+    }
     
     
     

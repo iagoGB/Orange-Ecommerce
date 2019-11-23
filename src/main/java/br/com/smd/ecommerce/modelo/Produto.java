@@ -23,34 +23,40 @@ import javax.persistence.OneToMany;
  * @author iago
  */
 @Entity(name = "TB_PRODUTO")
-public class Produto implements Serializable {    
+public class Produto implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long produto_id;
-    
+
     @Column(nullable = false)
     private String foto;
-    
+
     @Column(nullable = false)
     private String descricao;
-    
+
     @Column(nullable = false)
     private Double preco;
-    
+
     @Column(nullable = false)
     private Integer quantidade;
-    
-    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER , cascade = { CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH }, orphanRemoval = true ) 
-    public List<ProdutoCategoria> listaCategorias;
-    
-    @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY )
+
+    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
+    private List<ProdutoCategoria> listaCategorias;
+
+    @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private List<ProdutoCompra> produtoEmCompras;
 
-    public Produto(){
+    public Produto() {
         this.produtoEmCompras = new ArrayList<>();
         this.listaCategorias = new ArrayList<>();
     }
-    
+
     public Produto(Long produto_id, String foto, String descricao, Double preco, Integer quantidade) {
         this.produto_id = produto_id;
         this.foto = foto;
@@ -58,7 +64,7 @@ public class Produto implements Serializable {
         this.preco = preco;
         this.quantidade = quantidade;
     }
-    
+
     public Produto(Long produto_id, String foto, String descricao, Double preco, Integer quantidade, List<ProdutoCategoria> listaCategorias, List<ProdutoCompra> produtoEmCompras) {
         this.produto_id = produto_id;
         this.foto = foto;
@@ -172,10 +178,10 @@ public class Produto implements Serializable {
             return false;
         }
         return true;
-    }    
+    }
 
     @Override
     public String toString() {
         return "Produto{" + "produto_id=" + produto_id + ", foto=" + foto + ", descricao=" + descricao + ", preco=" + preco + ", quantidade=" + quantidade + ", listaCategorias=" + listaCategorias + ", produtoEmCompras=" + produtoEmCompras + '}';
-    }  
+    }
 }
