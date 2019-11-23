@@ -42,7 +42,7 @@
     </servlet>
     <servlet>
         <servlet-name>ListarCompraClienteServlet</servlet-name>
-        <servlet-class>br.com.smd.ecommerce.controlador.compra.ListarCompraClienteServlet</servlet-class>
+        <servlet-class>br.com.smd.ecommerce.controlador.compra.GerenciarCompraServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>IrParaPagProdutoServlet</servlet-name>
@@ -51,6 +51,10 @@
     <servlet>
         <servlet-name>BuscaServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.BuscaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarCompraServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.compra.DeletarCompraServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AtualizarCategoriaServlet</servlet-name>
@@ -105,14 +109,16 @@
         <url-pattern>/IrParaPagProduto.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>BuscaServlet</servlet-name>
-        <url-pattern>/BuscaServlet</url-pattern>
         <servlet-name>SalvarCompraServlet</servlet-name>
         <url-pattern>/salvarCompraServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarCompraClienteServlet</servlet-name>
-        <url-pattern>/listarMInhasCompras.do</url-pattern>
+        <url-pattern>/gerenciarCompras.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarCompraServlet</servlet-name>
+        <url-pattern>/deletarCompra.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>

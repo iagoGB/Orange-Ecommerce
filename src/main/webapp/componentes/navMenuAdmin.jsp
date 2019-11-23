@@ -17,7 +17,7 @@
         cadastros</button>
     </a>
     
-    <a href="/admin?page=gerenciarCompras">
+    <a href="/gerenciarCompras.do">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-compras">Gerenciar
             compras</button>
     </a>

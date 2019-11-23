@@ -14,12 +14,45 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import org.hibernate.annotations.common.util.impl.Log_$logger;
 
 /**
  *
  * @author Iago Gomes
  */
 public class CompraDAO {
+    
+    public List<Compra> recuperarTodasAsCompras() {
+
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        List<Compra> result = null;
+        try {
+
+            manager.getTransaction().begin();
+
+            TypedQuery<Compra> query = manager.createQuery(
+                    "Select c from TB_COMPRA as c "
+                    + "join fetch c.produtos"
+                    , Compra.class
+            );
+
+            result = query.getResultList();
+
+            manager.getTransaction().commit();
+
+        } catch (Exception e) {
+
+            System.err.println(" Erro ao consultar compras: " + e);
+            manager.getTransaction().rollback();
+
+        } finally {
+
+            manager.close();
+
+        }
+
+        return result;
+    }
     
     public Compra salvarCompra(Usuario us) {
         

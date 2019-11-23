@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -26,7 +27,19 @@
 
                     <div class="row py-3 px-3">
                         <%@include file="../componentes/navMenuAdmin.jsp" %>
+                        
+                        
                         <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
+<!--                            Se ocorrer algum erro mostra mensagem  -->
+                            <c:if test="${not empty feedbackNegativoListagem}" >
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <p class="text-danger">${ feedbackNegativoListagem }</p>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </c:if>
+                            
                             <!-- Histórico de compras -->
                             <div class="card card-cascade narrower d-none" id="collapse-historico">
                                 <div
@@ -47,7 +60,7 @@
                                                 
                                                 <th scope="col">Data</th>
                                                 <th scope="col">Cliente</th>
-                                                <th scope="col">Preço</th>
+                                                
                                                 <th scope="col">Produto(s)</th>
                                                 <th scope="col">Quantidade(s)</th>
                                                 <th scope="col">Valor da compra</th>
@@ -55,16 +68,29 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <!-- <fmt:formatNumber value = "${produto.preco}" type = "currency"/> -->
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
+                                            <c:forEach var="compra" items="${gerenciaCompraTipoList}">
+                                                <tr>
+
+                                                    <td class="align-middle text-center">${ compra.data_compra }</td>
+                                                    <td class="align-middle text-center">${ compra.cliente}</td>
+                                                    <!-- <fmt:formatNumber value = "${produto.preco}" type = "currency"/> -->
+                                                    
+                                                    <td class="align-middle text-center">
+                                                        <c:forEach var="produto" items="${compra.produtosList}">
+                                                            ${produto} <br/>
+                                                        </c:forEach>
+                                                    </td>
+                                                    <td class="align-middle text-center">
+                                                        <c:forEach var="quantidade" items="${compra.quantidadeList}">
+                                                            ${quantidade} <br/>
+                                                        </c:forEach>
+                                                    </td>
+                                                    <td class="align-middle text-center">
+                                                        ${compra.valorTotal}
+                                                    </td>
+                                                    
+                                                </tr>
+                                            </c:forEach>
                                             
 
                                         </tbody>
