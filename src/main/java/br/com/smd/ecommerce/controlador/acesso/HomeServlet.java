@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.controlador;
+package br.com.smd.ecommerce.controlador.acesso;
 
 import br.com.smd.ecommerce.dao.CategoriaDAO;
 import br.com.smd.ecommerce.dao.ProdutoDAO;

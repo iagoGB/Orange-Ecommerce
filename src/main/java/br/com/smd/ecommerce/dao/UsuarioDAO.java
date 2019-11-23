@@ -47,6 +47,14 @@ public class UsuarioDAO {
                     .setParameter("s", senha);
             u = (Usuario) query.getSingleResult();
             
+            manager.getTransaction().begin();
+            //Pega todos os produtos da compra
+            for (Compra compra : u.getCompras()) {
+                compra.getProdutos().size();
+            }
+            manager.getTransaction().commit();
+         
+            
 
         } catch (Exception e) {
 

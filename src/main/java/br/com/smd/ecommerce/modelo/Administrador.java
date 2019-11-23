@@ -19,31 +19,37 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(
-    name = "TB_ADMINISTRADOR",
-    uniqueConstraints = { 
-        @UniqueConstraint(
-            name = "uk_login_unico",
-            columnNames = { "login" }  
-        ),
-        @UniqueConstraint(
-             name = "uk_email_unico",
-             columnNames = {"email"}
-        )
-    }
+        name = "TB_ADMINISTRADOR",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "uk_login_unico",
+                    columnNames = {"login"}
+            ),
+            @UniqueConstraint(
+                    name = "uk_email_unico",
+                    columnNames = {"email"}
+            )
+        }
 )
-public class Administrador implements Serializable{
+public class Administrador implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
     private Long adm_id;
-    
+
     @Column(nullable = false)
     private String nome;
-    
-    @Column(name="email", nullable = false)
+
+    @Column(name = "email", nullable = false)
     private String email;
-    
+
     @Column(name = "login", nullable = false)
     private String login;
-    
+
     @Column(nullable = false)
     private String senha;
 

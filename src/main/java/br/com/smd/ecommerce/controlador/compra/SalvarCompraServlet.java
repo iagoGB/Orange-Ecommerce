@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.compra;
+package br.com.smd.ecommerce.controlador.compra;
 
 import br.com.smd.ecommerce.dao.CompraDAO;
-import br.com.smd.ecommerce.dao.ProdutoCompraDAO;
 import br.com.smd.ecommerce.dao.ProdutoDAO;
 import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.modelo.Compra;
@@ -14,8 +13,6 @@ import br.com.smd.ecommerce.modelo.Usuario;
 import br.com.smd.ecommerce.util.CarrinhoCompras;
 import br.com.smd.ecommerce.util.ItemCompra;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +29,8 @@ public class SalvarCompraServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         CompraDAO compraDAO = new CompraDAO();
-        ProdutoCompraDAO pcDAO = new ProdutoCompraDAO();
         ProdutoDAO produtoDAO = new ProdutoDAO();
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
 
         try {
 
@@ -48,13 +45,20 @@ public class SalvarCompraServlet extends HttpServlet {
             for (ItemCompra ic : cc.getItemCarrinhoList()) {
                 
                 //Para cada item do carrinho, crie um produto-compra
-                pcDAO.insereProdutoCompra(ic.getProduto_id(), ic.getQuantidade(), compra.getCompra_id());
+                compraDAO.insereProdutoCompra(ic.getProduto_id(), ic.getQuantidade(), compra.getCompra_id());
                 //Atualiza a quantidade do produto no estoque
                 produtoDAO.atualizaQuantidade(ic.getProduto_id(), ic.getQuantidade());
 
             }
             
+            //Atualiza usuário na sessão
+            Usuario usuarioAtualizado;
+            usuarioAtualizado = usuarioDAO.verificarSessao(us.getLogin(), us.getSenha());
+            
+            session.setAttribute("usuario", usuarioAtualizado);
+            
             System.out.println("Compra finalizada com sucesso!");
+            resp.sendRedirect("/home.do");
 
         } catch (Exception e) {
             resp.sendRedirect("error.jsp");

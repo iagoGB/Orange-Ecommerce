@@ -24,20 +24,26 @@ import javax.persistence.OneToMany;
  */
 @Entity(name = "TB_CATEGORIA")
 public class Categoria implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long categoria_id;
-    
+
     @Column(nullable = false)
     private String descricao;
-    
-    @OneToMany(mappedBy = "categoria",fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH }, orphanRemoval = true )
+
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
     private List<ProdutoCategoria> listaProdutos;
-    
+
     public Categoria() {
         this.listaProdutos = new ArrayList<>();
     }
-    
+
     public Categoria(Long categoria_id, String descricao) {
         this.categoria_id = categoria_id;
         this.descricao = descricao;
@@ -72,11 +78,11 @@ public class Categoria implements Serializable {
     public void setListaProdutos(List<ProdutoCategoria> listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-    
-    public Integer getSize(){
+
+    public Integer getSize() {
         return this.listaProdutos.size();
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -109,5 +115,5 @@ public class Categoria implements Serializable {
         }
         return true;
     }
-    
+
 }

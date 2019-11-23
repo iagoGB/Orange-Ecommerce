@@ -13,11 +13,16 @@ import java.util.Objects;
  * @author Iago Gomes
  */
 public class ProdutoCompraId implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     Long compra;
     Long produto;
-   
-    public ProdutoCompraId(){
-    
+
+    public ProdutoCompraId() {
+
     }
 
     public ProdutoCompraId(long compra_id, long produto_id) {
@@ -69,10 +74,5 @@ public class ProdutoCompraId implements Serializable {
         }
         return true;
     }
-    
-    
 
-    
-    
-    
 }

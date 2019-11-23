@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.smd.ecommerce.controlador;
+package br.com.smd.ecommerce.controlador.acesso;
 
 import br.com.smd.ecommerce.dao.UsuarioDAO;
 import br.com.smd.ecommerce.dao.AdministradorDAO;
 import br.com.smd.ecommerce.dao.CompraDAO;
 import br.com.smd.ecommerce.modelo.Administrador;
 import br.com.smd.ecommerce.modelo.Compra;
+import br.com.smd.ecommerce.modelo.ProdutoCompra;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +38,7 @@ public class LoginServlet extends HttpServlet {
         AdministradorDAO administradorDAO = new AdministradorDAO();
 
         try {
-            
+
             //Pega os dados do formulário
             String login = request.getParameter("emailLogin");
             String senha = request.getParameter("senhaLogin");
@@ -52,6 +55,8 @@ public class LoginServlet extends HttpServlet {
             //Faz uma consulta ao banco
             Usuario consultaCliente;
             Administrador consultaAdm;
+            
+            //Aqui já são carregados os relacionamentos do cliente - Compra x Produtos Da Compra
             consultaCliente = usuarioDAO.verificarSessao(login, senha);
             consultaAdm = administradorDAO.verificarSessao(login, senha);
 
@@ -72,32 +77,20 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("Senha bateu com a do banco - CLIENTE ");
                 HttpSession session = request.getSession();
                 request.setAttribute("msg", "Bem vindo, ");
-               
-                //Pega os produtos ao qual o cliente já fez
-                //for (Compra comp : consultaCliente.getCompras()) {
-                //Pega as compras
-                
-                if (consultaCliente.getCompras() != null && consultaCliente.getCompras().size() > 0){
-                    Compra buscarProdutosDaCompra = compraDAO.buscarProdutosDaCompra(consultaCliente.getCompras().get(0).getCompra_id());
-                }
-//}
-                
-                //System.out.println("to string: "+ consultaCliente.getCompras().get(0).getProdutos().toString());
+
                 session.setAttribute("usuario", consultaCliente);
-                
-                
+
                 //Se o usuario veio da página de finalizar compra
                 if (request.getParameter("paginaAnterior").equals("c")) {
                     //Mande ele para o passo 2
                     response.sendRedirect("/finalizarCompraP2.do");
                     return;
-                }
-                else{ 
+                } else {
                     //Mande-o para home
                     response.sendRedirect("/home.do");
                     return;
                 }
-                
+
             } else {
 
                 //Se o resultado vier nulo, os dados não coincidem, 

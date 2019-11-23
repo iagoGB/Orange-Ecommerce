@@ -50,6 +50,32 @@ public class CompraDAO {
         return cp;
     }
     
+     public void insereProdutoCompra(Long produto_id, Integer quantidadeDaCompra, Long compra_id) {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        
+        try {
+            manager.getTransaction().begin();
+                
+                Compra compra = (Compra)manager.find(Compra.class, compra_id);
+                Produto produto = (Produto)manager.find(Produto.class, produto_id);
+                
+                ProdutoCompra produtoCompra = new ProdutoCompra();
+                produtoCompra.setProduto(produto);
+                produtoCompra.setCompra(compra);
+                produtoCompra.setQuantidade(quantidadeDaCompra);
+                manager.persist(produtoCompra);
+            
+            manager.getTransaction().commit();
+            
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+        } finally{
+            manager.close();
+        }
+    }
+    
+    
+    
     public Compra buscarProdutosDaCompra(Long compra_id){
         EntityManager manager = new FabricaDeConexao().getConexao();
         //Usar produto compra
@@ -65,7 +91,7 @@ public class CompraDAO {
             TypedQuery<Compra> query = manager.createQuery(
                 "Select c from TB_COMPRA as c "
                 + "join fetch c.produtos pc "
-                + "where pc.produto.produto_id = :pId", Compra.class )
+                + "where pc.compra.compra_id = :pId", Compra.class )
                 .setParameter("pId", compra_id);
         
         compra = query.getSingleResult();

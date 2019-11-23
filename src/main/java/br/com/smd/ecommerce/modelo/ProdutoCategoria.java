@@ -19,26 +19,30 @@ import javax.persistence.ManyToOne;
  *
  * @author Iago Gomes
  */
-
 @Entity(name = "TB_PRODUTOXCATEGORIA")
 @IdClass(ProdutoCategoriaId.class)
-public class ProdutoCategoria implements Serializable{
-    
+public class ProdutoCategoria implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @ManyToOne(cascade = CascadeType.MERGE )
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(
-        name = "fk_produto_id",
-        foreignKey = @ForeignKey(name = "fk_produto_id"),
-        nullable = false
+            name = "fk_produto_id",
+            foreignKey = @ForeignKey(name = "fk_produto_id"),
+            nullable = false
     )
     Produto produto;
-    
+
     @Id
-    @ManyToOne(cascade = CascadeType.MERGE )
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "fk_categoria_id",
             foreignKey = @ForeignKey(name = "fk_categoria_id"),
-            nullable = false 
+            nullable = false
     )
     Categoria categoria;
 
@@ -95,12 +99,9 @@ public class ProdutoCategoria implements Serializable{
         return true;
     }
 
-    
-
     @Override
     public String toString() {
         return "ProdutoCategoria{" + "produto=" + produto + ", categoria=" + categoria + '}';
     }
-    
-    
+
 }

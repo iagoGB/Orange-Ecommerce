@@ -12,13 +12,17 @@ import java.util.Objects;
  *
  * @author Iago.Gomes
  */
+public class ProdutoCategoriaId implements Serializable {
 
-public class ProdutoCategoriaId  implements Serializable{
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     Long produto;
     Long categoria;
 
     public ProdutoCategoriaId() {
-        
+
     }
 
     public ProdutoCategoriaId(Long produto, Long categoria) {
