@@ -118,7 +118,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeletarCompraServlet</servlet-name>
-        <url-pattern>/deletarCompra.do</url-pattern>
+        <url-pattern>/admin/deletarCompra.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>

@@ -97,7 +97,7 @@
                     </div>
                         <div class="row justify-content-end p-3 bg-dark">
                         <div class="col-5">
-                            <h5 class="text-light text-right">Rua Gois Monteiro, 657 : Frete grátis</h5>
+                            <h5 class="text-light text-right">${usuario.endereco}</h5>
                         </div>
                     </div>
                         <div class="row justify-content-end p-3 bg-dark">

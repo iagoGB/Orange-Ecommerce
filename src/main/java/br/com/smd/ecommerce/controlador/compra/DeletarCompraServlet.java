@@ -5,6 +5,7 @@
  */
 package br.com.smd.ecommerce.controlador.compra;
 
+import br.com.smd.ecommerce.dao.CompraDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +19,25 @@ import javax.servlet.http.HttpServletResponse;
 public class DeletarCompraServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); //To change body of generated methods, choose Tools | Templates.
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       
+        CompraDAO compraDAO = new CompraDAO();
+        
+        try {
+            
+            Long compra_id = Long.parseLong(req.getParameter("cid"));
+            System.out.println("Compra id: "+compra_id);
+            
+            boolean deletarCompra = compraDAO.deletarCompra(compra_id);
+            System.out.println("Deletou? "+ deletarCompra);
+            
+            
+        } catch (Exception ex) {
+            System.err.println("Ocorreu um ero ao tentar deletar compra: "+ ex);
+        }
+        
+        
+        
     }
  
     @Override

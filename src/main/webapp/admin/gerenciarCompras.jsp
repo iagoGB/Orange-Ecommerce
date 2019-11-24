@@ -64,6 +64,7 @@
                                                 <th scope="col">Produto(s)</th>
                                                 <th scope="col">Quantidade(s)</th>
                                                 <th scope="col">Valor da compra</th>
+                                                <th scope="col">Ações</th>
 
                                             </tr>
                                         </thead>
@@ -89,6 +90,42 @@
                                                         ${compra.valorTotal}
                                                     </td>
                                                     
+<!--                                                    Para cada comprar criar um botão de excluir e sua respectiva modal-->
+                                                    <td class="align-middle text-center">
+                                                        
+                                                        <button type="button" class="btn btn-danger btn-rounded btn-sm px-2 waves-effect waves-light"
+                                                                data-toggle="modal" data-target="#excluircompras-${compra.compra_id}">
+                                                            <i class="fas fa-trash-alt fa-2x mt-0"></i>
+                                                        </button>
+
+                                                        <!-- Remover compras -->
+                                                        <div class="modal fade" id="excluircompras-${compra.compra_id}" tabindex="-1" role="dialog"
+                                                             aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="TituloModalCentralizado">Remover compra</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p class="align-middle text-center">Deseja excluir a compra do cliente ${compra.cliente}  no valor de ${compra.valorTotal}?</p>
+                                                                        <p class="align-middle text-center">Obs: As respectivas <strong style="color: red">quantidades</strong> dos produtos  <strong style="color: red">retornarão</strong> ao estoque. </p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <form action="/admin/deletarCompra.do?cid=${compra.compra_id}" method="POST">
+                                                                            
+                                                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
+                                                                            <button type="submit" class="btn btn-dark">Sim</button>
+                                                                            
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    
                                                 </tr>
                                             </c:forEach>
                                             
@@ -99,27 +136,7 @@
 
 
                             </div>
-                            <!-- Remover compras -->
-                            <div class="modal fade" id="excluircompras" tabindex="-1" role="dialog"
-                                 aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="TituloModalCentralizado">Remover compra</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Deseja remover essa(s) compra(s) do cliente?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Não</button>
-                                            <button type="button" class="btn btn-dark">Sim</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

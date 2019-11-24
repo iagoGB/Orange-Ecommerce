@@ -5,6 +5,8 @@
  */
 package br.com.smd.ecommerce.util;
 
+import br.com.smd.ecommerce.modelo.Compra;
+import br.com.smd.ecommerce.modelo.ProdutoCompra;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -74,6 +76,37 @@ public class GerenciaCompraTipo {
         this.quantidadeList = quantidade;
     }
     
-    
-    
+    public static List<GerenciaCompraTipo> parseGerenciaCompraTipo(List<Compra> gerenciaCompras) {
+
+        List<GerenciaCompraTipo> gerenciaCompraTipoList = new ArrayList<>();
+
+        for (Compra compra : gerenciaCompras) {
+
+            GerenciaCompraTipo gct = new GerenciaCompraTipo();
+
+            gct.setCompra_id(compra.getCompra_id());
+            gct.setData_compra(compra.getData_compra());
+            gct.setCliente(compra.getUsuario().getNome());
+
+            //Para cada produto da compra
+            Double valorTotalPorCompra = 0.0;
+
+            for (ProdutoCompra pc : compra.getProdutos()) {
+
+                //Adiciona os nomes
+                gct.getProdutosList().add(pc.getProduto().getDescricao());
+                gct.getQuantidadeList().add(pc.getQuantidade());
+
+                valorTotalPorCompra += (pc.getQuantidade() * pc.getProduto().getPreco());
+
+            }
+
+            gct.setValorTotal(valorTotalPorCompra);
+
+            gerenciaCompraTipoList.add(gct);
+
+        }
+        return gerenciaCompraTipoList;
+    }
+
 }

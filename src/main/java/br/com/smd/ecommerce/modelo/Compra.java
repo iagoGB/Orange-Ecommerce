@@ -53,7 +53,7 @@ public class Compra implements Serializable {
     )
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "compra", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany( mappedBy = "compra", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true )
     private List<ProdutoCompra> produtos;
 
     public Compra() {

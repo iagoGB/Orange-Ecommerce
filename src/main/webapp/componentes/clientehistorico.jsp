@@ -20,7 +20,7 @@
                 <tr>
                     <th class="align-middle text-center" scope="col">Data</th>
                     <th class="align-middle text-center" scope="col">Preço</th>
-                    <th class="align-middle text-center"scope="col">Produto(s)</th>
+                    <th class="align-middle text-center" scope="col">Produto(s)</th>
                     <th class="align-middle text-center" scope="col">Quantidade(s)</th>
                     <th class="align-middle text-center" scope="col">Valor da compra</th>
 
