@@ -31,14 +31,14 @@ public class CompraDAO {
         try {
 
             manager.getTransaction().begin();
+                //Distinct para não trazer repetições de compra!
+                TypedQuery<Compra> query = manager.createQuery(
+                        "Select DISTINCT c from TB_COMPRA as c "
+                        + "join fetch c.produtos",
+                        Compra.class
+                );
 
-            TypedQuery<Compra> query = manager.createQuery(
-                    "Select c from TB_COMPRA as c "
-                    + "join fetch c.produtos",
-                     Compra.class
-            );
-
-            result = query.getResultList();
+                result = query.getResultList();
 
             manager.getTransaction().commit();
 

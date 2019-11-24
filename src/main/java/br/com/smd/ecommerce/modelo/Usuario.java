@@ -57,8 +57,8 @@ public class Usuario implements Serializable {
 
     @Column(nullable = false)
     private String senha;
-
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, orphanRemoval = true )
     private List<Compra> compras;
 
     public Usuario() {
@@ -138,33 +138,6 @@ public class Usuario implements Serializable {
 
     public void setCompras(List<Compra> compras) {
         this.compras = compras;
-    }
-
-    public String valorTotalPorCompra(Compra c) {
-
-        try {
-
-            Double ValorTotalDeUmaCompra = 0.0;
-
-            for (ProdutoCompra pc : c.getProdutos()) {
-
-                //Valor por cada produto
-                Double valorProduto = pc.getProduto().getPreco();
-                Integer qntProduto = pc.getQuantidade();
-
-                Double valorPorProdutoCompra = valorProduto * qntProduto;
-
-                ValorTotalDeUmaCompra += valorPorProdutoCompra;
-            }
-
-            return ValorTotalDeUmaCompra.toString();
-
-        } catch (Exception e) {
-
-            System.out.println("Erro ao calcular valor das compras" + e);
-            return "Valor indisponível no momento.";
-        }
-
     }
 
     @Override
