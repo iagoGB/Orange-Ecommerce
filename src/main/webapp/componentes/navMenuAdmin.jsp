@@ -12,10 +12,7 @@
         dados</button>
     </a>
     
-    <a href="/admin?page=gerenciarCadastros">
-        <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-cadastros">Gerenciar
-        cadastros</button>
-    </a>
+   
     
     <a href="/gerenciarCompras.do">
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-compras">Gerenciar

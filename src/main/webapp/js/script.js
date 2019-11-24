@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#collapse-dadosadmin").removeClass("d-none");
     $("#collapse-dadoscliente").removeClass("d-none");
-    $("#collapse-cadastros").removeClass("d-none");
+    
     $("#collapse-historico").removeClass("d-none");
     $("#collapse-produtos").removeClass("d-none");
     $("#collapse-categorias").removeClass("d-none");
@@ -20,17 +20,7 @@ $(document).ready(function () {
             style: 'os',
             selector: 'td:first-child'}
     });
-    $('#dtcadastros').DataTable({
-        "searching": true,
-        columnDefs: [{
-                orderable: true,
-                className: 'select-checkbox',
-                targets: 0
-            }],
-        select: {
-            style: 'os',
-            selector: 'td:first-child'}
-    });
+    
     $('#dthistorico').DataTable({
         "searching": true,
         columnDefs: [{
@@ -87,7 +77,6 @@ $(document).ready(function () {
 
     $("#btn-dadosadmin").click(function () {
         $("#collapse-dadosadmin").removeClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").addClass("d-none");
@@ -105,7 +94,6 @@ $(document).ready(function () {
     });
     $("#btn-cadastros").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").addClass("d-none");
@@ -115,7 +103,6 @@ $(document).ready(function () {
     });
     $("#btn-compras").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").removeClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").addClass("d-none");
@@ -125,7 +112,6 @@ $(document).ready(function () {
     });
     $("#btn-produtos").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").removeClass("d-none");
         $("#collapse-categorias").addClass("d-none");
@@ -135,7 +121,6 @@ $(document).ready(function () {
     });
     $("#btn-categorias").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").removeClass("d-none");
@@ -145,7 +130,6 @@ $(document).ready(function () {
     });
     $("#btn-relatorio1").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").addClass("d-none");
@@ -155,7 +139,6 @@ $(document).ready(function () {
     });
     $("#btn-relatorio2").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").addClass("d-none");
@@ -165,7 +148,6 @@ $(document).ready(function () {
     });
     $("#btn-relatorio3").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-cadastros").addClass("d-none");
         $("#collapse-historico").addClass("d-none");
         $("#collapse-produtos").addClass("d-none");
         $("#collapse-categorias").addClass("d-none");
