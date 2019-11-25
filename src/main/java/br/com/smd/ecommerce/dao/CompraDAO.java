@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import org.hibernate.annotations.common.util.impl.Log_$logger;
 
@@ -175,6 +176,20 @@ public class CompraDAO {
             manager.close();
         }
         return sucesso;
+    }
+    public List<totalCompras> mostrarTotalCompras() {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        try {
+            StringBuilder hql = new StringBuilder();
+            hql.append("SELECT NEW totalCompras (u.usuario_id, u.nome, count(c.compra_id)) FROM TB_COMPRA c JOIN TB_USUARIO u WHERE c.usuario = u.usuario_id GROUP BY u.usuario_id");
+            Query query = manager.createQuery(hql.toString());
+            //query.setParameter("idProduto", id);
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro ao carregar listas: " + e);
+        } finally {
+            manager.close();
+        }
+        return (totalCompras)query.getResultList();
     }
 
 }

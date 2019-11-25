@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#collapse-dadosadmin").removeClass("d-none");
     $("#collapse-dadoscliente").removeClass("d-none");
-    
+ 
     $("#collapse-historico").removeClass("d-none");
     $("#collapse-produtos").removeClass("d-none");
     $("#collapse-categorias").removeClass("d-none");
@@ -92,15 +92,8 @@ $(document).ready(function () {
         $("#collapse-dadoscliente").addClass("d-none");
         $("#collapse-meuhistorico").removeClass("d-none");
     });
-    $("#btn-cadastros").click(function () {
-        $("#collapse-dadosadmin").addClass("d-none");
-        $("#collapse-historico").addClass("d-none");
-        $("#collapse-produtos").addClass("d-none");
-        $("#collapse-categorias").addClass("d-none");
-        $("#collapse-relatorio1").addClass("d-none");
-        $("#collapse-relatorio2").addClass("d-none");
-        $("#collapse-relatorio3").addClass("d-none");
-    });
+    
+    
     $("#btn-compras").click(function () {
         $("#collapse-dadosadmin").addClass("d-none");
         $("#collapse-historico").removeClass("d-none");

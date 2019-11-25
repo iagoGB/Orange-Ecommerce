@@ -44,16 +44,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <c:forEach var="c" items="${listaCompras}">
                                             <tr>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
+                                                <td>${u.usuario_id}</td>
+                                                <td>${u.nome}</td>
+                                                <td>${quantidade}</td>
                                             </tr>
-                                            <tr>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
+                                            </c:forEach>
 
                                         </tbody>
 

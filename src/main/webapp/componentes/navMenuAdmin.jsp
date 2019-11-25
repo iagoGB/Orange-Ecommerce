@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="col-lg-3 col-md-4 col-sm-3 col-12 p-3 mx-auto order-2 order-sm-1">
-    <a href="/admin?page=meusDados"> 
+    <a href="/admin/homeAdmin.jsp"> 
         <button type="button" class="btn btn-outline-dark btn-block mx-0" id="btn-dadosadmin">Meus
         dados</button>
     </a>
@@ -34,7 +34,7 @@
             relatório
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a href="/admin?page=relatorioTotalCompras">
+            <a href="/listarTotalCompras.do">
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio1">Total de compras por cliente</button>
             </a>
@@ -42,12 +42,10 @@
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio2">Produtos em falta no estoque</button>
             </a>
-            <a href="/admin?page=relatorioTotalValor">
+            <a href="/listarValorTotalCompras.do">
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio3">Total de valor recebido</button>
             </a>
-            <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
-                    id="btn-relatorio4">Exportar relatório</button>
         </div>
     </div>
 </div>
