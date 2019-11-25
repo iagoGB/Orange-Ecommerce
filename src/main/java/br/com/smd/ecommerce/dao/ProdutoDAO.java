@@ -69,6 +69,20 @@ public class ProdutoDAO {
         }
         return listaProduto;
     }
+    public List<Produto> mostrarProdutosEstoque0() {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        List<Produto> listaProduto = null;
+        try {
+
+            listaProduto = (List<Produto>) manager.createQuery("FROM TB_PRODUTO p WHERE quantidade = 0 order by p.descricao asc").getResultList();
+
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro ao carregar listas: " + e);
+        } finally {
+            manager.close();
+        }
+        return listaProduto;
+    }
     
     public List<Produto> mostrarProdutosPorCategoria(Long categoriaId) {
         EntityManager manager = new FabricaDeConexao().getConexao();

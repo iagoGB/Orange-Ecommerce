@@ -45,17 +45,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <!-- <fmt:formatNumber value = "${produto.preco}" type = "currency"/> -->
-                                            </tr>
-                                            <tr>
-                                                <td>#</td>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
+                                            <c:forEach var="produto" items="${listaProdutosEstoque}">
+                                                <tr>
+                                                    <td>${produto.produto_id}</td>
+                                                    <td>${produto.descricao}</td>
+                                                    <td><fmt:formatNumber value = "${produto.preco}" type = "currency"/></td>
+
+                                                </tr>
+                                            </c:forEach>
 
                                         </tbody>
 

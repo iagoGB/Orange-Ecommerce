@@ -38,7 +38,7 @@
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio1">Total de compras por cliente</button>
             </a>
-            <a href="/admin?page=relatorioProdutosEstoque">
+            <a href="/listarProdutoEstoque.do">
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio2">Produtos em falta no estoque</button>
             </a>

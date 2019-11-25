@@ -56,6 +56,14 @@
         <servlet-name>DeletarCompraServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.compra.DeletarCompraServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarProdutoEstoqueServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.produto.ListarProdutoEstoqueServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListarProdutoEstoqueServlet</servlet-name>
+        <url-pattern>/listarProdutoEstoque.do</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AtualizarCategoriaServlet</servlet-name>
         <url-pattern>/atualizarCategoria.do</url-pattern>
