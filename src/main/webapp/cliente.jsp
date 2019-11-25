@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="br.com.smd.ecommerce.modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,7 +31,18 @@
                         
         <!-- RODAPÉ -->
         <%@include file="componentes/rodape.jsp" %>
-
+   <c:choose>
+        <c:when test="${not empty congratulations}" >
+            <script>
+                //alert("Hellow world");
+                setTimeout( 
+                   function(){ document.getElementById("btn-minhascompras").click();},100
+                );
+        
+            </script>
+        </c:when>
+    </c:choose>
+        
    </body>
 
 </html>

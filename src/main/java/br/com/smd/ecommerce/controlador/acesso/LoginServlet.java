@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
                 //Se o usuario veio da página de finalizar compra
                 if (request.getParameter("paginaAnterior").equals("c")) {
                     //Mande ele para o passo 2
-                    response.sendRedirect("/finalizarCompraP2.do");
+                    response.sendRedirect("/listarProdutoCarrinho.do");
                     return;
                 } else {
                     //Mande-o para home

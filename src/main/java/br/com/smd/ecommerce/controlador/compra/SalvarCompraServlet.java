@@ -58,10 +58,12 @@ public class SalvarCompraServlet extends HttpServlet {
             session.setAttribute("usuario", usuarioAtualizado);
             
             System.out.println("Compra finalizada com sucesso!");
-            resp.sendRedirect("/home.do");
+            req.setAttribute("congratulations", "congratulations");
+            req.getRequestDispatcher("cliente.jsp").forward(req,resp);
+            //resp.sendRedirect("/cliente.jsp");
 
         } catch (Exception e) {
-            resp.sendRedirect("error.jsp");
+            resp.sendRedirect("erro.jsp");
         }
 
     }

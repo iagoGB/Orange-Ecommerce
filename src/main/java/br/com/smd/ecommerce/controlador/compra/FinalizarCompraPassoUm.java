@@ -34,8 +34,8 @@ public class FinalizarCompraPassoUm extends HttpServlet {
                 req.getRequestDispatcher("login.jsp").forward(req, resp);
             
             } else {
-                //O usuário já está logado
-                resp.sendRedirect("/home.do");
+                //O usuário já está logado, redireciona para salvar a compra
+                resp.sendRedirect("/salvarCompra.do");
             }
             
         } catch (Exception e) {
