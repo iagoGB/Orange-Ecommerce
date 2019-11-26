@@ -31,14 +31,34 @@ public class DeletarCompraServlet extends HttpServlet {
             boolean deletarCompra = compraDAO.deletarCompra(compra_id);
             System.out.println("Deletou? "+ deletarCompra);
             
+            if (deletarCompra){
+                
+                req.setAttribute("feedbackPositivoExclusaoCompra", "Compra excluida com sucesso!");
+                req.getRequestDispatcher("/gerenciarCompras.do").forward(req, resp);
+                
+            } else {
+                req.setAttribute("feedbackNegativoExclusaoCompra", "Não foi possível deletar a compra. Tente novamente mais tarde");
+                req.getRequestDispatcher("/gerenciarCompras.do").forward(req, resp);
+            }
             
-        } catch (Exception ex) {
+            
+        } catch (IOException | NumberFormatException | ServletException ex) {
             System.err.println("Ocorreu um ero ao tentar deletar compra: "+ ex);
+            
+            req.setAttribute("feedbackNegativoExclusaoCompra", "Ocorreu um erro ao tentar deletar a compra.");
+            req.getRequestDispatcher("/gerenciarCompras.do").forward(req, resp);
         }
         
         
         
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+    
+    
  
     @Override
     public String getServletInfo() {

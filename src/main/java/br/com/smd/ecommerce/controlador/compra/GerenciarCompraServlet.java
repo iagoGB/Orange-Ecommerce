@@ -35,7 +35,7 @@ public class GerenciarCompraServlet extends HttpServlet {
             req.setAttribute("gerenciaCompraTipoList", gerenciaCompraTipoList);
             System.out.println("Carregou os produtos dos clientes!");
             req.getRequestDispatcher("/admin/gerenciarCompras.jsp").forward(req, resp);
-
+  
         } catch (Exception e) {
 
             System.err.println("Ocorreu um erro ao recuperar compras: " + e);
@@ -44,4 +44,11 @@ public class GerenciarCompraServlet extends HttpServlet {
 
         }
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+    
+    
 }

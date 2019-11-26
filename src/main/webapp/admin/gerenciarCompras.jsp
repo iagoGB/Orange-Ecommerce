@@ -31,9 +31,18 @@
                         
                         <div class="col-lg-9 col-md-8 col-sm-9 col-12 p-3 order-1 order-sm-2">
 <!--                            Se ocorrer algum erro mostra mensagem  -->
-                            <c:if test="${not empty feedbackNegativoListagem}" >
+                            <c:if test="${not empty feedbackNegativoListagem || not empty feedbackNegativoExclusaoCompra }" >
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <p class="text-danger">${ feedbackNegativoListagem }</p>
+                                    <p class="text-danger text-center align-middle">${ feedbackNegativoListagem } ${feedbackNegativoExclusaoCompra}</p>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </c:if>
+
+                            <c:if test="${ not empty feedbackPositivoExclusaoCompra }" >
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <p class="text-success text-center align-middle"> ${feedbackPositivoExclusaoCompra}</p>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
