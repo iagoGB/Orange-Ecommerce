@@ -90,7 +90,7 @@
                                                         ${compra.valorTotal}
                                                     </td>
                                                     
-<!--                                                    Para cada comprar criar um botão de excluir e sua respectiva modal-->
+<!--                                                    Para cada compra criar um botão de excluir e sua respectiva modal-->
                                                     <td class="align-middle text-center">
                                                         
                                                         <button type="button" class="btn btn-danger btn-rounded btn-sm px-2 waves-effect waves-light"

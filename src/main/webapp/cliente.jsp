@@ -22,7 +22,7 @@
                         <%@include file="../componentes/clientedados.jsp" %>
                         <%@include file="../componentes/clientehistorico.jsp" %>
                         <!-- Botão para acionar modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
+                        <button hidden="true" id="hidden-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
                             Abrir modal de demonstração
                         </button>
 
@@ -31,13 +31,15 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Parabéns!</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        ...
+                                        <p class="text-center align-middle">Sua compra foi efetivada com sucesso!
+                                            Seu pedido chegará entre os dias X-X-X e X-X-X</p>
+                                        <p class="text-center align-middle">Veja no menu "gerenciar minhas compras" para mais detalhes!</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -46,7 +48,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="alert alert-success" role="alert">
+<!--                        <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Muito bem! Sua compra foi efetivada.</h4>
                             
                         </div>
@@ -55,7 +57,7 @@
                             
                             <hr>
                             <p class="mb-0">Produto(s) em falta no estoque.</p>
-                        </div>
+                        </div>-->
                     </div>
 
                 </div>
@@ -68,10 +70,10 @@
     <c:choose>
         <c:when test="${not empty congratulations}">
             <script>
-                //alert("Hellow world");
+                
                 setTimeout(
                     function() {
-                        document.getElementById("btn-minhascompras").click();
+                        document.getElementById("hidden-button").click();
                     }, 100
                 );
 

@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -57,8 +58,9 @@ public class Usuario implements Serializable {
 
     @Column(nullable = false)
     private String senha;
-    
+
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, orphanRemoval = true )
+    @OrderBy("compra_id DESC")
     private List<Compra> compras;
 
     public Usuario() {

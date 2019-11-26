@@ -31,7 +31,8 @@ public class SalvarCompraServlet extends HttpServlet {
         CompraDAO compraDAO = new CompraDAO();
         ProdutoDAO produtoDAO = new ProdutoDAO();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-
+        
+        //FAZER CHECAGEM DO CARRINHO VAZIO
         try {
 
             HttpSession session = req.getSession();
@@ -59,6 +60,7 @@ public class SalvarCompraServlet extends HttpServlet {
             
             System.out.println("Compra finalizada com sucesso!");
             req.setAttribute("congratulations", "congratulations");
+            //ESVAZIAR CARRINHO AO FINALIZAR COMPRA
             req.getRequestDispatcher("cliente.jsp").forward(req,resp);
             //resp.sendRedirect("/cliente.jsp");
 

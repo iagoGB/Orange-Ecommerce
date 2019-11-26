@@ -118,7 +118,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SalvarCompraServlet</servlet-name>
-        <url-pattern>/salvarCompraServlet</url-pattern>
+        <url-pattern>/salvarCompra.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarCompraClienteServlet</servlet-name>
