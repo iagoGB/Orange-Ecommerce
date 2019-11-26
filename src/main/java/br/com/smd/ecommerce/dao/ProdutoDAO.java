@@ -16,6 +16,7 @@ import br.com.smd.ecommerce.modelo.Categoria;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCategoria;
 import br.com.smd.ecommerce.modelo.ProdutoCategoriaId;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.TypedQuery;
 
@@ -281,6 +282,33 @@ public class ProdutoDAO {
         }
         
         return atualizou;
+    }
+
+    public List<Produto> listarProdutosEmFalta() {
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        List<Produto> listaProduto = new ArrayList<>();
+        try {
+            
+            manager.getTransaction().begin();
+           
+                TypedQuery<Produto> query = manager.createQuery(
+                     "Select p from TB_PRODUTO as p "
+                     + "where p.quantidade <= 10", Produto.class );
+
+                listaProduto = query.getResultList();
+                
+            manager.getTransaction().commit();
+           
+        } catch (Exception e) {
+            
+            System.out.println("Erro"+ e);
+            manager.getTransaction().rollback();
+            
+        } finally {
+            manager.close();
+        }
+        
+        return listaProduto;
     }
 
 }

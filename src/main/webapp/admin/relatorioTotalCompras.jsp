@@ -38,10 +38,10 @@
                                     <div class="form-row align-items-center">
                                         <div class="col-sm-3 my-1">
                                             
-                                            <input type="text" class="form-control" id="inlineFormInputName" placeholder="data inicial" name="data_inicio">
+                                            <input type="date" class="form-control" id="inlineFormInputName" placeholder="data inicial" name="inicio">
                                         </div>
                                         <div class="col-sm-3 my-1">
-                                            <input type="text" class="form-control" id="inlineFormInputName" placeholder="data final" name="data_final">
+                                            <input type="date" class="form-control" id="inlineFormInputName" placeholder="data final" name="fim">
                                         </div>
                                         
                                         <div class="col-auto my-1">

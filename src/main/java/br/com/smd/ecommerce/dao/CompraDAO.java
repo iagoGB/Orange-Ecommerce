@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
 /**
@@ -54,7 +55,7 @@ public class CompraDAO {
         return result;
     }
     
-    public List<Compra> recuperarTodasAsComprasClientes() {
+    public List<Compra> recuperarTodasAsComprasClientesPorData(Date dataInicio, Date dataFim) {
 
         EntityManager manager = new FabricaDeConexao().getConexao();
         List<Compra> result = null;
@@ -64,9 +65,12 @@ public class CompraDAO {
             //Distinct para não trazer repetições de compra!
             TypedQuery<Compra> query = manager.createQuery(
                     
-                    "Select distinct c "
-                    + "from TB_COMPRA c "
-                    + "join fetch c.usuario" , Compra.class);
+                "Select distinct c "
+                + "from TB_COMPRA c "
+                + "join fetch c.usuario WHERE c.data_compra BETWEEN :start AND :end" , Compra.class);
+                query.setParameter("start", dataInicio, TemporalType.TIMESTAMP)
+                    .setParameter("end", dataFim, TemporalType.TIMESTAMP);
+                    
             result = query.getResultList();
 
             manager.getTransaction().commit();
@@ -137,6 +141,8 @@ public class CompraDAO {
             manager.close();
         }
     }
+    
+  
 
     public Compra buscarProdutosDaCompra(Long compra_id) {
         EntityManager manager = new FabricaDeConexao().getConexao();

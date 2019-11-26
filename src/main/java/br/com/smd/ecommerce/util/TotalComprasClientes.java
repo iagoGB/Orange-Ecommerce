@@ -6,9 +6,13 @@
 package br.com.smd.ecommerce.util;
 
 import br.com.smd.ecommerce.modelo.Compra;
+import br.com.smd.ecommerce.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  *
@@ -82,10 +86,49 @@ public class TotalComprasClientes {
     public void setQuantidadeCompras(Integer quantidadeCompras ) {
         this.quantidadeCompras = quantidadeCompras;
     }
-    
-    public static List<TotalComprasClientes> parseTotalComprasClientes(List<Compra> comprasClientes) {
 
-        List<TotalComprasClientes> TotalComprasClientesList = new ArrayList<>();
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.usuario_id);
+        hash = 97 * hash + Objects.hashCode(this.data_compra);
+        hash = 97 * hash + Objects.hashCode(this.usuario_nome);
+        hash = 97 * hash + Objects.hashCode(this.quantidadeCompras);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TotalComprasClientes other = (TotalComprasClientes) obj;
+        if (!Objects.equals(this.usuario_nome, other.usuario_nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuario_id, other.usuario_id)) {
+            return false;
+        }
+        if (!Objects.equals(this.data_compra, other.data_compra)) {
+            return false;
+        }
+        if (!Objects.equals(this.quantidadeCompras, other.quantidadeCompras)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
+    public static Set<TotalComprasClientes> parseTotalComprasClientes(List<Compra> comprasClientes) {
+
+        Set<TotalComprasClientes> TotalComprasClientesList = new HashSet<>();
 
         for (Compra c : comprasClientes) {
 

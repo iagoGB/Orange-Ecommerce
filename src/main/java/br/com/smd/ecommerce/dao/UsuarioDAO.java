@@ -8,9 +8,13 @@ package br.com.smd.ecommerce.dao;
 import br.com.smd.ecommerce.conexao.FabricaDeConexao;
 import br.com.smd.ecommerce.modelo.Compra;
 import br.com.smd.ecommerce.modelo.Usuario;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TemporalType;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -192,6 +196,26 @@ public class UsuarioDAO {
         }
 
         return deletou;
+    }
+   
+    public List<Usuario> recuperarTodos(Date dataInicio, Date dataFim){
+        EntityManager em = new FabricaDeConexao().getConexao();
+        List<Usuario> listaUsuario = new ArrayList<Usuario>();
+        try{
+             TypedQuery<Usuario> query = em.createQuery(
+                     "FROM Usuario u join fetch u.compras WHERE u.compras.data_compra BETWEEN :start AND :end",
+                    Usuario.class
+             );
+             query.setParameter("start", dataInicio, TemporalType.TIMESTAMP)
+                    .setParameter("end", dataFim, TemporalType.TIMESTAMP);
+
+            listaUsuario = query.getResultList();
+        }catch(Exception ex){
+            System.err.println("Erro ao buscar todos os usuarios : "+ ex);
+        }finally{
+            em.getTransaction().begin();
+        }
+        return listaUsuario;
     }
    
    

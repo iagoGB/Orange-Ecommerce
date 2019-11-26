@@ -32,6 +32,15 @@
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
                                     <a href="" class="white-text mx-3">Produtos faltando em estoque</a>
+                                    <form action="/XLSDownload.do">
+                                        <button type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2 waves-effect waves-light btn-sm px-2">
+                                                                
+                                                <i class="fas fa-download fa-2x mt-0"></i>
+                                        </button>
+                                    </form>
+                                    
+                         
+                                    i
                                 </div>
 
                                 <div class="table-responsive p-3">
@@ -47,9 +56,11 @@
                                         <tbody>
                                             <c:forEach var="produto" items="${listaProdutosEstoque}">
                                                 <tr>
-                                                    <td>${produto.produto_id}</td>
-                                                    <td>${produto.descricao}</td>
-                                                    <td><fmt:formatNumber value = "${produto.preco}" type = "currency"/></td>
+                                                    <td class="text-center align-middle">${produto.produto_id}</td>
+                                                    <td class="text-center align-middle">${produto.descricao}</td>
+                                                    <td class="text-center align-middle"><fmt:formatNumber value = "${produto.preco}" type = "currency"/></td>
+                                                    
+                                                        
 
                                                 </tr>
                                             </c:forEach>
