@@ -57,12 +57,8 @@ public class SalvarCompraServlet extends HttpServlet {
             usuarioAtualizado = usuarioDAO.verificarSessao(us.getLogin(), us.getSenha());
             
             session.setAttribute("usuario", usuarioAtualizado);
-            
-            System.out.println("Compra finalizada com sucesso!");
-            req.setAttribute("congratulations", "congratulations");
             //ESVAZIAR CARRINHO AO FINALIZAR COMPRA
-            req.getRequestDispatcher("cliente.jsp").forward(req,resp);
-            //resp.sendRedirect("/cliente.jsp");
+            resp.sendRedirect("/detalhesUsuario.do");
 
         } catch (Exception e) {
             resp.sendRedirect("erro.jsp");
