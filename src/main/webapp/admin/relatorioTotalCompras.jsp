@@ -33,7 +33,23 @@
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
                                     <a href="" class="white-text mx-3">Total de compras por cliente e por período</a>
                                 </div>
-
+                                <div class="row justify-content-center">
+                                <form action="/listarTotalCompras.do" method="POST">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-sm-3 my-1">
+                                            
+                                            <input type="text" class="form-control" id="inlineFormInputName" placeholder="data inicial" name="data_inicio">
+                                        </div>
+                                        <div class="col-sm-3 my-1">
+                                            <input type="text" class="form-control" id="inlineFormInputName" placeholder="data final" name="data_final">
+                                        </div>
+                                        
+                                        <div class="col-auto my-1">
+                                            <button type="submit" class="btn btn-orange">Filtrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
                                 <div class="table-responsive p-3">
                                     <table class="table table-hover table-bordered" id="dtrelatorio1">
                                         <thead class="thead-light">
@@ -44,12 +60,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="c" items="${listaCompras}">
-                                            <tr>
-                                                <td>${u.usuario_id}</td>
-                                                <td>${u.nome}</td>
-                                                <td>${quantidade}</td>
-                                            </tr>
+                                            <c:forEach var="tcc" items="${totalComprasClientesList}">
+                                                <tr>
+                                                    <td>${tcc.getUsuario_id()}</td>
+                                                    <td>${tcc.getUsuario_nome()}</td>
+                                                    <td>${tcc.getQuantidadeCompras()}</td>
+                                                </tr>
                                             </c:forEach>
 
                                         </tbody>

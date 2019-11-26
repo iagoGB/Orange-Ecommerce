@@ -10,14 +10,11 @@ import br.com.smd.ecommerce.modelo.Compra;
 import br.com.smd.ecommerce.modelo.Produto;
 import br.com.smd.ecommerce.modelo.ProdutoCompra;
 import br.com.smd.ecommerce.modelo.Usuario;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import org.hibernate.annotations.common.util.impl.Log_$logger;
 
 /**
  *
@@ -32,14 +29,14 @@ public class CompraDAO {
         try {
 
             manager.getTransaction().begin();
-                //Distinct para não trazer repetições de compra!
-                TypedQuery<Compra> query = manager.createQuery(
-                        "Select DISTINCT c from TB_COMPRA as c "
-                        + "join fetch c.produtos",
-                        Compra.class
-                );
+            //Distinct para não trazer repetições de compra!
+            TypedQuery<Compra> query = manager.createQuery(
+                    "Select DISTINCT c from TB_COMPRA as c "
+                    + "join fetch c.produtos",
+                    Compra.class
+            );
 
-                result = query.getResultList();
+            result = query.getResultList();
 
             manager.getTransaction().commit();
 
@@ -54,6 +51,37 @@ public class CompraDAO {
 
         }
 
+        return result;
+    }
+    
+    public List<Compra> recuperarTodasAsComprasClientes() {
+
+        EntityManager manager = new FabricaDeConexao().getConexao();
+        List<Compra> result = null;
+        try {
+
+            manager.getTransaction().begin();
+            //Distinct para não trazer repetições de compra!
+            TypedQuery<Compra> query = manager.createQuery(
+                    
+                    "Select distinct c "
+                    + "from TB_COMPRA c "
+                    + "join fetch c.usuario" , Compra.class);
+            result = query.getResultList();
+
+            manager.getTransaction().commit();
+
+        } catch (Exception e) {
+
+            System.err.println(" Erro ao consultar compras: " + e);
+            manager.getTransaction().rollback();
+
+        } finally {
+
+            manager.close();
+
+        }
+        System.out.println(result);
         return result;
     }
 
@@ -144,18 +172,17 @@ public class CompraDAO {
             manager.getTransaction().begin();
 
             Compra toDelete = manager.find(Compra.class, compra_id);
-            
+
             //Retorna os valores de quantidade dos produtos para o estoque
             //Para cada produto da compra
-
             for (Iterator<ProdutoCompra> iterator = toDelete.getProdutos().iterator(); iterator.hasNext();) {
                 ProdutoCompra next = iterator.next();
-                
+
                 //Sete a quantidade com a do estoque mais o que retornou da compra
                 next.getProduto().setQuantidade(next.getProduto().getQuantidade() + next.getQuantidade());
                 //Atualize o produto
                 manager.merge(next.getProduto());
-                
+
             }
 
             //Remove a compra da lista de compras do usuário
@@ -177,19 +204,6 @@ public class CompraDAO {
         }
         return sucesso;
     }
-//    public List<totalCompras> mostrarTotalCompras() {
-//        EntityManager manager = new FabricaDeConexao().getConexao();
-//        try {
-//            StringBuilder hql = new StringBuilder();
-//            hql.append("SELECT NEW totalCompras (u.usuario_id, u.nome, count(c.compra_id)) FROM TB_COMPRA c JOIN TB_USUARIO u WHERE c.usuario = u.usuario_id GROUP BY u.usuario_id");
-//            Query query = manager.createQuery(hql.toString());
-//            //query.setParameter("idProduto", id);
-//        } catch (Exception e) {
-//            System.out.println("Ocorreu um erro ao carregar listas: " + e);
-//        } finally {
-//            manager.close();
-//        }
-//        return (totalCompras)query.getResultList();
-//    }
+
 
 }
