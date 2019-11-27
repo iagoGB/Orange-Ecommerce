@@ -31,18 +31,18 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Parabéns!</h5>
+                                        <h5 class="text-orange text-center align-middle" id="exampleModalLabel"><strong>Parabéns!</strong></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="text-sucess text-center align-middle">Sua compra foi efetivada com sucesso!
+                                        <p class="text-center align-middle">Sua compra foi efetivada com sucesso!
                                             Seu pedido chegará entre os dias 07 de Dezembro e 12 de Dezembro</p>
-                                        <p class="text-sucess text-center align-middle">Veja no menu "gerenciar minhas compras" para mais detalhes!</p>
+                                        <p class="text-center align-middle">Veja no menu "gerenciar minhas compras" para mais detalhes!</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-orange" data-dismiss="modal">Fechar</button>
        
                                     </div>
                                 </div>

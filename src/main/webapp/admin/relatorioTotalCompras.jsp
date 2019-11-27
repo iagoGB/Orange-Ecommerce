@@ -32,12 +32,14 @@
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
                                     <a href="" class="white-text mx-3">Total de compras por cliente e por período</a>
+                                    <div class="ml-auto">
                                     <form action="/XLSDownload.do">
                                         <button type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2 waves-effect waves-light btn-sm px-2">
                                                                 
                                                 <i class="fas fa-download fa-2x mt-0"></i>
                                         </button>
                                     </form>
+                                    </div>
                                 </div>
                                 <div class="row justify-content-center">
                                 <form action="/listarTotalCompras.do" method="POST">
