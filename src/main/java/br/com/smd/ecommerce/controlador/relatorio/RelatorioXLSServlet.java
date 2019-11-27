@@ -26,6 +26,7 @@ import org.apache.poi.ss.usermodel.Row;
  */
 public class RelatorioXLSServlet extends HttpServlet {
 
+    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HSSFWorkbook workbook = new HSSFWorkbook();
@@ -70,7 +71,7 @@ public class RelatorioXLSServlet extends HttpServlet {
         byte[] byteOutputArray = byteArrayOutputStream.toByteArray();
 
         response.setContentType("application/ms-excel");
-        response.setHeader("Content-Disposition", "attachment; filename=produtos.xls");
+        response.setHeader("Content-Disposition", "attachment; filename=ProdutosEmFalta.xls");
         response.setContentLength(byteOutputArray.length);
 
         try (OutputStream outputStream = response.getOutputStream()) {

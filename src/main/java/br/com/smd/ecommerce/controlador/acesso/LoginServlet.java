@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("Senha bateu com a do banco - CLIENTE ");
                 HttpSession session = request.getSession();
                 request.setAttribute("msg", "Bem vindo, ");
-
+                
                 session.setAttribute("usuario", consultaCliente);
 
                 //Se o usuario veio da página de finalizar compra

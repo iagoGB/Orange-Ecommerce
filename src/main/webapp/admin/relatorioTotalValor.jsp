@@ -40,7 +40,7 @@
                                     </form>
                                 </div>
                                 <div class="row justify-content-center">
-                                <form action="/listarTotalCompras.do" method="POST">
+                                <form action="/relatorioValorTotalPorDia.do" method="POST">
                                     <div class="form-row align-items-center">
                                         <div class="col-5 my-1">
                                             
@@ -65,16 +65,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#</td>
-                                                <!-- <fmt:formatNumber value = "${produto.preco}" type = "currency"/> -->
-                                                <td>#</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#</td>
-                                                <td>#</td>
-                                            </tr>
-
+                                            <c:if test="${ not empty valorPorDia}">
+                                                <tr>
+                                                    <td>${valorPorDia.dataInicio} à ${valorPorDia.dataFim }</td>
+                                                    <!-- <fmt:formatNumber value = "${produto.preco}" type = "currency"/> -->
+                                                    <td>${valorPorDia.valorTotal}</td>
+                                                </tr>
+                                            </c:if>
                                         </tbody>
                                     </table>
                                 </div>

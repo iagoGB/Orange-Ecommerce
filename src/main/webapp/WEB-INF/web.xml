@@ -68,6 +68,10 @@
         <servlet-name>RelatorioPDFServlet</servlet-name>
         <servlet-class>br.com.smd.ecommerce.controlador.relatorio.RelatorioXLSServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValorTotalComprasPorDiaServlet</servlet-name>
+        <servlet-class>br.com.smd.ecommerce.controlador.compra.ValorTotalComprasPorDiaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListarProdutoEstoqueServlet</servlet-name>
         <url-pattern>/listarProdutoEstoque.do</url-pattern>
@@ -147,6 +151,10 @@
     <servlet-mapping>
         <servlet-name>RelatorioPDFServlet</servlet-name>
         <url-pattern>/XLSDownload.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValorTotalComprasPorDiaServlet</servlet-name>
+        <url-pattern>/relatorioValorTotalPorDia.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home.do</welcome-file>

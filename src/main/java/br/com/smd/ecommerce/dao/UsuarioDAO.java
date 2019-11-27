@@ -46,7 +46,7 @@ public class UsuarioDAO {
 
         try {
 
-            Query query = manager.createQuery("FROM Usuario u WHERE u.login = :l AND u.senha = :s")
+            Query query = manager.createQuery("FROM Usuario u  WHERE u.login = :l AND u.senha = :s")
                     .setParameter("l", login)
                     .setParameter("s", senha);
             u = (Usuario) query.getSingleResult();

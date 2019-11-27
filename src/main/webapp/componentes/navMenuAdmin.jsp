@@ -42,7 +42,7 @@
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio2">Produtos em falta no estoque</button>
             </a>
-            <a href="/listarValorTotalCompras.do">
+            <a href="/relatorioValorTotalPorDia.do">
             <button type="button" class="dropdown-item btn btn-outline-dark btn-block mx-0"
                     id="btn-relatorio3">Total de valor recebido</button>
             </a>

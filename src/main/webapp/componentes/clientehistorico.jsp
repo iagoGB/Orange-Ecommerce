@@ -30,7 +30,7 @@
 
                 <c:forEach var="compra" items="${ usuario.compras }">
                     <tr>
-                        <td class="align-middle text-center">${compra.compra_id}</td>
+                        <td class="align-middle text-center sorting_desc">${compra.compra_id}</td>
                         <td class="align-middle text-center">${compra.data_compra}</td>
 
                         <td class="align-middle text-center">

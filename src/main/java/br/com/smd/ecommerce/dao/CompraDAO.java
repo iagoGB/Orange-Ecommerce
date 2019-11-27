@@ -72,6 +72,10 @@ public class CompraDAO {
                     .setParameter("end", dataFim, TemporalType.TIMESTAMP);
                     
             result = query.getResultList();
+            
+            for (Compra compra : result) {
+                compra.getProdutos().size();
+            }
 
             manager.getTransaction().commit();
 
@@ -88,6 +92,9 @@ public class CompraDAO {
         System.out.println(result);
         return result;
     }
+    
+    
+   
 
     public Compra salvarCompra(Usuario us) {
 
