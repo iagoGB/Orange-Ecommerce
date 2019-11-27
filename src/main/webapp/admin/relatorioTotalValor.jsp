@@ -32,8 +32,30 @@
                                 <div
                                     class="card-header bg-dark narrower py-2 mx-0 d-flex justify-content-start align-items-center">
                                     <a href="" class="white-text mx-3">Total de valor recebido por dia</a>
+                                    <form action="/XLSDownload.do">
+                                        <button type="submit" class="btn btn-outline-white btn-rounded btn-sm px-2 waves-effect waves-light btn-sm px-2">
+                                                                
+                                                <i class="fas fa-download fa-2x mt-0"></i>
+                                        </button>
+                                    </form>
                                 </div>
-
+                                <div class="row justify-content-center">
+                                <form action="/listarTotalCompras.do" method="POST">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-5 my-1">
+                                            
+                                            <input type="date" class="form-control" id="inlineFormInputName" placeholder="data inicial" name="inicio">
+                                        </div>
+                                        <div class="col-5 my-1">
+                                            <input type="date" class="form-control" id="inlineFormInputName" placeholder="data final" name="fim">
+                                        </div>
+                                        
+                                        <div class="col-2 my-1">
+                                            <button type="submit" class="btn btn-orange">Filtrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
                                 <div class="table-responsive p-3">
                                     <table class="table table-hover table-bordered" id="dtrelatorio3">
                                         <thead class="thead-light">

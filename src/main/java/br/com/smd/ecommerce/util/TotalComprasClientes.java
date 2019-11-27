@@ -8,6 +8,7 @@ package br.com.smd.ecommerce.util;
 import br.com.smd.ecommerce.modelo.Compra;
 import br.com.smd.ecommerce.modelo.Usuario;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -129,21 +130,25 @@ public class TotalComprasClientes {
     public static Set<TotalComprasClientes> parseTotalComprasClientes(List<Compra> comprasClientes) {
 
         Set<TotalComprasClientes> TotalComprasClientesList = new HashSet<>();
-
+        
+        
         for (Compra c : comprasClientes) {
-
+            Integer contador = 0;
             TotalComprasClientes tcc = new TotalComprasClientes();
-
             tcc.setUsuario_id(c.getUsuario().getUsuario_id());
             tcc.setUsuario_nome(c.getUsuario().getNome());
             tcc.setQuantidadeCompras(c.getUsuario().getCompras().size());
-            //Manipular data
             tcc.setData_compra(c.getData_compra());
-  
             TotalComprasClientesList.add(tcc);
+            for (TotalComprasClientes compra : TotalComprasClientesList) {
+                if (compra.getUsuario_id() == tcc.getUsuario_id()){
+                    contador++;
+                }
+            }
+            if (contador > 1){
+            TotalComprasClientesList.remove(tcc); 
+            }
         }
         return TotalComprasClientesList;
-    }
-    
-    
+    }  
 }
