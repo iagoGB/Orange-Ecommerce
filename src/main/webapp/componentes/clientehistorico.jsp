@@ -18,8 +18,8 @@
         <table class="table table-hover table-bordered" id="dtmeuhistorico">
             <thead class="thead-light">
                 <tr>
+                    <th class="align-middle text-center" scope="col">Id</th>
                     <th class="align-middle text-center" scope="col">Data</th>
-                    <th class="align-middle text-center" scope="col">Preço</th>
                     <th class="align-middle text-center" scope="col">Produto(s)</th>
                     <th class="align-middle text-center" scope="col">Quantidade(s)</th>
                     <th class="align-middle text-center" scope="col">Valor da compra</th>

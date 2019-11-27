@@ -37,13 +37,13 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="text-center align-middle">Sua compra foi efetivada com sucesso!
-                                            Seu pedido chegará entre os dias X-X-X e X-X-X</p>
-                                        <p class="text-center align-middle">Veja no menu "gerenciar minhas compras" para mais detalhes!</p>
+                                        <p class="text-sucess text-center align-middle">Sua compra foi efetivada com sucesso!
+                                            Seu pedido chegará entre os dias 07 de Dezembro e 12 de Dezembro</p>
+                                        <p class="text-sucess text-center align-middle">Veja no menu "gerenciar minhas compras" para mais detalhes!</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+       
                                     </div>
                                 </div>
                             </div>
