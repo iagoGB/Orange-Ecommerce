@@ -14,6 +14,7 @@ import br.com.smd.ecommerce.util.CarrinhoCompras;
 import br.com.smd.ecommerce.util.ItemCompra;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,12 +53,25 @@ public class SalvarCompraServlet extends HttpServlet {
 
             }
             
+           
+
             //Atualiza usuário na sessão
             Usuario usuarioAtualizado;
             usuarioAtualizado = usuarioDAO.verificarSessao(us.getLogin(), us.getSenha());
             
             session.setAttribute("usuario", usuarioAtualizado);
+            
+            
             //ESVAZIAR CARRINHO AO FINALIZAR COMPRA
+            
+             //Remover cookies
+            Cookie[] cookies = req.getCookies();
+            for(Cookie cookie: cookies){
+
+                cookie.setMaxAge(0);
+                resp.addCookie(cookie);
+            }
+            
             resp.sendRedirect("/detalhesUsuario.do");
 
         } catch (Exception e) {

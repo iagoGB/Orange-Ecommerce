@@ -7,6 +7,7 @@ package br.com.smd.ecommerce.controlador.acesso;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +32,15 @@ public class LogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             HttpSession session = request.getSession();
+            Cookie[] cookies = request.getCookies();
+                
+             //Remover cookies
+            for(Cookie cookie: cookies){
+
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+            }
+
             session.invalidate();
             request.setAttribute("msg", "Logout efetuado com sucesso.");
             request.getRequestDispatcher("login.jsp").forward(request, response);
